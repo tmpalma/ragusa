@@ -1,0 +1,2155 @@
+import type { AbilityId, SkillId, BeastFormData as BeastFormDataType } from "../../src/data/types.js";
+import { SRD_XMM } from "./catalogSource.js";
+
+export type BeastSize = "tiny" | "small" | "medium" | "large";
+
+export interface BeastAttackData {
+  name: string;
+  toHit: number;
+  damage: string;
+  damageType: string;
+  rider?: string;
+}
+
+export interface BeastTraitData {
+  name: string;
+  desc: string;
+}
+
+export interface BeastFormData {
+  key: string;
+  name: string;
+  size: BeastSize;
+  cr: string;
+  ac: number;
+  abilities: Record<AbilityId, number>;
+  speeds: { type: string; feet: number }[];
+  skills?: Partial<Record<SkillId, number>>;
+  saves?: Partial<Record<AbilityId, number>>;
+  attacks: BeastAttackData[];
+  traits?: BeastTraitData[];
+}
+
+/** Wild Shape forms transcribed from XMM srd52 beasts (no Fly Speed, not swarms). L2: CR ≤ 1/4; Moon L3+: CR ≤ level/3. */
+const RAW_WILD_SHAPE_BEASTS: Omit<BeastFormDataType, "srd" | "book">[] = [
+    {
+      "key": "baboon",
+      "name": "Baboon",
+      "size": "small",
+      "cr": "0",
+      "ac": 12,
+      "abilities": {
+        "str": 8,
+        "dex": 14,
+        "con": 11,
+        "int": 4,
+        "wis": 12,
+        "cha": 6
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 30
+        },
+        {
+          "type": "climb",
+          "feet": 30
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 1,
+          "damage": "1d4-1",
+          "damageType": "piercing"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Pack Tactics",
+          "desc": "The baboon has Advantage on an attack roll against a creature if at least one of the baboon's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition."
+        }
+      ]
+    },
+    {
+      "key": "badger",
+      "name": "Badger",
+      "size": "tiny",
+      "cr": "0",
+      "ac": 11,
+      "abilities": {
+        "str": 10,
+        "dex": 11,
+        "con": 16,
+        "int": 2,
+        "wis": 12,
+        "cha": 5
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 20
+        },
+        {
+          "type": "burrow",
+          "feet": 5
+        }
+      ],
+      "skills": {
+        "perception": 3
+      },
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 2,
+          "damage": "1",
+          "damageType": "piercing"
+        }
+      ]
+    },
+    {
+      "key": "boar",
+      "name": "Boar",
+      "size": "medium",
+      "cr": "1/4",
+      "ac": 11,
+      "abilities": {
+        "str": 13,
+        "dex": 11,
+        "con": 14,
+        "int": 2,
+        "wis": 9,
+        "cha": 5
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 40
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Gore",
+          "toHit": 3,
+          "damage": "1d6+1",
+          "damageType": "piercing",
+          "rider": "Prone on hit (Medium or smaller)"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Bloodied Fury",
+          "desc": "While Bloodied, the boar has Advantage on attack rolls."
+        }
+      ]
+    },
+    {
+      "key": "camel",
+      "name": "Camel",
+      "size": "large",
+      "cr": "1/8",
+      "ac": 10,
+      "abilities": {
+        "str": 15,
+        "dex": 8,
+        "con": 17,
+        "int": 2,
+        "wis": 11,
+        "cha": 5
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 50
+        }
+      ],
+      "saves": {
+        "con": 5
+      },
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 4,
+          "damage": "1d4+2",
+          "damageType": "bludgeoning"
+        }
+      ]
+    },
+    {
+      "key": "cat",
+      "name": "Cat",
+      "size": "tiny",
+      "cr": "0",
+      "ac": 12,
+      "abilities": {
+        "str": 3,
+        "dex": 15,
+        "con": 10,
+        "int": 3,
+        "wis": 12,
+        "cha": 7
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 40
+        },
+        {
+          "type": "climb",
+          "feet": 40
+        }
+      ],
+      "skills": {
+        "perception": 3,
+        "stealth": 4
+      },
+      "saves": {
+        "dex": 4
+      },
+      "attacks": [
+        {
+          "name": "Scratch",
+          "toHit": 4,
+          "damage": "1",
+          "damageType": "slashing"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Jumper",
+          "desc": "The cat's jump distance is determined using its Dexterity rather than its Strength."
+        }
+      ]
+    },
+    {
+      "key": "constrictor-snake",
+      "name": "Constrictor Snake",
+      "size": "large",
+      "cr": "1/4",
+      "ac": 13,
+      "abilities": {
+        "str": 15,
+        "dex": 14,
+        "con": 12,
+        "int": 1,
+        "wis": 10,
+        "cha": 3
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 30
+        },
+        {
+          "type": "swim",
+          "feet": 30
+        }
+      ],
+      "skills": {
+        "perception": 2,
+        "stealth": 4
+      },
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 4,
+          "damage": "1d8+2",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Constrict",
+          "toHit": 0,
+          "damage": "3d4",
+          "damageType": "bludgeoning"
+        }
+      ]
+    },
+    {
+      "key": "crab",
+      "name": "Crab",
+      "size": "tiny",
+      "cr": "0",
+      "ac": 11,
+      "abilities": {
+        "str": 6,
+        "dex": 11,
+        "con": 12,
+        "int": 1,
+        "wis": 8,
+        "cha": 2
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 20
+        },
+        {
+          "type": "swim",
+          "feet": 20
+        }
+      ],
+      "skills": {
+        "stealth": 2
+      },
+      "attacks": [
+        {
+          "name": "Claw",
+          "toHit": 2,
+          "damage": "1",
+          "damageType": "bludgeoning"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Amphibious",
+          "desc": "The crab can breathe air and water."
+        }
+      ]
+    },
+    {
+      "key": "deer",
+      "name": "Deer",
+      "size": "medium",
+      "cr": "0",
+      "ac": 13,
+      "abilities": {
+        "str": 11,
+        "dex": 16,
+        "con": 11,
+        "int": 2,
+        "wis": 14,
+        "cha": 5
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 50
+        }
+      ],
+      "skills": {
+        "perception": 4
+      },
+      "attacks": [
+        {
+          "name": "Ram",
+          "toHit": 2,
+          "damage": "1d4",
+          "damageType": "bludgeoning"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Agile",
+          "desc": "The deer doesn't provoke an  when it moves out of an enemy's reach."
+        }
+      ]
+    },
+    {
+      "key": "draft-horse",
+      "name": "Draft Horse",
+      "size": "large",
+      "cr": "1/4",
+      "ac": 10,
+      "abilities": {
+        "str": 18,
+        "dex": 10,
+        "con": 15,
+        "int": 2,
+        "wis": 11,
+        "cha": 7
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 40
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Hooves",
+          "toHit": 6,
+          "damage": "1d4+4",
+          "damageType": "bludgeoning"
+        }
+      ]
+    },
+    {
+      "key": "elk",
+      "name": "Elk",
+      "size": "large",
+      "cr": "1/4",
+      "ac": 10,
+      "abilities": {
+        "str": 16,
+        "dex": 10,
+        "con": 11,
+        "int": 2,
+        "wis": 10,
+        "cha": 6
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 50
+        }
+      ],
+      "skills": {
+        "perception": 2
+      },
+      "attacks": [
+        {
+          "name": "Ram",
+          "toHit": 5,
+          "damage": "1d6+3",
+          "damageType": "bludgeoning",
+          "rider": "Prone on hit (Medium or smaller)"
+        }
+      ]
+    },
+    {
+      "key": "frog",
+      "name": "Frog",
+      "size": "tiny",
+      "cr": "0",
+      "ac": 11,
+      "abilities": {
+        "str": 1,
+        "dex": 13,
+        "con": 8,
+        "int": 1,
+        "wis": 8,
+        "cha": 3
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 20
+        },
+        {
+          "type": "swim",
+          "feet": 20
+        }
+      ],
+      "skills": {
+        "perception": 1,
+        "stealth": 3
+      },
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 3,
+          "damage": "1",
+          "damageType": "piercing"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Amphibious",
+          "desc": "The frog can breathe air and water."
+        },
+        {
+          "name": "Standing Leap",
+          "desc": "The frog's Long Jump is up to 10 feet and its High Jump is up to 5 feet with or without a running start."
+        }
+      ]
+    },
+    {
+      "key": "giant-badger",
+      "name": "Giant Badger",
+      "size": "medium",
+      "cr": "1/4",
+      "ac": 13,
+      "abilities": {
+        "str": 13,
+        "dex": 10,
+        "con": 17,
+        "int": 2,
+        "wis": 12,
+        "cha": 5
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 30
+        },
+        {
+          "type": "burrow",
+          "feet": 10
+        }
+      ],
+      "skills": {
+        "perception": 3
+      },
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 3,
+          "damage": "2d4+1",
+          "damageType": "piercing"
+        }
+      ]
+    },
+    {
+      "key": "giant-centipede",
+      "name": "Giant Centipede",
+      "size": "small",
+      "cr": "1/4",
+      "ac": 14,
+      "abilities": {
+        "str": 5,
+        "dex": 14,
+        "con": 12,
+        "int": 1,
+        "wis": 7,
+        "cha": 3
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 30
+        },
+        {
+          "type": "climb",
+          "feet": 30
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 4,
+          "damage": "1d4+2",
+          "damageType": "piercing",
+          "rider": "Poison on hit"
+        }
+      ]
+    },
+    {
+      "key": "giant-crab",
+      "name": "Giant Crab",
+      "size": "medium",
+      "cr": "1/8",
+      "ac": 15,
+      "abilities": {
+        "str": 13,
+        "dex": 13,
+        "con": 11,
+        "int": 1,
+        "wis": 9,
+        "cha": 3
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 30
+        },
+        {
+          "type": "swim",
+          "feet": 30
+        }
+      ],
+      "skills": {
+        "stealth": 3
+      },
+      "attacks": [
+        {
+          "name": "Claw",
+          "toHit": 3,
+          "damage": "1d6+1",
+          "damageType": "bludgeoning"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Amphibious",
+          "desc": "The crab can breathe air and water."
+        }
+      ]
+    },
+    {
+      "key": "giant-fire-beetle",
+      "name": "Giant Fire Beetle",
+      "size": "small",
+      "cr": "0",
+      "ac": 13,
+      "abilities": {
+        "str": 8,
+        "dex": 10,
+        "con": 12,
+        "int": 1,
+        "wis": 7,
+        "cha": 3
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 30
+        },
+        {
+          "type": "climb",
+          "feet": 30
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 1,
+          "damage": "1",
+          "damageType": "fire"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Illumination",
+          "desc": "The beetle sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet."
+        }
+      ]
+    },
+    {
+      "key": "giant-frog",
+      "name": "Giant Frog",
+      "size": "medium",
+      "cr": "1/4",
+      "ac": 11,
+      "abilities": {
+        "str": 12,
+        "dex": 13,
+        "con": 11,
+        "int": 2,
+        "wis": 10,
+        "cha": 3
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 30
+        },
+        {
+          "type": "swim",
+          "feet": 30
+        }
+      ],
+      "skills": {
+        "perception": 2,
+        "stealth": 4
+      },
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 3,
+          "damage": "1d6+2",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Swallow",
+          "toHit": 0,
+          "damage": "2d4",
+          "damageType": "acid",
+          "rider": "Prone on hit (Medium or smaller)"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Amphibious",
+          "desc": "The frog can breathe air and water."
+        },
+        {
+          "name": "Standing Leap",
+          "desc": "The frog's Long Jump is up to 20 feet and its High Jump is up to 10 feet with or without a running start."
+        }
+      ]
+    },
+    {
+      "key": "giant-lizard",
+      "name": "Giant Lizard",
+      "size": "large",
+      "cr": "1/4",
+      "ac": 12,
+      "abilities": {
+        "str": 15,
+        "dex": 12,
+        "con": 13,
+        "int": 2,
+        "wis": 10,
+        "cha": 5
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 40
+        },
+        {
+          "type": "climb",
+          "feet": 40
+        }
+      ],
+      "saves": {
+        "dex": 3
+      },
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 4,
+          "damage": "1d8+2",
+          "damageType": "piercing"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Spider Climb",
+          "desc": "The lizard can climb difficult surfaces, including along ceilings, without needing to make an ability check."
+        }
+      ]
+    },
+    {
+      "key": "giant-rat",
+      "name": "Giant Rat",
+      "size": "small",
+      "cr": "1/8",
+      "ac": 13,
+      "abilities": {
+        "str": 7,
+        "dex": 16,
+        "con": 11,
+        "int": 2,
+        "wis": 10,
+        "cha": 4
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 30
+        },
+        {
+          "type": "climb",
+          "feet": 30
+        }
+      ],
+      "skills": {
+        "perception": 2
+      },
+      "saves": {
+        "dex": 5
+      },
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 5,
+          "damage": "1d4+3",
+          "damageType": "piercing"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Pack Tactics",
+          "desc": "The rat has Advantage on an attack roll against a creature if at least one of the rat's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition."
+        }
+      ]
+    },
+    {
+      "key": "giant-venomous-snake",
+      "name": "Giant Venomous Snake",
+      "size": "medium",
+      "cr": "1/4",
+      "ac": 14,
+      "abilities": {
+        "str": 10,
+        "dex": 18,
+        "con": 13,
+        "int": 2,
+        "wis": 10,
+        "cha": 3
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 40
+        },
+        {
+          "type": "swim",
+          "feet": 40
+        }
+      ],
+      "skills": {
+        "perception": 2
+      },
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 6,
+          "damage": "1d4+4",
+          "damageType": "piercing",
+          "rider": "Poison on hit"
+        }
+      ]
+    },
+    {
+      "key": "giant-weasel",
+      "name": "Giant Weasel",
+      "size": "medium",
+      "cr": "1/8",
+      "ac": 13,
+      "abilities": {
+        "str": 11,
+        "dex": 17,
+        "con": 10,
+        "int": 4,
+        "wis": 12,
+        "cha": 5
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 40
+        },
+        {
+          "type": "climb",
+          "feet": 30
+        }
+      ],
+      "skills": {
+        "acrobatics": 5,
+        "perception": 3,
+        "stealth": 5
+      },
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 5,
+          "damage": "1d4+3",
+          "damageType": "piercing"
+        }
+      ]
+    },
+    {
+      "key": "giant-wolf-spider",
+      "name": "Giant Wolf Spider",
+      "size": "medium",
+      "cr": "1/4",
+      "ac": 13,
+      "abilities": {
+        "str": 12,
+        "dex": 16,
+        "con": 13,
+        "int": 3,
+        "wis": 12,
+        "cha": 4
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 40
+        },
+        {
+          "type": "climb",
+          "feet": 40
+        }
+      ],
+      "skills": {
+        "perception": 3,
+        "stealth": 7
+      },
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 5,
+          "damage": "1d4+3",
+          "damageType": "piercing",
+          "rider": "Poison on hit"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Spider Climb",
+          "desc": "The spider can climb difficult surfaces, including along ceilings, without needing to make an ability check."
+        }
+      ]
+    },
+    {
+      "key": "goat",
+      "name": "Goat",
+      "size": "medium",
+      "cr": "0",
+      "ac": 10,
+      "abilities": {
+        "str": 11,
+        "dex": 10,
+        "con": 11,
+        "int": 2,
+        "wis": 10,
+        "cha": 5
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 40
+        },
+        {
+          "type": "climb",
+          "feet": 30
+        }
+      ],
+      "skills": {
+        "perception": 2
+      },
+      "saves": {
+        "str": 2
+      },
+      "attacks": [
+        {
+          "name": "Ram",
+          "toHit": 2,
+          "damage": "1d4",
+          "damageType": "bludgeoning"
+        }
+      ]
+    },
+    {
+      "key": "hyena",
+      "name": "Hyena",
+      "size": "medium",
+      "cr": "0",
+      "ac": 11,
+      "abilities": {
+        "str": 11,
+        "dex": 13,
+        "con": 12,
+        "int": 2,
+        "wis": 12,
+        "cha": 5
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 50
+        }
+      ],
+      "skills": {
+        "perception": 3
+      },
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 2,
+          "damage": "1d6",
+          "damageType": "piercing"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Pack Tactics",
+          "desc": "The hyena has Advantage on an attack roll against a creature if at least one of the hyena's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition."
+        }
+      ]
+    },
+    {
+      "key": "jackal",
+      "name": "Jackal",
+      "size": "small",
+      "cr": "0",
+      "ac": 12,
+      "abilities": {
+        "str": 8,
+        "dex": 15,
+        "con": 11,
+        "int": 3,
+        "wis": 12,
+        "cha": 6
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 40
+        }
+      ],
+      "skills": {
+        "perception": 5,
+        "stealth": 4
+      },
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 1,
+          "damage": "1d4-1",
+          "damageType": "piercing"
+        }
+      ]
+    },
+    {
+      "key": "lizard",
+      "name": "Lizard",
+      "size": "tiny",
+      "cr": "0",
+      "ac": 10,
+      "abilities": {
+        "str": 2,
+        "dex": 11,
+        "con": 10,
+        "int": 1,
+        "wis": 8,
+        "cha": 3
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 20
+        },
+        {
+          "type": "climb",
+          "feet": 20
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 2,
+          "damage": "1",
+          "damageType": "piercing"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Spider Climb",
+          "desc": "The lizard can climb difficult surfaces, including along ceilings, without needing to make an ability check."
+        }
+      ]
+    },
+    {
+      "key": "mastiff",
+      "name": "Mastiff",
+      "size": "medium",
+      "cr": "1/8",
+      "ac": 12,
+      "abilities": {
+        "str": 13,
+        "dex": 14,
+        "con": 12,
+        "int": 3,
+        "wis": 12,
+        "cha": 7
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 40
+        }
+      ],
+      "skills": {
+        "perception": 5
+      },
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 3,
+          "damage": "1d6+1",
+          "damageType": "piercing",
+          "rider": "Prone on hit (Medium or smaller)"
+        }
+      ]
+    },
+    {
+      "key": "mule",
+      "name": "Mule",
+      "size": "medium",
+      "cr": "1/8",
+      "ac": 10,
+      "abilities": {
+        "str": 14,
+        "dex": 10,
+        "con": 13,
+        "int": 2,
+        "wis": 10,
+        "cha": 5
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 40
+        }
+      ],
+      "saves": {
+        "str": 4
+      },
+      "attacks": [
+        {
+          "name": "Hooves",
+          "toHit": 4,
+          "damage": "1d4+2",
+          "damageType": "bludgeoning"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Beast of Burden",
+          "desc": "The mule counts as one size larger for the purpose of determining its carrying capacity."
+        }
+      ]
+    },
+    {
+      "key": "octopus",
+      "name": "Octopus",
+      "size": "small",
+      "cr": "0",
+      "ac": 12,
+      "abilities": {
+        "str": 4,
+        "dex": 15,
+        "con": 11,
+        "int": 3,
+        "wis": 10,
+        "cha": 4
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 5
+        },
+        {
+          "type": "swim",
+          "feet": 30
+        }
+      ],
+      "skills": {
+        "perception": 2,
+        "stealth": 6
+      },
+      "attacks": [
+        {
+          "name": "Tentacles",
+          "toHit": 4,
+          "damage": "1",
+          "damageType": "bludgeoning"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Compression",
+          "desc": "The octopus can move through a space as narrow as 1 inch without expending extra movement to do so."
+        },
+        {
+          "name": "Water Breathing",
+          "desc": "The octopus can breathe only underwater."
+        }
+      ]
+    },
+    {
+      "key": "panther",
+      "name": "Panther",
+      "size": "medium",
+      "cr": "1/4",
+      "ac": 13,
+      "abilities": {
+        "str": 14,
+        "dex": 16,
+        "con": 10,
+        "int": 3,
+        "wis": 14,
+        "cha": 7
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 50
+        },
+        {
+          "type": "climb",
+          "feet": 40
+        }
+      ],
+      "skills": {
+        "perception": 4,
+        "stealth": 7
+      },
+      "attacks": [
+        {
+          "name": "Rend",
+          "toHit": 5,
+          "damage": "1d6+3",
+          "damageType": "slashing"
+        }
+      ]
+    },
+    {
+      "key": "piranha",
+      "name": "Piranha",
+      "size": "tiny",
+      "cr": "0",
+      "ac": 13,
+      "abilities": {
+        "str": 2,
+        "dex": 16,
+        "con": 9,
+        "int": 1,
+        "wis": 7,
+        "cha": 2
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 5
+        },
+        {
+          "type": "swim",
+          "feet": 40
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 5,
+          "damage": "1",
+          "damageType": "piercing"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Water Breathing",
+          "desc": "The piranha can breathe only underwater."
+        }
+      ]
+    },
+    {
+      "key": "pony",
+      "name": "Pony",
+      "size": "medium",
+      "cr": "1/8",
+      "ac": 10,
+      "abilities": {
+        "str": 15,
+        "dex": 10,
+        "con": 13,
+        "int": 2,
+        "wis": 11,
+        "cha": 7
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 40
+        }
+      ],
+      "saves": {
+        "str": 4
+      },
+      "attacks": [
+        {
+          "name": "Hooves",
+          "toHit": 4,
+          "damage": "1d4+2",
+          "damageType": "bludgeoning"
+        }
+      ]
+    },
+    {
+      "key": "rat",
+      "name": "Rat",
+      "size": "tiny",
+      "cr": "0",
+      "ac": 10,
+      "abilities": {
+        "str": 2,
+        "dex": 11,
+        "con": 9,
+        "int": 2,
+        "wis": 10,
+        "cha": 4
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 20
+        },
+        {
+          "type": "climb",
+          "feet": 20
+        }
+      ],
+      "skills": {
+        "perception": 2
+      },
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 2,
+          "damage": "1",
+          "damageType": "piercing"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Agile",
+          "desc": "The rat doesn't provoke  when it moves out of an enemy's reach."
+        }
+      ]
+    },
+    {
+      "key": "riding-horse",
+      "name": "Riding Horse",
+      "size": "large",
+      "cr": "1/4",
+      "ac": 11,
+      "abilities": {
+        "str": 16,
+        "dex": 13,
+        "con": 12,
+        "int": 2,
+        "wis": 11,
+        "cha": 7
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 60
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Hooves",
+          "toHit": 5,
+          "damage": "1d8+3",
+          "damageType": "bludgeoning"
+        }
+      ]
+    },
+    {
+      "key": "scorpion",
+      "name": "Scorpion",
+      "size": "tiny",
+      "cr": "0",
+      "ac": 11,
+      "abilities": {
+        "str": 2,
+        "dex": 11,
+        "con": 8,
+        "int": 1,
+        "wis": 8,
+        "cha": 2
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 10
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Sting",
+          "toHit": 2,
+          "damage": "1d6",
+          "damageType": "poison",
+          "rider": "Poison on hit"
+        }
+      ]
+    },
+    {
+      "key": "seahorse",
+      "name": "Seahorse",
+      "size": "tiny",
+      "cr": "0",
+      "ac": 12,
+      "abilities": {
+        "str": 1,
+        "dex": 12,
+        "con": 8,
+        "int": 1,
+        "wis": 10,
+        "cha": 2
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 5
+        },
+        {
+          "type": "swim",
+          "feet": 20
+        }
+      ],
+      "skills": {
+        "perception": 2,
+        "stealth": 5
+      },
+      "attacks": [
+        {
+          "name": "Bubble Dash",
+          "toHit": 0,
+          "damage": "1",
+          "damageType": "bludgeoning"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Water Breathing",
+          "desc": "The seahorse can breathe only underwater."
+        }
+      ]
+    },
+    {
+      "key": "spider",
+      "name": "Spider",
+      "size": "tiny",
+      "cr": "0",
+      "ac": 12,
+      "abilities": {
+        "str": 2,
+        "dex": 14,
+        "con": 8,
+        "int": 1,
+        "wis": 10,
+        "cha": 2
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 20
+        },
+        {
+          "type": "climb",
+          "feet": 20
+        }
+      ],
+      "skills": {
+        "stealth": 4
+      },
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 4,
+          "damage": "1d4",
+          "damageType": "poison",
+          "rider": "Poison on hit"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Spider Climb",
+          "desc": "The spider can climb difficult surfaces, including along ceilings, without needing to make an ability check."
+        },
+        {
+          "name": "Web Walker",
+          "desc": "The spider ignores movement restrictions caused by webs, and the spider knows the location of any other creature in contact with the same web."
+        }
+      ]
+    },
+    {
+      "key": "venomous-snake",
+      "name": "Venomous Snake",
+      "size": "tiny",
+      "cr": "1/8",
+      "ac": 12,
+      "abilities": {
+        "str": 2,
+        "dex": 15,
+        "con": 11,
+        "int": 1,
+        "wis": 10,
+        "cha": 3
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 30
+        },
+        {
+          "type": "swim",
+          "feet": 30
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 4,
+          "damage": "1d4+2",
+          "damageType": "piercing",
+          "rider": "Poison on hit"
+        }
+      ]
+    },
+    {
+      "key": "weasel",
+      "name": "Weasel",
+      "size": "tiny",
+      "cr": "0",
+      "ac": 13,
+      "abilities": {
+        "str": 3,
+        "dex": 16,
+        "con": 8,
+        "int": 2,
+        "wis": 12,
+        "cha": 3
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 30
+        },
+        {
+          "type": "climb",
+          "feet": 30
+        }
+      ],
+      "skills": {
+        "acrobatics": 5,
+        "perception": 3,
+        "stealth": 5
+      },
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 5,
+          "damage": "1",
+          "damageType": "piercing"
+        }
+      ]
+    },
+    {
+      "key": "ape",
+      "name": "Ape",
+      "size": "medium",
+      "cr": "1/2",
+      "ac": 12,
+      "abilities": {
+        "str": 16,
+        "dex": 14,
+        "con": 14,
+        "int": 6,
+        "wis": 12,
+        "cha": 7
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 30
+        },
+        {
+          "type": "climb",
+          "feet": 30
+        }
+      ],
+      "skills": {
+        "athletics": 5,
+        "perception": 3
+      },
+      "attacks": [
+        {
+          "name": "Fist",
+          "toHit": 5,
+          "damage": "1d4+3",
+          "damageType": "bludgeoning"
+        }
+      ]
+    },
+    {
+      "key": "black-bear",
+      "name": "Black Bear",
+      "size": "medium",
+      "cr": "1/2",
+      "ac": 11,
+      "abilities": {
+        "str": 15,
+        "dex": 12,
+        "con": 14,
+        "int": 2,
+        "wis": 12,
+        "cha": 7
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 30
+        },
+        {
+          "type": "climb",
+          "feet": 30
+        },
+        {
+          "type": "swim",
+          "feet": 30
+        }
+      ],
+      "skills": {
+        "perception": 5
+      },
+      "attacks": [
+        {
+          "name": "Rend",
+          "toHit": 4,
+          "damage": "1d6+2",
+          "damageType": "slashing"
+        }
+      ]
+    },
+    {
+      "key": "brown-bear",
+      "name": "Brown Bear",
+      "size": "large",
+      "cr": "1",
+      "ac": 11,
+      "abilities": {
+        "str": 17,
+        "dex": 12,
+        "con": 15,
+        "int": 2,
+        "wis": 13,
+        "cha": 7
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 40
+        },
+        {
+          "type": "climb",
+          "feet": 30
+        }
+      ],
+      "skills": {
+        "perception": 3
+      },
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 5,
+          "damage": "1d8+3",
+          "damageType": "piercing"
+        },
+        {
+          "name": "Claw",
+          "toHit": 5,
+          "damage": "1d4+3",
+          "damageType": "slashing",
+          "rider": "Prone on hit (Large or smaller)"
+        }
+      ]
+    },
+    {
+      "key": "crocodile",
+      "name": "Crocodile",
+      "size": "large",
+      "cr": "1/2",
+      "ac": 12,
+      "abilities": {
+        "str": 15,
+        "dex": 10,
+        "con": 13,
+        "int": 2,
+        "wis": 10,
+        "cha": 5
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 20
+        },
+        {
+          "type": "swim",
+          "feet": 30
+        }
+      ],
+      "skills": {
+        "stealth": 2
+      },
+      "saves": {
+        "con": 3
+      },
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 4,
+          "damage": "1d8+2",
+          "damageType": "piercing"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Hold Breath",
+          "desc": "The crocodile can hold its breath for 1 hour."
+        }
+      ]
+    },
+    {
+      "key": "dire-wolf",
+      "name": "Dire Wolf",
+      "size": "large",
+      "cr": "1",
+      "ac": 14,
+      "abilities": {
+        "str": 17,
+        "dex": 15,
+        "con": 15,
+        "int": 3,
+        "wis": 12,
+        "cha": 7
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 50
+        }
+      ],
+      "skills": {
+        "perception": 5,
+        "stealth": 4
+      },
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 5,
+          "damage": "1d10+3",
+          "damageType": "piercing",
+          "rider": "Prone on hit (Large or smaller)"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Pack Tactics",
+          "desc": "The dire wolf has Advantage on an attack roll against a creature if at least one of the dire wolf's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition."
+        }
+      ]
+    },
+    {
+      "key": "giant-goat",
+      "name": "Giant Goat",
+      "size": "large",
+      "cr": "1/2",
+      "ac": 11,
+      "abilities": {
+        "str": 17,
+        "dex": 13,
+        "con": 12,
+        "int": 3,
+        "wis": 12,
+        "cha": 6
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 40
+        },
+        {
+          "type": "climb",
+          "feet": 30
+        }
+      ],
+      "skills": {
+        "perception": 3
+      },
+      "saves": {
+        "str": 5
+      },
+      "attacks": [
+        {
+          "name": "Ram",
+          "toHit": 5,
+          "damage": "1d6+3",
+          "damageType": "bludgeoning"
+        }
+      ]
+    },
+    {
+      "key": "giant-hyena",
+      "name": "Giant Hyena",
+      "size": "large",
+      "cr": "1",
+      "ac": 12,
+      "abilities": {
+        "str": 16,
+        "dex": 14,
+        "con": 14,
+        "int": 2,
+        "wis": 12,
+        "cha": 7
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 50
+        }
+      ],
+      "skills": {
+        "perception": 3
+      },
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 5,
+          "damage": "2d6+3",
+          "damageType": "piercing"
+        }
+      ]
+    },
+    {
+      "key": "giant-octopus",
+      "name": "Giant Octopus",
+      "size": "large",
+      "cr": "1",
+      "ac": 11,
+      "abilities": {
+        "str": 17,
+        "dex": 13,
+        "con": 13,
+        "int": 5,
+        "wis": 10,
+        "cha": 4
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 10
+        },
+        {
+          "type": "swim",
+          "feet": 60
+        }
+      ],
+      "skills": {
+        "perception": 4,
+        "stealth": 5
+      },
+      "attacks": [
+        {
+          "name": "Tentacles",
+          "toHit": 5,
+          "damage": "2d6+3",
+          "damageType": "bludgeoning"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Water Breathing",
+          "desc": "The octopus can breathe only underwater. It can hold its breath for 1 hour outside water."
+        }
+      ]
+    },
+    {
+      "key": "giant-seahorse",
+      "name": "Giant Seahorse",
+      "size": "large",
+      "cr": "1/2",
+      "ac": 14,
+      "abilities": {
+        "str": 15,
+        "dex": 12,
+        "con": 11,
+        "int": 2,
+        "wis": 12,
+        "cha": 5
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 5
+        },
+        {
+          "type": "swim",
+          "feet": 40
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Ram",
+          "toHit": 4,
+          "damage": "2d6+2",
+          "damageType": "bludgeoning"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Water Breathing",
+          "desc": "The seahorse can breathe only underwater."
+        }
+      ]
+    },
+    {
+      "key": "giant-spider",
+      "name": "Giant Spider",
+      "size": "large",
+      "cr": "1",
+      "ac": 14,
+      "abilities": {
+        "str": 14,
+        "dex": 16,
+        "con": 12,
+        "int": 2,
+        "wis": 11,
+        "cha": 4
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 30
+        },
+        {
+          "type": "climb",
+          "feet": 30
+        }
+      ],
+      "skills": {
+        "perception": 4,
+        "stealth": 7
+      },
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 5,
+          "damage": "1d8+3",
+          "damageType": "piercing",
+          "rider": "Poison on hit"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Spider Climb",
+          "desc": "The spider can climb difficult surfaces, including along ceilings, without needing to make an ability check."
+        },
+        {
+          "name": "Web Walker",
+          "desc": "The spider ignores movement restrictions caused by webs, and it knows the location of any other creature in contact with the same web."
+        }
+      ]
+    },
+    {
+      "key": "giant-toad",
+      "name": "Giant Toad",
+      "size": "large",
+      "cr": "1",
+      "ac": 11,
+      "abilities": {
+        "str": 15,
+        "dex": 13,
+        "con": 13,
+        "int": 2,
+        "wis": 10,
+        "cha": 3
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 30
+        },
+        {
+          "type": "swim",
+          "feet": 30
+        }
+      ],
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 4,
+          "damage": "1d6+2",
+          "damageType": "piercing",
+          "rider": "Poison on hit"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Amphibious",
+          "desc": "The toad can breathe air and water."
+        },
+        {
+          "name": "Standing Leap",
+          "desc": "The toad's Long Jump is up to 20 feet and its High Jump is up to 10 feet with or without a running start."
+        }
+      ]
+    },
+    {
+      "key": "lion",
+      "name": "Lion",
+      "size": "large",
+      "cr": "1",
+      "ac": 12,
+      "abilities": {
+        "str": 17,
+        "dex": 15,
+        "con": 11,
+        "int": 3,
+        "wis": 12,
+        "cha": 8
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 50
+        }
+      ],
+      "skills": {
+        "perception": 3,
+        "stealth": 4
+      },
+      "attacks": [
+        {
+          "name": "Rend",
+          "toHit": 5,
+          "damage": "1d8+3",
+          "damageType": "slashing"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Pack Tactics",
+          "desc": "The lion has Advantage on an attack roll against a creature if at least one of the lion's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition."
+        },
+        {
+          "name": "Running Leap",
+          "desc": "With a 10-foot running start, the lion can Long Jump up to 25 feet."
+        }
+      ]
+    },
+    {
+      "key": "reef-shark",
+      "name": "Reef Shark",
+      "size": "medium",
+      "cr": "1/2",
+      "ac": 12,
+      "abilities": {
+        "str": 14,
+        "dex": 15,
+        "con": 13,
+        "int": 1,
+        "wis": 10,
+        "cha": 4
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 5
+        },
+        {
+          "type": "swim",
+          "feet": 30
+        }
+      ],
+      "skills": {
+        "perception": 2
+      },
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 4,
+          "damage": "2d4+2",
+          "damageType": "piercing"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Pack Tactics",
+          "desc": "The shark has Advantage on an attack roll against a creature if at least one of the shark's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition."
+        },
+        {
+          "name": "Water Breathing",
+          "desc": "The shark can breathe only underwater."
+        }
+      ]
+    },
+    {
+      "key": "tiger",
+      "name": "Tiger",
+      "size": "large",
+      "cr": "1",
+      "ac": 13,
+      "abilities": {
+        "str": 17,
+        "dex": 16,
+        "con": 14,
+        "int": 3,
+        "wis": 12,
+        "cha": 8
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 40
+        }
+      ],
+      "skills": {
+        "perception": 3,
+        "stealth": 7
+      },
+      "attacks": [
+        {
+          "name": "Rend",
+          "toHit": 5,
+          "damage": "2d6+3",
+          "damageType": "slashing",
+          "rider": "Prone on hit (Large or smaller)"
+        }
+      ]
+    },
+    {
+      "key": "warhorse",
+      "name": "Warhorse",
+      "size": "large",
+      "cr": "1/2",
+      "ac": 11,
+      "abilities": {
+        "str": 18,
+        "dex": 12,
+        "con": 13,
+        "int": 2,
+        "wis": 12,
+        "cha": 7
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 60
+        }
+      ],
+      "saves": {
+        "wis": 3
+      },
+      "attacks": [
+        {
+          "name": "Hooves",
+          "toHit": 6,
+          "damage": "2d4+4",
+          "damageType": "bludgeoning"
+        }
+      ]
+    },
+    {
+      "key": "wolf",
+      "name": "Wolf",
+      "size": "medium",
+      "cr": "1/4",
+      "ac": 12,
+      "abilities": {
+        "str": 14,
+        "dex": 15,
+        "con": 12,
+        "int": 3,
+        "wis": 12,
+        "cha": 6
+      },
+      "speeds": [
+        {
+          "type": "walk",
+          "feet": 40
+        }
+      ],
+      "skills": {
+        "perception": 5,
+        "stealth": 4
+      },
+      "attacks": [
+        {
+          "name": "Bite",
+          "toHit": 4,
+          "damage": "1d6+2",
+          "damageType": "piercing",
+          "rider": "Prone on hit (Medium or smaller)"
+        }
+      ],
+      "traits": [
+        {
+          "name": "Pack Tactics",
+          "desc": "The wolf has Advantage on attack rolls against a creature if at least one of the wolf's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition."
+        }
+      ]
+    }
+  ];
+
+export const WILD_SHAPE_BEASTS: BeastFormDataType[] = RAW_WILD_SHAPE_BEASTS.map((beast) => ({
+  ...beast,
+  ...SRD_XMM,
+}));

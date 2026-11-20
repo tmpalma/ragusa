@@ -1,0 +1,58 @@
+.title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.fieldLabel {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.slotHint {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--text-muted, var(--text));
+}
+
+.poolRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.poolOption {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.92rem;
+  cursor: pointer;
+}
+
+.freeCastList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.freeCastOption {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.freeCastOptionDisabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}

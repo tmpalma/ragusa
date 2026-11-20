@@ -1,0 +1,139 @@
+[
+  {
+    "key": "acolyte",
+    "name": "Acolyte",
+    "srd": true,
+    "book": "XPHB",
+    "skillProficiencies": [
+      "insight",
+      "religion"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "calligraphers-supplies"
+    },
+    "featKey": "magic-initiate-cleric",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Book (Prayers)",
+          "Calligrapher's Supplies",
+          "Holy Symbol",
+          "10 Parchments",
+          "Robe"
+        ],
+        "gold": 8
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "criminal",
+    "name": "Criminal",
+    "srd": true,
+    "book": "XPHB",
+    "skillProficiencies": [
+      "sleightOfHand",
+      "stealth"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "thieves-tools"
+    },
+    "featKey": "alert",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "2 Daggers",
+          "Thieves' Tools",
+          "Crowbar",
+          "2 Pouchs",
+          "Traveler's Clothes"
+        ],
+        "gold": 16
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "sage",
+    "name": "Sage",
+    "srd": true,
+    "book": "XPHB",
+    "skillProficiencies": [
+      "arcana",
+      "history"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "calligraphers-supplies"
+    },
+    "featKey": "magic-initiate-wizard",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Quarterstaff",
+          "Calligrapher's Supplies",
+          "Book",
+          "8 Parchments",
+          "Robe"
+        ],
+        "gold": 8
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "soldier",
+    "name": "Soldier",
+    "srd": true,
+    "book": "XPHB",
+    "skillProficiencies": [
+      "athletics",
+      "intimidation"
+    ],
+    "toolProficiency": {
+      "kind": "choose",
+      "count": 1,
+      "categories": [
+        "gamingSet"
+      ]
+    },
+    "featKey": "savage-attacker",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Spear",
+          "Shortbow",
+          "Arrows (20)",
+          "Gaming Set",
+          "Healer's Kit",
+          "Quiver",
+          "Traveler's Clothes"
+        ],
+        "gold": 14
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  }
+]

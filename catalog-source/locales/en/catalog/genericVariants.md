@@ -1,0 +1,668 @@
+## ammunition-plus-1.name
++1 Ammunition
+
+## ammunition-plus-1.desc
+You have a +1 bonus to attack and damage rolls made with this piece of magic ammunition. Once it hits a target, the ammunition is no longer magical.
+
+## armor-plus-1.name
++1 Armor
+
+## armor-plus-1.desc
+You have a +1 bonus to AC while wearing this armor.
+
+## shield-plus-1.name
++1 Shield
+
+## shield-plus-1.desc
+While holding this Shield, you have a +1 bonus to Armor Class, in addition to the Shield's normal bonus to AC.
+
+## weapon-plus-1.name
++1 Weapon
+
+## weapon-plus-1.desc
+You have a +1 bonus to attack and damage rolls made with this magic weapon.
+
+## ammunition-plus-2.name
++2 Ammunition
+
+## ammunition-plus-2.desc
+You have a +2 bonus to attack and damage rolls made with this piece of magic ammunition. Once it hits a target, the ammunition is no longer magical.
+
+## armor-plus-2.name
++2 Armor
+
+## armor-plus-2.desc
+You have a +2 bonus to AC while wearing this armor.
+
+## shield-plus-2.name
++2 Shield
+
+## shield-plus-2.desc
+While holding this Shield, you have a +2 bonus to Armor Class, in addition to the Shield's normal bonus to AC.
+
+## weapon-plus-2.name
++2 Weapon
+
+## weapon-plus-2.desc
+You have a +2 bonus to attack and damage rolls made with this magic weapon.
+
+## ammunition-plus-3.name
++3 Ammunition
+
+## ammunition-plus-3.desc
+You have a +3 bonus to attack and damage rolls made with this piece of magic ammunition. Once it hits a target, the ammunition is no longer magical.
+
+## armor-plus-3.name
++3 Armor
+
+## armor-plus-3.desc
+You have a +3 bonus to AC while wearing this armor.
+
+## shield-plus-3.name
++3 Shield
+
+## shield-plus-3.desc
+While holding this Shield, you have a +3 bonus to Armor Class, in addition to the Shield's normal bonus to AC.
+
+## weapon-plus-3.name
++3 Weapon
+
+## weapon-plus-3.desc
+You have a +3 bonus to attack and damage rolls made with this magic weapon.
+
+## adamantine-armor.name
+Adamantine Armor
+
+## adamantine-armor.desc
+This suit of armor is reinforced with adamantine, one of the hardest substances in existence. While you're wearing it, any Critical Hit against you becomes a normal hit.
+
+## adamantine-weapon.name
+Adamantine Weapon
+
+## adamantine-weapon.desc
+This weapon or piece of ammunition is made of adamantine, one of the hardest substances in existence. Whenever this weapon or piece of ammunition hits an object, the hit is a Critical Hit.
+
+## ammunition-of-slaying.name
+Ammunition of Slaying
+
+## ammunition-of-slaying.desc
+This magic ammunition is meant to slay creatures of a particular type, which the DM chooses or determines randomly by rolling on the table below. If a creature of that type takes damage from the ammunition, the creature makes a DC 17 Constitution saving throw, taking an extra 6d10 Force damage on a failed save or half as much extra damage on a successful one.
+
+After dealing its extra damage to a creature, the ammunition becomes nonmagical.
+
+1d100 | Creature Type
+01-10 | Aberrations
+11-15 | Beasts
+16-20 | Celestials
+21-25 | Constructs
+26-35 | Dragons
+36-45 | Elementals
+46-50 | Humanoids
+51-60 | Fey
+61-70 | Fiends
+71-75 | Giants
+76-80 | Monstrosities
+81-85 | Oozes
+86-90 | Plants
+91-00 | Undead
+
+## armor-of-acid-resistance.name
+Armor of Acid Resistance
+
+## armor-of-acid-resistance.desc
+{#itemEntry Armor of Resistance|XDMG}
+
+## armor-of-cold-resistance.name
+Armor of Cold Resistance
+
+## armor-of-cold-resistance.desc
+{#itemEntry Armor of Resistance|XDMG}
+
+## armor-of-fire-resistance.name
+Armor of Fire Resistance
+
+## armor-of-fire-resistance.desc
+{#itemEntry Armor of Resistance|XDMG}
+
+## armor-of-force-resistance.name
+Armor of Force Resistance
+
+## armor-of-force-resistance.desc
+{#itemEntry Armor of Resistance|XDMG}
+
+## armor-of-gleaming.name
+Armor of Gleaming
+
+## armor-of-gleaming.desc
+This armor never gets dirty.
+
+## armor-of-lightning-resistance.name
+Armor of Lightning Resistance
+
+## armor-of-lightning-resistance.desc
+{#itemEntry Armor of Resistance|XDMG}
+
+## armor-of-necrotic-resistance.name
+Armor of Necrotic Resistance
+
+## armor-of-necrotic-resistance.desc
+{#itemEntry Armor of Resistance|XDMG}
+
+## armor-of-poison-resistance.name
+Armor of Poison Resistance
+
+## armor-of-poison-resistance.desc
+{#itemEntry Armor of Resistance|XDMG}
+
+## armor-of-psychic-resistance.name
+Armor of Psychic Resistance
+
+## armor-of-psychic-resistance.desc
+{#itemEntry Armor of Resistance|XDMG}
+
+## armor-of-radiant-resistance.name
+Armor of Radiant Resistance
+
+## armor-of-radiant-resistance.desc
+{#itemEntry Armor of Resistance|XDMG}
+
+## armor-of-thunder-resistance.name
+Armor of Thunder Resistance
+
+## armor-of-thunder-resistance.desc
+{#itemEntry Armor of Resistance|XDMG}
+
+## armor-of-vulnerability-bludgeoning.name
+Armor of Vulnerability (Bludgeoning)
+
+## armor-of-vulnerability-bludgeoning.desc
+While wearing this armor, you have Resistance to Bludgeoning damage.
+
+**Curse.** This armor is cursed, a fact that is revealed only when the Identify spell is cast on the armor or you attune to it. Attuning to the armor curses you until you are targeted by a Remove Curse spell or similar magic; removing the armor fails to end the curse. While cursed, you have Vulnerability to Piercing and Slashing damage.
+
+## armor-of-vulnerability-piercing.name
+Armor of Vulnerability (Piercing)
+
+## armor-of-vulnerability-piercing.desc
+While wearing this armor, you have Resistance to Piercing damage.
+
+**Curse.** This armor is cursed, a fact that is revealed only when the Identify spell is cast on the armor or you attune to it. Attuning to the armor curses you until you are targeted by a Remove Curse spell or similar magic; removing the armor fails to end the curse. While cursed, you have Vulnerability to Bludgeoning and Slashing damage.
+
+## armor-of-vulnerability-slashing.name
+Armor of Vulnerability (Slashing)
+
+## armor-of-vulnerability-slashing.desc
+While wearing this armor, you have Resistance to Slashing damage.
+
+**Curse.** This armor is cursed, a fact that is revealed only when the Identify spell is cast on the armor or you attune to it. Attuning to the armor curses you until you are targeted by a Remove Curse spell or similar magic; removing the armor fails to end the curse. While cursed, you have Vulnerability to Bludgeoning and Piercing damage.
+
+## berserker-axe.name
+Berserker Axe
+
+## berserker-axe.desc
+You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon. In addition, while you are attuned to this weapon, your Hit Point maximum increases by 1 for each level you have attained.
+
+**Curse.** This weapon is cursed, and becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the weapon, keeping it within reach at all times. You also have Disadvantage on attack rolls with weapons other than this one.
+
+Whenever another creature damages you while the weapon is in your possession, you must succeed on a DC 15 Wisdom saving throw or go berserk. This berserk state ends when you start your turn and there are no creatures within 60 feet of you that you can see or hear.
+
+While berserk, you regard the creature nearest to you that you can see or hear as your enemy. If there are multiple possible creatures, choose one at random. On each of your turns, you must move as close to the creature as possible and take the Attack action, targeting the creature. If you're unable to get close enough to the creature to attack it with the weapon, your turn ends after you've used up all your available movement. If the creature dies or can no longer be seen or heard by you, the next nearest creature that you can see or hear becomes your new target.
+
+## cast-off-armor.name
+Cast-Off Armor
+
+## cast-off-armor.desc
+You can doff this armor as a Magic action.
+
+## dancing-sword.name
+Dancing Sword
+
+## dancing-sword.desc
+You can take a Bonus Action to toss this magic weapon into the air. When you do so, the weapon begins to hover, flies up to 30 feet, and attacks one creature of your choice within 5 feet of itself. The weapon uses your attack roll and adds your ability modifier to damage rolls.
+
+While the weapon hovers, you can take a Bonus Action to cause it to fly up to 30 feet to another spot within 30 feet of you. As part of the same Bonus Action, you can cause the weapon to attack one creature within 5 feet of the weapon.
+
+After the hovering weapon attacks for the fourth time, it flies back to you and tries to return to your hand. If you have no hand free, the weapon falls to the ground in your space. If the weapon has no unobstructed path to you, it moves as close to you as it can and then falls to the ground. It also ceases to hover if you grasp it or are more than 30 feet away from it.
+
+## dazzling-weapon.name
+Dazzling Weapon
+
+## dazzling-weapon.desc
+This magic weapon grants a +1 bonus to attack and damage rolls made with it. While holding it, you can take a Bonus Action to cause it to shed Bright Light in a 30-foot radius and Dim Light for an additional 30 feet. You can extinguish the light as a Bonus Action.
+
+The weapon has 4 charges. You can take a Reaction immediately after being hit by an attack roll to expend 1 of the weapon's charges and force the attacker to make a DC 15 Constitution saving throw. On a failed save, the attacker has the Blinded condition until the end of its next turn. The weapon regains 1d4 expended charges daily at dawn.
+
+## defender.name
+Defender
+
+## defender.desc
+You gain a +3 bonus to attack rolls and damage rolls made with this magic weapon.
+
+The first time you attack with the weapon on each of your turns, you can transfer some or all of the weapon's bonus to your Armor Class. For example, you could reduce the bonus to your attack rolls and damage rolls to +1 and gain a +2 bonus to Armor Class. The adjusted bonuses remain in effect until the start of your next turn, although you must hold the weapon to gain a bonus to AC from it.
+
+## demon-armor.name
+Demon Armor
+
+## demon-armor.desc
+While wearing this armor, you gain a +1 bonus to Armor Class, and you know Abyssal. In addition, the armor's clawed gauntlets allow your Unarmed Strikes to deal 1d8 Slashing damage instead of the usual Bludgeoning damage, and you gain a +1 bonus to the attack and damage rolls of your Unarmed Strikes.
+
+**Curse.** Once you don this cursed armor, you can't doff it unless you are targeted by a Remove Curse spell or similar magic. While wearing the armor, you have Disadvantage on attack rolls against demons and on saving throws against their spells and special abilities.
+
+## dragon-slayer.name
+Dragon Slayer
+
+## dragon-slayer.desc
+You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.
+
+The weapon deals an extra 3d6 damage of the weapon's type if the target is a Dragon.
+
+## dwarven-plate.name
+Dwarven Plate
+
+## dwarven-plate.desc
+While wearing this armor, you gain a +2 bonus to Armor Class. In addition, if an effect moves you against your will along the ground, you can take a Reaction to reduce the distance you are moved by up to 10 feet.
+
+## efreeti-chain.name
+Efreeti Chain
+
+## efreeti-chain.desc
+While wearing this armor, you gain a +3 bonus to Armor Class, you have Immunity to Fire damage, and you know Primordial. In addition, you can stand on and move across molten rock as if it were solid ground.
+
+## elven-chain.name
+Elven Chain
+
+## elven-chain.desc
+You gain a +1 bonus to Armor Class while you wear this armor. You are considered trained with this armor even if you lack training with Medium or Heavy armor.
+
+## energy-bow.name
+Energy Bow
+
+## energy-bow.desc
+You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon, which has no string. Each time you pull your arm back in a firing motion, a magical arrow made of golden energy appears nocked and ready to fire. An arrow produced by this weapon deals Force damage instead of Piercing damage on a hit, and it disappears after it hits or misses its target. Until it disappears, the arrow emits Bright Light in a 20-foot radius and Dim Light for an additional 20 feet.
+
+This weapon has the following additional properties.
+
+**Arrow of Restraint.** Whenever you use this weapon to make a ranged attack against a creature, you can try to restrain the target instead of dealing damage to it. If the arrow hits, the target must succeed on a DC 15 Strength saving throw or have the Restrained condition for 1 minute. As an action, a creature Restrained by an arrow can make a DC 20 Strength (Athletics) check to try to break the restraint, ending the effect on itself on a successful check.
+
+**Arrow of Transport.** As a Magic action, you can fire one energy arrow from this weapon at a target you can see within 60 feet of yourself. The target can be either a willing Medium or smaller creature or an object that isn't being worn or carried, provided the object is small enough to fit inside a 5-foot Cube. The arrow teleports the target to an unoccupied space you can see within 10 feet of you.
+
+**Energy Ladder.** As a Magic action, you can loose a flurry of energy arrows from this weapon at a wall up to 60 feet away from yourself. The arrows become glowing rungs that stick out of the wall, forming a magical ladder up to 60 feet long on the wall. This ladder lasts for 1 minute before disappearing.
+
+## enspelled-armor-cantrip.name
+Enspelled Armor (Cantrip)
+
+## enspelled-armor-cantrip.desc
+Bound into this armor is a cantrip. The cantrip is determined when the armor is created and must belong to the school=A;I school of magic. The armor has 6 charges and regains 1d6 expended charges daily at dawn. While wearing the armor, you can expend 1 charge to cast its spell.
+
+The spell's saving throw DC is 13, and its attack bonus is 5.
+
+## enspelled-armor-level-1.name
+Enspelled Armor (Level 1)
+
+## enspelled-armor-level-1.desc
+Bound into this armor is a level 1 spell. The spell is determined when the armor is created and must belong to the school=A;I school of magic. The armor has 6 charges and regains 1d6 expended charges daily at dawn. While wearing the armor, you can expend 1 charge to cast its spell.
+
+The spell's saving throw DC is 13, and its attack bonus is 5.
+
+## enspelled-armor-level-2.name
+Enspelled Armor (Level 2)
+
+## enspelled-armor-level-2.desc
+Bound into this armor is a level 2 spell. The spell is determined when the armor is created and must belong to the school=A;I school of magic. The armor has 6 charges and regains 1d6 expended charges daily at dawn. While wearing the armor, you can expend 1 charge to cast its spell.
+
+The spell's saving throw DC is 13, and its attack bonus is 5.
+
+## enspelled-armor-level-3.name
+Enspelled Armor (Level 3)
+
+## enspelled-armor-level-3.desc
+Bound into this armor is a level 3 spell. The spell is determined when the armor is created and must belong to the school=A;I school of magic. The armor has 6 charges and regains 1d6 expended charges daily at dawn. While wearing the armor, you can expend 1 charge to cast its spell.
+
+The spell's saving throw DC is 15, and its attack bonus is 7.
+
+## enspelled-armor-level-4.name
+Enspelled Armor (Level 4)
+
+## enspelled-armor-level-4.desc
+Bound into this armor is a level 4 spell. The spell is determined when the armor is created and must belong to the school=A;I school of magic. The armor has 6 charges and regains 1d6 expended charges daily at dawn. While wearing the armor, you can expend 1 charge to cast its spell.
+
+The spell's saving throw DC is 15, and its attack bonus is 7.
+
+## enspelled-armor-level-5.name
+Enspelled Armor (Level 5)
+
+## enspelled-armor-level-5.desc
+Bound into this armor is a level 5 spell. The spell is determined when the armor is created and must belong to the school=A;I school of magic. The armor has 6 charges and regains 1d6 expended charges daily at dawn. While wearing the armor, you can expend 1 charge to cast its spell.
+
+The spell's saving throw DC is 17, and its attack bonus is 9.
+
+## enspelled-armor-level-6.name
+Enspelled Armor (Level 6)
+
+## enspelled-armor-level-6.desc
+Bound into this armor is a level 6 spell. The spell is determined when the armor is created and must belong to the school=A;I school of magic. The armor has 6 charges and regains 1d6 expended charges daily at dawn. While wearing the armor, you can expend 1 charge to cast its spell.
+
+The spell's saving throw DC is 17, and its attack bonus is 9.
+
+## enspelled-armor-level-7.name
+Enspelled Armor (Level 7)
+
+## enspelled-armor-level-7.desc
+Bound into this armor is a level 7 spell. The spell is determined when the armor is created and must belong to the school=A;I school of magic. The armor has 6 charges and regains 1d6 expended charges daily at dawn. While wearing the armor, you can expend 1 charge to cast its spell.
+
+The spell's saving throw DC is 18, and its attack bonus is 10.
+
+## enspelled-armor-level-8.name
+Enspelled Armor (Level 8)
+
+## enspelled-armor-level-8.desc
+Bound into this armor is a level 8 spell. The spell is determined when the armor is created and must belong to the school=A;I school of magic. The armor has 6 charges and regains 1d6 expended charges daily at dawn. While wearing the armor, you can expend 1 charge to cast its spell.
+
+The spell's saving throw DC is 18, and its attack bonus is 10.
+
+## enspelled-weapon-cantrip.name
+Enspelled Weapon (Cantrip)
+
+## enspelled-weapon-cantrip.desc
+Bound into this weapon is a cantrip. The cantrip is determined when the weapon is created and must belong to the school=C;D;V;N;T school of magic. The weapon has 6 charges and regains 1d6 expended charges daily at dawn. While holding the weapon, you can expend 1 charge to cast its spell.
+
+The spell's saving throw DC is 13, and its attack bonus is 5.
+
+## enspelled-weapon-level-1.name
+Enspelled Weapon (Level 1)
+
+## enspelled-weapon-level-1.desc
+Bound into this weapon is a level 1 spell. The spell is determined when the weapon is created and must belong to the school=C;D;V;N;T school of magic. The weapon has 6 charges and regains 1d6 expended charges daily at dawn. While holding the weapon, you can expend 1 charge to cast its spell.
+
+The spell's saving throw DC is 13, and its attack bonus is 5.
+
+## enspelled-weapon-level-2.name
+Enspelled Weapon (Level 2)
+
+## enspelled-weapon-level-2.desc
+Bound into this weapon is a level 2 spell. The spell is determined when the weapon is created and must belong to the school=C;D;V;N;T school of magic. The weapon has 6 charges and regains 1d6 expended charges daily at dawn. While holding the weapon, you can expend 1 charge to cast its spell.
+
+The spell's saving throw DC is 13, and its attack bonus is 5.
+
+## enspelled-weapon-level-3.name
+Enspelled Weapon (Level 3)
+
+## enspelled-weapon-level-3.desc
+Bound into this weapon is a level 3 spell. The spell is determined when the weapon is created and must belong to the school=C;D;V;N;T school of magic. The weapon has 6 charges and regains 1d6 expended charges daily at dawn. While holding the weapon, you can expend 1 charge to cast its spell.
+
+The spell's saving throw DC is 15, and its attack bonus is 7.
+
+## enspelled-weapon-level-4.name
+Enspelled Weapon (Level 4)
+
+## enspelled-weapon-level-4.desc
+Bound into this weapon is a level 4 spell. The spell is determined when the weapon is created and must belong to the school=C;D;V;N;T school of magic. The weapon has 6 charges and regains 1d6 expended charges daily at dawn. While holding the weapon, you can expend 1 charge to cast its spell.
+
+The spell's saving throw DC is 15, and its attack bonus is 7.
+
+## enspelled-weapon-level-5.name
+Enspelled Weapon (Level 5)
+
+## enspelled-weapon-level-5.desc
+Bound into this weapon is a level 5 spell. The spell is determined when the weapon is created and must belong to the school=C;D;V;N;T school of magic. The weapon has 6 charges and regains 1d6 expended charges daily at dawn. While holding the weapon, you can expend 1 charge to cast its spell.
+
+The spell's saving throw DC is 17, and its attack bonus is 9.
+
+## enspelled-weapon-level-6.name
+Enspelled Weapon (Level 6)
+
+## enspelled-weapon-level-6.desc
+Bound into this weapon is a level 6 spell. The spell is determined when the weapon is created and must belong to the school=C;D;V;N;T school of magic. The weapon has 6 charges and regains 1d6 expended charges daily at dawn. While holding the weapon, you can expend 1 charge to cast its spell.
+
+The spell's saving throw DC is 17, and its attack bonus is 9.
+
+## enspelled-weapon-level-7.name
+Enspelled Weapon (Level 7)
+
+## enspelled-weapon-level-7.desc
+Bound into this weapon is a level 7 spell. The spell is determined when the weapon is created and must belong to the school=C;D;V;N;T school of magic. The weapon has 6 charges and regains 1d6 expended charges daily at dawn. While holding the weapon, you can expend 1 charge to cast its spell.
+
+The spell's saving throw DC is 18, and its attack bonus is 10.
+
+## enspelled-weapon-level-8.name
+Enspelled Weapon (Level 8)
+
+## enspelled-weapon-level-8.desc
+Bound into this weapon is a level 8 spell. The spell is determined when the weapon is created and must belong to the school=C;D;V;N;T school of magic. The weapon has 6 charges and regains 1d6 expended charges daily at dawn. While holding the weapon, you can expend 1 charge to cast its spell.
+
+The spell's saving throw DC is 18, and its attack bonus is 10.
+
+## executioners-axe.name
+Executioner's Axe
+
+## executioners-axe.desc
+You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.
+
+Any Humanoid you hit with the weapon takes an extra 2d6 Slashing damage, and you gain Temporary Hit Points equal to the extra damage dealt.
+
+## flame-tongue.name
+Flame Tongue
+
+## flame-tongue.desc
+While holding this magic weapon, you can take a Bonus Action and use a command word to cause flames to engulf the damage-dealing part of the weapon. These flames shed Bright Light in a 40-foot radius and Dim Light for an additional 40 feet. While the weapon is ablaze, it deals an extra 2d6 Fire damage on a hit. The flames last until you take a Bonus Action to issue the command again or until you drop, stow, or sheathe the weapon.
+
+## frost-brand.name
+Frost Brand
+
+## frost-brand.desc
+When you hit with an attack roll using this magic weapon, the target takes an extra 1d6 Cold damage. In addition, while you hold the weapon, you have Resistance to Fire damage.
+
+In freezing temperatures, the weapon sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet.
+
+When you draw this weapon, you can extinguish all nonmagical flames within 30 feet of yourself. Once used, this property can't be used again for 1 hour.
+
+## giant-slayer.name
+Giant Slayer
+
+## giant-slayer.desc
+You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.
+
+When you hit a Giant with this weapon, the Giant takes an extra 2d6 damage of the weapon's type and must succeed on a DC 15 Strength saving throw or have the Prone condition.
+
+## hammer-of-thunderbolts.name
+Hammer of Thunderbolts
+
+## hammer-of-thunderbolts.desc
+You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.
+
+The weapon has 5 charges. You can expend 1 charge and make a ranged attack with the weapon, hurling it as if it had Thrown with a normal range of 20 feet and a long range of 60 feet.
+
+If the attack hits, the weapon unleashes a thunderclap audible out to 300 feet. The target and every creature within 30 feet of it other than you must succeed on a DC 17 Constitution saving throw or have the Stunned condition until the end of your next turn. Immediately after hitting or missing, the weapon flies back to your hand. The weapon regains 1d4 + 1 expended charges daily at dawn.
+
+**Giant's Bane.** While you are attuned to the weapon and wearing either a Belt of Giant Strength or Gauntlets of Ogre Power to which you are also attuned, you gain the following benefits:
+
+- **Giants' Bane.** When you roll a 20 on the d20 for an attack roll made with this weapon against a Giant, the creature must succeed on a DC 17 Constitution saving throw or die.
+- **Might of Giants.** The Strength score bestowed by your Belt of Giant Strength or Gauntlets of Ogre Power increases by 4, to a maximum of 30.
+
+## holy-avenger.name
+Holy Avenger
+
+## holy-avenger.desc
+You gain a +3 bonus to attack rolls and damage rolls made with this magic weapon. When you hit a Fiend or an Undead with it, that creature takes an extra 2d10 Radiant damage.
+
+While you hold the drawn weapon, it creates a 10-foot Emanation originating from you. You and all creatures Friendly to you in the Emanation have Advantage on saving throws against spells and other magical effects. If you have 17 or more levels in the Paladin class, the size of the Emanation increases to 30 feet.
+
+## luck-blade.name
+Luck Blade
+
+## luck-blade.desc
+You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon. While the weapon is on your person, you also gain a +1 bonus to saving throws.
+
+**Luck.** If the weapon is on your person, you can call on its luck (no action required) to reroll one failed D20 Test if you don't have the Incapacitated condition. You must use the second roll. Once used, this property can't be used again until the next dawn.
+
+**Wish.** The weapon has 1d3 charges. While holding it, you can expend 1 charge and cast Wish from it. Once used, this property can't be used again until the next dawn. The weapon loses this property if it has no charges.
+
+## mariners-armor.name
+Mariner's Armor
+
+## mariners-armor.desc
+While wearing this armor, you have a Swim Speed equal to your Speed. In addition, if you start your turn underwater with 0 Hit Points, you immediately regain 1d4 Hit Points. The armor can't heal anyone again until the next dawn.
+
+The armor is decorated with fish and shell motifs.
+
+## mithral-armor.name
+Mithral Armor
+
+## mithral-armor.desc
+Mithral is a light, flexible metal. A mithral chain shirt or breastplate can be worn under normal clothes.
+
+If the armor normally imposes disadvantage on Dexterity (Stealth) checks or has a Strength requirement, the mithral version of the armor doesn't.
+
+## moon-touched-sword.name
+Moon-Touched Sword
+
+## moon-touched-sword.desc
+In Darkness, the unsheathed blade of this weapon sheds moonlight, creating Bright Light in a 15-foot radius and Dim Light for an additional 15 feet.
+
+## moonblade.name
+Moonblade
+
+## moonblade.desc
+Of all the magic items created by elves, one of the most prized and jealously guarded is a Moonblade. In ancient times, nearly all elven noble houses claimed one such weapon. Over the centuries, some of these weapons have faded from the world, their magic lost as family lines have become extinct. Others have vanished with their bearers during great quests. Thus, only a few of these weapons remain.
+
+Every Moonblade longs for a bearer whose disposition and goals are compatible with its own. If you try to attune to a Moonblade that doesn't want you as its bearer, the weapon not only rejects you but also places a curse on you, causing you to make D20 Tests with Disadvantage for 24 hours or until the curse is ended by a Remove Curse spell or similar magic. If you're accepted by the weapon and try to attune to it, you become attuned to it instantly, and a new rune appears on it. You remain attuned to the weapon until you die or the weapon is destroyed. A Moonblade functions like a nonmagical weapon of its kind for anyone other than its chosen bearer.
+
+A Moonblade has one rune on it for each bearer it has willingly served (typically 1d6 + 1). The first rune grants a +1 bonus to attack rolls and damage rolls made with this magic weapon. Each rune beyond the first grants the Moonblade an additional property. The DM chooses each property or determines it randomly by rolling on the Moonblade Properties table.
+
+**Minor Property.** In addition to its aforementioned properties, each Moonblade has a minor property determined by rolling on the Magic Item's Minor Property table.
+
+**Sentience.** A Moonblade is a sentient weapon with an Intelligence of 12, a Wisdom of 10, and a Charisma of 12. It has hearing and Darkvision out to 120 feet. Its alignment matches that of its creator.
+
+The weapon communicates by transmitting emotions, sending a tingling sensation through the wielder's hand when it wants to communicate something it has sensed. It can communicate through visions or dreams when the wielder is either in a trance or asleep.
+
+**Personality.** A Moonblade has a personality similar to that of its creator. Once a Moonblade has decided on an owner, it believes that only that person should wield it, even if the bearer's alignment differs from that of the weapon's or the bearer's goals later clash with the weapon's goals.
+
+Moonblade Properties
+1d100 | Property
+01-60 | Increase the weapon's bonus to attack rolls and damage rolls by 1, to a maximum of +3. Reroll if the Moonblade already has a +3 bonus.
+61-75 | When you hit with an attack roll using the Moonblade, you deal an extra 1d6 Force damage. Each time the weapon gains this property after the first, the extra damage increases by 1d6, to a maximum of 3d6. Reroll if the Moonblade already deals an extra 3d6 Force damage on a hit.
+76-80 | The Moonblade gains Thrown with a normal range of 20 feet and a long range of 60 feet. Each time you throw the weapon, it flies back to your hand after the attack.
+81-85 | The Moonblade scores a Critical Hit on a roll of 19 or 20 on the d20.
+86-95 | You can take a Bonus Action to cause the Moonblade to flash brightly. Each other creature that is within 30 feet of you and not behind Total Cover must succeed on a DC 15 Constitution saving throw or have the Blinded condition for 1 minute. A creature repeats the save at the end of each of its turns, ending the effect on itself on a success. You can't use this property again until you finish a Short or Long Rest.
+96-99 | The Moonblade has the properties of a Ring of Spell Storing.
+100 | You can take a Magic action to conjure a spectral entity that resembles a shadowy elf if you don't already have one serving you. The entity appears in an unoccupied space within 120 feet of you. It uses the Shadow stat block with these changes: it is a Fey, has a Neutral alignment, and doesn't create new shadows. You control this entity, deciding how it acts and moves. It remains until it drops to 0 Hit Points or you dismiss it as a Magic action.
+
+## nine-lives-stealer.name
+Nine Lives Stealer
+
+## nine-lives-stealer.desc
+You gain a +2 bonus to attack rolls and damage rolls made with this magic weapon.
+
+**Life Stealing.** The weapon has 1d8 + 1 charges. When you attack a creature that has fewer than 100 Hit Points with this weapon and roll a 20 on the d20 for the attack roll, the creature must succeed on a DC 15 Constitution saving throw or be slain instantly as the sword tears its life force from its body. Constructs and Undead succeed on the save automatically. The weapon loses 1 charge if the creature is slain. When the weapon has no charges remaining, it loses this property.
+
+## oathbow.name
+Oathbow
+
+## oathbow.desc
+When you nock an arrow on this bow, it whispers in Elvish, "Swift defeat to my enemies." When you use this weapon to make a ranged attack, you can utter or sign the following command words: "Swift death to you who have wronged me." The target of your attack becomes your sworn enemy until it dies or until dawn 7 days later. You can have only one such sworn enemy at a time. When your sworn enemy dies, you can choose a new one after the next dawn.
+
+When you make a ranged attack roll with this weapon against your sworn enemy, you have Advantage on the roll. In addition, your target gains no benefit from Half Cover or Three-Quarters Cover, and you suffer no Disadvantage due to long range. If the attack hits, your sworn enemy takes an extra 3d6 Piercing damage.
+
+While your sworn enemy lives, you have Disadvantage on attack rolls with all other weapons.
+
+## plate-armor-of-etherealness.name
+Plate Armor of Etherealness
+
+## plate-armor-of-etherealness.desc
+While you're wearing this armor, you can take a Magic action and use a command word to gain the effect of the Etherealness spell. The spell ends immediately if you remove the armor or take a Magic action to repeat the command word. This property of the armor can't be used again until the next dawn.
+
+## repeating-shot.name
+Repeating Shot
+
+## repeating-shot.desc
+This magic weapon grants a +1 bonus to attack and damage rolls made with it when it's used to make a ranged attack, and it ignores the Loading property if it has that property.
+
+If the weapon lacks ammunition, it produces its own, automatically creating one piece of magic ammunition when the wielder makes a ranged attack roll with it. The ammunition created by the weapon vanishes the instant after it hits or misses a target.
+
+## returning-weapon.name
+Returning Weapon
+
+## returning-weapon.desc
+This magic weapon grants a +1 bonus to attack and damage rolls made with it, and it returns to your hand immediately after you use it to make a ranged attack roll.
+
+## silvered-weapon.name
+Silvered Weapon
+
+## silvered-weapon.desc
+An alchemical process has bonded silver to this magic weapon. When you score a Critical Hit with it against a creature that is shape-shifted, the weapon deals one additional die of damage.
+
+## smoldering-armor.name
+Smoldering Armor
+
+## smoldering-armor.desc
+Wisps of harmless, odorless smoke rise from this armor while it is worn.
+
+## sword-of-life-stealing.name
+Sword of Life Stealing
+
+## sword-of-life-stealing.desc
+When you attack a creature with this magic weapon and roll a 20 on the d20 for the attack roll, that target takes an extra 15 Necrotic damage if it isn't a Construct or an Undead, and you gain Temporary Hit Points equal to the amount of Necrotic damage taken.
+
+## sword-of-sharpness.name
+Sword of Sharpness
+
+## sword-of-sharpness.desc
+When you attack an object with this magic weapon and hit, maximize your weapon damage dice against the target.
+
+When you attack a creature with this weapon and roll a 20 on the d20 for the attack roll, that target takes an extra 14 Slashing damage and gains 1 Exhaustion level.
+
+## sword-of-vengeance.name
+Sword of Vengeance
+
+## sword-of-vengeance.desc
+You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.
+
+**Curse.** This weapon is cursed and possessed by a vengeful spirit. Becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the weapon, keeping it on your person at all times. While attuned to this weapon, you have Disadvantage on attack rolls made with weapons other than this one.
+
+In addition, while the weapon is on your person, you must succeed on a DC 15 Wisdom saving throw whenever you take damage from another creature in combat. On a failed save, you must attack the creature that damaged you until you drop to 0 Hit Points or it does or until you can't reach the creature to make a melee attack against it.
+
+You can break the curse in the usual ways. Alternatively, casting Banishment on the weapon forces the vengeful spirit to leave it. The weapon then becomes a +1 Weapon with no other properties.
+
+## sword-of-wounding.name
+Sword of Wounding
+
+## sword-of-wounding.desc
+When you hit a creature with an attack using this magic weapon, the target takes an extra 2d6 Necrotic damage and must succeed on a DC 15 Constitution saving throw or be unable to regain Hit Points for 1 hour. The target repeats the save at the end of each of its turns, ending the effect on itself on a success.
+
+## sylvan-talon.name
+Sylvan Talon
+
+## sylvan-talon.desc
+While this weapon is on your person, you understand the non-written communication of all Fey, and they understand yours.
+
+**Secret Message.** As a Magic action, you can use the weapon to cast Message. Once this property is used, it can't be used again until the next dawn.
+
+## vicious-weapon.name
+Vicious Weapon
+
+## vicious-weapon.desc
+This magic weapon deals an extra 2d6 damage to any creature it hits. This extra damage is of the same type as the weapon's normal damage.
+
+## vorpal-sword.name
+Vorpal Sword
+
+## vorpal-sword.desc
+You gain a +3 bonus to attack rolls and damage rolls made with this magic weapon. In addition, the weapon ignores Resistance to Slashing damage.
+
+When you use this weapon to attack a creature that has at least one head and roll a 20 on the d20 for the attack roll, you cut off one of the creature's heads. The creature dies if it can't survive without the lost head. A creature is immune to this effect if it has Immunity to Slashing damage, if it doesn't have or need a head, or if the DM decides that the creature is too big for its head to be cut off with this weapon. Such a creature instead takes an extra 30 Slashing damage from the hit. If the creature has Legendary Resistance, it can expend one daily use of that trait to avoid losing its head, taking the extra damage instead.
+
+## walloping-ammunition.name
+Walloping Ammunition
+
+## walloping-ammunition.desc
+A creature hit by this ammunition must succeed on a DC 10 Strength saving throw or have the Prone condition.
+
+## weapon-of-warning.name
+Weapon of Warning
+
+## weapon-of-warning.desc
+As long as this weapon is within your reach and you are attuned to it, you and allies within 30 feet of you gain the following benefits.
+
+**Alarm.** The weapon magically awakens each subject who is sleeping naturally when combat begins. This benefit doesn't wake a subject from magically induced sleep.
+
+**Supernatural Readiness.** Each subject has Advantage on its Initiative rolls.

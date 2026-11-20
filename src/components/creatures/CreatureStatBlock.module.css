@@ -1,0 +1,29 @@
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.line {
+  margin: 0;
+}
+
+.section {
+  margin-top: 0.25rem;
+}
+
+.sectionTitle {
+  margin: 0 0 0.25rem;
+  font-weight: 600;
+}
+
+.list {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.note {
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}

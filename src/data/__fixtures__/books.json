@@ -1,0 +1,27 @@
+[
+  {
+    "key": "XPHB",
+    "name": "Player's Handbook (2024)",
+    "ruleset": "2024"
+  },
+  {
+    "key": "XMM",
+    "name": "Monster Manual (2025)",
+    "ruleset": "2024"
+  },
+  {
+    "key": "XDMG",
+    "name": "Dungeon Master's Guide (2024)",
+    "ruleset": "2024"
+  },
+  {
+    "key": "FRHoF",
+    "name": "Forgotten Realms: Heroes of Faerûn",
+    "ruleset": "2024"
+  },
+  {
+    "key": "PHB",
+    "name": "Player's Handbook (2014)",
+    "ruleset": "2014"
+  }
+]

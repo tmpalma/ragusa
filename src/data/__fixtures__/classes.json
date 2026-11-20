@@ -1,0 +1,3936 @@
+[
+  {
+    "key": "artificer",
+    "srd": false,
+    "book": "EFA",
+    "name": "Artificer",
+    "hitDie": 8,
+    "features": [
+      {
+        "key": "spellcasting",
+        "desc": "You channel magical energy through objects. Intelligence is your spellcasting ability. You must have Thieves' Tools, Tinker's Tools, or another Artisan's Tools in hand when you cast Artificer spells.",
+        "name": "Spellcasting",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "tinkers-magic",
+        "desc": "You know the Mending cantrip. As a Magic action while holding Tinker's Tools, you can create one mundane item from a short list (ball bearings, bucket, rope, torch, and similar). The item lasts until you finish a Long Rest.\n\nYou can use this feature a number of times equal to your Intelligence modifier (minimum of once), and you regain all expended uses when you finish a Long Rest.",
+        "name": "Tinker's Magic",
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Mending"
+            ]
+          }
+        ],
+        "limitedUses": {
+          "kind": "abilityMod",
+          "ability": "int"
+        },
+        "actionTiming": "action",
+        "combatSurface": true,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "replicate-magic-item",
+        "desc": "You know magic item plans and can create temporary magic items when you finish a Long Rest. At level 2 you learn four plans and can maintain up to two created items. At level 6 you know five plans and can maintain up to three created items.",
+        "name": "Replicate Magic Item",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 2
+      },
+      {
+        "key": "artificer-subclass",
+        "desc": "You gain an Artificer subclass of your choice.",
+        "name": "Artificer Subclass",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 3
+      },
+      {
+        "key": "ability-score-improvement",
+        "desc": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+        "name": "Ability Score Improvement",
+        "effects": [
+          {
+            "type": "grant_feat"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 4
+      },
+      {
+        "key": "charge-magic-item",
+        "desc": "As a Bonus Action, you can touch a magic item within 5 feet of yourself that you created with Replicate Magic Item and that uses charges. You expend a level 1+ spell slot and recharge the item. The number of charges the item regains is equal to the level of spell slot expended.",
+        "name": "Charge Magic Item",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "actionTiming": "bonus",
+        "combatSurface": true,
+        "grantedAtLevel": 6,
+        "combatParentName": "Magic Item Tinker"
+      },
+      {
+        "key": "drain-magic-item",
+        "desc": "As a Bonus Action, you can touch a magic item within 5 feet of yourself that you created with Replicate Magic Item and cause the item to vanish, converting its magical energy into a spell slot. The slot is level 1 if the item is Common or level 2 if the item is Uncommon or Rare. Once you use this feature, you can't do so again until you finish a Long Rest. Any spell slot you create with this feature vanishes when you finish a Long Rest.",
+        "name": "Drain Magic Item",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "limitedUses": {
+          "kind": "fixed",
+          "uses": 1
+        },
+        "actionTiming": "bonus",
+        "restRecovery": "long",
+        "combatSurface": true,
+        "grantedAtLevel": 6,
+        "combatParentName": "Magic Item Tinker"
+      },
+      {
+        "key": "transmute-magic-item",
+        "desc": "As a Magic action, you can touch one magic item within 5 feet of yourself that you created with Replicate Magic Item and transform it into a different magic item. The resulting item must be based on a magic item plan you know. Once you use this feature, you can't do so again until you finish a Long Rest.",
+        "name": "Transmute Magic Item",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "limitedUses": {
+          "kind": "fixed",
+          "uses": 1
+        },
+        "actionTiming": "action",
+        "restRecovery": "long",
+        "combatSurface": true,
+        "grantedAtLevel": 6,
+        "combatParentName": "Magic Item Tinker"
+      }
+    ],
+    "casterType": "HALF",
+    "spellSlots": {
+      "byCharacterLevel": {
+        "1": [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "2": [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "3": [
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "4": [
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "5": [
+          4,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "6": [
+          4,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "skillChoice": {
+      "count": 2,
+      "options": [
+        "arcana",
+        "history",
+        "investigation",
+        "medicine",
+        "nature",
+        "perception",
+        "sleightOfHand"
+      ]
+    },
+    "savingThrows": [
+      "con",
+      "int"
+    ],
+    "primaryAbility": [
+      [
+        "int"
+      ]
+    ],
+    "armorCategories": [
+      "light",
+      "medium"
+    ],
+    "spellProgression": {
+      "listMode": "prepared",
+      "byCharacterLevel": {
+        "1": {
+          "cantripsKnown": 2,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 2
+          }
+        },
+        "2": {
+          "cantripsKnown": 2,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 3
+          }
+        },
+        "3": {
+          "cantripsKnown": 2,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 4
+          }
+        },
+        "4": {
+          "cantripsKnown": 2,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 5
+          }
+        },
+        "5": {
+          "cantripsKnown": 2,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 6
+          }
+        },
+        "6": {
+          "cantripsKnown": 2,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 6
+          }
+        }
+      }
+    },
+    "shieldProficiency": true,
+    "startingEquipment": [
+      {
+        "gold": 16,
+        "items": [
+          "Studded Leather Armor",
+          "Dagger",
+          "Thieves' Tools",
+          "Tinker's Tools",
+          "Dungeoneer's Pack"
+        ],
+        "label": "A"
+      },
+      {
+        "gold": 150,
+        "items": [],
+        "label": "B"
+      }
+    ],
+    "toolProficiencies": [
+      {
+        "kind": "fixed",
+        "toolId": "thieves-tools"
+      },
+      {
+        "kind": "fixed",
+        "toolId": "tinkers-tools"
+      },
+      {
+        "kind": "choose",
+        "count": 1,
+        "categories": [
+          "artisan"
+        ]
+      }
+    ],
+    "spellcastingAbility": "int",
+    "weaponProficiencies": [
+      {
+        "kind": "simple"
+      }
+    ],
+    "multiclassProficiencies": {
+      "skillChoice": {
+        "count": 1,
+        "options": [
+          "arcana",
+          "history",
+          "investigation",
+          "medicine",
+          "nature",
+          "perception",
+          "sleightOfHand"
+        ]
+      },
+      "armorCategories": [
+        "light",
+        "medium"
+      ],
+      "shieldProficiency": true,
+      "toolProficiencies": [
+        {
+          "kind": "fixed",
+          "toolId": "tinkers-tools"
+        }
+      ],
+      "weaponProficiencies": []
+    },
+    "spellcastingGainedAtLevel": 1
+  },
+  {
+    "key": "barbarian",
+    "srd": true,
+    "book": "XPHB",
+    "name": "Barbarian",
+    "hitDie": 12,
+    "features": [
+      {
+        "key": "rage",
+        "desc": "You can enter a rage as a Bonus Action if you aren't wearing Heavy armor.\n\nWhile active, you gain Advantage on Strength checks and Strength saving throws, a bonus to damage rolls with Strength-based melee attacks, and Resistance to Bludgeoning, Piercing, and Slashing damage.\n\nYou can use this feature twice. You regain one expended use when you finish a Short Rest, and you regain all expended uses when you finish a Long Rest.",
+        "name": "Rage",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "limitedUses": {
+          "kind": "byLevel",
+          "usesByLevel": {
+            "1": 2,
+            "3": 3,
+            "6": 4
+          }
+        },
+        "actionTiming": "bonus",
+        "restRecovery": "shortOne",
+        "combatSurface": true,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "unarmored-defense",
+        "desc": "While you aren't wearing any armor, your base Armor Class equals 10 plus your Dexterity and Constitution modifiers. You can use a Shield and still gain this benefit.",
+        "name": "Unarmored Defense",
+        "effects": [
+          {
+            "type": "unarmored_defense",
+            "abilities": [
+              "con"
+            ]
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "weapon-mastery",
+        "desc": "Your training with weapons allows you to use the mastery properties of two kinds of Simple or Martial Melee weapons of your choice, such as Greataxes and Handaxes.\n\nWhenever you finish a Long Rest, you can change the kinds of weapons you chose.",
+        "name": "Weapon Mastery",
+        "effects": [
+          {
+            "type": "weapon_mastery",
+            "count": 2,
+            "meleeOnly": true,
+            "countByLevel": {
+              "4": 3
+            }
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "danger-sense",
+        "desc": "You gain an uncanny sense of when things aren't as they should be, giving you an edge when you dodge perils. You have Advantage on Dexterity saving throws unless you have the Incapacitated condition.",
+        "name": "Danger Sense",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 2
+      },
+      {
+        "key": "reckless-attack",
+        "desc": "When you make your first attack roll on your turn, you can decide to attack recklessly. Doing so gives you Advantage on attack rolls using Strength until the start of your next turn, but attack rolls against you have Advantage during that time.",
+        "name": "Reckless Attack",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 2
+      },
+      {
+        "key": "barbarian-subclass",
+        "desc": "You gain a Barbarian subclass of your choice.",
+        "name": "Barbarian Subclass",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 3
+      },
+      {
+        "key": "primal-knowledge",
+        "desc": "You gain proficiency in another skill from the Barbarian skill list of your choice.\n\nAdditionally, while you're raging, you can channel supernatural power when you attempt certain tasks.",
+        "name": "Primal Knowledge",
+        "effects": [
+          {
+            "type": "grant_skill_proficiencies",
+            "count": 1,
+            "options": [
+              "animalHandling",
+              "athletics",
+              "intimidation",
+              "nature",
+              "perception",
+              "survival"
+            ]
+          },
+          {
+            "type": "choose_feature_option",
+            "options": [
+              {
+                "key": "strength-substitution",
+                "desc": "Whenever you make an ability check using Acrobatics, Intimidation, Perception, Stealth, or Survival, you can make it as a Strength check instead.",
+                "name": "Strength Substitution"
+              }
+            ],
+            "choiceKey": "primal-knowledge-rage",
+            "uiSurface": "reference"
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 3
+      },
+      {
+        "key": "ability-score-improvement",
+        "desc": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+        "name": "Ability Score Improvement",
+        "effects": [
+          {
+            "type": "grant_feat"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 4
+      },
+      {
+        "key": "extra-attack",
+        "desc": "You can attack twice instead of once whenever you take the Attack action on your turn.",
+        "name": "Extra Attack",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 5
+      },
+      {
+        "key": "fast-movement",
+        "desc": "Your speed increases by 10 feet while you aren't wearing Heavy armor.",
+        "name": "Fast Movement",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 5
+      }
+    ],
+    "casterType": "NONE",
+    "spellSlots": null,
+    "skillChoice": {
+      "count": 2,
+      "options": [
+        "animalHandling",
+        "athletics",
+        "intimidation",
+        "nature",
+        "perception",
+        "survival"
+      ]
+    },
+    "savingThrows": [
+      "str",
+      "con"
+    ],
+    "primaryAbility": [
+      [
+        "str"
+      ]
+    ],
+    "armorCategories": [
+      "light",
+      "medium"
+    ],
+    "spellProgression": null,
+    "shieldProficiency": true,
+    "startingEquipment": [
+      {
+        "gold": 75,
+        "items": [],
+        "label": "B"
+      }
+    ],
+    "toolProficiencies": [],
+    "spellcastingAbility": null,
+    "weaponProficiencies": [
+      {
+        "kind": "simple"
+      },
+      {
+        "kind": "martial"
+      }
+    ],
+    "multiclassProficiencies": {
+      "skillChoice": null,
+      "armorCategories": [],
+      "shieldProficiency": true,
+      "toolProficiencies": [],
+      "weaponProficiencies": [
+        {
+          "kind": "martial"
+        }
+      ]
+    },
+    "spellcastingGainedAtLevel": null
+  },
+  {
+    "key": "bard",
+    "srd": true,
+    "book": "XPHB",
+    "name": "Bard",
+    "hitDie": 8,
+    "features": [
+      {
+        "key": "bardic-inspiration",
+        "desc": "You can inspire others through words or music. As a Bonus Action, you can give one creature other than yourself within 60 feet of you a Bardic Inspiration die (a d6).\n\nOnce within the next hour, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw it makes. The creature can wait until after rolling the d20 before deciding to use the Bardic Inspiration die.\n\nYou can use this feature a number of times equal to your Charisma modifier (minimum of once), and you regain all expended uses when you finish a Long Rest.\n\nThe die becomes a d8 when you reach level 5.",
+        "name": "Bardic Inspiration",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "limitedUses": {
+          "kind": "abilityMod",
+          "ability": "cha"
+        },
+        "actionTiming": "bonus",
+        "combatSurface": true,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "spellcasting",
+        "desc": "You have learned to cast spells through study and performance. See the Spells section of this sheet for your spellcasting ability, attack bonus, save DC, and spell slots.",
+        "name": "Spellcasting",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "expertise",
+        "desc": "You gain Expertise in two of your skill proficiencies of your choice. Expertise doubles your Proficiency Bonus for ability checks using those skills.",
+        "name": "Expertise",
+        "effects": [
+          {
+            "type": "expertise",
+            "count": 2
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 2
+      },
+      {
+        "key": "jack-of-all-trades",
+        "desc": "You can add half your Proficiency Bonus (round down) to any ability check you make that uses a skill proficiency you lack and that doesn't otherwise use your Proficiency Bonus.",
+        "name": "Jack of All Trades",
+        "effects": [
+          {
+            "type": "jack_of_all_trades"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 2
+      },
+      {
+        "key": "ability-score-improvement",
+        "desc": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+        "name": "Ability Score Improvement",
+        "effects": [
+          {
+            "type": "grant_feat"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 4
+      },
+      {
+        "key": "font-of-inspiration",
+        "desc": "You now regain all your expended uses of Bardic Inspiration when you finish a Short Rest or Long Rest.\n\nIn addition, you can expend a spell slot (no action required) to regain one expended use of Bardic Inspiration.",
+        "name": "Font of Inspiration",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "restRecovery": "short",
+        "combatSurface": false,
+        "grantedAtLevel": 5
+      }
+    ],
+    "casterType": "FULL",
+    "spellSlots": {
+      "byCharacterLevel": {
+        "1": [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "2": [
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "3": [
+          4,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "4": [
+          4,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "5": [
+          4,
+          3,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "6": [
+          4,
+          3,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "skillChoice": {
+      "count": 3,
+      "options": [
+        "acrobatics",
+        "animalHandling",
+        "arcana",
+        "athletics",
+        "deception",
+        "history",
+        "insight",
+        "intimidation",
+        "investigation",
+        "medicine",
+        "nature",
+        "perception",
+        "performance",
+        "persuasion",
+        "religion",
+        "sleightOfHand",
+        "stealth",
+        "survival"
+      ]
+    },
+    "savingThrows": [
+      "dex",
+      "cha"
+    ],
+    "primaryAbility": [
+      [
+        "cha"
+      ]
+    ],
+    "armorCategories": [
+      "light"
+    ],
+    "spellProgression": {
+      "listMode": "prepared",
+      "byCharacterLevel": {
+        "1": {
+          "cantripsKnown": 2,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 4
+          }
+        },
+        "2": {
+          "cantripsKnown": 2,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 5
+          }
+        },
+        "3": {
+          "cantripsKnown": 2,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 6
+          }
+        },
+        "4": {
+          "cantripsKnown": 3,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 7
+          }
+        },
+        "5": {
+          "cantripsKnown": 3,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 9
+          }
+        },
+        "6": {
+          "cantripsKnown": 3,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 10
+          }
+        }
+      }
+    },
+    "shieldProficiency": false,
+    "startingEquipment": [
+      {
+        "gold": 19,
+        "items": [
+          "Leather Armor",
+          "2 Daggers",
+          "Musical Instrument of choice",
+          "Entertainer's Pack"
+        ],
+        "label": "A"
+      },
+      {
+        "gold": 90,
+        "items": [],
+        "label": "B"
+      }
+    ],
+    "toolProficiencies": [
+      {
+        "kind": "choose",
+        "count": 3,
+        "categories": [
+          "musicalInstrument"
+        ]
+      }
+    ],
+    "spellcastingAbility": "cha",
+    "weaponProficiencies": [
+      {
+        "kind": "simple"
+      }
+    ],
+    "multiclassProficiencies": {
+      "skillChoice": {
+        "count": 1,
+        "options": [
+          "acrobatics",
+          "animalHandling",
+          "arcana",
+          "athletics",
+          "deception",
+          "history",
+          "insight",
+          "intimidation",
+          "investigation",
+          "medicine",
+          "nature",
+          "perception",
+          "performance",
+          "persuasion",
+          "religion",
+          "sleightOfHand",
+          "stealth",
+          "survival"
+        ]
+      },
+      "armorCategories": [
+        "light"
+      ],
+      "shieldProficiency": false,
+      "toolProficiencies": [
+        {
+          "kind": "choose",
+          "count": 1,
+          "categories": [
+            "musicalInstrument"
+          ]
+        }
+      ],
+      "weaponProficiencies": []
+    },
+    "spellcastingGainedAtLevel": 1
+  },
+  {
+    "key": "cleric",
+    "srd": true,
+    "book": "XPHB",
+    "name": "Cleric",
+    "hitDie": 8,
+    "features": [
+      {
+        "key": "divine-order",
+        "desc": "You have dedicated yourself to one of the following sacred roles of your choice: Protector or Thaumaturge. Your choice grants you features at Cleric levels 1, 7, and 15.",
+        "name": "Divine Order",
+        "effects": [
+          {
+            "type": "choose_feature_option",
+            "options": [
+              {
+                "key": "protector",
+                "desc": "Trained for battle, you gain proficiency with Martial weapons and training with Heavy armor.",
+                "name": "Protector",
+                "armorCategories": [
+                  "heavy"
+                ],
+                "weaponProficiencies": [
+                  {
+                    "kind": "martial"
+                  }
+                ]
+              },
+              {
+                "key": "thaumaturge",
+                "desc": "You know one extra cantrip from the Cleric spell list. In addition, your mystical connection to the divine gives you a bonus to your Intelligence (Arcana or Religion) checks. The bonus equals your Wisdom modifier (minimum of +1).",
+                "name": "Thaumaturge",
+                "skillCheckBonus": {
+                  "skills": [
+                    "arcana",
+                    "religion"
+                  ],
+                  "ability": "wis",
+                  "minimum": 1,
+                  "choiceKey": "divine-order-skill"
+                },
+                "extraCantripCount": 1
+              }
+            ],
+            "choiceKey": "divine-order"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "spellcasting",
+        "desc": "You have learned to cast spells through prayer and meditation. See the Spells section of this sheet for your spellcasting ability, attack bonus, save DC, and spell slots.",
+        "name": "Spellcasting",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "channel-divinity",
+        "desc": "You can channel divine energy directly from the Outer Planes. As a Magic action, you can use one of your Channel Divinity options.\n\nTurn Undead: Each Undead of your choice within 30 feet of you must make a Wisdom saving throw. On a failed save, the target has the Frightened and Incapacitated conditions for 1 minute or until it takes damage. On a successful save, the target is immune to this Turn Undead for 24 hours.\n\nYou can use this feature twice. You regain one expended use when you finish a Short Rest, and you regain all expended uses when you finish a Long Rest.",
+        "name": "Channel Divinity",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "limitedUses": {
+          "kind": "byLevel",
+          "usesByLevel": {
+            "2": 2,
+            "6": 3
+          }
+        },
+        "actionTiming": "action",
+        "restRecovery": "shortOne",
+        "combatSurface": true,
+        "grantedAtLevel": 2
+      },
+      {
+        "key": "cleric-subclass",
+        "desc": "You gain a Cleric subclass of your choice.",
+        "name": "Cleric Subclass",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 3
+      },
+      {
+        "key": "ability-score-improvement",
+        "desc": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+        "name": "Ability Score Improvement",
+        "effects": [
+          {
+            "type": "grant_feat"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 4
+      },
+      {
+        "key": "sear-undead",
+        "desc": "Whenever you use Turn Undead, you can roll a number of d8s equal to your Wisdom modifier (minimum of 1d8) and add the rolls together. Each Undead that fails its saving throw against that use of Turn Undead takes Radiant damage equal to the roll's total. This damage doesn't end the turn effect.",
+        "name": "Sear Undead",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 5
+      }
+    ],
+    "casterType": "FULL",
+    "spellSlots": {
+      "byCharacterLevel": {
+        "1": [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "2": [
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "3": [
+          4,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "4": [
+          4,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "5": [
+          4,
+          3,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "6": [
+          4,
+          3,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "skillChoice": {
+      "count": 2,
+      "options": [
+        "history",
+        "insight",
+        "medicine",
+        "persuasion",
+        "religion"
+      ]
+    },
+    "savingThrows": [
+      "wis",
+      "cha"
+    ],
+    "primaryAbility": [
+      [
+        "wis"
+      ]
+    ],
+    "armorCategories": [
+      "light",
+      "medium"
+    ],
+    "spellProgression": {
+      "listMode": "prepared",
+      "byCharacterLevel": {
+        "1": {
+          "cantripsKnown": 3,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 4
+          }
+        },
+        "2": {
+          "cantripsKnown": 3,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 5
+          }
+        },
+        "3": {
+          "cantripsKnown": 3,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 6
+          }
+        },
+        "4": {
+          "cantripsKnown": 4,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 7
+          }
+        },
+        "5": {
+          "cantripsKnown": 4,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 9
+          }
+        },
+        "6": {
+          "cantripsKnown": 4,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 10
+          }
+        }
+      }
+    },
+    "shieldProficiency": true,
+    "startingEquipment": [
+      {
+        "gold": 110,
+        "items": [],
+        "label": "B"
+      }
+    ],
+    "toolProficiencies": [],
+    "spellcastingAbility": "wis",
+    "weaponProficiencies": [
+      {
+        "kind": "simple"
+      }
+    ],
+    "multiclassProficiencies": {
+      "skillChoice": null,
+      "armorCategories": [
+        "light",
+        "medium"
+      ],
+      "shieldProficiency": true,
+      "toolProficiencies": [],
+      "weaponProficiencies": []
+    },
+    "spellcastingGainedAtLevel": 1
+  },
+  {
+    "key": "druid",
+    "srd": true,
+    "book": "XPHB",
+    "name": "Druid",
+    "hitDie": 8,
+    "features": [
+      {
+        "key": "druidic",
+        "desc": "You know Druidic, a secret language known only to Druids. You can leave hidden messages in Druidic that other Druids understand.",
+        "name": "Druidic",
+        "effects": [
+          {
+            "type": "grant_languages",
+            "languages": [
+              "druidic"
+            ]
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "primal-order",
+        "desc": "You have dedicated yourself to one of the sacred orders of the Druids: Magician or Warden. Your choice grants you features at Druid levels 1, 7, and 15.",
+        "name": "Primal Order",
+        "effects": [
+          {
+            "type": "choose_feature_option",
+            "options": [
+              {
+                "key": "magician",
+                "desc": "You know one extra cantrip from the Druid spell list. In addition, your mystical connection to nature gives you a bonus to your Intelligence (Arcana or Nature) checks. The bonus equals your Wisdom modifier (minimum bonus of +1).",
+                "name": "Magician",
+                "skillCheckBonus": {
+                  "skills": [
+                    "arcana",
+                    "nature"
+                  ],
+                  "ability": "wis",
+                  "minimum": 1,
+                  "choiceKey": "primal-order-skill"
+                },
+                "extraCantripCount": 1
+              },
+              {
+                "key": "warden",
+                "desc": "Trained for battle, you gain proficiency with Martial weapons and training with Medium armor.",
+                "name": "Warden",
+                "armorCategories": [
+                  "medium"
+                ],
+                "weaponProficiencies": [
+                  {
+                    "kind": "martial"
+                  }
+                ]
+              }
+            ],
+            "choiceKey": "primal-order"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "spellcasting",
+        "desc": "You have learned to cast spells through communion with nature. See the Spells section of this sheet for your spellcasting ability, attack bonus, save DC, and spell slots.",
+        "name": "Spellcasting",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "wild-shape",
+        "desc": "As a Bonus Action, assume a known Beast form. You gain Temporary Hit Points equal to your Druid level. While shifted, use the beast's Strength, Dexterity, Constitution, AC, speeds, and natural attacks; you retain your Hit Points, Intelligence, Wisdom, and Charisma. You can't cast spells. Leave the form early as a Bonus Action, or when you drop to 0 Hit Points.",
+        "name": "Wild Shape",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "limitedUses": {
+          "kind": "fixed",
+          "uses": 2
+        },
+        "actionTiming": "bonus",
+        "restRecovery": "shortOne",
+        "combatSurface": true,
+        "grantedAtLevel": 2,
+        "classFeatureCard": true
+      },
+      {
+        "key": "wild-companion",
+        "desc": "As a Magic action, expend a spell slot or a use of Wild Shape to cast Find Familiar without Material components. The familiar is Fey and disappears when you finish a Long Rest.",
+        "name": "Wild Companion",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "actionTiming": "action",
+        "combatSurface": true,
+        "grantedAtLevel": 2
+      },
+      {
+        "key": "druid-subclass",
+        "desc": "You gain a Druid subclass of your choice.",
+        "name": "Druid Subclass",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 3
+      },
+      {
+        "key": "ability-score-improvement",
+        "desc": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+        "name": "Ability Score Improvement",
+        "effects": [
+          {
+            "type": "grant_feat"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 4
+      },
+      {
+        "key": "wild-resurgence",
+        "desc": "Once on each of your turns, if you have no uses of Wild Shape left, you can give yourself one use by expending a spell slot (no action required).\n\nIn addition, you can expend one use of Wild Shape (no action required) to give yourself a level 1 spell slot, but you can't do so again until you finish a Long Rest.",
+        "name": "Wild Resurgence",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 5
+      }
+    ],
+    "casterType": "FULL",
+    "spellSlots": {
+      "byCharacterLevel": {
+        "1": [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "2": [
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "3": [
+          4,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "4": [
+          4,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "5": [
+          4,
+          3,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "6": [
+          4,
+          3,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "skillChoice": {
+      "count": 2,
+      "options": [
+        "animalHandling",
+        "arcana",
+        "insight",
+        "medicine",
+        "nature",
+        "perception",
+        "religion",
+        "survival"
+      ]
+    },
+    "savingThrows": [
+      "int",
+      "wis"
+    ],
+    "primaryAbility": [
+      [
+        "wis"
+      ]
+    ],
+    "armorCategories": [
+      "light"
+    ],
+    "spellProgression": {
+      "listMode": "prepared",
+      "byCharacterLevel": {
+        "1": {
+          "cantripsKnown": 2,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 4
+          }
+        },
+        "2": {
+          "cantripsKnown": 2,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 5
+          }
+        },
+        "3": {
+          "cantripsKnown": 2,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 6
+          }
+        },
+        "4": {
+          "cantripsKnown": 3,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 7
+          }
+        },
+        "5": {
+          "cantripsKnown": 3,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 9
+          }
+        },
+        "6": {
+          "cantripsKnown": 3,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 10
+          }
+        }
+      }
+    },
+    "shieldProficiency": true,
+    "startingEquipment": [
+      {
+        "gold": 9,
+        "items": [
+          "Leather Armor",
+          "Shield",
+          "Sickle",
+          "Druidic Focus (Quarterstaff)",
+          "Explorer's Pack",
+          "Herbalism Kit"
+        ],
+        "label": "A"
+      },
+      {
+        "gold": 50,
+        "items": [],
+        "label": "B"
+      }
+    ],
+    "toolProficiencies": [
+      {
+        "kind": "fixed",
+        "toolId": "herbalism-kit"
+      }
+    ],
+    "spellcastingAbility": "wis",
+    "weaponProficiencies": [
+      {
+        "kind": "simple"
+      }
+    ],
+    "multiclassProficiencies": {
+      "skillChoice": null,
+      "armorCategories": [
+        "light"
+      ],
+      "shieldProficiency": true,
+      "toolProficiencies": [],
+      "weaponProficiencies": []
+    },
+    "spellcastingGainedAtLevel": 1
+  },
+  {
+    "key": "fighter",
+    "srd": true,
+    "book": "XPHB",
+    "name": "Fighter",
+    "hitDie": 10,
+    "features": [
+      {
+        "key": "fighting-style",
+        "desc": "You gain a Fighting Style feat of your choice. See the Feats section of the character sheet for your selection. Defense, Archery, Great Weapon Fighting, and Two-Weapon Fighting are among the options.",
+        "name": "Fighting Style",
+        "effects": [
+          {
+            "type": "fighting_style_feature"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "second-wind",
+        "desc": "You have a limited well of physical and mental stamina that you can draw on. As a Bonus Action, you can use it to regain Hit Points equal to 1d10 plus your Fighter level.\n\nYou can use this feature twice, and you gain an additional use when you reach Fighter level 4. You regain one expended use when you finish a Short Rest, and you regain all expended uses when you finish a Long Rest.",
+        "name": "Second Wind",
+        "effects": [
+          {
+            "type": "second_wind",
+            "healDice": "1d10"
+          }
+        ],
+        "limitedUses": {
+          "kind": "byLevel",
+          "usesByLevel": {
+            "1": 2,
+            "4": 3
+          }
+        },
+        "actionTiming": "bonus",
+        "restRecovery": "shortOne",
+        "combatSurface": true,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "weapon-mastery",
+        "desc": "Your training with weapons allows you to use the mastery properties of three kinds of Simple or Martial weapons of your choice. Whenever you finish a Long Rest, you can practice weapon drills and change one of those weapon choices.",
+        "name": "Weapon Mastery",
+        "effects": [
+          {
+            "type": "weapon_mastery",
+            "count": 3,
+            "countByLevel": {
+              "4": 4
+            }
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "action-surge",
+        "desc": "You can push yourself beyond your normal limits for a moment. On your turn, you can take one additional action. Once you use this feature, you can't do so again until you finish a Short or Long Rest.",
+        "name": "Action Surge",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "limitedUses": {
+          "kind": "fixed",
+          "uses": 1
+        },
+        "actionTiming": "bonus",
+        "restRecovery": "short",
+        "combatSurface": true,
+        "grantedAtLevel": 2
+      },
+      {
+        "key": "tactical-mind",
+        "desc": "You have a mind for tactics on and off the battlefield. When you fail an ability check, you can expend a use of your Second Wind to roll 1d10 and add the number rolled to the check, potentially turning failure into success. If the check still fails, this use of Second Wind isn't expended.",
+        "name": "Tactical Mind",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 2
+      },
+      {
+        "key": "fighter-subclass",
+        "desc": "You gain a Fighter subclass of your choice.",
+        "name": "Fighter Subclass",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 3
+      },
+      {
+        "key": "ability-score-improvement",
+        "desc": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+        "name": "Ability Score Improvement",
+        "effects": [
+          {
+            "type": "grant_feat"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 4
+      },
+      {
+        "key": "extra-attack",
+        "desc": "You can attack twice instead of once whenever you take the Attack action on your turn.",
+        "name": "Extra Attack",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 5
+      },
+      {
+        "key": "tactical-shift",
+        "desc": "Whenever you activate your Second Wind with a Bonus Action, you can move up to half your Speed without provoking Opportunity Attack.",
+        "name": "Tactical Shift",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 5
+      },
+      {
+        "key": "ability-score-improvement-6",
+        "desc": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+        "name": "Ability Score Improvement",
+        "effects": [
+          {
+            "type": "grant_feat"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 6
+      }
+    ],
+    "casterType": "NONE",
+    "spellSlots": null,
+    "skillChoice": {
+      "count": 2,
+      "options": [
+        "acrobatics",
+        "animalHandling",
+        "athletics",
+        "history",
+        "insight",
+        "intimidation",
+        "persuasion",
+        "perception",
+        "survival"
+      ]
+    },
+    "savingThrows": [
+      "str",
+      "con"
+    ],
+    "primaryAbility": [
+      [
+        "str"
+      ],
+      [
+        "dex"
+      ]
+    ],
+    "armorCategories": [
+      "light",
+      "medium",
+      "heavy"
+    ],
+    "spellProgression": null,
+    "shieldProficiency": true,
+    "startingEquipment": [
+      {
+        "gold": 4,
+        "items": [
+          "Chain Mail",
+          "Greatsword",
+          "Flail",
+          "8 Javelins",
+          "Dungeoneer's Pack"
+        ],
+        "label": "A"
+      },
+      {
+        "gold": 11,
+        "items": [
+          "Studded Leather Armor",
+          "Scimitar",
+          "Shortsword",
+          "Longbow",
+          "20 Arrows",
+          "Quiver",
+          "Dungeoneer's Pack"
+        ],
+        "label": "B"
+      },
+      {
+        "gold": 155,
+        "items": [],
+        "label": "C"
+      }
+    ],
+    "toolProficiencies": [],
+    "spellcastingAbility": null,
+    "weaponProficiencies": [
+      {
+        "kind": "simple"
+      },
+      {
+        "kind": "martial"
+      }
+    ],
+    "multiclassProficiencies": {
+      "skillChoice": null,
+      "armorCategories": [
+        "light",
+        "medium"
+      ],
+      "shieldProficiency": true,
+      "toolProficiencies": [],
+      "weaponProficiencies": [
+        {
+          "kind": "martial"
+        }
+      ]
+    },
+    "spellcastingGainedAtLevel": null
+  },
+  {
+    "key": "monk",
+    "srd": true,
+    "book": "XPHB",
+    "name": "Monk",
+    "hitDie": 8,
+    "features": [
+      {
+        "key": "martial-arts",
+        "desc": "Your practice of martial arts gives you mastery of combat styles that use Unarmed Strikes and Monk weapons, which are the Mace, Quarterstaff, Scimitar, Shortsword, Sickle, Spear, and any Simple Melee weapons.\n\nWhen you use Unarmed Strike or a Monk weapon, you can use Dexterity instead of Strength for the attack and damage rolls.",
+        "name": "Martial Arts",
+        "effects": [
+          {
+            "type": "martial_arts",
+            "diceByLevel": {
+              "1": "1d6",
+              "5": "1d8",
+              "11": "1d10",
+              "17": "1d12"
+            }
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "unarmored-defense",
+        "desc": "While you aren't wearing any armor or wielding a Shield, your base Armor Class equals 10 plus your Dexterity and Wisdom modifiers.",
+        "name": "Unarmored Defense",
+        "effects": [
+          {
+            "type": "unarmored_defense",
+            "abilities": [
+              "wis"
+            ],
+            "disallowShield": true
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "monks-focus",
+        "desc": "Your focus and martial training allow you to harness a well of extraordinary energy within yourself. This energy is represented by Focus Points, which fuel certain Monk features. You have Focus Points equal to your Monk level. You start knowing three such features: Flurry of Blows, Patient Defense, and Step of the Wind.",
+        "name": "Monk's Focus",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "limitedUses": {
+          "kind": "levelTimes",
+          "multiplier": 1
+        },
+        "restRecovery": "short",
+        "combatSurface": true,
+        "grantedAtLevel": 2
+      },
+      {
+        "key": "flurry-of-blows",
+        "desc": "You can expend 1 Focus Point to make two Unarmed Strikes as a Bonus Action.",
+        "name": "Flurry of Blows",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "actionTiming": "bonus",
+        "combatSurface": true,
+        "grantedAtLevel": 2
+      },
+      {
+        "key": "patient-defense",
+        "desc": "You can take the Disengage action as a Bonus Action. Alternatively, you can expend 1 Focus Point to take both the Disengage and the Dodge actions as a Bonus Action.",
+        "name": "Patient Defense",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "actionTiming": "bonus",
+        "combatSurface": true,
+        "grantedAtLevel": 2
+      },
+      {
+        "key": "step-of-the-wind",
+        "desc": "You can take the Dash action as a Bonus Action. Alternatively, you can expend 1 Focus Point to take both the Disengage and Dash actions as a Bonus Action, and your jump distance is doubled for the turn.",
+        "name": "Step of the Wind",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "actionTiming": "bonus",
+        "combatSurface": true,
+        "grantedAtLevel": 2
+      },
+      {
+        "key": "unarmored-movement",
+        "desc": "Your speed increases by 10 feet while you aren't wearing armor or wielding a Shield.",
+        "name": "Unarmored Movement",
+        "effects": [
+          {
+            "type": "unarmored_movement",
+            "bonusFeet": 10
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 2
+      },
+      {
+        "key": "uncanny-metabolism",
+        "desc": "When you roll Initiative, you can regain all expended Focus Points. When you do so, roll your Martial Arts die, and regain a number of Hit Points equal to your Monk level plus the number rolled. Once you use this feature, you can't use it again until you finish a Long Rest.",
+        "name": "Uncanny Metabolism",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "limitedUses": {
+          "kind": "fixed",
+          "uses": 1
+        },
+        "restRecovery": "long",
+        "combatSurface": true,
+        "grantedAtLevel": 2
+      },
+      {
+        "key": "monk-subclass",
+        "desc": "You gain a Monk subclass of your choice.",
+        "name": "Monk Subclass",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 3
+      },
+      {
+        "key": "deflect-attacks",
+        "desc": "When an attack roll hits you and its damage includes Bludgeoning, Piercing, or Slashing damage, you can take a Reaction to reduce the attack's total damage against you. The reduction equals 1d10 plus your Dexterity modifier and Monk level.",
+        "name": "Deflect Attacks",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "actionTiming": "reaction",
+        "combatSurface": true,
+        "grantedAtLevel": 3
+      },
+      {
+        "key": "slow-fall",
+        "desc": "You can take a Reaction when you fall to reduce any damage you take from the fall by an amount equal to five times your Monk level.",
+        "name": "Slow Fall",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "actionTiming": "reaction",
+        "combatSurface": true,
+        "grantedAtLevel": 4
+      },
+      {
+        "key": "ability-score-improvement",
+        "desc": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+        "name": "Ability Score Improvement",
+        "effects": [
+          {
+            "type": "grant_feat"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 4
+      },
+      {
+        "key": "extra-attack",
+        "desc": "You can attack twice instead of once whenever you take the Attack action on your turn.",
+        "name": "Extra Attack",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 5
+      },
+      {
+        "key": "stunning-strike",
+        "desc": "Once per turn when you hit a creature with a Monk weapon or an Unarmed Strike, you can expend 1 Focus Point to attempt a stunning strike. The target must make a Constitution saving throw. On a failed save, the target has the Stunned condition until the start of your next turn. On a successful save, the target's Speed is halved until the start of your next turn, and the next attack roll made against the target before then has Advantage.",
+        "name": "Stunning Strike",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 5
+      },
+      {
+        "key": "empowered-strikes",
+        "desc": "Whenever you deal damage with your Unarmed Strike, it can deal your choice of Force damage or its normal damage type.",
+        "name": "Empowered Strikes",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 6
+      },
+      {
+        "key": "unarmored-movement-6",
+        "desc": "Your speed increases by 15 feet while you aren't wearing armor or wielding a Shield.",
+        "name": "Unarmored Movement",
+        "effects": [
+          {
+            "type": "unarmored_movement",
+            "bonusFeet": 15
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 6
+      }
+    ],
+    "casterType": "NONE",
+    "spellSlots": null,
+    "skillChoice": {
+      "count": 2,
+      "options": [
+        "acrobatics",
+        "athletics",
+        "history",
+        "insight",
+        "religion",
+        "stealth"
+      ]
+    },
+    "savingThrows": [
+      "str",
+      "dex"
+    ],
+    "primaryAbility": [
+      [
+        "dex",
+        "wis"
+      ]
+    ],
+    "armorCategories": [],
+    "spellProgression": null,
+    "shieldProficiency": false,
+    "startingEquipment": [
+      {
+        "gold": 11,
+        "items": [
+          "Spear",
+          "5 Daggers",
+          "Artisan's Tools or Musical Instrument",
+          "Explorer's Pack"
+        ],
+        "label": "A"
+      },
+      {
+        "gold": 50,
+        "items": [],
+        "label": "B"
+      }
+    ],
+    "toolProficiencies": [
+      {
+        "kind": "choose",
+        "count": 1,
+        "categories": [
+          "artisan",
+          "musicalInstrument"
+        ]
+      }
+    ],
+    "spellcastingAbility": null,
+    "weaponProficiencies": [
+      {
+        "kind": "simple"
+      },
+      {
+        "kind": "martialWithAnyProperty",
+        "properties": [
+          "Light"
+        ]
+      }
+    ],
+    "multiclassProficiencies": {
+      "skillChoice": null,
+      "armorCategories": [],
+      "shieldProficiency": false,
+      "toolProficiencies": [],
+      "weaponProficiencies": []
+    },
+    "spellcastingGainedAtLevel": null
+  },
+  {
+    "key": "paladin",
+    "srd": true,
+    "book": "XPHB",
+    "name": "Paladin",
+    "hitDie": 10,
+    "features": [
+      {
+        "key": "lay-on-hands",
+        "desc": "Your blessed touch can heal wounds. You have a pool of healing power that replenishes when you finish a Long Rest. With that pool, you can restore a total number of Hit Points equal to five times your Paladin level.\n\nAs a Bonus Action, you can touch a creature and draw power from the pool to restore a number of Hit Points to that creature, up to the maximum amount remaining in your pool.",
+        "name": "Lay on Hands",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "limitedUses": {
+          "kind": "levelTimes",
+          "multiplier": 5
+        },
+        "actionTiming": "bonus",
+        "combatSurface": true,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "weapon-mastery",
+        "desc": "Your training with weapons allows you to use the mastery properties of two kinds of weapons of your choice with which you have proficiency, such as Longswords and Javelins.\n\nWhenever you finish a Long Rest, you can change the kinds of weapons you chose.",
+        "name": "Weapon Mastery",
+        "effects": [
+          {
+            "type": "weapon_mastery",
+            "count": 2
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "spellcasting",
+        "desc": "You have learned to cast spells through prayer and devotion. See the Spells section of this sheet for your spellcasting ability, attack bonus, save DC, and spell slots.",
+        "name": "Spellcasting",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "fighting-style",
+        "desc": "You gain a Fighting Style feat of your choice. Defense, Great Weapon Fighting, and Two-Weapon Fighting are among the options.",
+        "name": "Fighting Style",
+        "effects": [
+          {
+            "type": "fighting_style_feature"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 2
+      },
+      {
+        "key": "paladins-smite",
+        "desc": "You always have the Divine Smite spell prepared. You can cast it once without expending a spell slot, and you regain the ability to do so when you finish a Long Rest.",
+        "name": "Paladin's Smite",
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Divine Smite"
+            ]
+          }
+        ],
+        "limitedUses": {
+          "kind": "fixed",
+          "uses": 1
+        },
+        "actionTiming": "bonus",
+        "restRecovery": "long",
+        "combatSurface": true,
+        "grantedAtLevel": 2
+      },
+      {
+        "key": "channel-divinity",
+        "desc": "You can channel divine energy directly from the Outer Planes, using it to fuel magical effects. You start with one such effect: Divine Sense.\n\nDivine Sense. As a Bonus Action, you can open your awareness to detect Celestials, Fiends, and Undead. For the next 10 minutes or until you have the Incapacitated condition, you know the location of any creature of those types within 60 feet of yourself, and you know its creature type. Within the same radius, you also detect the presence of any place or object that has been consecrated or desecrated, as with the Hallow spell.\n\nOther Paladin features give additional Channel Divinity effect options. Each time you use this class's Channel Divinity, you choose which effect to create.\n\nYou can use this class's Channel Divinity twice. You regain one expended use when you finish a Short Rest, and you regain all expended uses when you finish a Long Rest.",
+        "name": "Channel Divinity",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "limitedUses": {
+          "kind": "fixed",
+          "uses": 2
+        },
+        "actionTiming": "bonus",
+        "restRecovery": "shortOne",
+        "combatSurface": true,
+        "grantedAtLevel": 3
+      },
+      {
+        "key": "ability-score-improvement",
+        "desc": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+        "name": "Ability Score Improvement",
+        "effects": [
+          {
+            "type": "grant_feat"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 4
+      },
+      {
+        "key": "extra-attack",
+        "desc": "You can attack twice instead of once whenever you take the Attack action on your turn.",
+        "name": "Extra Attack",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 5
+      },
+      {
+        "key": "faithful-steed",
+        "desc": "You can call on the aid of an otherworldly steed. You always have the Find Steed spell prepared.\n\nYou can also cast the spell once without expending a spell slot, and you regain the ability to do so when you finish a Long Rest.",
+        "name": "Faithful Steed",
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Find Steed"
+            ]
+          }
+        ],
+        "limitedUses": {
+          "kind": "fixed",
+          "uses": 1
+        },
+        "restRecovery": "long",
+        "combatSurface": true,
+        "grantedAtLevel": 5
+      },
+      {
+        "key": "aura-of-protection",
+        "desc": "You radiate a protective, unseeable aura in a 10-foot Emanation that originates from you. The aura is inactive while you have the Incapacitated condition.\n\nYou and your allies in the aura gain a bonus to saving throws equal to your Charisma modifier (minimum bonus of +1).\n\nIf another Paladin is present, a creature can benefit from only one Aura of Protection at a time; the creature chooses which aura while in them.",
+        "name": "Aura of Protection",
+        "effects": [
+          {
+            "type": "saving_throw_bonus",
+            "ability": "cha",
+            "minimum": 1
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 6
+      }
+    ],
+    "casterType": "HALF",
+    "spellSlots": {
+      "byCharacterLevel": {
+        "1": [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "2": [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "3": [
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "4": [
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "5": [
+          4,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "6": [
+          4,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "skillChoice": {
+      "count": 2,
+      "options": [
+        "athletics",
+        "insight",
+        "intimidation",
+        "medicine",
+        "persuasion",
+        "religion"
+      ]
+    },
+    "savingThrows": [
+      "wis",
+      "cha"
+    ],
+    "primaryAbility": [
+      [
+        "str",
+        "cha"
+      ]
+    ],
+    "armorCategories": [
+      "light",
+      "medium",
+      "heavy"
+    ],
+    "spellProgression": {
+      "listMode": "prepared",
+      "byCharacterLevel": {
+        "1": {
+          "cantripsKnown": 0,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 2
+          }
+        },
+        "2": {
+          "cantripsKnown": 0,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 3
+          }
+        },
+        "3": {
+          "cantripsKnown": 0,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 4
+          }
+        },
+        "4": {
+          "cantripsKnown": 0,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 5
+          }
+        },
+        "5": {
+          "cantripsKnown": 0,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 6
+          }
+        },
+        "6": {
+          "cantripsKnown": 0,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 6
+          }
+        }
+      }
+    },
+    "shieldProficiency": true,
+    "startingEquipment": [
+      {
+        "gold": 150,
+        "items": [],
+        "label": "B"
+      }
+    ],
+    "toolProficiencies": [],
+    "spellcastingAbility": "cha",
+    "weaponProficiencies": [
+      {
+        "kind": "simple"
+      },
+      {
+        "kind": "martial"
+      }
+    ],
+    "multiclassProficiencies": {
+      "skillChoice": null,
+      "armorCategories": [
+        "light",
+        "medium"
+      ],
+      "shieldProficiency": true,
+      "toolProficiencies": [],
+      "weaponProficiencies": [
+        {
+          "kind": "martial"
+        }
+      ]
+    },
+    "spellcastingGainedAtLevel": 1
+  },
+  {
+    "key": "ranger",
+    "srd": true,
+    "book": "XPHB",
+    "name": "Ranger",
+    "hitDie": 10,
+    "features": [
+      {
+        "key": "favored-enemy",
+        "desc": "You always have the Hunter's Mark spell prepared. You can cast it twice without expending a spell slot, and you regain all expended uses of this ability when you finish a Long Rest.\n\nThe number of times you can cast the spell without a spell slot increases when you reach certain Ranger levels, as shown in the Favored Enemy column of the Ranger Features table.",
+        "name": "Favored Enemy",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "limitedUses": {
+          "kind": "byLevel",
+          "usesByLevel": {
+            "1": 2,
+            "5": 3
+          }
+        },
+        "combatSurface": false,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "weapon-mastery",
+        "desc": "Your training with weapons allows you to use the mastery properties of two kinds of weapons of your choice with which you have proficiency, such as Longbows and Shortswords.\n\nWhenever you finish a Long Rest, you can change the kinds of weapons you chose.",
+        "name": "Weapon Mastery",
+        "effects": [
+          {
+            "type": "weapon_mastery",
+            "count": 2
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "spellcasting",
+        "desc": "You have learned to cast spells through your connection to nature. See the Spells section of this sheet for your spellcasting ability, attack bonus, save DC, and spell slots.",
+        "name": "Spellcasting",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "deft-explorer",
+        "desc": "You are an expert at navigating the natural world. You gain Expertise in one skill of your choice from the Ranger skill list.",
+        "name": "Deft Explorer",
+        "effects": [
+          {
+            "type": "expertise",
+            "count": 1
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 2
+      },
+      {
+        "key": "fighting-style",
+        "desc": "You gain a Fighting Style feat of your choice. Archery, Defense, and Two-Weapon Fighting are among the options.",
+        "name": "Fighting Style",
+        "effects": [
+          {
+            "type": "fighting_style_feature"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 2
+      },
+      {
+        "key": "ability-score-improvement",
+        "desc": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+        "name": "Ability Score Improvement",
+        "effects": [
+          {
+            "type": "grant_feat"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 4
+      },
+      {
+        "key": "extra-attack",
+        "desc": "You can attack twice instead of once whenever you take the Attack action on your turn.",
+        "name": "Extra Attack",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 5
+      },
+      {
+        "key": "roving",
+        "desc": "Your Speed increases by 10 feet while you aren't wearing Heavy armor. You also have a Climb Speed and a Swim Speed equal to your Speed.",
+        "name": "Roving",
+        "effects": [
+          {
+            "type": "roving"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 6
+      }
+    ],
+    "casterType": "HALF",
+    "spellSlots": {
+      "byCharacterLevel": {
+        "1": [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "2": [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "3": [
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "4": [
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "5": [
+          4,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "6": [
+          4,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "skillChoice": {
+      "count": 3,
+      "options": [
+        "animalHandling",
+        "athletics",
+        "insight",
+        "investigation",
+        "nature",
+        "perception",
+        "stealth",
+        "survival"
+      ]
+    },
+    "savingThrows": [
+      "str",
+      "dex"
+    ],
+    "primaryAbility": [
+      [
+        "dex",
+        "wis"
+      ]
+    ],
+    "armorCategories": [
+      "light",
+      "medium"
+    ],
+    "spellProgression": {
+      "listMode": "prepared",
+      "byCharacterLevel": {
+        "1": {
+          "cantripsKnown": 0,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 2
+          }
+        },
+        "2": {
+          "cantripsKnown": 0,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 3
+          }
+        },
+        "3": {
+          "cantripsKnown": 0,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 4
+          }
+        },
+        "4": {
+          "cantripsKnown": 0,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 5
+          }
+        },
+        "5": {
+          "cantripsKnown": 0,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 6
+          }
+        },
+        "6": {
+          "cantripsKnown": 0,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 6
+          }
+        }
+      }
+    },
+    "shieldProficiency": true,
+    "startingEquipment": [
+      {
+        "gold": 150,
+        "items": [],
+        "label": "B"
+      }
+    ],
+    "toolProficiencies": [],
+    "spellcastingAbility": "wis",
+    "weaponProficiencies": [
+      {
+        "kind": "simple"
+      },
+      {
+        "kind": "martial"
+      }
+    ],
+    "multiclassProficiencies": {
+      "skillChoice": {
+        "count": 1,
+        "options": [
+          "animalHandling",
+          "athletics",
+          "insight",
+          "investigation",
+          "nature",
+          "perception",
+          "stealth",
+          "survival"
+        ]
+      },
+      "armorCategories": [
+        "light",
+        "medium"
+      ],
+      "shieldProficiency": true,
+      "toolProficiencies": [],
+      "weaponProficiencies": [
+        {
+          "kind": "martial"
+        }
+      ]
+    },
+    "spellcastingGainedAtLevel": 1
+  },
+  {
+    "key": "rogue",
+    "srd": true,
+    "book": "XPHB",
+    "name": "Rogue",
+    "hitDie": 8,
+    "features": [
+      {
+        "key": "expertise",
+        "desc": "You gain Expertise in two of your skill proficiencies of your choice. Expertise doubles your Proficiency Bonus for ability checks using those skills.",
+        "name": "Expertise",
+        "effects": [
+          {
+            "type": "expertise",
+            "count": 2
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "sneak-attack",
+        "desc": "You know how to strike subtly and exploit a foe's distraction. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack roll if you have Advantage on the roll and the attack uses a Finesse or a Ranged weapon. The extra damage's type is the same as the weapon's type.\n\nYou don't need Advantage on the attack roll if at least one of your allies is within 5 feet of the target, the ally doesn't have the Incapacitated condition, and you don't have Disadvantage on the attack roll.",
+        "name": "Sneak Attack",
+        "effects": [
+          {
+            "type": "sneak_attack",
+            "diceByLevel": {
+              "1": "1d6",
+              "3": "2d6",
+              "5": "3d6"
+            }
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "thieves-cant",
+        "desc": "You know Thieves' Cant and one other language of your choice, which you choose when you select this class.",
+        "name": "Thieves' Cant",
+        "effects": [
+          {
+            "type": "grant_languages",
+            "languages": [
+              "thieves-cant"
+            ]
+          },
+          {
+            "type": "grant_language_picks",
+            "count": 1
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "weapon-mastery",
+        "desc": "Your training with weapons allows you to use the mastery properties of two kinds of weapons of your choice with which you have proficiency, such as Daggers and Shortbows.\n\nWhenever you finish a Long Rest, you can change the kinds of weapons you chose.",
+        "name": "Weapon Mastery",
+        "effects": [
+          {
+            "type": "weapon_mastery",
+            "count": 2
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "cunning-action",
+        "desc": "Your quick thinking and agility allow you to move and act quickly. On your turn, you can take the Dash, Disengage, or Hide action as a Bonus Action.",
+        "name": "Cunning Action",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "actionTiming": "bonus",
+        "combatSurface": true,
+        "grantedAtLevel": 2
+      },
+      {
+        "key": "rogue-subclass",
+        "desc": "You gain a Rogue subclass of your choice.",
+        "name": "Rogue Subclass",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 3
+      },
+      {
+        "key": "steady-aim",
+        "desc": "As a Bonus Action, you give yourself Advantage on your next attack roll on the current turn. You can use this feature only if you haven't moved during this turn, and after you use it, your Speed is 0 until the end of the current turn.",
+        "name": "Steady Aim",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "actionTiming": "bonus",
+        "combatSurface": true,
+        "grantedAtLevel": 3
+      },
+      {
+        "key": "ability-score-improvement",
+        "desc": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+        "name": "Ability Score Improvement",
+        "effects": [
+          {
+            "type": "grant_feat"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 4
+      },
+      {
+        "key": "cunning-strike",
+        "desc": "You've developed cunning ways to use your Sneak Attack. When you deal Sneak Attack damage, you can add one of the following Cunning Strike effects. Each effect has a die cost, which is the number of Sneak Attack damage dice you must forgo to add the effect. You remove the die before rolling, and the effect occurs immediately after the attack's damage is dealt. For example, if you add the Poison effect, remove 1d6 from the Sneak Attack's damage before rolling.\n\nIf a Cunning Strike effect requires a saving throw, the DC equals 8 plus your Dexterity modifier and Proficiency Bonus.",
+        "name": "Cunning Strike",
+        "effects": [
+          {
+            "type": "choose_feature_option",
+            "options": [
+              {
+                "key": "poison",
+                "desc": "Cost: 1d6. You add a toxin to your strike, forcing the target to make a Constitution saving throw. On a failed save, the target has the Poisoned condition for 1 minute. At the end of each of its turns, the Poisoned target repeats the save, ending the effect on itself on a success.\n\nTo use this effect, you must have a Poisoner's Kit on your person.",
+                "name": "Poison"
+              },
+              {
+                "key": "trip",
+                "desc": "Cost: 1d6. If the target is Large or smaller, it must succeed on a Dexterity saving throw or have the Prone condition.",
+                "name": "Trip"
+              },
+              {
+                "key": "withdraw",
+                "desc": "Cost: 1d6. Immediately after the attack, you move up to half your Speed without provoking Opportunity Attack.",
+                "name": "Withdraw"
+              }
+            ],
+            "choiceKey": "cunning-strike",
+            "uiSurface": "reference"
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 5
+      },
+      {
+        "key": "uncanny-dodge",
+        "desc": "When an attacker that you can see hits you with an attack roll, you can take a Reaction to halve the attack's damage against you (round down).",
+        "name": "Uncanny Dodge",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "actionTiming": "reaction",
+        "combatSurface": true,
+        "grantedAtLevel": 5
+      },
+      {
+        "key": "expertise-6",
+        "desc": "You gain Expertise in two of your Skill Proficiencies of your choice.",
+        "name": "Expertise",
+        "effects": [
+          {
+            "type": "expertise",
+            "count": 2
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 6
+      }
+    ],
+    "casterType": "NONE",
+    "spellSlots": null,
+    "skillChoice": {
+      "count": 4,
+      "options": [
+        "acrobatics",
+        "athletics",
+        "deception",
+        "insight",
+        "intimidation",
+        "investigation",
+        "perception",
+        "persuasion",
+        "sleightOfHand",
+        "stealth"
+      ]
+    },
+    "savingThrows": [
+      "dex",
+      "int"
+    ],
+    "primaryAbility": [
+      [
+        "dex"
+      ]
+    ],
+    "armorCategories": [
+      "light"
+    ],
+    "spellProgression": null,
+    "shieldProficiency": false,
+    "startingEquipment": [
+      {
+        "gold": 8,
+        "items": [
+          "Leather Armor",
+          "2 Daggers",
+          "Shortsword",
+          "Shortbow",
+          "20 Arrows",
+          "Quiver",
+          "Thieves' Tools",
+          "Burglar's Pack"
+        ],
+        "label": "A"
+      },
+      {
+        "gold": 100,
+        "items": [],
+        "label": "B"
+      }
+    ],
+    "toolProficiencies": [
+      {
+        "kind": "fixed",
+        "toolId": "thieves-tools"
+      }
+    ],
+    "spellcastingAbility": null,
+    "weaponProficiencies": [
+      {
+        "kind": "simple"
+      },
+      {
+        "kind": "martialWithAnyProperty",
+        "properties": [
+          "Finesse",
+          "Light"
+        ]
+      }
+    ],
+    "multiclassProficiencies": {
+      "skillChoice": {
+        "count": 1,
+        "options": [
+          "acrobatics",
+          "athletics",
+          "deception",
+          "insight",
+          "intimidation",
+          "investigation",
+          "perception",
+          "persuasion",
+          "sleightOfHand",
+          "stealth"
+        ]
+      },
+      "armorCategories": [
+        "light"
+      ],
+      "shieldProficiency": false,
+      "toolProficiencies": [
+        {
+          "kind": "fixed",
+          "toolId": "thieves-tools"
+        }
+      ],
+      "weaponProficiencies": []
+    },
+    "spellcastingGainedAtLevel": null
+  },
+  {
+    "key": "sorcerer",
+    "srd": true,
+    "book": "XPHB",
+    "name": "Sorcerer",
+    "hitDie": 6,
+    "features": [
+      {
+        "key": "innate-sorcery",
+        "desc": "An event in your past left an indelible mark on you, infusing you with arcane magic. As a Bonus Action, you can unleash that magic for 1 minute, during which you gain Advantage on spell attack rolls and your spell save DC increases by 1.\n\nYou can use this feature twice, and you regain all expended uses when you finish a Long Rest.",
+        "name": "Innate Sorcery",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "limitedUses": {
+          "kind": "fixed",
+          "uses": 2
+        },
+        "actionTiming": "bonus",
+        "restRecovery": "long",
+        "combatSurface": true,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "spellcasting",
+        "desc": "An event in your past left an indelible mark on you, infusing you with arcane magic. See the Spells section of this sheet for your spellcasting ability, attack bonus, save DC, and spell slots.",
+        "name": "Spellcasting",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "font-of-magic",
+        "desc": "You can tap into the wellspring of magic within yourself. This wellspring is represented by Sorcery Points, which allow you to create a variety of magical effects. You have Sorcery Points equal to your Sorcerer level. You can't have more Sorcery Points than that number. You regain all expended Sorcery Points when you finish a Long Rest.\n\nConverting Spell Slots to Sorcery Points. You can expend a spell slot to gain a number of Sorcery Points equal to the slot's level (no action required).\n\nCreating Spell Slots. As a Bonus Action, you can transform unexpended Sorcery Points into one spell slot. The Creating Spell Slots table shows the cost of creating a spell slot of a given level, and it lists the minimum Sorcerer level you must be to create a slot. You can create a spell slot no higher than level 5.\n\nAny spell slot you create with this feature vanishes when you finish a Long Rest.",
+        "name": "Font of Magic",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "limitedUses": {
+          "kind": "levelTimes",
+          "multiplier": 1
+        },
+        "restRecovery": "long",
+        "combatSurface": true,
+        "grantedAtLevel": 2,
+        "trackerSurface": "spells"
+      },
+      {
+        "key": "metamagic",
+        "desc": "Because your magic flows from within, you can alter your spells to suit your needs; you gain two Metamagic options of your choice from the Metamagic Options listed below. You use the chosen options to temporarily modify spells you cast. To use an option, you must spend the number of Sorcery Points that it costs.\n\nYou can use only one Metamagic option on a spell when you cast it unless otherwise noted in one of those options.",
+        "name": "Metamagic",
+        "effects": [
+          {
+            "type": "choose_feature_option",
+            "count": 2,
+            "options": [
+              {
+                "key": "careful-spell",
+                "desc": "Cost: 1 Sorcery Point\n\nWhen you cast a spell that forces other creatures to make a saving throw, you can protect some of those creatures from the spell's full force. To do so, spend 1 Sorcery Point and choose a number of those creatures up to your Charisma modifier (minimum of one creature). A chosen creature automatically succeeds on its saving throw against the spell, and it takes no damage if it would normally take half damage on a successful save.",
+                "name": "Careful Spell"
+              },
+              {
+                "key": "distant-spell",
+                "desc": "Cost: 1 Sorcery Point\n\nWhen you cast a spell that has a range of at least 5 feet, you can spend 1 Sorcery Point to double the spell's range. Or when you cast a spell that has a range of Touch, you can spend 1 Sorcery Point to make the spell's range 30 feet.",
+                "name": "Distant Spell"
+              },
+              {
+                "key": "empowered-spell",
+                "desc": "Cost: 1 Sorcery Point\n\nWhen you roll damage for a spell, you can spend 1 Sorcery Point to reroll a number of the damage dice up to your Charisma modifier (minimum of one), and you must use the new rolls.\n\nYou can use Empowered Spell even if you've already used a different Metamagic option during the casting of the spell.",
+                "name": "Empowered Spell"
+              },
+              {
+                "key": "extended-spell",
+                "desc": "Cost: 1 Sorcery Point\n\nWhen you cast a spell that has a duration of 1 minute or longer, you can spend 1 Sorcery Point to double its duration to a maximum duration of 24 hours.\n\nIf the affected spell requires Concentration, you have Advantage on any saving throw you make to maintain that Concentration.",
+                "name": "Extended Spell"
+              },
+              {
+                "key": "heightened-spell",
+                "desc": "Cost: 2 Sorcery Points\n\nWhen you cast a spell that forces a creature to make a saving throw, you can spend 2 Sorcery Points to give one target of the spell Disadvantage on saves against the spell.",
+                "name": "Heightened Spell"
+              },
+              {
+                "key": "quickened-spell",
+                "desc": "Cost: 2 Sorcery Points\n\nWhen you cast a spell that has a casting time of an action, you can spend 2 Sorcery Points to change the casting time to a Bonus Action for this casting. You can't modify a spell in this way if you've already cast a level 1+ spell on the current turn, nor can you cast a level 1+ spell on this turn after modifying a spell in this way.",
+                "name": "Quickened Spell"
+              },
+              {
+                "key": "seeking-spell",
+                "desc": "Cost: 1 Sorcery Point\n\nIf you make an attack roll for a spell and miss, you can spend 1 Sorcery Point to reroll the d20, and you must use the new roll.\n\nYou can use Seeking Spell even if you've already used a different Metamagic option during the casting of the spell.",
+                "name": "Seeking Spell"
+              },
+              {
+                "key": "subtle-spell",
+                "desc": "Cost: 1 Sorcery Point\n\nWhen you cast a spell, you can spend 1 Sorcery Point to cast it without any Verbal, Somatic, or Material components, except Material components that are consumed by the spell or that have a cost specified in the spell.",
+                "name": "Subtle Spell"
+              },
+              {
+                "key": "transmuted-spell",
+                "desc": "Cost: 1 Sorcery Point\n\nWhen you cast a spell that deals a type of damage from the following list, you can spend 1 Sorcery Point to change that damage type to one of the other listed types: Acid, Cold, Fire, Lightning, Poison, Thunder.",
+                "name": "Transmuted Spell"
+              },
+              {
+                "key": "twinned-spell",
+                "desc": "Cost: 1 Sorcery Point\n\nWhen you cast a spell, such as Charm Person, that can be cast with a higher-level spell slot to target an additional creature, you can spend 1 Sorcery Point to increase the spell's effective level by 1.",
+                "name": "Twinned Spell"
+              }
+            ],
+            "choiceKey": "metamagic",
+            "uiSurface": "spells"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 2
+      },
+      {
+        "key": "sorcerer-subclass",
+        "desc": "You gain a Sorcerer subclass of your choice.",
+        "name": "Sorcerer Subclass",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 3
+      },
+      {
+        "key": "ability-score-improvement",
+        "desc": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+        "name": "Ability Score Improvement",
+        "effects": [
+          {
+            "type": "grant_feat"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 4
+      },
+      {
+        "key": "sorcerous-restoration",
+        "desc": "When you finish a Short Rest, you can regain expended Sorcery Points, but no more than a number equal to half your Sorcerer level (round down). Once you use this feature, you can't do so again until you finish a Long Rest.",
+        "name": "Sorcerous Restoration",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "limitedUses": {
+          "kind": "fixed",
+          "uses": 1
+        },
+        "restRecovery": "long",
+        "combatSurface": false,
+        "grantedAtLevel": 5
+      }
+    ],
+    "casterType": "FULL",
+    "spellSlots": {
+      "byCharacterLevel": {
+        "1": [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "2": [
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "3": [
+          4,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "4": [
+          4,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "5": [
+          4,
+          3,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "6": [
+          4,
+          3,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "skillChoice": {
+      "count": 2,
+      "options": [
+        "arcana",
+        "deception",
+        "insight",
+        "intimidation",
+        "persuasion",
+        "religion"
+      ]
+    },
+    "savingThrows": [
+      "con",
+      "cha"
+    ],
+    "primaryAbility": [
+      [
+        "cha"
+      ]
+    ],
+    "armorCategories": [],
+    "spellProgression": {
+      "listMode": "known",
+      "byCharacterLevel": {
+        "1": {
+          "spellsKnown": 2,
+          "cantripsKnown": 4
+        },
+        "2": {
+          "spellsKnown": 4,
+          "cantripsKnown": 4
+        },
+        "3": {
+          "spellsKnown": 6,
+          "cantripsKnown": 4
+        },
+        "4": {
+          "spellsKnown": 7,
+          "cantripsKnown": 5
+        },
+        "5": {
+          "spellsKnown": 9,
+          "cantripsKnown": 5
+        },
+        "6": {
+          "spellsKnown": 10,
+          "cantripsKnown": 5
+        }
+      }
+    },
+    "shieldProficiency": false,
+    "startingEquipment": [
+      {
+        "gold": 50,
+        "items": [],
+        "label": "B"
+      }
+    ],
+    "toolProficiencies": [],
+    "spellcastingAbility": "cha",
+    "weaponProficiencies": [
+      {
+        "kind": "simple"
+      }
+    ],
+    "multiclassProficiencies": {
+      "skillChoice": null,
+      "armorCategories": [],
+      "shieldProficiency": false,
+      "toolProficiencies": [],
+      "weaponProficiencies": []
+    },
+    "spellcastingGainedAtLevel": 1
+  },
+  {
+    "key": "warlock",
+    "srd": true,
+    "book": "XPHB",
+    "name": "Warlock",
+    "hitDie": 8,
+    "features": [
+      {
+        "key": "pact-magic",
+        "desc": "Your arcane research and the magic bestowed on you by your patron have given you facility with spells. See the Spells section of this sheet for your spellcasting ability, attack bonus, save DC, and spell slots.",
+        "name": "Pact Magic",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "eldritch-invocations",
+        "desc": "You have unearthed Eldritch Invocations, pieces of forbidden knowledge that imbue you with an abiding magical ability or other lessons. You gain one invocation of your choice, such as Pact of the Tome.",
+        "name": "Eldritch Invocations",
+        "effects": [
+          {
+            "type": "choose_feature_option",
+            "options": [
+              {
+                "key": "armor-of-shadows",
+                "desc": "You can cast Mage Armor on yourself without expending a spell slot.",
+                "name": "Armor of Shadows",
+                "spellNames": [
+                  "Mage Armor"
+                ]
+              },
+              {
+                "key": "eldritch-mind",
+                "desc": "You have Advantage on Constitution saving throws that you make to maintain Concentration.",
+                "name": "Eldritch Mind"
+              },
+              {
+                "key": "pact-of-the-blade",
+                "desc": "As a Bonus Action, you can conjure a pact weapon in your hand\u2014a Simple or Martial Melee weapon of your choice with which you bond\u2014or create a bond with a magic weapon you touch; you can't bond with a magic weapon if someone else is attuned to it or another Warlock is bonded with it. Until the bond ends, you have proficiency with the weapon, and you can use it as a Spellcasting Focus.\n\nWhenever you attack with the bonded weapon, you can use your Charisma modifier for the attack and damage rolls instead of using Strength or Dexterity; and you can cause the weapon to deal Necrotic, Psychic, or Radiant damage or its normal damage type.\n\nYour bond with the weapon ends if you use this feature's Bonus Action again, if the weapon is more than 5 feet away from you for 1 minute or more, or if you die. A conjured weapon disappears when the bond ends.",
+                "name": "Pact of the Blade",
+                "actionTiming": "bonus"
+              },
+              {
+                "key": "pact-of-the-chain",
+                "desc": "You learn the Find Familiar spell and can cast it as a Magic action without expending a spell slot.\n\nWhen you cast the spell, you choose one of the normal forms for your familiar or one of the following special forms: Imp, Pseudodragon, Quasit, Skeleton, Slaad Tadpole, Sphinx of Wonder, Sprite, or Venomous Snake.\n\nAdditionally, when you take the Attack action, you can forgo one of your own attacks to allow your familiar to make one attack of its own with its Reaction.",
+                "name": "Pact of the Chain",
+                "spellNames": [
+                  "Find Familiar"
+                ]
+              },
+              {
+                "key": "pact-of-the-tome",
+                "desc": "Stitching together strands of shadow, you conjure forth a book in your hand at the end of a Short or Long Rest. This Book of Shadows (you determine its appearance) contains eldritch magic that only you can access, granting you the benefits below. The book disappears if you conjure another book with this feature or if you die.\n\nCantrips and Rituals. When the book appears, choose three cantrips, and choose two level 1 spells that have the Ritual tag. The spells can be from any class's spell list, and they must be spells you don't already have prepared. While the book is on your person, you have the chosen spells prepared, and they function as Warlock spells for you.\n\nSpellcasting Focus. You can use the book as a Spellcasting Focus.",
+                "name": "Pact of the Tome"
+              },
+              {
+                "key": "agonizing-blast",
+                "desc": "Choose one of your known Warlock cantrips that deals damage. You can add your Charisma modifier to that spell's damage rolls.\n\nRepeatable. You can gain this invocation more than once. Each time you do so, choose a different eligible cantrip.",
+                "name": "Agonizing Blast",
+                "minLevel": 2,
+                "repeatable": true,
+                "cantripChoiceKey": "agonizing-blast"
+              },
+              {
+                "key": "devils-sight",
+                "desc": "You can see normally in Dim Light and Darkness\u2014both magical and nonmagical\u2014within 120 feet of yourself.",
+                "name": "Devil's Sight",
+                "minLevel": 2
+              },
+              {
+                "key": "eldritch-spear",
+                "desc": "Choose one of your known Warlock cantrips that deals damage and has a range of 10+ feet. When you cast that spell, its range increases by a number of feet equal to 30 times your Warlock level.\n\nRepeatable. You can gain this invocation more than once. Each time you do so, choose a different eligible cantrip.",
+                "name": "Eldritch Spear",
+                "minLevel": 2,
+                "repeatable": true,
+                "cantripChoiceKey": "eldritch-spear"
+              },
+              {
+                "key": "fiendish-vigor",
+                "desc": "You can cast False Life on yourself without expending a spell slot. When you cast the spell with this feature, you don't roll the die for the Temporary Hit Points; you automatically get the highest number on the die.",
+                "name": "Fiendish Vigor",
+                "minLevel": 2,
+                "spellNames": [
+                  "False Life"
+                ]
+              },
+              {
+                "key": "lessons-of-the-first-ones",
+                "desc": "You have received knowledge from an elder entity of the multiverse, allowing you to gain one Origin feat of your choice.\n\nRepeatable. You can gain this invocation more than once. Each time you do so, choose a different Origin feat.",
+                "name": "Lessons of the First Ones",
+                "minLevel": 2,
+                "repeatable": true
+              },
+              {
+                "key": "mask-of-many-faces",
+                "desc": "You can cast Disguise Self without expending a spell slot.",
+                "name": "Mask of Many Faces",
+                "minLevel": 2,
+                "spellNames": [
+                  "Disguise Self"
+                ]
+              },
+              {
+                "key": "misty-visions",
+                "desc": "You can cast Silent Image without expending a spell slot.",
+                "name": "Misty Visions",
+                "minLevel": 2,
+                "spellNames": [
+                  "Silent Image"
+                ]
+              },
+              {
+                "key": "otherworldly-leap",
+                "desc": "You can cast Jump on yourself without expending a spell slot.",
+                "name": "Otherworldly Leap",
+                "minLevel": 2,
+                "spellNames": [
+                  "Jump"
+                ]
+              },
+              {
+                "key": "repelling-blast",
+                "desc": "Choose one of your known Warlock cantrips that requires an attack roll. When you hit a Large or smaller creature with that cantrip, you can push the creature up to 10 feet straight away from you.\n\nRepeatable. You can gain this invocation more than once. Each time you do so, choose a different eligible cantrip.",
+                "name": "Repelling Blast",
+                "minLevel": 2,
+                "repeatable": true,
+                "cantripChoiceKey": "repelling-blast"
+              },
+              {
+                "key": "ascendant-step",
+                "desc": "You can cast Levitate on yourself without expending a spell slot.",
+                "name": "Ascendant Step",
+                "minLevel": 5,
+                "spellNames": [
+                  "Levitate"
+                ]
+              },
+              {
+                "key": "eldritch-smite",
+                "desc": "Once per turn when you hit a creature with your pact weapon, you can expend a Pact Magic spell slot to deal an extra 1d8 Force damage to the target, plus another 1d8 per level of the spell slot, and you can give the target the Prone condition if it is Huge or smaller.",
+                "name": "Eldritch Smite",
+                "minLevel": 5
+              },
+              {
+                "key": "gaze-of-two-minds",
+                "desc": "You can use a Bonus Action to touch a willing creature and perceive through its senses until the end of your next turn. As long as the creature is on the same plane of existence as you, you can take a Bonus Action on subsequent turns to maintain this connection, extending the duration until the end of your next turn. The connection ends if you don't maintain it in this way.\n\nWhile perceiving through the other creature's senses, you benefit from any special senses possessed by that creature, and you can cast spells as if you were in your space or the other creature's space if the two of you are within 60 feet of each other.",
+                "name": "Gaze of Two Minds",
+                "minLevel": 5
+              },
+              {
+                "key": "gift-of-the-depths",
+                "desc": "You can breathe underwater, and you gain a Swim Speed equal to your Speed.\n\nYou can also cast Water Breathing once without expending a spell slot. You regain the ability to cast it in this way again when you finish a Long Rest.",
+                "name": "Gift of the Depths",
+                "minLevel": 5,
+                "spellNames": [
+                  "Water Breathing"
+                ]
+              },
+              {
+                "key": "investment-of-the-chain-master",
+                "desc": "When you cast Find Familiar, you infuse the summoned familiar with a measure of your eldritch power, granting the creature the following benefits.\n\nAerial or Aquatic. The familiar gains either a Fly Speed or a Swim Speed (your choice) of 40 feet.\n\nQuick Attack. As a Bonus Action, you can command the familiar to take the Attack action.\n\nNecrotic or Radiant Damage. Whenever the familiar deals Bludgeoning, Piercing, or Slashing damage, you can make it deal Necrotic or Radiant damage instead.\n\nYour Save DC. If the familiar forces a creature to make a saving throw, it uses your spell save DC.\n\nResistance. When the familiar takes damage, you can take a Reaction to grant it Resistance against that damage.",
+                "name": "Investment of the Chain Master",
+                "minLevel": 5
+              },
+              {
+                "key": "master-of-myriad-forms",
+                "desc": "You can cast Alter Self without expending a spell slot.",
+                "name": "Master of Myriad Forms",
+                "minLevel": 5,
+                "spellNames": [
+                  "Alter Self"
+                ]
+              },
+              {
+                "key": "one-with-shadows",
+                "desc": "While you're in an area of Dim Light or Darkness, you can cast Invisibility on yourself without expending a spell slot.",
+                "name": "One with Shadows",
+                "minLevel": 5,
+                "spellNames": [
+                  "Invisibility"
+                ]
+              },
+              {
+                "key": "thirsting-blade",
+                "desc": "You gain the Extra Attack feature for your pact weapon only. With that feature, you can attack twice with the weapon instead of once when you take the Attack action on your turn.",
+                "name": "Thirsting Blade",
+                "minLevel": 5
+              }
+            ],
+            "choiceKey": "eldritch-invocations",
+            "uiSurface": "combat",
+            "countByLevel": {
+              "1": 1,
+              "2": 3,
+              "5": 5
+            }
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "magical-cunning",
+        "desc": "You can perform an esoteric rite for 1 minute. At the end of it, you regain expended Pact Magic spell slots with a combined level equal to no more than half your Warlock level (round up). Once you use this feature, you can't do so again until you finish a Long Rest.",
+        "name": "Magical Cunning",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "limitedUses": {
+          "kind": "fixed",
+          "uses": 1
+        },
+        "restRecovery": "long",
+        "combatSurface": true,
+        "grantedAtLevel": 2
+      },
+      {
+        "key": "warlock-subclass",
+        "desc": "You gain a Warlock subclass of your choice.",
+        "name": "Warlock Subclass",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 3
+      },
+      {
+        "key": "ability-score-improvement",
+        "desc": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+        "name": "Ability Score Improvement",
+        "effects": [
+          {
+            "type": "grant_feat"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 4
+      }
+    ],
+    "casterType": "PACT",
+    "spellSlots": {
+      "byCharacterLevel": {
+        "1": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "2": [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "3": [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "4": [
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "5": [
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "6": [
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "skillChoice": {
+      "count": 2,
+      "options": [
+        "arcana",
+        "deception",
+        "history",
+        "intimidation",
+        "investigation",
+        "nature",
+        "religion"
+      ]
+    },
+    "savingThrows": [
+      "wis",
+      "cha"
+    ],
+    "primaryAbility": [
+      [
+        "cha"
+      ]
+    ],
+    "armorCategories": [
+      "light"
+    ],
+    "spellProgression": {
+      "listMode": "known",
+      "byCharacterLevel": {
+        "1": {
+          "spellsKnown": 2,
+          "cantripsKnown": 2
+        },
+        "2": {
+          "spellsKnown": 3,
+          "cantripsKnown": 2
+        },
+        "3": {
+          "spellsKnown": 4,
+          "cantripsKnown": 2
+        },
+        "4": {
+          "spellsKnown": 5,
+          "cantripsKnown": 3
+        },
+        "5": {
+          "spellsKnown": 6,
+          "cantripsKnown": 3
+        },
+        "6": {
+          "spellsKnown": 7,
+          "cantripsKnown": 3
+        }
+      }
+    },
+    "shieldProficiency": false,
+    "startingEquipment": [
+      {
+        "gold": 100,
+        "items": [],
+        "label": "B"
+      }
+    ],
+    "toolProficiencies": [],
+    "spellcastingAbility": "cha",
+    "weaponProficiencies": [
+      {
+        "kind": "simple"
+      }
+    ],
+    "multiclassProficiencies": {
+      "skillChoice": null,
+      "armorCategories": [
+        "light"
+      ],
+      "shieldProficiency": false,
+      "toolProficiencies": [],
+      "weaponProficiencies": []
+    },
+    "spellcastingGainedAtLevel": 1
+  },
+  {
+    "key": "wizard",
+    "srd": true,
+    "book": "XPHB",
+    "name": "Wizard",
+    "hitDie": 6,
+    "features": [
+      {
+        "key": "ritual-adept",
+        "desc": "You can cast any spell as a Ritual if that spell has the Ritual tag and the spell is in your spellbook. You needn't have the spell prepared, but you must read from the book to cast a spell in this way.",
+        "name": "Ritual Adept",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "arcane-recovery",
+        "desc": "You can regain some of your magical energy by studying your spellbook. When you finish a Short Rest, you can choose expended spell slots to recover. The spell slots can have a combined level equal to no more than half your Wizard level (round up), and none of the slots can be level 6 or higher. For example, if you're a level 4 Wizard, you can recover up to two levels' worth of spell slots, regaining either one level 2 spell slot or two level 1 spell slots.\n\nOnce you use this feature, you can't do so again until you finish a Long Rest.",
+        "name": "Arcane Recovery",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "limitedUses": {
+          "kind": "fixed",
+          "uses": 1
+        },
+        "restRecovery": "long",
+        "combatSurface": true,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "spellcasting",
+        "desc": "As a student of arcane magic, you have a spellbook containing spells that show the first glimmerings of your true power. See the Spells section of this sheet for your spellcasting ability, attack bonus, save DC, and spell slots.",
+        "name": "Spellcasting",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 1
+      },
+      {
+        "key": "scholar",
+        "desc": "While studying magic, you also specialized in another field of study. Choose one of the following skills in which you have proficiency: Arcana, History, Investigation, Medicine, Nature, or Religion. You have Expertise in the chosen skill.",
+        "name": "Scholar",
+        "effects": [
+          {
+            "type": "expertise",
+            "count": 1
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 2
+      },
+      {
+        "key": "wizard-subclass",
+        "desc": "You gain a Wizard subclass of your choice.",
+        "name": "Wizard Subclass",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 3
+      },
+      {
+        "key": "ability-score-improvement",
+        "desc": "You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.",
+        "name": "Ability Score Improvement",
+        "effects": [
+          {
+            "type": "grant_feat"
+          }
+        ],
+        "combatSurface": false,
+        "grantedAtLevel": 4
+      },
+      {
+        "key": "memorize-spell",
+        "desc": "Whenever you finish a Short Rest, you can study your spellbook and replace one of the level 1+ Wizard spells you have prepared for your Spellcasting feature with another level 1+ spell from the book.",
+        "name": "Memorize Spell",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ],
+        "combatSurface": true,
+        "grantedAtLevel": 5
+      }
+    ],
+    "casterType": "FULL",
+    "spellSlots": {
+      "byCharacterLevel": {
+        "1": [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "2": [
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "3": [
+          4,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "4": [
+          4,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "5": [
+          4,
+          3,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "6": [
+          4,
+          3,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "skillChoice": {
+      "count": 2,
+      "options": [
+        "arcana",
+        "history",
+        "insight",
+        "investigation",
+        "medicine",
+        "nature",
+        "religion"
+      ]
+    },
+    "savingThrows": [
+      "int",
+      "wis"
+    ],
+    "primaryAbility": [
+      [
+        "int"
+      ]
+    ],
+    "armorCategories": [],
+    "spellProgression": {
+      "listMode": "spellbook",
+      "byCharacterLevel": {
+        "1": {
+          "cantripsKnown": 3,
+          "spellbookSize": 6,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 4
+          }
+        },
+        "2": {
+          "cantripsKnown": 3,
+          "spellbookSize": 8,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 5
+          }
+        },
+        "3": {
+          "cantripsKnown": 3,
+          "spellbookSize": 10,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 6
+          }
+        },
+        "4": {
+          "cantripsKnown": 4,
+          "spellbookSize": 12,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 7
+          }
+        },
+        "5": {
+          "cantripsKnown": 4,
+          "spellbookSize": 14,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 9
+          }
+        },
+        "6": {
+          "cantripsKnown": 4,
+          "spellbookSize": 16,
+          "spellsPrepared": {
+            "kind": "fixed",
+            "count": 10
+          }
+        }
+      }
+    },
+    "shieldProficiency": false,
+    "startingEquipment": [
+      {
+        "gold": 55,
+        "items": [],
+        "label": "B"
+      }
+    ],
+    "toolProficiencies": [],
+    "spellcastingAbility": "int",
+    "weaponProficiencies": [
+      {
+        "kind": "simple"
+      }
+    ],
+    "multiclassProficiencies": {
+      "skillChoice": null,
+      "armorCategories": [],
+      "shieldProficiency": false,
+      "toolProficiencies": [],
+      "weaponProficiencies": []
+    },
+    "spellcastingGainedAtLevel": 1
+  }
+]

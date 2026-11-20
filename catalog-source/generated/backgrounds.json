@@ -1,0 +1,1871 @@
+[
+  {
+    "key": "acolyte",
+    "name": "Acolyte",
+    "srd": true,
+    "book": "XPHB",
+    "skillProficiencies": [
+      "insight",
+      "religion"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "calligraphers-supplies"
+    },
+    "featKey": "magic-initiate-cleric",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Book (Prayers)",
+          "Calligrapher's Supplies",
+          "Holy Symbol",
+          "10 Parchments",
+          "Robe"
+        ],
+        "gold": 8
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "artisan",
+    "name": "Artisan",
+    "srd": false,
+    "book": "XPHB",
+    "skillProficiencies": [
+      "investigation",
+      "persuasion"
+    ],
+    "toolProficiency": {
+      "kind": "choose",
+      "count": 1,
+      "categories": [
+        "artisan"
+      ]
+    },
+    "featKey": "crafter",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Artisan's Tools",
+          "2 Pouchs",
+          "Traveler's Clothes"
+        ],
+        "gold": 32
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "charlatan",
+    "name": "Charlatan",
+    "srd": false,
+    "book": "XPHB",
+    "skillProficiencies": [
+      "deception",
+      "sleightOfHand"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "forgery-kit"
+    },
+    "featKey": "skilled",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Forgery Kit",
+          "Costume",
+          "Fine Clothes"
+        ],
+        "gold": 15
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "criminal",
+    "name": "Criminal",
+    "srd": true,
+    "book": "XPHB",
+    "skillProficiencies": [
+      "sleightOfHand",
+      "stealth"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "thieves-tools"
+    },
+    "featKey": "alert",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "2 Daggers",
+          "Thieves' Tools",
+          "Crowbar",
+          "2 Pouchs",
+          "Traveler's Clothes"
+        ],
+        "gold": 16
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "entertainer",
+    "name": "Entertainer",
+    "srd": false,
+    "book": "XPHB",
+    "skillProficiencies": [
+      "acrobatics",
+      "performance"
+    ],
+    "toolProficiency": {
+      "kind": "choose",
+      "count": 1,
+      "categories": [
+        "musicalInstrument"
+      ]
+    },
+    "featKey": "musician",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Musical Instrument",
+          "2 Costumes",
+          "Mirror",
+          "Perfume",
+          "Traveler's Clothes"
+        ],
+        "gold": 11
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "farmer",
+    "name": "Farmer",
+    "srd": false,
+    "book": "XPHB",
+    "skillProficiencies": [
+      "animalHandling",
+      "nature"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "carpenters-tools"
+    },
+    "featKey": "tough",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Sickle",
+          "Carpenter's Tools",
+          "Healer's Kit",
+          "Iron Pot",
+          "Shovel",
+          "Traveler's Clothes"
+        ],
+        "gold": 30
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "guard",
+    "name": "Guard",
+    "srd": false,
+    "book": "XPHB",
+    "skillProficiencies": [
+      "athletics",
+      "perception"
+    ],
+    "toolProficiency": {
+      "kind": "choose",
+      "count": 1,
+      "categories": [
+        "gamingSet"
+      ]
+    },
+    "featKey": "alert",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Spear",
+          "Light Crossbow",
+          "Bolts (20)",
+          "Gaming Set",
+          "Hooded Lantern",
+          "Manacles",
+          "Quiver",
+          "Traveler's Clothes"
+        ],
+        "gold": 12
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "guide",
+    "name": "Guide",
+    "srd": false,
+    "book": "XPHB",
+    "skillProficiencies": [
+      "stealth",
+      "survival"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "cartographers-tools"
+    },
+    "featKey": "magic-initiate-druid",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Shortbow",
+          "Arrows (20)",
+          "Cartographer's Tools",
+          "Bedroll",
+          "Quiver",
+          "Tent",
+          "Traveler's Clothes"
+        ],
+        "gold": 3
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "hermit",
+    "name": "Hermit",
+    "srd": false,
+    "book": "XPHB",
+    "skillProficiencies": [
+      "medicine",
+      "religion"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "herbalism-kit"
+    },
+    "featKey": "healer",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Quarterstaff",
+          "Herbalism Kit",
+          "Bedroll",
+          "Book",
+          "Lamp",
+          "3 Oils",
+          "Traveler's Clothes"
+        ],
+        "gold": 16
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "merchant",
+    "name": "Merchant",
+    "srd": false,
+    "book": "XPHB",
+    "skillProficiencies": [
+      "animalHandling",
+      "persuasion"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "navigators-tools"
+    },
+    "featKey": "lucky",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Navigator's Tools",
+          "2 Pouchs",
+          "Traveler's Clothes"
+        ],
+        "gold": 22
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "noble",
+    "name": "Noble",
+    "srd": false,
+    "book": "XPHB",
+    "skillProficiencies": [
+      "history",
+      "persuasion"
+    ],
+    "toolProficiency": {
+      "kind": "choose",
+      "count": 1,
+      "categories": [
+        "gamingSet"
+      ]
+    },
+    "featKey": "skilled",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Gaming Set",
+          "Fine Clothes",
+          "Perfume"
+        ],
+        "gold": 29
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "sage",
+    "name": "Sage",
+    "srd": true,
+    "book": "XPHB",
+    "skillProficiencies": [
+      "arcana",
+      "history"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "calligraphers-supplies"
+    },
+    "featKey": "magic-initiate-wizard",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Quarterstaff",
+          "Calligrapher's Supplies",
+          "Book",
+          "8 Parchments",
+          "Robe"
+        ],
+        "gold": 8
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "sailor",
+    "name": "Sailor",
+    "srd": false,
+    "book": "XPHB",
+    "skillProficiencies": [
+      "acrobatics",
+      "perception"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "navigators-tools"
+    },
+    "featKey": "tavern-brawler",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Dagger",
+          "Navigator's Tools",
+          "Rope",
+          "Traveler's Clothes"
+        ],
+        "gold": 20
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "scribe",
+    "name": "Scribe",
+    "srd": false,
+    "book": "XPHB",
+    "skillProficiencies": [
+      "investigation",
+      "perception"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "calligraphers-supplies"
+    },
+    "featKey": "skilled",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Calligrapher's Supplies",
+          "Fine Clothes",
+          "Lamp",
+          "Oil",
+          "Parchment"
+        ],
+        "gold": 23
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "soldier",
+    "name": "Soldier",
+    "srd": true,
+    "book": "XPHB",
+    "skillProficiencies": [
+      "athletics",
+      "intimidation"
+    ],
+    "toolProficiency": {
+      "kind": "choose",
+      "count": 1,
+      "categories": [
+        "gamingSet"
+      ]
+    },
+    "featKey": "savage-attacker",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Spear",
+          "Shortbow",
+          "Arrows (20)",
+          "Gaming Set",
+          "Healer's Kit",
+          "Quiver",
+          "Traveler's Clothes"
+        ],
+        "gold": 14
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "wayfarer",
+    "name": "Wayfarer",
+    "srd": false,
+    "book": "XPHB",
+    "skillProficiencies": [
+      "insight",
+      "stealth"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "thieves-tools"
+    },
+    "featKey": "lucky",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "2 Daggers",
+          "Thieves' Tools",
+          "Gaming Set",
+          "Bedroll",
+          "2 Pouchs",
+          "Traveler's Clothes"
+        ],
+        "gold": 16
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "chondathan-freebooter",
+    "name": "Chondathan Freebooter",
+    "srd": false,
+    "book": "FRHoF",
+    "skillProficiencies": [
+      "athletics",
+      "sleightOfHand"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "weavers-tools"
+    },
+    "featKey": "skilled",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Dagger",
+          "Weaver's Tools",
+          "Backpack",
+          "Ball Bearings",
+          "Basket",
+          "Bedroll",
+          "Bucket",
+          "Rations (3 days' worth)",
+          "Rope",
+          "Signal Whistle",
+          "Traveler's Clothes"
+        ],
+        "gold": 38
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "dead-magic-dweller",
+    "name": "Dead Magic Dweller",
+    "srd": false,
+    "book": "FRHoF",
+    "skillProficiencies": [
+      "medicine",
+      "survival"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "leatherworkers-tools"
+    },
+    "featKey": "healer",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Greatclub",
+          "Leatherworker's Tools",
+          "Bedroll",
+          "Blanket",
+          "Healer's Kit",
+          "Pole",
+          "Rations (3 days' worth)",
+          "Tent",
+          "Tinderbox",
+          "Torches",
+          "Traveler's Clothes",
+          "Waterskin"
+        ],
+        "gold": 32
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "dragon-cultist",
+    "name": "Dragon Cultist",
+    "srd": false,
+    "book": "FRHoF",
+    "skillProficiencies": [
+      "deception",
+      "stealth"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "calligraphers-supplies"
+    },
+    "featKey": "cult-of-the-dragon-initiate",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Calligrapher's Supplies",
+          "Dagger",
+          "Glass Bottle",
+          "Lamp",
+          "Manacles",
+          "Oil (5 flasks)",
+          "Pouches",
+          "Robe",
+          "Rope"
+        ],
+        "gold": 30
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "emerald-enclave-caretaker",
+    "name": "Emerald Enclave Caretaker",
+    "srd": false,
+    "book": "FRHoF",
+    "skillProficiencies": [
+      "nature",
+      "survival"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "herbalism-kit"
+    },
+    "featKey": "emerald-enclave-fledgling",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Shortbow",
+          "Arrows (20)",
+          "Herbalism Kit",
+          "Bedroll",
+          "Blanket",
+          "Pouch",
+          "Tent",
+          "Traveler's Clothes"
+        ],
+        "gold": 13
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "flaming-fist-mercenary",
+    "name": "Flaming Fist Mercenary",
+    "srd": false,
+    "book": "FRHoF",
+    "skillProficiencies": [
+      "intimidation",
+      "perception"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "smiths-tools"
+    },
+    "featKey": "tough",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Mace",
+          "Smith's Tools",
+          "Fine Clothes",
+          "Manacles",
+          "Portable Ram"
+        ],
+        "gold": 4
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "genie-touched",
+    "name": "Genie Touched",
+    "srd": false,
+    "book": "FRHoF",
+    "skillProficiencies": [
+      "perception",
+      "persuasion"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "glassblowers-tools"
+    },
+    "featKey": "magic-initiate-wizard",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Light Hammer",
+          "Glassblower's Tools",
+          "Fine Clothes",
+          "Lamp",
+          "Oil (3 flasks)",
+          "Waterskin"
+        ],
+        "gold": 2
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "harper",
+    "name": "Harper",
+    "srd": false,
+    "book": "FRHoF",
+    "skillProficiencies": [
+      "performance",
+      "sleightOfHand"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "disguise-kit"
+    },
+    "featKey": "harper-agent",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Disguise Kit",
+          "Bedroll",
+          "Costume",
+          "Grappling Hook",
+          "Rope",
+          "Traveler's Clothes"
+        ],
+        "gold": 14
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "ice-fisher",
+    "name": "Ice Fisher",
+    "srd": false,
+    "book": "FRHoF",
+    "skillProficiencies": [
+      "animalHandling",
+      "athletics"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "woodcarvers-tools"
+    },
+    "featKey": "alert",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Woodcarver's Tools",
+          "Basket",
+          "Block And Tackle",
+          "Chain",
+          "Hunting Trap",
+          "Net",
+          "Pole",
+          "Rations (3 days' worth)",
+          "Traveler's Clothes"
+        ],
+        "gold": 32
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "knight-of-the-gauntlet",
+    "name": "Knight of the Gauntlet",
+    "srd": false,
+    "book": "FRHoF",
+    "skillProficiencies": [
+      "athletics",
+      "medicine"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "smiths-tools"
+    },
+    "featKey": "tyro-of-the-gauntlet",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Spear",
+          "Smith's Tools",
+          "Bullseye Lantern",
+          "Holy Symbol",
+          "Manacles",
+          "Oil (5 flasks)",
+          "Tinderbox",
+          "Traveler's Clothes"
+        ],
+        "gold": 9
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "lords-alliance-vassal",
+    "name": "Lords' Alliance Vassal",
+    "srd": false,
+    "book": "FRHoF",
+    "skillProficiencies": [
+      "insight",
+      "persuasion"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "calligraphers-supplies"
+    },
+    "featKey": "lords-alliance-agent",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Javelins",
+          "Calligrapher's Supplies",
+          "Fine Clothes",
+          "Ink",
+          "5 Ink Pens",
+          "Parchment (9 sheets)"
+        ],
+        "gold": 13
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "moonwell-pilgrim",
+    "name": "Moonwell Pilgrim",
+    "srd": false,
+    "book": "FRHoF",
+    "skillProficiencies": [
+      "nature",
+      "performance"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "painters-supplies"
+    },
+    "featKey": "magic-initiate-druid",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Quarterstaff",
+          "Painter's Supplies",
+          "Bedroll",
+          "Bell",
+          "Pouch",
+          "Robe",
+          "String",
+          "Traveler's Clothes",
+          "Waterskin"
+        ],
+        "gold": 38
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "mulhorandi-tomb-raider",
+    "name": "Mulhorandi Tomb Raider",
+    "srd": false,
+    "book": "FRHoF",
+    "skillProficiencies": [
+      "investigation",
+      "religion"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "masons-tools"
+    },
+    "featKey": "lucky",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Dagger",
+          "Light Hammer",
+          "Mason's Tools",
+          "Backpack",
+          "Bedroll",
+          "Crowbar",
+          "Ladder",
+          "Pole",
+          "Pouches",
+          "Rope",
+          "String",
+          "Tinderbox",
+          "Torches",
+          "Traveler's Clothes"
+        ],
+        "gold": 0
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "mythalkeeper",
+    "name": "Mythalkeeper",
+    "srd": false,
+    "book": "FRHoF",
+    "skillProficiencies": [
+      "arcana",
+      "history"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "jewelers-tools"
+    },
+    "featKey": "crafter",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Quarterstaff",
+          "Jeweler's Tools",
+          "Perfume",
+          "Pouch",
+          "Robe",
+          "Shovel",
+          "String",
+          "Waterskin"
+        ],
+        "gold": 16
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "purple-dragon-squire",
+    "name": "Purple Dragon Squire",
+    "srd": false,
+    "book": "FRHoF",
+    "skillProficiencies": [
+      "animalHandling",
+      "insight"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "navigators-tools"
+    },
+    "featKey": "purple-dragon-rook",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Spear",
+          "Navigator's Tools",
+          "Fine Clothes"
+        ],
+        "gold": 9
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "rashemi-wanderer",
+    "name": "Rashemi Wanderer",
+    "srd": false,
+    "book": "FRHoF",
+    "skillProficiencies": [
+      "intimidation",
+      "perception"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "cartographers-tools"
+    },
+    "featKey": "tough",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Cartographer's Tools",
+          "Backpack",
+          "Bedroll",
+          "Hooded Lantern",
+          "Oil (3 flasks)",
+          "Rope",
+          "Tinderbox",
+          "Traveler's Clothes",
+          "Waterskin"
+        ],
+        "gold": 23
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "shadowmasters-exile",
+    "name": "Shadowmasters Exile",
+    "srd": false,
+    "book": "FRHoF",
+    "skillProficiencies": [
+      "acrobatics",
+      "stealth"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "thieves-tools"
+    },
+    "featKey": "savage-attacker",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Daggers",
+          "Thieves' Tools",
+          "Caltrops",
+          "Costume",
+          "Grappling Hook",
+          "Iron Spikes",
+          "Mirror",
+          "Pouches",
+          "Rope",
+          "Traveler's Clothes"
+        ],
+        "gold": 3
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "spellfire-initiate",
+    "name": "Spellfire Initiate",
+    "srd": false,
+    "book": "FRHoF",
+    "skillProficiencies": [
+      "arcana",
+      "perception"
+    ],
+    "toolProficiency": {
+      "kind": "choose",
+      "count": 1,
+      "categories": [
+        "gamingSet"
+      ]
+    },
+    "featKey": "spellfire-spark",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Gaming Set (same as above)",
+          "Arcane Focus (Crystal or Wand)",
+          "Pouches",
+          "Traveler's Clothes"
+        ],
+        "gold": 36
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "zhentarim-mercenary",
+    "name": "Zhentarim Mercenary",
+    "srd": false,
+    "book": "FRHoF",
+    "skillProficiencies": [
+      "intimidation",
+      "perception"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "forgery-kit"
+    },
+    "featKey": "zhentarim-ruffian",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Club",
+          "Dagger",
+          "Forgery Kit",
+          "Fine Clothes",
+          "Hooded Lantern",
+          "Oil (3 flasks)",
+          "Pouches",
+          "String",
+          "Tinderbox"
+        ],
+        "gold": 11
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "aberrant-heir",
+    "name": "Aberrant Heir",
+    "srd": false,
+    "book": "EFA",
+    "skillProficiencies": [
+      "history",
+      "intimidation"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "disguise-kit"
+    },
+    "featKey": "aberrant-dragonmark",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Dagger",
+          "Disguise Kit",
+          "Costume",
+          "Traveler's Clothes"
+        ],
+        "gold": 16
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "archaeologist",
+    "name": "Archaeologist",
+    "srd": false,
+    "book": "EFA",
+    "skillProficiencies": [
+      "history",
+      "survival"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "cartographers-tools"
+    },
+    "featKey": "skilled",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Cartographer's Tools",
+          "Bullseye Lantern",
+          "Map",
+          "Map Or Scroll Case",
+          "Shovel",
+          "Tent",
+          "Traveler's Clothes"
+        ],
+        "gold": 17
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "house-agent",
+    "name": "House Agent",
+    "srd": false,
+    "book": "EFA",
+    "skillProficiencies": [
+      "investigation",
+      "persuasion"
+    ],
+    "toolProficiency": {
+      "kind": "choose",
+      "count": 1,
+      "categories": [
+        "artisan"
+      ]
+    },
+    "featKey": "lucky",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Artisan's Tools",
+          "Fine Clothes"
+        ],
+        "gold": 20
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "house-cannith-heir",
+    "name": "House Cannith Heir",
+    "srd": false,
+    "book": "EFA",
+    "skillProficiencies": [
+      "investigation",
+      "sleightOfHand"
+    ],
+    "toolProficiency": {
+      "kind": "choose",
+      "count": 1,
+      "categories": [
+        "artisan"
+      ]
+    },
+    "featKey": "mark-of-making",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Artisan's Tools",
+          "Crowbar",
+          "Fine Clothes",
+          "Pouches"
+        ],
+        "gold": 17
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "house-deneith-heir",
+    "name": "House Deneith Heir",
+    "srd": false,
+    "book": "EFA",
+    "skillProficiencies": [
+      "insight",
+      "perception"
+    ],
+    "toolProficiency": {
+      "kind": "choose",
+      "count": 1,
+      "categories": [
+        "gamingSet"
+      ]
+    },
+    "featKey": "mark-of-sentinel",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Spear",
+          "Shortbow",
+          "Arrows (20)",
+          "Gaming Set",
+          "Fine Clothes",
+          "Healer's Kit",
+          "Quiver"
+        ],
+        "gold": 1
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "house-ghallanda-heir",
+    "name": "House Ghallanda Heir",
+    "srd": false,
+    "book": "EFA",
+    "skillProficiencies": [
+      "insight",
+      "persuasion"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "cooks-utensils"
+    },
+    "featKey": "mark-of-hospitality",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Cook's Utensils",
+          "Fine Clothes",
+          "Iron Pot",
+          "Lamp",
+          "5 Oils",
+          "Perfume"
+        ],
+        "gold": 26
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "house-jorasco-heir",
+    "name": "House Jorasco Heir",
+    "srd": false,
+    "book": "EFA",
+    "skillProficiencies": [
+      "medicine",
+      "stealth"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "herbalism-kit"
+    },
+    "featKey": "mark-of-healing",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Herbalism Kit",
+          "Fine Clothes",
+          "Healer's Kit"
+        ],
+        "gold": 25
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "house-kundarak-heir",
+    "name": "House Kundarak Heir",
+    "srd": false,
+    "book": "EFA",
+    "skillProficiencies": [
+      "arcana",
+      "investigation"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "thieves-tools"
+    },
+    "featKey": "mark-of-warding",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Thieves' Tools",
+          "Fine Clothes"
+        ],
+        "gold": 10
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "house-lyrandar-heir",
+    "name": "House Lyrandar Heir",
+    "srd": false,
+    "book": "EFA",
+    "skillProficiencies": [
+      "acrobatics",
+      "nature"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "navigators-tools"
+    },
+    "featKey": "mark-of-storm",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Navigator's Tools",
+          "Fine Clothes"
+        ],
+        "gold": 10
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "house-medani-heir",
+    "name": "House Medani Heir",
+    "srd": false,
+    "book": "EFA",
+    "skillProficiencies": [
+      "insight",
+      "investigation"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "disguise-kit"
+    },
+    "featKey": "mark-of-detection",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Disguise Kit",
+          "Fine Clothes"
+        ],
+        "gold": 10
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "house-orien-heir",
+    "name": "House Orien Heir",
+    "srd": false,
+    "book": "EFA",
+    "skillProficiencies": [
+      "acrobatics",
+      "athletics"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "cartographers-tools"
+    },
+    "featKey": "mark-of-passage",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Cartographer's Tools",
+          "Fine Clothes",
+          "Map",
+          "Map Or Scroll Case"
+        ],
+        "gold": 18
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "house-phiarlan-heir",
+    "name": "House Phiarlan Heir",
+    "srd": false,
+    "book": "EFA",
+    "skillProficiencies": [
+      "deception",
+      "stealth"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "disguise-kit"
+    },
+    "featKey": "mark-of-shadow",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Disguise Kit",
+          "Fine Clothes"
+        ],
+        "gold": 10
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "house-sivis-heir",
+    "name": "House Sivis Heir",
+    "srd": false,
+    "book": "EFA",
+    "skillProficiencies": [
+      "history",
+      "perception"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "calligraphers-supplies"
+    },
+    "featKey": "mark-of-scribing",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Calligrapher's Supplies",
+          "Fine Clothes",
+          "Ink",
+          "5 Ink Pens",
+          "30 Papers",
+          "9 Parchments"
+        ],
+        "gold": 8
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "house-tharashk-heir",
+    "name": "House Tharashk Heir",
+    "srd": false,
+    "book": "EFA",
+    "skillProficiencies": [
+      "perception",
+      "survival"
+    ],
+    "toolProficiency": {
+      "kind": "choose",
+      "count": 1,
+      "categories": [
+        "gamingSet"
+      ]
+    },
+    "featKey": "mark-of-finding",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Gaming Set",
+          "Climber'S Kit",
+          "Fine Clothes",
+          "Hunting Trap",
+          "Manacles"
+        ],
+        "gold": 2
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "house-thuranni-heir",
+    "name": "House Thuranni Heir",
+    "srd": false,
+    "book": "EFA",
+    "skillProficiencies": [
+      "performance",
+      "stealth"
+    ],
+    "toolProficiency": {
+      "kind": "choose",
+      "count": 1,
+      "categories": [
+        "musicalInstrument"
+      ]
+    },
+    "featKey": "mark-of-shadow",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Musical Instrument",
+          "Costume",
+          "Fine Clothes"
+        ],
+        "gold": 13
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "house-vadalis-heir",
+    "name": "House Vadalis Heir",
+    "srd": false,
+    "book": "EFA",
+    "skillProficiencies": [
+      "animalHandling",
+      "nature"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "herbalism-kit"
+    },
+    "featKey": "mark-of-handling",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Herbalism Kit",
+          "Fine Clothes",
+          "Net"
+        ],
+        "gold": 29
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "inquisitive",
+    "name": "Inquisitive",
+    "srd": false,
+    "book": "EFA",
+    "skillProficiencies": [
+      "insight",
+      "investigation"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "thieves-tools"
+    },
+    "featKey": "alert",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Thieves' Tools",
+          "Bullseye Lantern",
+          "Crowbar",
+          "10 Oils",
+          "Traveler's Clothes"
+        ],
+        "gold": 10
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "carouser",
+    "name": "Carouser",
+    "srd": false,
+    "book": "ABH",
+    "skillProficiencies": [
+      "deception",
+      "persuasion"
+    ],
+    "toolProficiency": {
+      "kind": "choose",
+      "count": 1,
+      "categories": [
+        "gamingSet"
+      ]
+    },
+    "featKey": "tireless-reveler",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Dagger",
+          "Gaming Set (same as chosen proficiency)",
+          "Fine Clothes",
+          "Glass Bottle",
+          "Mirror",
+          "Perfume",
+          "Pouch",
+          "Tinderbox"
+        ],
+        "gold": 19
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "vampire-devotee",
+    "name": "Vampire Devotee",
+    "srd": false,
+    "book": "ABH",
+    "skillProficiencies": [
+      "persuasion",
+      "stealth"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "cooks-utensils"
+    },
+    "featKey": "vampires-plaything",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Cook's Utensils",
+          "Fine Clothes",
+          "Glass Bottles",
+          "Healer's Kit",
+          "Perfume",
+          "Lamp",
+          "Oil (3 flasks)",
+          "Waterskin"
+        ],
+        "gold": 19
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  },
+  {
+    "key": "vampire-survivor",
+    "name": "Vampire Survivor",
+    "srd": false,
+    "book": "ABH",
+    "skillProficiencies": [
+      "insight",
+      "religion"
+    ],
+    "toolProficiency": {
+      "kind": "fixed",
+      "toolId": "woodcarvers-tools"
+    },
+    "featKey": "vampire-hunter",
+    "startingEquipment": [
+      {
+        "label": "A",
+        "items": [
+          "Woodcarver's Tools",
+          "Crowbar",
+          "Hooded Lantern",
+          "Holy Symbol (reliquary)",
+          "Holy Water",
+          "Mirror",
+          "Oil (3 flasks)",
+          "Tinderbox",
+          "Traveler's Clothes",
+          "Waterskin"
+        ],
+        "gold": 4
+      },
+      {
+        "label": "B",
+        "items": [],
+        "gold": 50
+      }
+    ]
+  }
+]

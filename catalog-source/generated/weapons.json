@@ -1,0 +1,525 @@
+[
+  {
+    "key": "battleaxe",
+    "name": "Battleaxe",
+    "damageDice": "1d8",
+    "damageType": "Slashing",
+    "isSimple": false,
+    "properties": [
+      "Versatile (1d10)"
+    ],
+    "mastery": "Topple",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "blowgun",
+    "name": "Blowgun",
+    "damageDice": "1",
+    "damageType": "Piercing",
+    "isSimple": false,
+    "properties": [
+      "Ammunition (Range 25/100; Needle)",
+      "Loading"
+    ],
+    "mastery": "Vex",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "club",
+    "name": "Club",
+    "damageDice": "1d4",
+    "damageType": "Bludgeoning",
+    "isSimple": true,
+    "properties": [
+      "Light"
+    ],
+    "mastery": "Slow",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "dagger",
+    "name": "Dagger",
+    "damageDice": "1d4",
+    "damageType": "Piercing",
+    "isSimple": true,
+    "properties": [
+      "Finesse",
+      "Light",
+      "Thrown (Range 20/60)"
+    ],
+    "mastery": "Nick",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "dart",
+    "name": "Dart",
+    "damageDice": "1d4",
+    "damageType": "Piercing",
+    "isSimple": true,
+    "properties": [
+      "Finesse",
+      "Thrown (Range 20/60)"
+    ],
+    "mastery": "Vex",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "flail",
+    "name": "Flail",
+    "damageDice": "1d8",
+    "damageType": "Bludgeoning",
+    "isSimple": false,
+    "properties": [],
+    "mastery": "Sap",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "glaive",
+    "name": "Glaive",
+    "damageDice": "1d10",
+    "damageType": "Slashing",
+    "isSimple": false,
+    "properties": [
+      "Heavy",
+      "Reach",
+      "Two-Handed"
+    ],
+    "mastery": "Graze",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "greataxe",
+    "name": "Greataxe",
+    "damageDice": "1d12",
+    "damageType": "Slashing",
+    "isSimple": false,
+    "properties": [
+      "Heavy",
+      "Two-Handed"
+    ],
+    "mastery": "Cleave",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "greatclub",
+    "name": "Greatclub",
+    "damageDice": "1d8",
+    "damageType": "Bludgeoning",
+    "isSimple": true,
+    "properties": [
+      "Two-Handed"
+    ],
+    "mastery": "Push",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "greatsword",
+    "name": "Greatsword",
+    "damageDice": "2d6",
+    "damageType": "Slashing",
+    "isSimple": false,
+    "properties": [
+      "Heavy",
+      "Two-Handed"
+    ],
+    "mastery": "Graze",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "halberd",
+    "name": "Halberd",
+    "damageDice": "1d10",
+    "damageType": "Slashing",
+    "isSimple": false,
+    "properties": [
+      "Heavy",
+      "Reach",
+      "Two-Handed"
+    ],
+    "mastery": "Cleave",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "hand-crossbow",
+    "name": "Hand Crossbow",
+    "damageDice": "1d6",
+    "damageType": "Piercing",
+    "isSimple": false,
+    "properties": [
+      "Ammunition (Range 30/120; Bolt)",
+      "Light",
+      "Loading"
+    ],
+    "mastery": "Vex",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "handaxe",
+    "name": "Handaxe",
+    "damageDice": "1d6",
+    "damageType": "Slashing",
+    "isSimple": true,
+    "properties": [
+      "Light",
+      "Thrown (Range 20/60)"
+    ],
+    "mastery": "Vex",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "heavy-crossbow",
+    "name": "Heavy Crossbow",
+    "damageDice": "1d10",
+    "damageType": "Piercing",
+    "isSimple": false,
+    "properties": [
+      "Ammunition (Range 100/400; Bolt)",
+      "Heavy",
+      "Loading",
+      "Two-Handed"
+    ],
+    "mastery": "Push",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "javelin",
+    "name": "Javelin",
+    "damageDice": "1d6",
+    "damageType": "Piercing",
+    "isSimple": true,
+    "properties": [
+      "Thrown (Range 30/120)"
+    ],
+    "mastery": "Slow",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "lance",
+    "name": "Lance",
+    "damageDice": "1d10",
+    "damageType": "Piercing",
+    "isSimple": false,
+    "properties": [
+      "Heavy",
+      "Reach",
+      "Two-Handed (unless mounted)"
+    ],
+    "mastery": "Topple",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "light-crossbow",
+    "name": "Light Crossbow",
+    "damageDice": "1d8",
+    "damageType": "Piercing",
+    "isSimple": true,
+    "properties": [
+      "Ammunition (Range 80/320; Bolt)",
+      "Loading",
+      "Two-Handed"
+    ],
+    "mastery": "Slow",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "light-hammer",
+    "name": "Light Hammer",
+    "damageDice": "1d4",
+    "damageType": "Bludgeoning",
+    "isSimple": true,
+    "properties": [
+      "Light",
+      "Thrown (Range 20/60)"
+    ],
+    "mastery": "Nick",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "longbow",
+    "name": "Longbow",
+    "damageDice": "1d8",
+    "damageType": "Piercing",
+    "isSimple": false,
+    "properties": [
+      "Ammunition (Range 150/600; Arrow)",
+      "Heavy",
+      "Two-Handed"
+    ],
+    "mastery": "Slow",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "longsword",
+    "name": "Longsword",
+    "damageDice": "1d8",
+    "damageType": "Slashing",
+    "isSimple": false,
+    "properties": [
+      "Versatile (1d10)"
+    ],
+    "mastery": "Sap",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "mace",
+    "name": "Mace",
+    "damageDice": "1d6",
+    "damageType": "Bludgeoning",
+    "isSimple": true,
+    "properties": [],
+    "mastery": "Sap",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "maul",
+    "name": "Maul",
+    "damageDice": "2d6",
+    "damageType": "Bludgeoning",
+    "isSimple": false,
+    "properties": [
+      "Heavy",
+      "Two-Handed"
+    ],
+    "mastery": "Topple",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "morningstar",
+    "name": "Morningstar",
+    "damageDice": "1d8",
+    "damageType": "Piercing",
+    "isSimple": false,
+    "properties": [],
+    "mastery": "Sap",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "musket",
+    "name": "Musket",
+    "damageDice": "1d12",
+    "damageType": "Piercing",
+    "isSimple": false,
+    "properties": [
+      "Ammunition (Range 40/120; Bullet)",
+      "Loading",
+      "Two-Handed"
+    ],
+    "mastery": "Slow",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "pike",
+    "name": "Pike",
+    "damageDice": "1d10",
+    "damageType": "Piercing",
+    "isSimple": false,
+    "properties": [
+      "Heavy",
+      "Reach",
+      "Two-Handed"
+    ],
+    "mastery": "Push",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "pistol",
+    "name": "Pistol",
+    "damageDice": "1d10",
+    "damageType": "Piercing",
+    "isSimple": false,
+    "properties": [
+      "Ammunition (Range 30/90; Bullet)",
+      "Loading"
+    ],
+    "mastery": "Vex",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "quarterstaff",
+    "name": "Quarterstaff",
+    "damageDice": "1d6",
+    "damageType": "Bludgeoning",
+    "isSimple": true,
+    "properties": [
+      "Versatile (1d8)"
+    ],
+    "mastery": "Topple",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "rapier",
+    "name": "Rapier",
+    "damageDice": "1d8",
+    "damageType": "Piercing",
+    "isSimple": false,
+    "properties": [
+      "Finesse"
+    ],
+    "mastery": "Vex",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "scimitar",
+    "name": "Scimitar",
+    "damageDice": "1d6",
+    "damageType": "Slashing",
+    "isSimple": false,
+    "properties": [
+      "Finesse",
+      "Light"
+    ],
+    "mastery": "Nick",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "shortbow",
+    "name": "Shortbow",
+    "damageDice": "1d6",
+    "damageType": "Piercing",
+    "isSimple": true,
+    "properties": [
+      "Ammunition (Range 80/320; Arrow)",
+      "Two-Handed"
+    ],
+    "mastery": "Vex",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "shortsword",
+    "name": "Shortsword",
+    "damageDice": "1d6",
+    "damageType": "Piercing",
+    "isSimple": false,
+    "properties": [
+      "Finesse",
+      "Light"
+    ],
+    "mastery": "Vex",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "sickle",
+    "name": "Sickle",
+    "damageDice": "1d4",
+    "damageType": "Slashing",
+    "isSimple": true,
+    "properties": [
+      "Light"
+    ],
+    "mastery": "Nick",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "sling",
+    "name": "Sling",
+    "damageDice": "1d4",
+    "damageType": "Bludgeoning",
+    "isSimple": true,
+    "properties": [
+      "Ammunition (Range 30/120; Bullet)"
+    ],
+    "mastery": "Slow",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "spear",
+    "name": "Spear",
+    "damageDice": "1d6",
+    "damageType": "Piercing",
+    "isSimple": true,
+    "properties": [
+      "Thrown (Range 20/60)",
+      "Versatile (1d8)"
+    ],
+    "mastery": "Sap",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "trident",
+    "name": "Trident",
+    "damageDice": "1d8",
+    "damageType": "Piercing",
+    "isSimple": false,
+    "properties": [
+      "Thrown (Range 20/60)",
+      "Versatile (1d10)"
+    ],
+    "mastery": "Topple",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "war-pick",
+    "name": "War Pick",
+    "damageDice": "1d8",
+    "damageType": "Piercing",
+    "isSimple": false,
+    "properties": [
+      "Versatile (1d10)"
+    ],
+    "mastery": "Sap",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "warhammer",
+    "name": "Warhammer",
+    "damageDice": "1d8",
+    "damageType": "Bludgeoning",
+    "isSimple": false,
+    "properties": [
+      "Versatile (1d10)"
+    ],
+    "mastery": "Push",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "whip",
+    "name": "Whip",
+    "damageDice": "1d4",
+    "damageType": "Slashing",
+    "isSimple": false,
+    "properties": [
+      "Finesse",
+      "Reach"
+    ],
+    "mastery": "Slow",
+    "srd": true,
+    "book": "XPHB"
+  }
+]

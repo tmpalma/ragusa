@@ -1,0 +1,380 @@
+.pane {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+  background: var(--code-bg);
+}
+
+.pane h2,
+.pane h3 {
+  margin: 0 0 0.4rem;
+}
+
+.pane h3 {
+  font-size: 1rem;
+}
+
+.hint {
+  margin: 0;
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+.equipmentActionToggle {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+}
+
+.packSuppliesCounters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.5rem;
+}
+
+.gearValueHint {
+  margin: 0 0 0.75rem;
+  opacity: 0.65;
+  font-size: 0.85rem;
+}
+
+.capacitySection {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  background: var(--bg);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 6%);
+}
+
+.capacityGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.capacityGrid div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.capacityGrid dt {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.capacityGrid dd {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.capacityGrid.overCapacity > div:first-child > dd {
+  color: #dc2626;
+}
+
+.capacityGrid.nearCapacity > div:first-child > dd {
+  color: #d97706;
+}
+
+.overCapacityHint {
+  margin: 0.65rem 0 0;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.itemList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.itemList li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+  background: var(--bg);
+}
+
+.itemList li span {
+  flex: 1;
+}
+
+.worn {
+  font-size: 0.85rem;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+
+.addRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.addGrid {
+  display: grid;
+  grid-template-columns: minmax(160px, 2fr) minmax(90px, 1fr) minmax(140px, 1.2fr) auto;
+  gap: 0.5rem;
+  align-items: end;
+}
+
+.costRow {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.costRow input {
+  flex: 1;
+  min-width: 0;
+}
+
+.costRow select {
+  font: inherit;
+  min-height: 2.75rem;
+  padding: 0.4rem 0.35rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: inherit;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.field label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.field input[type="text"],
+.field input[type="search"],
+.field input[type="number"] {
+  font: inherit;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: inherit;
+}
+
+.purse {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+
+.coin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  background: var(--bg);
+  text-align: center;
+}
+
+.coin label {
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.abbr {
+  opacity: 0.7;
+  font-weight: 500;
+}
+
+.button {
+  font: inherit;
+  min-height: 2.75rem;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--accent-bg);
+  color: var(--text-h);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quantityControls {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.quantityControls input {
+  width: 3.5rem;
+  text-align: center;
+  font: inherit;
+  padding: 0.25rem 0.35rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: inherit;
+}
+
+.quantityControls .button {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0.25rem 0.45rem;
+  touch-action: manipulation;
+}
+
+.gearPickerToolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 720px) {
+  .gearPickerToolbar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-end;
+  }
+
+  .gearPickerToolbar .gearSearchField {
+    flex: 1 1 12rem;
+  }
+
+  .gearPickerToolbar .gearTypeFilter {
+    flex: 1 1 12rem;
+  }
+}
+
+.gearSearchField {
+  min-width: 0;
+}
+
+.gearTypeFilter {
+  min-width: 0;
+}
+
+.gearTypeFilter select {
+  width: 100%;
+  min-height: 2.75rem;
+  padding-inline: 0.3rem;
+}
+
+.ammoAddRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.ammoAddRow .field {
+  flex: 1;
+  max-width: 16rem;
+}
+
+.ammoAddRow select {
+  font: inherit;
+  min-height: 2.75rem;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: inherit;
+  width: 100%;
+}
+
+.ammoMeta {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.equipmentSection {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.equipmentSection h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.armoryStack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.armoryRowActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.armoryRowBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.armoryDescriptionsPane {
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 719px) {
+  .addGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ammoAddRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ammoAddRow .field {
+    max-width: none;
+  }
+
+  .capacitySection {
+    /* AppShell mobileTopBar: 0.65rem padding × 2 + 2.5rem menu button + safe-area */
+    top: calc(3.8rem + env(safe-area-inset-top, 0px));
+    z-index: 9;
+  }
+
+  .miscellaneousSection {
+    display: none;
+  }
+}

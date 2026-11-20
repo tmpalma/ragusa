@@ -1,0 +1,5706 @@
+[
+  {
+    "key": "abbathor",
+    "name": "Abbathor",
+    "pantheon": "Dwarven",
+    "title": "God of greed",
+    "category": "The Mordinsamman",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Jeweled dagger, point down",
+    "portfolio": "Greed",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "aegir",
+    "name": "Aegir",
+    "pantheon": "Norse",
+    "title": "God of the sea and storms",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Tempest"
+    ],
+    "symbol": "Rough ocean waves",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "aerdrie-faenya",
+    "name": "Aerdrie Faenya",
+    "pantheon": "Elven",
+    "title": "Goddess of the sky",
+    "category": "The Seldarine",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Life",
+      "Tempest",
+      "Trickery"
+    ],
+    "symbol": "Bird silhouetted against a cloud",
+    "portfolio": "Air, rain, fertility, birth",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "akadi",
+    "name": "Akadi",
+    "pantheon": "Faerûnian",
+    "title": "Goddess of air",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Tempest"
+    ],
+    "symbol": "Cloud",
+    "srd": false,
+    "book": "SCAG"
+  },
+  {
+    "key": "alathrien-druanna",
+    "name": "Alathrien Druanna",
+    "pantheon": "Elven",
+    "category": "The Seldarine",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Arcana",
+      "Knowledge"
+    ],
+    "symbol": "A quill or glyph",
+    "portfolio": "Runes, writing, spellcasting",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "alobal-lorfiril",
+    "name": "Alobal Lorfiril",
+    "pantheon": "Elven",
+    "category": "The Seldarine",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Life",
+      "Trickery"
+    ],
+    "symbol": "Wine glass",
+    "portfolio": "Revelry, mirth",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "amaunator",
+    "name": "Amaunator",
+    "pantheon": "Faerûnian",
+    "title": "God of the sun",
+    "altNames": [
+      "The Keeper of the Eternal Sun",
+      "The Light of Law",
+      "The Yellow God"
+    ],
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "Life",
+      "Light"
+    ],
+    "symbol": "Golden sun",
+    "worshipers": "Farmers, lawmakers, travelers",
+    "plane": "Mechanus",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "angharradh",
+    "name": "Angharradh",
+    "pantheon": "Elven",
+    "title": "Triple goddess of wisdom and protection",
+    "category": "The Seldarine",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Knowledge",
+      "Life",
+      "War",
+      "Peace"
+    ],
+    "symbol": "Three interlocking circles",
+    "portfolio": "Wisdom, growth, protection",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "anubis",
+    "name": "Anubis",
+    "pantheon": "Egyptian",
+    "title": "God of judgment and death",
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "Death",
+      "Grave",
+      "Order"
+    ],
+    "symbol": "Black jackal",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "apep",
+    "name": "Apep",
+    "pantheon": "Egyptian",
+    "title": "God of evil, fire, and serpents",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Flaming snake",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "aphrodite",
+    "name": "Aphrodite",
+    "pantheon": "Greek",
+    "title": "Goddess of love and beauty",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Light"
+    ],
+    "symbol": "Sea shell",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "apollo",
+    "name": "Apollo",
+    "pantheon": "Greek",
+    "title": "God of light, music, and healing",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Knowledge",
+      "Life",
+      "Light"
+    ],
+    "symbol": "Lyre",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "araleth-letheranil",
+    "name": "Araleth Letheranil",
+    "pantheon": "Elven",
+    "category": "The Seldarine",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Knowledge",
+      "Light"
+    ],
+    "symbol": "Shaft of light",
+    "portfolio": "Light, stars, revelations",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "arawai",
+    "name": "Arawai",
+    "pantheon": "Eberron",
+    "title": "Goddess of fertility",
+    "category": "The Sovereign Host",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Life",
+      "Nature"
+    ],
+    "symbol": "Sheaf of wheat tied with green ribbon {@i or} bronze dragon",
+    "portfolio": "Life, love",
+    "srd": false,
+    "book": "ERLW"
+  },
+  {
+    "key": "arawn",
+    "name": "Arawn",
+    "pantheon": "Celtic",
+    "title": "God of life and death",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Life",
+      "Death"
+    ],
+    "symbol": "Black star on gray background",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "ares",
+    "name": "Ares",
+    "pantheon": "Greek",
+    "title": "God of war and strife",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Spear",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "arms-of-the-betrayers",
+    "name": "Arms of the Betrayers",
+    "pantheon": "Exandria",
+    "category": "Lesser Idols",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Death",
+      "War"
+    ],
+    "symbol": "Blade thrust downward through an eight-eyed skull",
+    "portfolio": "The Fiend, the Hexblade",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "artemis",
+    "name": "Artemis",
+    "pantheon": "Greek",
+    "title": "Goddess of hunting and childbirth",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Life",
+      "Nature"
+    ],
+    "symbol": "Bow and arrow on lunar disk",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "arvoreen",
+    "name": "Arvoreen",
+    "pantheon": "Halfling",
+    "title": "God of vigilance and war",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Crossed short swords",
+    "portfolio": "Vigilance, war",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "asmodeus-dawn-war",
+    "name": "Asmodeus",
+    "pantheon": "Dawn War",
+    "title": "God of tyranny",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "Trickery",
+      "Order"
+    ],
+    "symbol": "Three triangles in tight formation",
+    "srd": false,
+    "book": "DMG"
+  },
+  {
+    "key": "asmodeus-exandria",
+    "name": "Asmodeus",
+    "pantheon": "Exandria",
+    "title": "the Lord of the Nine Hells",
+    "altNames": [
+      "The Lord of the Hells"
+    ],
+    "category": "Betrayer Gods",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "Trickery",
+      "War"
+    ],
+    "symbol": "Crown of spiked onyx and curved horns",
+    "portfolio": "God of the Nine Hells",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "asmodeus-faer-nian",
+    "name": "Asmodeus",
+    "pantheon": "Faerûnian",
+    "title": "God of indulgence",
+    "altNames": [
+      "The Cloven",
+      "The Lord of the Ninth",
+      "Old Hoof and Horn"
+    ],
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "Knowledge",
+      "Trickery",
+      "Order"
+    ],
+    "symbol": "Three inverted triangles arranged in a long triangle",
+    "worshipers": "Corrupt politicians, desperate folk",
+    "plane": "The Nine Hells (Nessus)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "athena",
+    "name": "Athena",
+    "pantheon": "Greek",
+    "title": "Goddess of wisdom and civilization",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Knowledge",
+      "War",
+      "Order"
+    ],
+    "symbol": "Owl",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "athreos",
+    "name": "Athreos",
+    "pantheon": "Theros",
+    "title": "God of Passage",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "Death",
+      "Grave"
+    ],
+    "srd": false,
+    "book": "MOT"
+  },
+  {
+    "key": "aureon",
+    "name": "Aureon",
+    "pantheon": "Eberron",
+    "title": "God of law and knowledge",
+    "category": "The Sovereign Host",
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "Knowledge",
+      "Order"
+    ],
+    "symbol": "Open tome {@i or} blue dragon",
+    "portfolio": "Knowledge, law",
+    "srd": false,
+    "book": "ERLW"
+  },
+  {
+    "key": "auril",
+    "name": "Auril",
+    "pantheon": "Faerûnian",
+    "title": "God of winter",
+    "altNames": [
+      "The Cold Crone",
+      "The Frostmaiden",
+      "Icedawn",
+      "Lady Frostkiss"
+    ],
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Nature",
+      "Tempest"
+    ],
+    "symbol": "Six-pointed snowflake",
+    "worshipers": "Druids, inhabitants of cold climates",
+    "plane": "Pandemonium (Pandesmos)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "avandra-dawn-war",
+    "name": "Avandra",
+    "pantheon": "Dawn War",
+    "title": "Goddess of change and luck",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Three stacked wavy lines",
+    "srd": false,
+    "book": "DMG"
+  },
+  {
+    "key": "avandra-exandria",
+    "name": "Avandra",
+    "pantheon": "Exandria",
+    "title": "the Change Bringer",
+    "altNames": [
+      "The Changebringer"
+    ],
+    "category": "Prime Deities",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Nature",
+      "Trickery"
+    ],
+    "symbol": "Woman's profile embossed on a gold coin or pendant",
+    "portfolio": "Change, freedom, luck",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "azuth",
+    "name": "Azuth",
+    "pantheon": "Faerûnian",
+    "title": "God of wizardry",
+    "altNames": [
+      "The High One",
+      "Lord of Spells",
+      "The Shining Hand of Sorcery",
+      "The Lord of Spellcraft",
+      "The First Magister"
+    ],
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "Arcana",
+      "Knowledge"
+    ],
+    "symbol": "Left hand pointing upward, outlined in fire",
+    "worshipers": "Arcane spellcasters",
+    "plane": "Arcadia (Buxenus)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "baervan-wildwanderer",
+    "name": "Baervan Wildwanderer",
+    "pantheon": "Gnomish",
+    "title": "God of woodlands",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Nature"
+    ],
+    "symbol": "Face of a raccoon",
+    "portfolio": "Woodlands",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "bahamut-dawn-war",
+    "name": "Bahamut",
+    "pantheon": "Dawn War",
+    "title": "God of justice and nobility",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Life",
+      "War"
+    ],
+    "symbol": "Dragon's head, in profile, facing left",
+    "srd": false,
+    "book": "DMG"
+  },
+  {
+    "key": "bahamut-exandria",
+    "name": "Bahamut",
+    "pantheon": "Exandria",
+    "title": "the Platinum Dragon",
+    "altNames": [
+      "The Platinum Dragon"
+    ],
+    "category": "Prime Deities",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Life",
+      "Order",
+      "War"
+    ],
+    "symbol": "Silver dragon's head in profile",
+    "portfolio": "Honor, justice",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "bahamut-nonhuman",
+    "name": "Bahamut",
+    "pantheon": "Nonhuman",
+    "title": "Dragon god of good",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Life",
+      "War"
+    ],
+    "symbol": "Dragon's head in profile",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "bahgtru",
+    "name": "Bahgtru",
+    "pantheon": "Orc",
+    "title": "God of strength",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Broken thigh bone",
+    "srd": false,
+    "book": "SCAG"
+  },
+  {
+    "key": "balder",
+    "name": "Balder",
+    "pantheon": "Norse",
+    "title": "God of beauty and poetry",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Life",
+      "Light"
+    ],
+    "symbol": "Gem-encrusted silver chalice",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "balinor",
+    "name": "Balinor",
+    "pantheon": "Eberron",
+    "title": "God of beasts and the hunt",
+    "category": "The Sovereign Host",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Nature",
+      "War"
+    ],
+    "symbol": "Pair of antlers {@i or} green dragon",
+    "portfolio": "Beasts, the hunt",
+    "srd": false,
+    "book": "ERLW"
+  },
+  {
+    "key": "bane-dawn-war",
+    "name": "Bane",
+    "pantheon": "Dawn War",
+    "title": "God of war and conquest",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "War",
+      "Order"
+    ],
+    "symbol": "Claw with three talons pointing down",
+    "srd": false,
+    "book": "DMG"
+  },
+  {
+    "key": "bane-exandria",
+    "name": "Bane",
+    "pantheon": "Exandria",
+    "title": "the Strife Emperor",
+    "altNames": [
+      "The Strife Emperor"
+    ],
+    "category": "Betrayer Gods",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "Forge",
+      "Order",
+      "War"
+    ],
+    "symbol": "Flail of chains, each ending in shackles",
+    "portfolio": "Conquest, tyranny",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "bane-faer-nian",
+    "name": "Bane",
+    "pantheon": "Faerûnian",
+    "title": "God of tyranny",
+    "altNames": [
+      "The Black Hand",
+      "The Lord of Darkness"
+    ],
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "War",
+      "Order"
+    ],
+    "symbol": "Upright black hand, thumb and fingers together",
+    "worshipers": "Conquerors, Fighters, Monks, tyrants",
+    "plane": "Acheron (Avalas)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "baravar-cloakshadow",
+    "name": "Baravar Cloakshadow",
+    "pantheon": "Gnomish",
+    "title": "God of illusion and deception",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Arcana",
+      "Trickery"
+    ],
+    "symbol": "Dagger against a hooded cloak",
+    "portfolio": "Illusion, deception",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "bast",
+    "name": "Bast",
+    "pantheon": "Egyptian",
+    "title": "Goddess of cats and vengeance",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Cat",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "belenus",
+    "name": "Belenus",
+    "pantheon": "Celtic",
+    "title": "God of sun, light, and warmth",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Light"
+    ],
+    "symbol": "Solar disk and standing stones",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "beory",
+    "name": "Beory",
+    "pantheon": "Greyhawk",
+    "title": "Heart of Oerth",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Nature"
+    ],
+    "symbol": "Green disk",
+    "worshipers": "Farmers, herders",
+    "plane": "Material Plane",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "berei",
+    "name": "Berei",
+    "pantheon": "Greyhawk",
+    "title": "of the Hearth",
+    "symbol": "Sheaf of wheat stalks",
+    "worshipers": "Families, farmers",
+    "plane": "Bytopia",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "berronar-truesilver",
+    "name": "Berronar Truesilver",
+    "pantheon": "Dwarven",
+    "title": "Goddess of hearth and home",
+    "category": "The Mordinsamman",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Life",
+      "Light",
+      "Peace"
+    ],
+    "symbol": "Intertwined silver rings",
+    "portfolio": "Hearth, home, truth",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "bes",
+    "name": "Bes",
+    "pantheon": "Egyptian",
+    "title": "God of luck and music",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Image of the misshapen deity",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "beshaba",
+    "name": "Beshaba",
+    "pantheon": "Faerûnian",
+    "title": "God of misfortune",
+    "altNames": [
+      "Lady Doom",
+      "The Maiden of Misfortune",
+      "The Maid of Misfortune",
+      "Black Bess"
+    ],
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Black antlers",
+    "worshipers": "Gamblers, Red Wizards, Rogues",
+    "plane": "The Abyss",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "bhaal",
+    "name": "Bhaal",
+    "pantheon": "Faerûnian",
+    "title": "God of murder",
+    "altNames": [
+      "The Lord of Murder"
+    ],
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Death"
+    ],
+    "symbol": "Skull surrounded by ring of bloody droplets",
+    "worshipers": "Assassins, murderers",
+    "plane": "Gehenna (Khalas)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "bleredd",
+    "name": "Bleredd",
+    "pantheon": "Gnomish",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Forge",
+      "Light"
+    ],
+    "symbol": "Iron mule",
+    "portfolio": "Labor, craft",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "blibdoolpoolp",
+    "name": "Blibdoolpoolp",
+    "pantheon": "Nonhuman",
+    "title": "Kuo-toa goddess",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Death"
+    ],
+    "symbol": "Lobster head or black pearl",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "boccob",
+    "name": "Boccob",
+    "pantheon": "Greyhawk",
+    "title": "the Uncaring, Archmage of the Gods",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Knowledge",
+      "Arcana"
+    ],
+    "symbol": "Eye within a pentagram",
+    "worshipers": "Sages, spellcasters, seers",
+    "plane": "Outlands",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "boldrei",
+    "name": "Boldrei",
+    "pantheon": "Eberron",
+    "title": "Goddess of community and home",
+    "category": "The Sovereign Host",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Life",
+      "Peace",
+      "Twilight"
+    ],
+    "symbol": "Fire in a stone hearth {@i or} copper dragon",
+    "portfolio": "Community, home",
+    "srd": false,
+    "book": "ERLW"
+  },
+  {
+    "key": "branchala",
+    "name": "Branchala",
+    "pantheon": "Dragonlance",
+    "title": "God of music",
+    "category": "Good",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Light"
+    ],
+    "symbol": "Bard's harp",
+    "portfolio": "Music",
+    "srd": false,
+    "book": "DSotDQ"
+  },
+  {
+    "key": "brandobaris",
+    "name": "Brandobaris",
+    "pantheon": "Halfling",
+    "title": "God of thievery and adventure",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Halfling footprint",
+    "portfolio": "Adventure, thievery",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "brigantia",
+    "name": "Brigantia",
+    "pantheon": "Celtic",
+    "title": "Goddess of rivers and livestock",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Life"
+    ],
+    "symbol": "Footbridge",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "callarduran-smoothhands",
+    "name": "Callarduran Smoothhands",
+    "pantheon": "Gnomish",
+    "title": "God of mining and carving stone",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Knowledge",
+      "Nature"
+    ],
+    "symbol": "Golden signet ring with six pointed star",
+    "portfolio": "Mining, stone carving",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "celestian",
+    "name": "Celestian",
+    "pantheon": "Greyhawk",
+    "title": "the Far Wanderer",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Knowledge",
+      "Twilight"
+    ],
+    "symbol": "Arc of seven stars inside a circle",
+    "worshipers": "Wanderers, astronomers",
+    "plane": "Astral Plane",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "ceratos",
+    "name": "Ceratos",
+    "pantheon": "Exandria",
+    "category": "Lesser Idols",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Knowledge",
+      "Tempest"
+    ],
+    "symbol": "Three mismatched eyes surrounded by teeth",
+    "portfolio": "The Great Old One",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "charmalaine",
+    "name": "Charmalaine",
+    "pantheon": "Halfling",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Burning boot print",
+    "portfolio": "Keen senses, luck",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "chauntea",
+    "name": "Chauntea",
+    "pantheon": "Faerûnian",
+    "title": "God of agriculture",
+    "altNames": [
+      "The Grain Goddess",
+      "The Great Mother"
+    ],
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Life"
+    ],
+    "symbol": "Sheaf of grain or a blooming rose over grain",
+    "worshipers": "Farmers, gardeners, homesteaders",
+    "plane": "Elysium (Eronia)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "chemosh",
+    "name": "Chemosh",
+    "pantheon": "Dragonlance",
+    "title": "God of the undead",
+    "category": "Evil",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "Death"
+    ],
+    "symbol": "Yellow skull",
+    "portfolio": "Undead",
+    "srd": false,
+    "book": "DSotDQ"
+  },
+  {
+    "key": "chislev",
+    "name": "Chislev",
+    "pantheon": "Dragonlance",
+    "title": "Goddess of nature",
+    "category": "Neutral",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Nature"
+    ],
+    "symbol": "Feather",
+    "portfolio": "Nature",
+    "srd": false,
+    "book": "DSotDQ"
+  },
+  {
+    "key": "clangeddin-silverbeard",
+    "name": "Clangeddin Silverbeard",
+    "pantheon": "Dwarven",
+    "title": "God of war",
+    "category": "The Mordinsamman",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Crossed silver battleaxes",
+    "portfolio": "War, strategy",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "corellon-dawn-war",
+    "name": "Corellon",
+    "pantheon": "Dawn War",
+    "title": "God of magic and the arts",
+    "altNames": [
+      "Corellon Larethian"
+    ],
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Light"
+    ],
+    "symbol": "Eight-pointed star",
+    "srd": false,
+    "book": "DMG"
+  },
+  {
+    "key": "corellon-exandria",
+    "name": "Corellon",
+    "pantheon": "Exandria",
+    "title": "the Arch Heart",
+    "altNames": [
+      "The Arch Heart"
+    ],
+    "category": "Prime Deities",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Arcana",
+      "Light"
+    ],
+    "symbol": "Two crescent moons facing each other atop a four-pointed star",
+    "portfolio": "Art, beauty, elves",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "corellon-larethian-elven",
+    "name": "Corellon Larethian",
+    "pantheon": "Elven",
+    "title": "God of art and magic",
+    "category": "The Seldarine",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Arcana",
+      "Life",
+      "Light",
+      "War"
+    ],
+    "symbol": "Quarter moon or starburst",
+    "portfolio": "Primary god of elves",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "corellon-larethian-nonhuman",
+    "name": "Corellon Larethian",
+    "pantheon": "Nonhuman",
+    "title": "Elf deity of art and magic",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Light",
+      "Arcana"
+    ],
+    "symbol": "Quarter moon or starburst",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "cults-of-the-dragon-below",
+    "name": "Cults of the Dragon Below",
+    "pantheon": "Eberron",
+    "title": "Deities of madness",
+    "category": "Other Faiths of Eberron",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Varies",
+    "portfolio": "Madness",
+    "srd": false,
+    "book": "ERLW"
+  },
+  {
+    "key": "cuthbert",
+    "name": "Cuthbert",
+    "pantheon": "Greyhawk",
+    "title": "of the Cudgel",
+    "symbol": "Circle at the center of a starburst of lines",
+    "worshipers": "Practical, honest folk",
+    "plane": "Arcadia",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "cyric",
+    "name": "Cyric",
+    "pantheon": "Faerûnian",
+    "title": "God of lies",
+    "altNames": [
+      "The Dark Sun",
+      "The Prince of Lies"
+    ],
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "White jawless skull on black or purple sunburst",
+    "worshipers": "Liars, manipulators, power-hungry folk",
+    "plane": "Pandemonium (Cocytus)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "cyrrollalee",
+    "name": "Cyrrollalee",
+    "pantheon": "Halfling",
+    "title": "Goddess of hearth and home",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Life",
+      "Peace"
+    ],
+    "symbol": "An open door",
+    "portfolio": "Hearth, home",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "darahl-tilvenar",
+    "name": "Darahl Tilvenar",
+    "pantheon": "Elven",
+    "category": "The Seldarine",
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "Forge",
+      "Light"
+    ],
+    "symbol": "Flame between hands",
+    "portfolio": "Fire, earth, metalwork",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "deep-duerra-duergar",
+    "name": "Deep Duerra",
+    "pantheon": "Duergar",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "Knowledge",
+      "War"
+    ],
+    "symbol": "Mind flayer skull",
+    "portfolio": "Conquest, psionics",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "deep-duerra-dwarven",
+    "name": "Deep Duerra",
+    "pantheon": "Dwarven",
+    "title": "Duergar goddess of conquest and psionics",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "Arcana",
+      "War"
+    ],
+    "symbol": "Mind flayer skull",
+    "srd": false,
+    "book": "SCAG"
+  },
+  {
+    "key": "deep-sashelas-elven",
+    "name": "Deep Sashelas",
+    "pantheon": "Elven",
+    "title": "God of the sea",
+    "category": "The Seldarine",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Knowledge",
+      "Nature",
+      "Tempest"
+    ],
+    "symbol": "Dolphin",
+    "portfolio": "Creativity, knowledge, sea",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "deep-sashelas-nonhuman",
+    "name": "Deep Sashelas",
+    "pantheon": "Nonhuman",
+    "title": "Elf god of the sea",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Nature",
+      "Tempest"
+    ],
+    "symbol": "Dolphin",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "demeter",
+    "name": "Demeter",
+    "pantheon": "Greek",
+    "title": "Goddess of agriculture",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Life"
+    ],
+    "symbol": "Mare's head",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "dendar",
+    "name": "Dendar",
+    "pantheon": "Yuan-ti",
+    "srd": false,
+    "book": "VGM"
+  },
+  {
+    "key": "deneir",
+    "name": "Deneir",
+    "pantheon": "Faerûnian",
+    "title": "God of writing",
+    "altNames": [
+      "The First Scribe",
+      "The Lord of All Glyphs and Images",
+      "The Scribe of Oghma"
+    ],
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Arcana",
+      "Knowledge"
+    ],
+    "symbol": "Lit candle above an open eye",
+    "worshipers": "Sages, scribes, students, teachers",
+    "plane": "Elysium (Amoria)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "desirat",
+    "name": "Desirat",
+    "pantheon": "Exandria",
+    "title": "the Twilight Phoenix",
+    "category": "Lesser Idols",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "Light",
+      "Trickery"
+    ],
+    "symbol": "Burning purple feather",
+    "portfolio": "The Fiend, the Undying",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "diancecht",
+    "name": "Diancecht",
+    "pantheon": "Celtic",
+    "title": "God of medicine and healing",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Life"
+    ],
+    "symbol": "Crossed oak and mistletoe branches",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "dionysus",
+    "name": "Dionysus",
+    "pantheon": "Greek",
+    "title": "God of mirth and wine",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Life"
+    ],
+    "symbol": "Thyrsus (staff tipped with pine cone)",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "dol-arrah",
+    "name": "Dol Arrah",
+    "pantheon": "Eberron",
+    "title": "Goddess of sunlight and honor",
+    "category": "The Sovereign Host",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Light",
+      "War",
+      "Twilight"
+    ],
+    "symbol": "Rising sun {@i or} red dragon",
+    "portfolio": "Honor, sunlight",
+    "srd": false,
+    "book": "ERLW"
+  },
+  {
+    "key": "dol-dorn",
+    "name": "Dol Dorn",
+    "pantheon": "Eberron",
+    "title": "God of strength at arms",
+    "category": "The Sovereign Host",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Longsword crossed over a shield {@i or} silver dragon",
+    "portfolio": "Strength at arms",
+    "srd": false,
+    "book": "ERLW"
+  },
+  {
+    "key": "dugmaren-brightmantle",
+    "name": "Dugmaren Brightmantle",
+    "pantheon": "Dwarven",
+    "title": "God of discovery",
+    "category": "The Mordinsamman",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Knowledge"
+    ],
+    "symbol": "Open book",
+    "portfolio": "Discovery",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "dumathoin",
+    "name": "Dumathoin",
+    "pantheon": "Dwarven",
+    "title": "God of buried secrets",
+    "category": "The Mordinsamman",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Grave",
+      "Knowledge"
+    ],
+    "symbol": "Gemstone in a mountain",
+    "portfolio": "Buried secrets",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "dunatis",
+    "name": "Dunatis",
+    "pantheon": "Celtic",
+    "title": "God of mountains and peaks",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Nature"
+    ],
+    "symbol": "Red sun-capped mountain peak",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "eadro",
+    "name": "Eadro",
+    "pantheon": "Nonhuman",
+    "title": "Merfolk deity of the sea",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Nature",
+      "Tempest"
+    ],
+    "symbol": "Spiral design",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "ehlonna",
+    "name": "Ehlonna",
+    "pantheon": "Greyhawk",
+    "title": "of the Forests",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Life",
+      "Nature"
+    ],
+    "symbol": "Unicorn horn",
+    "worshipers": "Hunters, foragers",
+    "plane": "Beastlands",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "eilistraee-drow",
+    "name": "Eilistraee",
+    "pantheon": "Drow",
+    "title": "Goddess of song and moonlight",
+    "category": "The Dark Seldarine",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Life",
+      "Light",
+      "Nature"
+    ],
+    "symbol": "Sword-wielding, dancing female drow silhouetted against the full moon",
+    "portfolio": "Freedom, moonlight, song",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "eilistraee-faer-nian",
+    "name": "Eilistraee",
+    "pantheon": "Faerûnian",
+    "title": "God of song and moonlight",
+    "altNames": [
+      "The Dark Maiden",
+      "Lady of the Dance",
+      "Lady Silverhair"
+    ],
+    "worshipers": "Bladesingers, elves, performing artists",
+    "plane": "Arborea (Arvandor)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "eldath",
+    "name": "Eldath",
+    "pantheon": "Faerûnian",
+    "title": "God of peace",
+    "altNames": [
+      "The Guardian of Groves",
+      "The Quiet One",
+      "The Mother of the Waters"
+    ],
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Life",
+      "Nature",
+      "Peace"
+    ],
+    "symbol": "Waterfall plunging into a still pool",
+    "worshipers": "Druids, pacifists, the dying",
+    "plane": "Elysium (Eronia)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "elebrin-liothiel",
+    "name": "Elebrin Liothiel",
+    "pantheon": "Elven",
+    "category": "The Seldarine",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Life",
+      "Nature"
+    ],
+    "symbol": "Acorn",
+    "portfolio": "Abundance, gardens, the harvest",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "ephara",
+    "name": "Ephara",
+    "pantheon": "Theros",
+    "title": "God of the Polis",
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "Knowledge",
+      "Light"
+    ],
+    "srd": false,
+    "book": "MOT"
+  },
+  {
+    "key": "erathis-dawn-war",
+    "name": "Erathis",
+    "pantheon": "Dawn War",
+    "title": "Goddess of civilization and invention",
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "Knowledge",
+      "Order"
+    ],
+    "symbol": "Upper half of a clockwork gear",
+    "srd": false,
+    "book": "DMG"
+  },
+  {
+    "key": "erathis-exandria",
+    "name": "Erathis",
+    "pantheon": "Exandria",
+    "title": "the Law Bearer",
+    "altNames": [
+      "The Lawbearer"
+    ],
+    "category": "Prime Deities",
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "Knowledge",
+      "Order"
+    ],
+    "symbol": "Double-headed axe inset with a pattern of scales",
+    "portfolio": "Civilization, law, peace",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "erebos",
+    "name": "Erebos",
+    "pantheon": "Theros",
+    "title": "God of the Dead",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Death",
+      "Trickery"
+    ],
+    "srd": false,
+    "book": "MOT"
+  },
+  {
+    "key": "erevan-ilesere",
+    "name": "Erevan Ilesere",
+    "pantheon": "Elven",
+    "title": "God of mischief",
+    "category": "The Seldarine",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Asymmetrical starburst",
+    "portfolio": "Mischief, change",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "erythnul",
+    "name": "Erythnul",
+    "pantheon": "Greyhawk",
+    "title": "the Many",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Blood drop",
+    "worshipers": "Raiders, bandits, berserkers",
+    "plane": "Pandemonium",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "ezra",
+    "name": "Ezra",
+    "pantheon": "Unknown",
+    "title": "God of the mists",
+    "category": "Unknown",
+    "domains": [
+      "Unknown"
+    ],
+    "symbol": "Sprig of belladonna atop a silver kite shield",
+    "srd": false,
+    "book": "VRGR"
+  },
+  {
+    "key": "fenmarel-mestarine",
+    "name": "Fenmarel Mestarine",
+    "pantheon": "Elven",
+    "title": "God of outcasts",
+    "category": "The Seldarine",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Nature",
+      "Trickery"
+    ],
+    "symbol": "Two peering elven eyes",
+    "portfolio": "Solitude, outcasts",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "fharlanghn",
+    "name": "Fharlanghn",
+    "pantheon": "Greyhawk",
+    "title": "the Dweller on the Horizon",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Knowledge",
+      "Trickery"
+    ],
+    "symbol": "Circle crossed by a curved horizon line",
+    "worshipers": "Travelers",
+    "plane": "Outlands",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "flandal-steelskin",
+    "name": "Flandal Steelskin",
+    "pantheon": "Gnomish",
+    "title": "God of metalwork",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Forge",
+      "Knowledge"
+    ],
+    "symbol": "Flaming hammer",
+    "portfolio": "Metalwork",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "forseti",
+    "name": "Forseti",
+    "pantheon": "Norse",
+    "title": "God of justice and law",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Light",
+      "Order"
+    ],
+    "symbol": "Head of a bearded man",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "frey",
+    "name": "Frey",
+    "pantheon": "Norse",
+    "title": "God of fertility and the sun",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Life",
+      "Light"
+    ],
+    "symbol": "Ice-blue greatsword",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "freya",
+    "name": "Freya",
+    "pantheon": "Norse",
+    "title": "Goddess of fertility and love",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Life"
+    ],
+    "symbol": "Falcon",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "frigga",
+    "name": "Frigga",
+    "pantheon": "Norse",
+    "title": "Goddess of birth and fertility",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Life",
+      "Light"
+    ],
+    "symbol": "Cat",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "gadhelyn",
+    "name": "Gadhelyn",
+    "pantheon": "Elven",
+    "category": "The Seldarine",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Nature",
+      "Trickery"
+    ],
+    "symbol": "Leaf-shaped arrowhead",
+    "portfolio": "Independence, outlawry",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "gaerdal-ironhand",
+    "name": "Gaerdal Ironhand",
+    "pantheon": "Gnomish",
+    "title": "God of protection",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "War",
+      "Peace"
+    ],
+    "symbol": "Iron band",
+    "portfolio": "Protection",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "garl-glittergold-gnomish",
+    "name": "Garl Glittergold",
+    "pantheon": "Gnomish",
+    "title": "God of trickery and gems",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Gold nugget",
+    "portfolio": "Primary god of gnomes",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "garl-glittergold-nonhuman",
+    "name": "Garl Glittergold",
+    "pantheon": "Nonhuman",
+    "title": "Gnome god of trickery and wiles",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Gold nugget",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "gelf-darkhearth",
+    "name": "Gelf Darkhearth",
+    "pantheon": "Gnomish",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Broken anvil",
+    "portfolio": "Frustration, destruction",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "ghaunadaur",
+    "name": "Ghaunadaur",
+    "pantheon": "Drow",
+    "category": "The Dark Seldarine",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Purple eye with black sclera",
+    "portfolio": "Oozes, slimes, outcasts",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "gilean",
+    "name": "Gilean",
+    "pantheon": "Dragonlance",
+    "title": "God of knowledge",
+    "category": "Neutral",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Knowledge"
+    ],
+    "symbol": "Open book",
+    "portfolio": "Knowledge",
+    "srd": false,
+    "book": "DSotDQ"
+  },
+  {
+    "key": "goibhniu",
+    "name": "Goibhniu",
+    "pantheon": "Celtic",
+    "title": "God of smiths and healing",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Forge",
+      "Knowledge",
+      "Life"
+    ],
+    "symbol": "Giant mallet over sword",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "gond",
+    "name": "Gond",
+    "pantheon": "Faerûnian",
+    "title": "God of craft",
+    "altNames": [
+      "The Holy Maker of All Things",
+      "The Inspiration Divine",
+      "Wonderbringer",
+      "The Wonderbringer"
+    ],
+    "alignmentKey": "neutral",
+    "domains": [
+      "Forge",
+      "Knowledge"
+    ],
+    "symbol": "Toothed cog with four spokes",
+    "worshipers": "Artificers, crafters, engineers, inventors",
+    "plane": "The Outlands",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "gorm-gulthyn",
+    "name": "Gorm Gulthyn",
+    "pantheon": "Dwarven",
+    "title": "God of vigilance",
+    "category": "The Mordinsamman",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Bronze half-mask",
+    "portfolio": "Vigilance",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "grolantor",
+    "name": "Grolantor",
+    "pantheon": "Nonhuman",
+    "title": "Hill giant god of war",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Wooden club",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "grumbar",
+    "name": "Grumbar",
+    "pantheon": "Faerûnian",
+    "title": "God of earth",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Knowledge"
+    ],
+    "symbol": "Mountain",
+    "srd": false,
+    "book": "SCAG"
+  },
+  {
+    "key": "gruumsh-dawn-war",
+    "name": "Gruumsh",
+    "pantheon": "Dawn War",
+    "title": "God of destruction",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Tempest",
+      "War"
+    ],
+    "symbol": "Triangular eye with bony protrusions",
+    "srd": false,
+    "book": "DMG"
+  },
+  {
+    "key": "gruumsh-exandria",
+    "name": "Gruumsh",
+    "pantheon": "Exandria",
+    "title": "the Ruiner",
+    "altNames": [
+      "The Ruiner"
+    ],
+    "category": "Betrayer Gods",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Death",
+      "Tempest",
+      "War"
+    ],
+    "symbol": "Single, unblinking eye that bleeds",
+    "portfolio": "Slaughter, warfare",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "gruumsh-nonhuman",
+    "name": "Gruumsh",
+    "pantheon": "Nonhuman",
+    "title": "Orc god of storms and war",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Tempest",
+      "War"
+    ],
+    "symbol": "Unblinking eye",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "gruumsh-orc",
+    "name": "Gruumsh",
+    "pantheon": "Orc",
+    "title": "God of storms and war",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Tempest",
+      "War"
+    ],
+    "symbol": "Unblinking eye",
+    "srd": false,
+    "book": "SCAG"
+  },
+  {
+    "key": "gwaeron-windstrom",
+    "name": "Gwaeron Windstrom",
+    "pantheon": "Faerûnian",
+    "title": "God of tracking",
+    "altNames": [
+      "The Mouth of Mielikki",
+      "The Master Tracker",
+      "The Tracker Never Led Astray"
+    ],
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Knowledge",
+      "Nature"
+    ],
+    "symbol": "Paw print with a five-pointed star in its center",
+    "srd": false,
+    "book": "SCAG"
+  },
+  {
+    "key": "habbakuk",
+    "name": "Habbakuk",
+    "pantheon": "Dragonlance",
+    "title": "God of animal life and the sea",
+    "category": "Good",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Nature",
+      "Tempest"
+    ],
+    "symbol": "Blue bird",
+    "portfolio": "Animal life, natural balance",
+    "srd": false,
+    "book": "DSotDQ"
+  },
+  {
+    "key": "hades",
+    "name": "Hades",
+    "pantheon": "Greek",
+    "title": "God of the underworld",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "Death",
+      "Grave"
+    ],
+    "symbol": "Black ram",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "haela-brightaxe",
+    "name": "Haela Brightaxe",
+    "pantheon": "Dwarven",
+    "title": "Goddess of war-luck",
+    "category": "The Mordinsamman",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Upright sword with blade sheathed in flame",
+    "portfolio": "Combat prowess, luck in battle",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "hanali-celanil",
+    "name": "Hanali Celanil",
+    "pantheon": "Elven",
+    "title": "Goddess of love and beauty",
+    "category": "The Seldarine",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Life"
+    ],
+    "symbol": "Golden heart",
+    "portfolio": "Love, beauty, the arts",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "hanseath",
+    "name": "Hanseath",
+    "pantheon": "Dwarven",
+    "category": "The Mordinsamman",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Trickery",
+      "War"
+    ],
+    "symbol": "Beer stein",
+    "portfolio": "Festivity, brewing, song",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "hathor",
+    "name": "Hathor",
+    "pantheon": "Egyptian",
+    "title": "Goddess of love, music, and motherhood",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Life",
+      "Light"
+    ],
+    "symbol": "Horned cow's head with lunar disk",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "hecate",
+    "name": "Hecate",
+    "pantheon": "Greek",
+    "title": "Goddess of magic and the moon",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Knowledge",
+      "Trickery",
+      "Arcana"
+    ],
+    "symbol": "Setting moon",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "heimdall",
+    "name": "Heimdall",
+    "pantheon": "Norse",
+    "title": "God of watchfulness and loyalty",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Light",
+      "War"
+    ],
+    "symbol": "Curling musical horn",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "heironeous",
+    "name": "Heironeous",
+    "pantheon": "Greyhawk",
+    "title": "the Invincible",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Lightning bolt",
+    "worshipers": "Knights, soldiers",
+    "plane": "Mount Celestia",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "hel",
+    "name": "Hel",
+    "pantheon": "Norse",
+    "title": "Goddess of the underworld",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Death"
+    ],
+    "symbol": "Woman's face, rotting on one side",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "heliod",
+    "name": "Heliod",
+    "pantheon": "Theros",
+    "title": "God of the Sun",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Light"
+    ],
+    "srd": false,
+    "book": "MOT"
+  },
+  {
+    "key": "helm",
+    "name": "Helm",
+    "pantheon": "Faerûnian",
+    "title": "God of watchfulness",
+    "altNames": [
+      "He of the Unsleeping Eyes",
+      "The Vigilant",
+      "The Watcher",
+      "The Vigilant One"
+    ],
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "Life",
+      "Light",
+      "Twilight"
+    ],
+    "symbol": "Staring eye on upright left gauntlet",
+    "worshipers": "Explorers, Fighters, guards, Paladins",
+    "plane": "Mechanus",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "hephaestus",
+    "name": "Hephaestus",
+    "pantheon": "Greek",
+    "title": "God of smithing and craft",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Forge",
+      "Knowledge"
+    ],
+    "symbol": "Hammer and anvil",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "hera",
+    "name": "Hera",
+    "pantheon": "Greek",
+    "title": "Goddess of marriage and intrigue",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Fan of peacock feathers",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "hercules",
+    "name": "Hercules",
+    "pantheon": "Greek",
+    "title": "God of strength and adventure",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Tempest",
+      "War"
+    ],
+    "symbol": "Lion's head",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "hermes",
+    "name": "Hermes",
+    "pantheon": "Greek",
+    "title": "God of travel and commerce",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Caduceus (winged staff and serpents)",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "hermod",
+    "name": "Hermod",
+    "pantheon": "Norse",
+    "title": "God of luck",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Winged scroll",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "hestia",
+    "name": "Hestia",
+    "pantheon": "Greek",
+    "title": "Goddess of home and family",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Life"
+    ],
+    "symbol": "Hearth",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "hextor",
+    "name": "Hextor",
+    "pantheon": "Greyhawk",
+    "title": "Scourge of Battle",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Six down-pointing arrows in a fan",
+    "worshipers": "Soldiers, tyrants",
+    "plane": "Acheron",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "hiddukel",
+    "name": "Hiddukel",
+    "pantheon": "Dragonlance",
+    "title": "God of lies and greed",
+    "category": "Evil",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Broken merchant's scales",
+    "portfolio": "Greed, lies",
+    "srd": false,
+    "book": "DSotDQ"
+  },
+  {
+    "key": "hoar",
+    "name": "Hoar",
+    "pantheon": "Faerûnian",
+    "title": "God of revenge and retribution",
+    "altNames": [
+      "The Doombringer",
+      "Poet of Justice"
+    ],
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "War"
+    ],
+    "symbol": "A coin with a two-faced head",
+    "srd": false,
+    "book": "SCAG"
+  },
+  {
+    "key": "hruggek",
+    "name": "Hruggek",
+    "pantheon": "Nonhuman",
+    "title": "Bugbear god of violence",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Morningstar",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "ilmater",
+    "name": "Ilmater",
+    "pantheon": "Faerûnian",
+    "title": "God of endurance",
+    "altNames": [
+      "The Crying God",
+      "He Who Endures",
+      "The Rack-Broken Lord"
+    ],
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Life",
+      "Twilight"
+    ],
+    "symbol": "Hands bound at the wrist with red cord",
+    "worshipers": "Monks, the oppressed, the poor",
+    "plane": "Bytopia (Shurrock)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "ilneval",
+    "name": "Ilneval",
+    "pantheon": "Orc",
+    "title": "God of strategy and hordes",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Upright blood-spattered sword",
+    "srd": false,
+    "book": "SCAG"
+  },
+  {
+    "key": "imhotep",
+    "name": "Imhotep",
+    "pantheon": "Egyptian",
+    "title": "God of crafts and medicine",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Knowledge"
+    ],
+    "symbol": "Step pyramid",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "incabulos",
+    "name": "Incabulos",
+    "pantheon": "Greyhawk",
+    "title": "the Black Rider",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Death"
+    ],
+    "symbol": "Reptilian eye within a horizontal diamond",
+    "worshipers": "Necromancers, those who seek to ward off illness",
+    "plane": "Hades",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "ioun-dawn-war",
+    "name": "Ioun",
+    "pantheon": "Dawn War",
+    "title": "Goddess of knowledge",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Knowledge"
+    ],
+    "symbol": "Crook shaped like a stylized eye",
+    "srd": false,
+    "book": "DMG"
+  },
+  {
+    "key": "ioun-exandria",
+    "name": "Ioun",
+    "pantheon": "Exandria",
+    "title": "the Knowing Mentor",
+    "altNames": [
+      "The Knowing Mentor"
+    ],
+    "category": "Prime Deities",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Arcana",
+      "Knowledge"
+    ],
+    "symbol": "Pair of open eyes crowned with a third open eye",
+    "portfolio": "Knowledge, learning, teaching",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "iroas",
+    "name": "Iroas",
+    "pantheon": "Theros",
+    "title": "God of Victory",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "War"
+    ],
+    "srd": false,
+    "book": "MOT"
+  },
+  {
+    "key": "isis",
+    "name": "Isis",
+    "pantheon": "Egyptian",
+    "title": "Goddess of fertility and magic",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Knowledge",
+      "Life",
+      "Arcana"
+    ],
+    "symbol": "Ankh and star",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "istishia",
+    "name": "Istishia",
+    "pantheon": "Faerûnian",
+    "title": "God of water",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Tempest"
+    ],
+    "symbol": "Wave",
+    "srd": false,
+    "book": "SCAG"
+  },
+  {
+    "key": "istus",
+    "name": "Istus",
+    "pantheon": "Greyhawk",
+    "title": "Weaver of Our Fate",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Knowledge"
+    ],
+    "symbol": "Spindle with three strands",
+    "worshipers": "Seers, advisers",
+    "plane": "Mechanus",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "iuz",
+    "name": "Iuz",
+    "pantheon": "Greyhawk",
+    "title": "the Evil",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Death"
+    ],
+    "symbol": "Grinning human skull",
+    "worshipers": "His subjects and allies",
+    "plane": "Material Plane",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "jergal",
+    "name": "Jergal",
+    "pantheon": "Faerûnian",
+    "title": "Scribe of the dead",
+    "altNames": [
+      "The Final Scribe",
+      "The Pitiless One",
+      "The Bleak Seneschal"
+    ],
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "Knowledge",
+      "Death"
+    ],
+    "symbol": "A skull biting a scroll",
+    "srd": false,
+    "book": "SCAG"
+  },
+  {
+    "key": "karametra",
+    "name": "Karametra",
+    "pantheon": "Theros",
+    "title": "God of Harvests",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Life",
+      "Nature"
+    ],
+    "srd": false,
+    "book": "MOT"
+  },
+  {
+    "key": "kelemvor",
+    "name": "Kelemvor",
+    "pantheon": "Faerûnian",
+    "title": "God of the dead",
+    "altNames": [
+      "The Judge of the Damned",
+      "The Lord of the Dead"
+    ],
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "Death",
+      "Grave"
+    ],
+    "symbol": "Upright skeletal arm holding balanced scales",
+    "worshipers": "Funeral workers, the dying",
+    "plane": "Astral Plane (Fugue Plane)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "keptolo",
+    "name": "Keptolo",
+    "pantheon": "Drow",
+    "category": "The Dark Seldarine",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Nature",
+      "Trickery"
+    ],
+    "symbol": "Mushroom",
+    "portfolio": "Beauty, hedonism, fertility",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "keranos",
+    "name": "Keranos",
+    "pantheon": "Theros",
+    "title": "God of Storms",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Knowledge",
+      "Tempest"
+    ],
+    "srd": false,
+    "book": "MOT"
+  },
+  {
+    "key": "kiaransalee",
+    "name": "Kiaransalee",
+    "pantheon": "Drow",
+    "title": "Goddess of necromancy",
+    "category": "The Dark Seldarine",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Arcana",
+      "Death"
+    ],
+    "symbol": "Drow hand wearing many silver rings",
+    "portfolio": "Necromancy",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "kiri-jolith",
+    "name": "Kiri-Jolith",
+    "pantheon": "Dragonlance",
+    "title": "God of honor and war",
+    "category": "Good",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Bison's horns",
+    "portfolio": "Honor, war",
+    "srd": false,
+    "book": "DSotDQ"
+  },
+  {
+    "key": "kirith-sotheril",
+    "name": "Kirith Sotheril",
+    "pantheon": "Elven",
+    "category": "The Seldarine",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Knowledge",
+      "Trickery"
+    ],
+    "symbol": "Rainbow sphere",
+    "portfolio": "Divination, illusion",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "klothys",
+    "name": "Klothys",
+    "pantheon": "Theros",
+    "title": "God of Destiny",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Knowledge",
+      "War"
+    ],
+    "srd": false,
+    "book": "MOT"
+  },
+  {
+    "key": "kol-korran",
+    "name": "Kol Korran",
+    "pantheon": "Eberron",
+    "title": "God of trade and wealth",
+    "category": "The Sovereign Host",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Nine-sided gold coin {@i or} white dragon",
+    "portfolio": "Trade, travel",
+    "srd": false,
+    "book": "ERLW"
+  },
+  {
+    "key": "kord-dawn-war",
+    "name": "Kord",
+    "pantheon": "Dawn War",
+    "title": "God of strength and storms",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Tempest"
+    ],
+    "symbol": "Sword with a lightning bolt cross guard",
+    "srd": false,
+    "book": "DMG"
+  },
+  {
+    "key": "kord-exandria",
+    "name": "Kord",
+    "pantheon": "Exandria",
+    "title": "the Storm Lord",
+    "altNames": [
+      "The Stormlord"
+    ],
+    "category": "Prime Deities",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Tempest",
+      "War"
+    ],
+    "symbol": "Four bolts of lightning radiating from the center of a shield",
+    "portfolio": "Battle, competition, storms",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "kord-greyhawk",
+    "name": "Kord",
+    "pantheon": "Greyhawk",
+    "title": "the Brawler",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Tempest",
+      "War"
+    ],
+    "symbol": "Spears and maces radiating from a point",
+    "worshipers": "Athletes, berserkers",
+    "plane": "Ysgard",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "kossuth",
+    "name": "Kossuth",
+    "pantheon": "Faerûnian",
+    "title": "God of fire",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Light"
+    ],
+    "symbol": "Flame",
+    "srd": false,
+    "book": "SCAG"
+  },
+  {
+    "key": "kruphix",
+    "name": "Kruphix",
+    "pantheon": "Theros",
+    "title": "God of Horizons",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Knowledge",
+      "Trickery"
+    ],
+    "srd": false,
+    "book": "MOT"
+  },
+  {
+    "key": "kurtulmak",
+    "name": "Kurtulmak",
+    "pantheon": "Nonhuman",
+    "title": "Kobold god of war and mining",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Gnome skull",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "labelas-enoreth",
+    "name": "Labelas Enoreth",
+    "pantheon": "Elven",
+    "title": "God of time, history, and philosophy",
+    "category": "The Seldarine",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Arcana",
+      "Knowledge",
+      "Life"
+    ],
+    "symbol": "Setting sun",
+    "portfolio": "Time, history, memory",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "laduguer-duergar",
+    "name": "Laduguer",
+    "pantheon": "Duergar",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "Death",
+      "Forge"
+    ],
+    "symbol": "Broken arrow",
+    "portfolio": "Labor, slavery",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "laduguer-dwarven",
+    "name": "Laduguer",
+    "pantheon": "Dwarven",
+    "title": "Duergar god of magic and slavery",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "Arcana",
+      "Death"
+    ],
+    "symbol": "Broken arrow",
+    "srd": false,
+    "book": "SCAG"
+  },
+  {
+    "key": "laogzed",
+    "name": "Laogzed",
+    "pantheon": "Nonhuman",
+    "title": "Troglodyte god of hunger",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Death"
+    ],
+    "symbol": "Image of the lizard/toad god",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "lathander",
+    "name": "Lathander",
+    "pantheon": "Faerûnian",
+    "title": "God of dawn and renewal",
+    "altNames": [
+      "Inspiration's Dawn",
+      "The Morninglord",
+      "The Rose-And-Gold God",
+      "The Rose-and-Gold God"
+    ],
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Life",
+      "Light"
+    ],
+    "symbol": "Road traveling into a sunrise",
+    "worshipers": "Aristocrats, athletes, merchants, youths",
+    "plane": "Elysium (Eronia)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "leira",
+    "name": "Leira",
+    "pantheon": "Faerûnian",
+    "title": "God of illusion",
+    "altNames": [
+      "The Lady of Deception",
+      "The Lady of the Mists",
+      "Mistshadow"
+    ],
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Point-down triangle containing a swirl of mist",
+    "worshipers": "Actors, con artists, Illusionists, Rogues",
+    "plane": "Limbo",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "lliira",
+    "name": "Lliira",
+    "pantheon": "Faerûnian",
+    "title": "God of joy",
+    "altNames": [
+      "Mistress of Revels",
+      "Our Lady of Joy",
+      "Joybringer",
+      "The Mistress of Revels"
+    ],
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Life"
+    ],
+    "symbol": "Triangle of three six-pointed stars",
+    "worshipers": "Bards, dancers, poets, revelers, singers",
+    "plane": "Arborea (Arvandor)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "loki",
+    "name": "Loki",
+    "pantheon": "Norse",
+    "title": "God of thieves and trickery",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Flame",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "lolth-dawn-war",
+    "name": "Lolth",
+    "pantheon": "Dawn War",
+    "title": "Goddess of spiders and lies",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Eight-pointed star with a web motif",
+    "srd": false,
+    "book": "DMG"
+  },
+  {
+    "key": "lolth-drow",
+    "name": "Lolth",
+    "pantheon": "Drow",
+    "title": "Goddess of spiders",
+    "category": "The Dark Seldarine",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Trickery",
+      "War"
+    ],
+    "symbol": "Spider",
+    "portfolio": "Primary god of drow, spiders",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "lolth-exandria",
+    "name": "Lolth",
+    "pantheon": "Exandria",
+    "title": "the Spider Queen",
+    "altNames": [
+      "The Spider Queen"
+    ],
+    "category": "Betrayer Gods",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Knowledge",
+      "Trickery"
+    ],
+    "symbol": "Jeweled spider",
+    "portfolio": "Deceit, spiders",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "lolth-faer-nian",
+    "name": "Lolth",
+    "pantheon": "Faerûnian",
+    "title": "God of spiders",
+    "altNames": [
+      "Queen of Spiders",
+      "Queen of the Demonweb Pits"
+    ],
+    "worshipers": "Evil drow, folk who travel the Underdark",
+    "plane": "The Abyss (Demonweb Pits)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "lolth-nonhuman",
+    "name": "Lolth",
+    "pantheon": "Nonhuman",
+    "title": "Drow goddess of spiders",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Spider",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "loviatar",
+    "name": "Loviatar",
+    "pantheon": "Faerûnian",
+    "title": "God of pain",
+    "altNames": [
+      "The Maiden of Pain",
+      "The Scourge Mistress",
+      "The Willing Whip"
+    ],
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "Death"
+    ],
+    "symbol": "Nine-tailed barbed scourge",
+    "worshipers": "Those suffering from pain or betrayal",
+    "plane": "Gehenna (Mungoth)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "lugh",
+    "name": "Lugh",
+    "pantheon": "Celtic",
+    "title": "God of arts, travel, and commerce",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Knowledge",
+      "Life"
+    ],
+    "symbol": "Pair of long hands",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "lunitari",
+    "name": "Lunitari",
+    "pantheon": "Dragonlance",
+    "title": "Goddess of neutral magic",
+    "category": "Neutral",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Arcana"
+    ],
+    "symbol": "Red circle or sphere",
+    "portfolio": "Neutral magic",
+    "srd": false,
+    "book": "DSotDQ"
+  },
+  {
+    "key": "luthic",
+    "name": "Luthic",
+    "pantheon": "Orc",
+    "title": "Mother-goddess of fertility and healing",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "Life",
+      "Nature"
+    ],
+    "symbol": "Orcish rune meaning \"cave entrance\"",
+    "srd": false,
+    "book": "SCAG"
+  },
+  {
+    "key": "maglubiyet",
+    "name": "Maglubiyet",
+    "pantheon": "Nonhuman",
+    "title": "Goblinoid god of war",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "War",
+      "Order"
+    ],
+    "symbol": "Bloody axe",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "majere",
+    "name": "Majere",
+    "pantheon": "Dragonlance",
+    "title": "God of meditation and order",
+    "category": "Good",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Knowledge",
+      "Order"
+    ],
+    "symbol": "Copper spider",
+    "portfolio": "Meditation, order",
+    "srd": false,
+    "book": "DSotDQ"
+  },
+  {
+    "key": "malar",
+    "name": "Malar",
+    "pantheon": "Faerûnian",
+    "title": "God of the hunt",
+    "altNames": [
+      "The Beastlord",
+      "The Bloodgod",
+      "The Wild Hunter",
+      "The Black-Blooded One"
+    ],
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Nature"
+    ],
+    "symbol": "Clawed paw",
+    "worshipers": "Barbarians, hunters, lycanthropes",
+    "plane": "Carceri (Colothys)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "malyk",
+    "name": "Malyk",
+    "pantheon": "Drow",
+    "category": "The Dark Seldarine",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Tempest",
+      "Trickery"
+    ],
+    "symbol": "A flame in a tear or a multihued vortex",
+    "portfolio": "Chaos, rebellion, wild magic",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "manannan-mac-lir",
+    "name": "Manannan mac Lir",
+    "pantheon": "Celtic",
+    "title": "God of oceans and sea creatures",
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "Nature",
+      "Tempest"
+    ],
+    "symbol": "Wave of white water on green",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "marthammor-duin",
+    "name": "Marthammor Duin",
+    "pantheon": "Dwarven",
+    "title": "God of wanderers",
+    "category": "The Mordinsamman",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Nature",
+      "Trickery"
+    ],
+    "symbol": "Upright mace in front of a tall boot",
+    "portfolio": "Explorers, wanderers, the lost",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "mask",
+    "name": "Mask",
+    "pantheon": "Faerûnian",
+    "title": "God of thieves",
+    "altNames": [
+      "The Lord of Shadows",
+      "The Master of All Thieves"
+    ],
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Black mask",
+    "worshipers": "Assassins, Rogues, thieves, tricksters",
+    "plane": "Hades (Niflheim)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "math-mathonwy",
+    "name": "Math Mathonwy",
+    "pantheon": "Celtic",
+    "title": "God of magic",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Knowledge",
+      "Arcana"
+    ],
+    "symbol": "Staff",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "melira-taralen",
+    "name": "Melira Taralen",
+    "pantheon": "Elven",
+    "category": "The Seldarine",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Knowledge",
+      "Life",
+      "Trickery"
+    ],
+    "symbol": "Lute",
+    "portfolio": "Poetry, songs",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "melora-dawn-war",
+    "name": "Melora",
+    "pantheon": "Dawn War",
+    "title": "Goddess of wilderness and the sea",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Nature",
+      "Tempest"
+    ],
+    "symbol": "Wavelike swirl",
+    "srd": false,
+    "book": "DMG"
+  },
+  {
+    "key": "melora-exandria",
+    "name": "Melora",
+    "pantheon": "Exandria",
+    "title": "the Wild Mother",
+    "altNames": [
+      "The Wildmother"
+    ],
+    "category": "Prime Deities",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Life",
+      "Nature",
+      "Tempest"
+    ],
+    "symbol": "Wreath of grass and grain affixed to a crook",
+    "portfolio": "Seas, wilderness",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "merrshaulk",
+    "name": "Merrshaulk",
+    "pantheon": "Yuan-ti",
+    "srd": false,
+    "book": "VGM"
+  },
+  {
+    "key": "mielikki",
+    "name": "Mielikki",
+    "pantheon": "Faerûnian",
+    "title": "God of forests",
+    "altNames": [
+      "Our Lady of the Forest",
+      "The Forest Queen"
+    ],
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Nature"
+    ],
+    "symbol": "Unicorn's head",
+    "worshipers": "Fey, foresters, Rangers",
+    "plane": "The Beastlands (Krigala)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "milil",
+    "name": "Milil",
+    "pantheon": "Faerûnian",
+    "title": "God of poetry and song",
+    "altNames": [
+      "The Lord of All Songs",
+      "The First Poet",
+      "The Bard of Oghma",
+      "The Lord of Song",
+      "The One True Hand of All-Wise Oghma"
+    ],
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Light"
+    ],
+    "symbol": "Five-stringed harp made of leaves",
+    "worshipers": "Bards, orators, poets, singers",
+    "plane": "Elysium (Amoria)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "mishakal",
+    "name": "Mishakal",
+    "pantheon": "Dragonlance",
+    "title": "Goddess of healing",
+    "category": "Good",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Knowledge",
+      "Life",
+      "Twilight"
+    ],
+    "symbol": "Blue infinity sign",
+    "portfolio": "Healing",
+    "srd": false,
+    "book": "DSotDQ"
+  },
+  {
+    "key": "mogis",
+    "name": "Mogis",
+    "pantheon": "Theros",
+    "title": "God of Slaughter",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "War"
+    ],
+    "srd": false,
+    "book": "MOT"
+  },
+  {
+    "key": "moradin-dawn-war",
+    "name": "Moradin",
+    "pantheon": "Dawn War",
+    "title": "God of creation",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Forge",
+      "Knowledge",
+      "War"
+    ],
+    "symbol": "Flaming anvil",
+    "srd": false,
+    "book": "DMG"
+  },
+  {
+    "key": "moradin-dwarven",
+    "name": "Moradin",
+    "pantheon": "Dwarven",
+    "title": "God of creation",
+    "category": "The Mordinsamman",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Forge",
+      "Knowledge"
+    ],
+    "symbol": "Hammer and anvil",
+    "portfolio": "Primary deity of dwarves",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "moradin-exandria",
+    "name": "Moradin",
+    "pantheon": "Exandria",
+    "title": "the All-Hammer",
+    "altNames": [
+      "The All-Hammer"
+    ],
+    "category": "Prime Deities",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Forge",
+      "Knowledge",
+      "War"
+    ],
+    "symbol": "Hammer with ends carved in the likeness of dwarven heads",
+    "portfolio": "Craft, creation",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "moradin-nonhuman",
+    "name": "Moradin",
+    "pantheon": "Nonhuman",
+    "title": "Dwarf god of creation",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Forge",
+      "Knowledge"
+    ],
+    "symbol": "Hammer and anvil",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "morgion",
+    "name": "Morgion",
+    "pantheon": "Dragonlance",
+    "title": "God of disease and secrecy",
+    "category": "Evil",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Death"
+    ],
+    "symbol": "Hood with two red eyes",
+    "portfolio": "Disease, secrecy",
+    "srd": false,
+    "book": "DSotDQ"
+  },
+  {
+    "key": "morrigan",
+    "name": "Morrigan",
+    "pantheon": "Celtic",
+    "title": "Goddess of battle",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Two crossed spears",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "muamman-duathal",
+    "name": "Muamman Duathal",
+    "pantheon": "Dwarven",
+    "category": "The Mordinsamman",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Tempest"
+    ],
+    "symbol": "Mace held in gauntlets",
+    "portfolio": "Storms, travel",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "mya",
+    "name": "Mya",
+    "pantheon": "Dwarven",
+    "category": "The Mordinsamman",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Knowledge",
+      "Life"
+    ],
+    "symbol": "A faceless mother figure",
+    "portfolio": "Clan, family, wisdom",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "myrkul",
+    "name": "Myrkul",
+    "pantheon": "Faerûnian",
+    "title": "God of death",
+    "altNames": [
+      "The Lord of Bones",
+      "Old Lord Skull",
+      "The Reaper"
+    ],
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Death"
+    ],
+    "symbol": "White human skull",
+    "worshipers": "Necromancers, undead",
+    "plane": "Hades (Oinos)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "mystra",
+    "name": "Mystra",
+    "pantheon": "Faerûnian",
+    "title": "God of magic",
+    "altNames": [
+      "The Lady of Mysteries",
+      "The Mother of All Magic",
+      "Our Lady of Spells"
+    ],
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Arcana",
+      "Knowledge"
+    ],
+    "symbol": "Circle of seven stars, nine stars encircling a flowing red mist, or a single star",
+    "worshipers": "Anyone who uses magic",
+    "plane": "Elysium (Eronia)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "mythrien-sarath",
+    "name": "Mythrien Sarath",
+    "pantheon": "Elven",
+    "category": "The Seldarine",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Arcana",
+      "Forge",
+      "Knowledge"
+    ],
+    "symbol": "Row of three intertwined rings",
+    "portfolio": "Abjuration, mythals",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "naralis-analor",
+    "name": "Naralis Analor",
+    "pantheon": "Elven",
+    "category": "The Seldarine",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Life",
+      "Grave"
+    ],
+    "symbol": "White dove",
+    "portfolio": "Healing, suffering, death",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "naviask",
+    "name": "Naviask",
+    "pantheon": "Exandria",
+    "category": "Lesser Idols",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Life",
+      "Nature"
+    ],
+    "symbol": "Wreath of flowers shaped into demon horns",
+    "portfolio": "The Archfey",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "nebelun",
+    "name": "Nebelun",
+    "pantheon": "Gnomish",
+    "title": "God of invention and luck",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Forge",
+      "Knowledge",
+      "Trickery"
+    ],
+    "symbol": "Bellows and lizard tail",
+    "portfolio": "Invention, luck",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "nephthys",
+    "name": "Nephthys",
+    "pantheon": "Egyptian",
+    "title": "Goddess of death and grief",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Death"
+    ],
+    "symbol": "Horns around a lunar disk",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "nerull",
+    "name": "Nerull",
+    "pantheon": "Greyhawk",
+    "title": "the Reaper",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Death"
+    ],
+    "symbol": "Skull with a scythe",
+    "worshipers": "Murderers, necromancers",
+    "plane": "Carceri",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "nike",
+    "name": "Nike",
+    "pantheon": "Greek",
+    "title": "Goddess of victory",
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Winged woman",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "njord",
+    "name": "Njord",
+    "pantheon": "Norse",
+    "title": "God of sea and wind",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Nature",
+      "Tempest"
+    ],
+    "symbol": "Gold coin",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "nuada",
+    "name": "Nuada",
+    "pantheon": "Celtic",
+    "title": "God of war and warriors",
+    "alignmentKey": "neutral",
+    "domains": [
+      "War",
+      "Order"
+    ],
+    "symbol": "Silver hand on black background",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "nuitari",
+    "name": "Nuitari",
+    "pantheon": "Dragonlance",
+    "title": "God of evil magic",
+    "category": "Evil",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "Arcana"
+    ],
+    "symbol": "Black circle or sphere",
+    "portfolio": "Evil magic",
+    "srd": false,
+    "book": "DSotDQ"
+  },
+  {
+    "key": "nylea",
+    "name": "Nylea",
+    "pantheon": "Theros",
+    "title": "God of the Hunt",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Nature"
+    ],
+    "srd": false,
+    "book": "MOT"
+  },
+  {
+    "key": "obad-hai",
+    "name": "Obad-Hai",
+    "pantheon": "Greyhawk",
+    "title": "the Shalm",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Nature"
+    ],
+    "symbol": "Oak leaf and acorn",
+    "worshipers": "Hunters, gatherers, hermits",
+    "plane": "Outlands",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "odin",
+    "name": "Odin",
+    "pantheon": "Norse",
+    "title": "God of knowledge and war",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Knowledge",
+      "War"
+    ],
+    "symbol": "Watching blue eye",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "odur",
+    "name": "Odur",
+    "pantheon": "Norse",
+    "title": "God of light and the sun",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Light"
+    ],
+    "symbol": "Solar disk",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "oghma-celtic",
+    "name": "Oghma",
+    "pantheon": "Celtic",
+    "title": "God of speech and writing",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Knowledge"
+    ],
+    "symbol": "Unfurled scroll",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "oghma-faer-nian",
+    "name": "Oghma",
+    "pantheon": "Faerûnian",
+    "title": "God of knowledge",
+    "altNames": [
+      "The Binder of What Is Known",
+      "The Lord of Knowledge",
+      "The Binder"
+    ],
+    "alignmentKey": "neutral",
+    "domains": [
+      "Knowledge"
+    ],
+    "symbol": "Blank scroll",
+    "worshipers": "Archivists, cartographers, sages",
+    "plane": "The Outlands",
+    "srd": true,
+    "book": "FRHoF"
+  },
+  {
+    "key": "olidammara",
+    "name": "Olidammara",
+    "pantheon": "Greyhawk",
+    "title": "the Laughing Rogue",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Laughing mask",
+    "worshipers": "Revelers, gamblers, pranksters",
+    "plane": "Ysgard",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "olladra",
+    "name": "Olladra",
+    "pantheon": "Eberron",
+    "title": "Goddess of good fortune",
+    "category": "The Sovereign Host",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Life",
+      "Trickery"
+    ],
+    "symbol": "Domino {@i or} black dragon",
+    "portfolio": "Good fortune",
+    "srd": false,
+    "book": "ERLW"
+  },
+  {
+    "key": "onatar",
+    "name": "Onatar",
+    "pantheon": "Eberron",
+    "title": "God of craft",
+    "category": "The Sovereign Host",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Forge",
+      "Knowledge"
+    ],
+    "symbol": "Crossed hammer and tongs {@i or} brass dragon",
+    "portfolio": "Artifice, the forge",
+    "srd": false,
+    "book": "ERLW"
+  },
+  {
+    "key": "osiris",
+    "name": "Osiris",
+    "pantheon": "Egyptian",
+    "title": "God of nature and the underworld",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Grave",
+      "Life",
+      "Nature"
+    ],
+    "symbol": "Crook and flail",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "paladine",
+    "name": "Paladine",
+    "pantheon": "Dragonlance",
+    "title": "God of rulers and guardians",
+    "category": "Good",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "War",
+      "Peace"
+    ],
+    "symbol": "Silver triangle",
+    "portfolio": "Good dragons, guardians, rulers",
+    "srd": false,
+    "book": "DSotDQ"
+  },
+  {
+    "key": "pan",
+    "name": "Pan",
+    "pantheon": "Greek",
+    "title": "God of nature",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Nature"
+    ],
+    "symbol": "Syrinx (pan pipes)",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "pelor-dawn-war",
+    "name": "Pelor",
+    "pantheon": "Dawn War",
+    "title": "God of the sun and agriculture",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Life",
+      "Light"
+    ],
+    "symbol": "Circle with six outwardly radiating points",
+    "srd": false,
+    "book": "DMG"
+  },
+  {
+    "key": "pelor-exandria",
+    "name": "Pelor",
+    "pantheon": "Exandria",
+    "title": "the Dawn Father",
+    "altNames": [
+      "The Dawnfather"
+    ],
+    "category": "Prime Deities",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Life",
+      "Light",
+      "Nature"
+    ],
+    "symbol": "Bright, eight-pointed star",
+    "portfolio": "Healing, sun",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "pelor-greyhawk",
+    "name": "Pelor",
+    "pantheon": "Greyhawk",
+    "title": "the Radiant Sun",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Life",
+      "Light"
+    ],
+    "symbol": "Sun",
+    "worshipers": "Healers, the compassionate",
+    "plane": "Elysium",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "pharika",
+    "name": "Pharika",
+    "pantheon": "Theros",
+    "title": "God of Affliction",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Death",
+      "Knowledge",
+      "Life"
+    ],
+    "srd": false,
+    "book": "MOT"
+  },
+  {
+    "key": "phenax",
+    "name": "Phenax",
+    "pantheon": "Theros",
+    "title": "God of Deception",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Trickery"
+    ],
+    "srd": false,
+    "book": "MOT"
+  },
+  {
+    "key": "pholtus",
+    "name": "Pholtus",
+    "pantheon": "Greyhawk",
+    "title": "of the Blinding Light",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Light",
+      "Order"
+    ],
+    "symbol": "Silver sun partially eclipsed by a crescent moon",
+    "worshipers": "Judges, lawyers, arbiters",
+    "plane": "Arcadia",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "poseidon",
+    "name": "Poseidon",
+    "pantheon": "Greek",
+    "title": "God of the sea and earthquakes",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Tempest"
+    ],
+    "symbol": "Trident",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "procan",
+    "name": "Procan",
+    "pantheon": "Unknown",
+    "title": "Sailor of Sea and Sky",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Tempest"
+    ],
+    "srd": false,
+    "book": "GoS"
+  },
+  {
+    "key": "ptah",
+    "name": "Ptah",
+    "pantheon": "Egyptian",
+    "title": "God of crafts, knowledge, and secrets",
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "Knowledge"
+    ],
+    "symbol": "Bull",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "purphoros",
+    "name": "Purphoros",
+    "pantheon": "Theros",
+    "title": "God of the Forge",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Forge",
+      "Knowledge"
+    ],
+    "srd": false,
+    "book": "MOT"
+  },
+  {
+    "key": "quajath",
+    "name": "Quajath",
+    "pantheon": "Exandria",
+    "title": "the Undermaw",
+    "category": "Lesser Idols",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Nature",
+      "War"
+    ],
+    "symbol": "Ring of teeth",
+    "portfolio": "The Fiend, the Great Old One",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "raei",
+    "name": "Raei",
+    "pantheon": "Exandria",
+    "title": "the Everlight",
+    "category": "Prime Deities",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Life",
+      "Light"
+    ],
+    "symbol": "Humanoid, feminine phoenix",
+    "portfolio": "Atonement, compassion",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "ralishaz",
+    "name": "Ralishaz",
+    "pantheon": "Greyhawk",
+    "title": "the Unlooked For",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Three bone fate-casting sticks",
+    "worshipers": "Gamblers",
+    "plane": "Limbo",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "rao",
+    "name": "Rao",
+    "pantheon": "Greyhawk",
+    "title": "the Mediator",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Knowledge",
+      "Peace"
+    ],
+    "symbol": "White heart",
+    "worshipers": "Mediators, sages, scientists",
+    "plane": "Mount Celestia",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "raven-queen",
+    "name": "Raven Queen",
+    "pantheon": "Dawn War",
+    "title": "Goddess of death",
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "Life",
+      "Death"
+    ],
+    "symbol": "Raven's head, in profile, facing left",
+    "srd": false,
+    "book": "DMG"
+  },
+  {
+    "key": "re-horakhty",
+    "name": "Re-Horakhty",
+    "pantheon": "Egyptian",
+    "title": "God of the sun, ruler of the gods",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Life",
+      "Light"
+    ],
+    "symbol": "Solar disk encircled by serpent",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "rellavar-danuvien",
+    "name": "Rellavar Danuvien",
+    "pantheon": "Elven",
+    "category": "The Seldarine",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Tempest"
+    ],
+    "symbol": "Spear between two circles",
+    "portfolio": "Winter, harsh weather",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "reorx",
+    "name": "Reorx",
+    "pantheon": "Dragonlance",
+    "title": "God of craft",
+    "category": "Neutral",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Forge",
+      "Knowledge"
+    ],
+    "symbol": "Forging hammer",
+    "portfolio": "Craft",
+    "srd": false,
+    "book": "DSotDQ"
+  },
+  {
+    "key": "rill-cleverthrush",
+    "name": "Rill Cleverthrush",
+    "pantheon": "Gnomish",
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "Knowledge"
+    ],
+    "symbol": "Interlocking gears",
+    "portfolio": "Law, thought",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "rillifane-rallathil-elven",
+    "name": "Rillifane Rallathil",
+    "pantheon": "Elven",
+    "title": "God of nature",
+    "category": "The Seldarine",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Nature"
+    ],
+    "symbol": "Oak",
+    "portfolio": "Nature, beasts, the seasons",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "rillifane-rallathil-nonhuman",
+    "name": "Rillifane Rallathil",
+    "pantheon": "Nonhuman",
+    "title": "Wood elf god of nature",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Nature"
+    ],
+    "symbol": "Oak",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "roknar",
+    "name": "Roknar",
+    "pantheon": "Dwarven",
+    "category": "The Mordinsamman",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Hands filled with coins",
+    "portfolio": "Lies, intrigue",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "sargonnas",
+    "name": "Sargonnas",
+    "pantheon": "Dragonlance",
+    "title": "God of vengeance and fire",
+    "category": "Evil",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Stylized red condor",
+    "portfolio": "Fire, vengeance",
+    "srd": false,
+    "book": "DSotDQ"
+  },
+  {
+    "key": "sarula-iliene",
+    "name": "Sarula Iliene",
+    "pantheon": "Elven",
+    "category": "The Seldarine",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Tempest",
+      "Trickery"
+    ],
+    "symbol": "Three lines symbolizing waves",
+    "portfolio": "Lakes, streams",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "savras",
+    "name": "Savras",
+    "pantheon": "Faerûnian",
+    "title": "God of divination and fate",
+    "altNames": [
+      "The All-Seeing",
+      "The Third Eye",
+      "Divination's Lord"
+    ],
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "Arcana",
+      "Knowledge"
+    ],
+    "symbol": "Crystal ball containing many kinds of eyes",
+    "srd": false,
+    "book": "SCAG"
+  },
+  {
+    "key": "segojan-earthcaller",
+    "name": "Segojan Earthcaller",
+    "pantheon": "Gnomish",
+    "title": "God of earth and the dead",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Grave",
+      "Light"
+    ],
+    "symbol": "Glowing gemstone",
+    "portfolio": "Earth, the dead",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "sehanine-dawn-war",
+    "name": "Sehanine",
+    "pantheon": "Dawn War",
+    "title": "Goddess of the moon",
+    "altNames": [
+      "Sehanine Moonbow"
+    ],
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Crescent moon",
+    "srd": false,
+    "book": "DMG"
+  },
+  {
+    "key": "sehanine-exandria",
+    "name": "Sehanine",
+    "pantheon": "Exandria",
+    "title": "the Moon Weaver",
+    "altNames": [
+      "The Moonweaver"
+    ],
+    "category": "Prime Deities",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Arcana",
+      "Nature",
+      "Trickery"
+    ],
+    "symbol": "Crescent moon turned upward, strung like a bow",
+    "portfolio": "Illusion, moonlight, night",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "sehanine-moonbow-elven",
+    "name": "Sehanine Moonbow",
+    "pantheon": "Elven",
+    "title": "Goddess of divination, dreams, travel, and death",
+    "category": "The Seldarine",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Grave",
+      "Knowledge",
+      "Light"
+    ],
+    "symbol": "Full moon under a moonbow",
+    "portfolio": "Dreams, death, travel",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "sehanine-moonbow-nonhuman",
+    "name": "Sehanine Moonbow",
+    "pantheon": "Nonhuman",
+    "title": "Elf goddess of the moon",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Knowledge"
+    ],
+    "symbol": "Crescent moon",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "sekolah",
+    "name": "Sekolah",
+    "pantheon": "Nonhuman",
+    "title": "Sahuagin god of the hunt",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "Nature",
+      "Tempest"
+    ],
+    "symbol": "Shark",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "sel-ne",
+    "name": "Selûne",
+    "pantheon": "Faerûnian",
+    "title": "God of the moon",
+    "altNames": [
+      "The Moonmaiden",
+      "The Night White Lady",
+      "Our Lady of Silver"
+    ],
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Knowledge",
+      "Life",
+      "Twilight"
+    ],
+    "symbol": "Pair of eyes surrounded by seven stars",
+    "worshipers": "Lycanthropes, sailors, spellcasters",
+    "plane": "Ysgard (Ysgard)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "selvetarm",
+    "name": "Selvetarm",
+    "pantheon": "Drow",
+    "title": "God of warriors",
+    "category": "The Dark Seldarine",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Spider over crossed sword and mace",
+    "portfolio": "Warriors, slaughter",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "semuanya",
+    "name": "Semuanya",
+    "pantheon": "Nonhuman",
+    "title": "Lizardfolk deity of survival",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Life"
+    ],
+    "symbol": "Egg",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "set",
+    "name": "Set",
+    "pantheon": "Egyptian",
+    "title": "God of darkness and desert storms",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Death",
+      "Tempest",
+      "Trickery"
+    ],
+    "symbol": "Coiled cobra",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "shar",
+    "name": "Shar",
+    "pantheon": "Faerûnian",
+    "title": "God of darkness and loss",
+    "altNames": [
+      "The Mistress of the Night",
+      "The Dark Lady",
+      "Our Lady of Loss"
+    ],
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Death",
+      "Trickery"
+    ],
+    "symbol": "Black disk encircled with a purple border",
+    "worshipers": "Anyone suffering pain or loss",
+    "plane": "Hades (Niflheim)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "shargaas",
+    "name": "Shargaas",
+    "pantheon": "Orc",
+    "title": "God of stealth and darkness",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Red crescent moon with a skull between the moon's horns",
+    "srd": false,
+    "book": "SCAG"
+  },
+  {
+    "key": "sharindlar",
+    "name": "Sharindlar",
+    "pantheon": "Dwarven",
+    "title": "Goddess of healing",
+    "category": "The Mordinsamman",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Life"
+    ],
+    "symbol": "Burning needle",
+    "portfolio": "Healing, love",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "shaundakul",
+    "name": "Shaundakul",
+    "pantheon": "Faerûnian",
+    "title": "God of travel",
+    "altNames": [
+      "The Rider of the Winds",
+      "The Helping Hand"
+    ],
+    "worshipers": "Guides, explorers, Rangers, travelers",
+    "plane": "Ysgard (Ysgard)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "sheela-peryroyl",
+    "name": "Sheela Peryroyl",
+    "pantheon": "Halfling",
+    "title": "Goddess of agriculture and weather",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Nature",
+      "Tempest"
+    ],
+    "symbol": "A flower",
+    "portfolio": "Agriculture, nature, weather",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "shevarash",
+    "name": "Shevarash",
+    "pantheon": "Elven",
+    "title": "God of vengeance",
+    "category": "The Seldarine",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Broken arrow over a tear",
+    "portfolio": "Vengeance, loss, hatred",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "sheyanna-flaxenstrand",
+    "name": "Sheyanna Flaxenstrand",
+    "pantheon": "Gnomish",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Light"
+    ],
+    "symbol": "Two silver goblets",
+    "portfolio": "love, beauty, passion",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "shinare",
+    "name": "Shinare",
+    "pantheon": "Dragonlance",
+    "title": "Goddess of wealth and trade",
+    "category": "Neutral",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Knowledge",
+      "Trickery"
+    ],
+    "symbol": "Griffon's wing",
+    "portfolio": "Trade, wealth",
+    "srd": false,
+    "book": "DSotDQ"
+  },
+  {
+    "key": "sif",
+    "name": "Sif",
+    "pantheon": "Norse",
+    "title": "Goddess of war",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Upraised sword",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "silvanus-celtic",
+    "name": "Silvanus",
+    "pantheon": "Celtic",
+    "title": "God of nature and forests",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Nature"
+    ],
+    "symbol": "Summer oak tree",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "silvanus-faer-nian",
+    "name": "Silvanus",
+    "pantheon": "Faerûnian",
+    "title": "God of wild nature",
+    "altNames": [
+      "Oak Father",
+      "The Old Oak",
+      "Old Father Tree"
+    ],
+    "alignmentKey": "neutral",
+    "domains": [
+      "Nature"
+    ],
+    "symbol": "Oak leaf",
+    "worshipers": "Barbarians, Druids, Rangers, wood elves",
+    "plane": "The Outlands",
+    "srd": true,
+    "book": "FRHoF"
+  },
+  {
+    "key": "sirrion",
+    "name": "Sirrion",
+    "pantheon": "Dragonlance",
+    "title": "God of fire and change",
+    "category": "Neutral",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Nature"
+    ],
+    "symbol": "Multicolored fire",
+    "portfolio": "Change, fire",
+    "srd": false,
+    "book": "DSotDQ"
+  },
+  {
+    "key": "skadi",
+    "name": "Skadi",
+    "pantheon": "Norse",
+    "title": "God of earth and mountains",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Nature"
+    ],
+    "symbol": "Mountain peak",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "skerrit",
+    "name": "Skerrit",
+    "pantheon": "Nonhuman",
+    "title": "Centaur and satyr god of nature",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Nature"
+    ],
+    "symbol": "Oak growing from acorn",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "skoraeus-stonebones",
+    "name": "Skoraeus Stonebones",
+    "pantheon": "Nonhuman",
+    "title": "God of stone giants and art",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Knowledge"
+    ],
+    "symbol": "Stalactite",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "sobek",
+    "name": "Sobek",
+    "pantheon": "Egyptian",
+    "title": "God of water and crocodiles",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "Nature",
+      "Tempest"
+    ],
+    "symbol": "Crocodile head with horns and plumes",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "solinari",
+    "name": "Solinari",
+    "pantheon": "Dragonlance",
+    "title": "God of good magic",
+    "category": "Good",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Arcana"
+    ],
+    "symbol": "White circle or sphere",
+    "portfolio": "Good magic",
+    "srd": false,
+    "book": "DSotDQ"
+  },
+  {
+    "key": "solonor-thelandira",
+    "name": "Solonor Thelandira",
+    "pantheon": "Elven",
+    "title": "God of archery",
+    "category": "The Seldarine",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Nature",
+      "War"
+    ],
+    "symbol": "Silver arrow with green fletching",
+    "portfolio": "Archery, hunting, survival",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "sseth",
+    "name": "Sseth",
+    "pantheon": "Yuan-ti",
+    "srd": false,
+    "book": "VGM"
+  },
+  {
+    "key": "st-cuthbert",
+    "name": "St. Cuthbert",
+    "pantheon": "Greyhawk",
+    "title": "God of common sense and zeal",
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "Knowledge"
+    ],
+    "symbol": "Circle at the center of a starburst of lines",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "sune",
+    "name": "Sune",
+    "pantheon": "Faerûnian",
+    "title": "God of love and beauty",
+    "altNames": [
+      "Lady Firehair",
+      "The Lady of Love",
+      "The Princess of Passion"
+    ],
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Life",
+      "Light"
+    ],
+    "symbol": "Face of a beautiful red-haired woman",
+    "worshipers": "Artists, hedonists, lovers",
+    "plane": "Arborea (Arvandor)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "surtur-nonhuman",
+    "name": "Surtur",
+    "pantheon": "Nonhuman",
+    "title": "God of fire giants and craft",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "Knowledge",
+      "War"
+    ],
+    "symbol": "Flaming sword",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "surtur-norse",
+    "name": "Surtur",
+    "pantheon": "Norse",
+    "title": "God of fire giants and war",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Flaming sword",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "syrul",
+    "name": "Syrul",
+    "pantheon": "Greyhawk",
+    "title": "Oathbreaker",
+    "symbol": "Forked tongue",
+    "worshipers": "Liars, charlatans, traitors",
+    "plane": "Gehenna",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "takhisis",
+    "name": "Takhisis",
+    "pantheon": "Dragonlance",
+    "title": "Goddess of night and hatred",
+    "category": "Evil",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "Death"
+    ],
+    "symbol": "Spiral of five dragon claws",
+    "portfolio": "Evil dragons, hatred, night",
+    "srd": false,
+    "book": "DSotDQ"
+  },
+  {
+    "key": "talona",
+    "name": "Talona",
+    "pantheon": "Faerûnian",
+    "title": "God of poison and disease",
+    "altNames": [
+      "Lady of Poison",
+      "Mistress of Disease",
+      "The Plague Crone",
+      "The Plague-crone"
+    ],
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Death"
+    ],
+    "symbol": "Three teardrops in a triangle",
+    "worshipers": "Those suffering from plague",
+    "plane": "Carceri (Cathrys)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "talos",
+    "name": "Talos",
+    "pantheon": "Faerûnian",
+    "title": "God of storms",
+    "altNames": [
+      "The Destroyer",
+      "Storm Lord",
+      "The Raging One",
+      "Stormlord"
+    ],
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Tempest"
+    ],
+    "symbol": "Three lightning bolts radiating from a point",
+    "worshipers": "Barbarians, Druids, raiders",
+    "plane": "Pandemonium (Pandesmos)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "tarsellis-meunniduin",
+    "name": "Tarsellis Meunniduin",
+    "pantheon": "Elven",
+    "category": "The Seldarine",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Nature",
+      "Tempest"
+    ],
+    "symbol": "Mountain with a river",
+    "portfolio": "Mountains, rivers, wild places",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "tempus",
+    "name": "Tempus",
+    "pantheon": "Faerûnian",
+    "title": "God of war",
+    "altNames": [
+      "The Foehammer",
+      "The Lord of Battles"
+    ],
+    "alignmentKey": "neutral",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Upright flaming sword",
+    "worshipers": "Fighters, mercenaries, warriors",
+    "plane": "Limbo",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "tethrin-verald",
+    "name": "Tethrin Veraldé",
+    "pantheon": "Elven",
+    "category": "The Seldarine",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Crossed swords beneath a quarter moon and above a full moon",
+    "portfolio": "Battle, sword fighting",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "thard-harr",
+    "name": "Thard Harr",
+    "pantheon": "Dwarven",
+    "category": "The Mordinsamman",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Nature"
+    ],
+    "symbol": "Two clawed gauntlets",
+    "portfolio": "Wilderness, hunting",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "tharizdun-dawn-war",
+    "name": "Tharizdun",
+    "pantheon": "Dawn War",
+    "title": "God of madness",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Jagged counter-clockwise spiral",
+    "srd": false,
+    "book": "DMG"
+  },
+  {
+    "key": "tharizdun-exandria",
+    "name": "Tharizdun",
+    "pantheon": "Exandria",
+    "title": "the Chained Oblivion",
+    "altNames": [
+      "The Chained Oblivion"
+    ],
+    "category": "Betrayer Gods",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Death",
+      "Grave",
+      "Trickery"
+    ],
+    "symbol": "Crooked, seven-pointed star made of chains",
+    "portfolio": "Darkness, destruction",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "tharizdun-greyhawk",
+    "name": "Tharizdun",
+    "pantheon": "Greyhawk",
+    "title": "the Eater of Worlds",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Spiral rune",
+    "worshipers": "Nihilistic cultists",
+    "plane": "Imprisoned in a demiplane",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "tharmekh-l",
+    "name": "Tharmekhûl",
+    "pantheon": "Dwarven",
+    "category": "The Mordinsamman",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Forge",
+      "Light"
+    ],
+    "symbol": "Fiery axe",
+    "portfolio": "Fire, forges, molten rock",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "thassa",
+    "name": "Thassa",
+    "pantheon": "Theros",
+    "title": "God of the Sea",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Knowledge",
+      "Tempest"
+    ],
+    "srd": false,
+    "book": "MOT"
+  },
+  {
+    "key": "thautam",
+    "name": "Thautam",
+    "pantheon": "Dwarven",
+    "category": "The Mordinsamman",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Knowledge",
+      "Trickery"
+    ],
+    "symbol": "Blindfold",
+    "portfolio": "Mysteries, darkness, lost treasures",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "the-blood-of-vol",
+    "name": "The Blood of Vol",
+    "pantheon": "Eberron",
+    "title": "Philosophy of immortality and undeath",
+    "category": "Other Faiths of Eberron",
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "Death",
+      "Life"
+    ],
+    "symbol": "Red teardrop gem",
+    "portfolio": "Immortality",
+    "srd": false,
+    "book": "ERLW"
+  },
+  {
+    "key": "the-daghdha",
+    "name": "The Daghdha",
+    "pantheon": "Celtic",
+    "title": "God of weather and crops",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Nature",
+      "Trickery"
+    ],
+    "symbol": "Bubbling cauldron or shield",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "the-devourer",
+    "name": "The Devourer",
+    "pantheon": "Eberron",
+    "title": "God of nature's wrath",
+    "category": "The Dark Six",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Tempest"
+    ],
+    "symbol": "Bundle of five sharpened bones {@i or} dragon turtle",
+    "portfolio": "Nature's wrath",
+    "srd": false,
+    "book": "ERLW"
+  },
+  {
+    "key": "the-fury",
+    "name": "The Fury",
+    "pantheon": "Eberron",
+    "title": "Goddess of wrath and madness",
+    "category": "The Dark Six",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Winged wyrm with woman's head and arms",
+    "portfolio": "Passion, revenge",
+    "srd": false,
+    "book": "ERLW"
+  },
+  {
+    "key": "the-hag-mother",
+    "name": "The Hag Mother",
+    "pantheon": "Exandria",
+    "category": "Lesser Idols",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Knowledge",
+      "Trickery"
+    ],
+    "symbol": "Single red horn",
+    "portfolio": "The Fiend",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "the-keeper",
+    "name": "The Keeper",
+    "pantheon": "Eberron",
+    "title": "God of greed and death",
+    "category": "The Dark Six",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Death"
+    ],
+    "symbol": "Dragonshard in the shape of a fang {@i or} dracolich",
+    "portfolio": "Death, greed",
+    "srd": false,
+    "book": "ERLW"
+  },
+  {
+    "key": "the-luxon",
+    "name": "The Luxon",
+    "pantheon": "Exandria",
+    "title": "the First Radiance",
+    "category": "Lesser Idols",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Arcana",
+      "Light"
+    ],
+    "symbol": "Hollow dodecahedron",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "the-mockery",
+    "name": "The Mockery",
+    "pantheon": "Eberron",
+    "title": "God of violence and treachery",
+    "category": "The Dark Six",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Trickery",
+      "War"
+    ],
+    "symbol": "Five blood-spattered blades {@i or} flayed dragon",
+    "portfolio": "Betrayal, bloodshed",
+    "srd": false,
+    "book": "ERLW"
+  },
+  {
+    "key": "the-path-of-light",
+    "name": "The Path of Light",
+    "pantheon": "Eberron",
+    "title": "Philosophy of light and self-improvement",
+    "category": "Other Faiths of Eberron",
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "Life",
+      "Light"
+    ],
+    "symbol": "Brilliant crystal",
+    "portfolio": "Light, self-improvement",
+    "srd": false,
+    "book": "ERLW"
+  },
+  {
+    "key": "the-raven-queen",
+    "name": "The Raven Queen",
+    "pantheon": "Exandria",
+    "title": "Matron of Death",
+    "altNames": [
+      "The Matron of Ravens"
+    ],
+    "category": "Prime Deities",
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "Death",
+      "Grave"
+    ],
+    "symbol": "White, humanoid mask framed in black feathers",
+    "portfolio": "Death, fate, winter",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "the-red-knight",
+    "name": "The Red Knight",
+    "pantheon": "Faerûnian",
+    "title": "God of strategy",
+    "altNames": [
+      "The Crimson General",
+      "The Grandmaster of the Lanceboard",
+      "The Lady of Strategy"
+    ],
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Red knight lanceboard piece with stars for eyes",
+    "worshipers": "Fighters, game players, strategists",
+    "plane": "Arcadia (Buxenus)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "the-shadow",
+    "name": "The Shadow",
+    "pantheon": "Eberron",
+    "title": "God of dark magic",
+    "category": "The Dark Six",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Knowledge"
+    ],
+    "symbol": "Obsidian tower",
+    "portfolio": "Ambition, dark magic",
+    "srd": false,
+    "book": "ERLW"
+  },
+  {
+    "key": "the-silver-flame",
+    "name": "The Silver Flame",
+    "pantheon": "Eberron",
+    "title": "Deity of protection and good",
+    "category": "Other Faiths of Eberron",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Life",
+      "Light",
+      "War"
+    ],
+    "symbol": "Flame drawn on silver or molded from silver",
+    "portfolio": "Good, protection",
+    "srd": false,
+    "book": "ERLW"
+  },
+  {
+    "key": "the-spirits-of-the-past",
+    "name": "The Spirits of the Past",
+    "pantheon": "Eberron",
+    "title": "Elven ancestors",
+    "category": "Other Faiths of Eberron",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Nature",
+      "War"
+    ],
+    "symbol": "Varies",
+    "portfolio": "Elven ancestors",
+    "srd": false,
+    "book": "ERLW"
+  },
+  {
+    "key": "the-traveler-eberron",
+    "name": "The Traveler",
+    "pantheon": "Eberron",
+    "title": "Deity of chaos and change",
+    "category": "The Dark Six",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Forge",
+      "Knowledge",
+      "Trickery"
+    ],
+    "symbol": "Four crossed, rune-inscribed bones",
+    "portfolio": "Change, chaos",
+    "srd": false,
+    "book": "ERLW"
+  },
+  {
+    "key": "the-traveler-exandria",
+    "name": "The Traveler",
+    "pantheon": "Exandria",
+    "category": "Lesser Idols",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Nature",
+      "Trickery"
+    ],
+    "symbol": "Arched doorway over a road that vanishes into the distance",
+    "portfolio": "The Archfey",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "the-undying-court",
+    "name": "The Undying Court",
+    "pantheon": "Eberron",
+    "title": "Elven ancestors",
+    "category": "Other Faiths of Eberron",
+    "alignmentKey": "neutral-good",
+    "domains": [
+      "Grave",
+      "Knowledge",
+      "Life"
+    ],
+    "symbol": "Golden mask",
+    "portfolio": "Elven ancestors",
+    "srd": false,
+    "book": "ERLW"
+  },
+  {
+    "key": "thor",
+    "name": "Thor",
+    "pantheon": "Norse",
+    "title": "God of storms and thunder",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Tempest",
+      "War"
+    ],
+    "symbol": "Hammer",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "thoth",
+    "name": "Thoth",
+    "pantheon": "Egyptian",
+    "title": "God of knowledge and wisdom",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Knowledge"
+    ],
+    "symbol": "Ibis",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "thrym-nonhuman",
+    "name": "Thrym",
+    "pantheon": "Nonhuman",
+    "title": "God of frost giants and strength",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "War"
+    ],
+    "symbol": "White double-bladed axe",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "thrym-norse",
+    "name": "Thrym",
+    "pantheon": "Norse",
+    "title": "God of frost giants and cold",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "War"
+    ],
+    "symbol": "White double-bladed axe",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "tiamat-dawn-war",
+    "name": "Tiamat",
+    "pantheon": "Dawn War",
+    "title": "Goddess of wealth, greed, and vengeance",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "Trickery",
+      "War"
+    ],
+    "symbol": "Five-pointed star with curved points",
+    "srd": false,
+    "book": "DMG"
+  },
+  {
+    "key": "tiamat-exandria",
+    "name": "Tiamat",
+    "pantheon": "Exandria",
+    "title": "the Scaled Tyrant",
+    "altNames": [
+      "The Scaled Tyrant"
+    ],
+    "category": "Betrayer Gods",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "Order",
+      "Trickery",
+      "War"
+    ],
+    "symbol": "Taloned dragon claw",
+    "portfolio": "Dragon god of evil",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "tiamat-nonhuman",
+    "name": "Tiamat",
+    "pantheon": "Nonhuman",
+    "title": "Dragon goddess of evil",
+    "alignmentKey": "lawful-evil",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Dragon head with five claw marks",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "torm",
+    "name": "Torm",
+    "pantheon": "Faerûnian",
+    "title": "God of courage and self-sacrifice",
+    "altNames": [
+      "The Hand of Righteousness",
+      "The Loyal Fury",
+      "Torm the True",
+      "The True"
+    ],
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "War"
+    ],
+    "symbol": "White right gauntlet",
+    "worshipers": "Guardians, knights, Paladins",
+    "plane": "Mount Celestia (Mercuria)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "torog-dawn-war",
+    "name": "Torog",
+    "pantheon": "Dawn War",
+    "title": "God of the Underdark",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Death"
+    ],
+    "symbol": "T attached to a circular shackle",
+    "srd": false,
+    "book": "DMG"
+  },
+  {
+    "key": "torog-exandria",
+    "name": "Torog",
+    "pantheon": "Exandria",
+    "title": "the Crawling King",
+    "altNames": [
+      "The Crawling King"
+    ],
+    "category": "Betrayer Gods",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Death",
+      "Trickery"
+    ],
+    "symbol": "Three pale arms clawing from a dark void",
+    "portfolio": "Enslavement, torture",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "trithereon",
+    "name": "Trithereon",
+    "pantheon": "Greyhawk",
+    "title": "the Summoner",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "War"
+    ],
+    "symbol": "Triskelion",
+    "worshipers": "Rebels, individualists",
+    "plane": "Arborea",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "tyche",
+    "name": "Tyche",
+    "pantheon": "Greek",
+    "title": "Goddess of good fortune",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Red pentagram",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "tymora",
+    "name": "Tymora",
+    "pantheon": "Faerûnian",
+    "title": "God of good fortune",
+    "altNames": [
+      "Lady Luck",
+      "Our Smiling Lady"
+    ],
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Face-up coin",
+    "worshipers": "Gamblers, Harpers, merchants, Rogues",
+    "plane": "Arborea (Arvandor)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "tyr-faer-nian",
+    "name": "Tyr",
+    "pantheon": "Faerûnian",
+    "title": "God of justice",
+    "altNames": [
+      "The Evenhanded",
+      "Grimjaws",
+      "The Maimed God"
+    ],
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "War",
+      "Order"
+    ],
+    "symbol": "Balanced scales resting on a warhammer",
+    "worshipers": "Judges, law enforcers, lawyers, Paladins",
+    "plane": "Mount Celestia (Lunia)",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "tyr-norse",
+    "name": "Tyr",
+    "pantheon": "Norse",
+    "title": "God of courage and strategy",
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "Knowledge",
+      "War",
+      "Order"
+    ],
+    "symbol": "Sword",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "ukotoa",
+    "name": "Uk'otoa",
+    "pantheon": "Exandria",
+    "title": "the Leviathan Lord",
+    "category": "Lesser Idols",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Knowledge",
+      "Tempest"
+    ],
+    "symbol": "Yellow, slitted eye",
+    "portfolio": "The Great Old One, the Hexblade",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "ulaa-dwarven",
+    "name": "Ulaa",
+    "pantheon": "Dwarven",
+    "category": "The Mordinsamman",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Forge"
+    ],
+    "symbol": "A miner's pick",
+    "portfolio": "Mining, quarrying",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "ulaa-greyhawk",
+    "name": "Ulaa",
+    "pantheon": "Greyhawk",
+    "title": "the Bejeweled",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Life",
+      "War"
+    ],
+    "symbol": "Ruby-hearted mountain",
+    "worshipers": "Miners, jewelers, quarriers",
+    "plane": "Arcadia",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "uller",
+    "name": "Uller",
+    "pantheon": "Norse",
+    "title": "God of hunting and winter",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Nature"
+    ],
+    "symbol": "Longbow",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "umberlee",
+    "name": "Umberlee",
+    "pantheon": "Faerûnian",
+    "title": "God of the sea",
+    "altNames": [
+      "The Queen of the Depths",
+      "The Wavemother",
+      "The Bitch Queen"
+    ],
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Tempest"
+    ],
+    "symbol": "Wave curling left and right",
+    "worshipers": "Coastal dwellers, sailors",
+    "plane": "The Abyss",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "urdlen",
+    "name": "Urdlen",
+    "pantheon": "Gnomish",
+    "title": "God of greed and murder",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Death",
+      "War"
+    ],
+    "symbol": "White-clawed mole emerging from ground",
+    "portfolio": "Greed, murder",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "urogalan",
+    "name": "Urogalan",
+    "pantheon": "Halfling",
+    "title": "God of earth and death",
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "Death",
+      "Grave",
+      "Knowledge"
+    ],
+    "symbol": "Silhouette of a dog's head",
+    "portfolio": "Earth, death",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "valkauna",
+    "name": "Valkauna",
+    "pantheon": "Dwarven",
+    "category": "The Mordinsamman",
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "Grave",
+      "Life"
+    ],
+    "symbol": "A silver ewer",
+    "portfolio": "Oaths, birth, aging, death",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "valkur",
+    "name": "Valkur",
+    "pantheon": "Faerûnian",
+    "title": "Northlander god of sailors",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Tempest",
+      "War"
+    ],
+    "symbol": "A cloud and three lightning bolts",
+    "srd": false,
+    "book": "SCAG"
+  },
+  {
+    "key": "vandria-gilmadrith",
+    "name": "Vandria Gilmadrith",
+    "pantheon": "Elven",
+    "category": "The Seldarine",
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "Grave",
+      "War"
+    ],
+    "symbol": "Weeping eye",
+    "portfolio": "War, grief, justice, vigilance",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "vecna-dawn-war",
+    "name": "Vecna",
+    "pantheon": "Dawn War",
+    "title": "God of evil secrets",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Death",
+      "Knowledge",
+      "Arcana"
+    ],
+    "symbol": "Partially shattered one-eyed skull",
+    "srd": false,
+    "book": "DMG"
+  },
+  {
+    "key": "vecna-exandria",
+    "name": "Vecna",
+    "pantheon": "Exandria",
+    "title": "the Whispered One",
+    "altNames": [
+      "The Whispered One"
+    ],
+    "category": "Betrayer Gods",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Arcana",
+      "Death",
+      "Grave",
+      "Knowledge"
+    ],
+    "symbol": "Desiccated hand with an eye in the palm",
+    "portfolio": "Necromancy, secrets",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "vecna-greyhawk",
+    "name": "Vecna",
+    "pantheon": "Greyhawk",
+    "title": "the Whispered One",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Knowledge",
+      "Arcana"
+    ],
+    "symbol": "An eye in the palm of a left hand",
+    "worshipers": "Necromancers, undead, those who keep or unearth secrets",
+    "plane": "Unknown",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "vergadain",
+    "name": "Vergadain",
+    "pantheon": "Dwarven",
+    "title": "God of luck and wealth",
+    "category": "The Mordinsamman",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Gold coin bearing a dwarf's face",
+    "portfolio": "Luck, wealth",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "vesh",
+    "name": "Vesh",
+    "pantheon": "Exandria",
+    "title": "the Bloody Siren",
+    "category": "Lesser Idols",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Death",
+      "Life"
+    ],
+    "symbol": "Crimson ring hanging from a chain",
+    "portfolio": "The Archfey, the Undying",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "vhaeraun",
+    "name": "Vhaeraun",
+    "pantheon": "Drow",
+    "title": "God of thieves",
+    "category": "The Dark Seldarine",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Trickery",
+      "War"
+    ],
+    "symbol": "Black mask with blue glass lenses inset over eyes",
+    "portfolio": "Arrogance, thieves",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "waukeen",
+    "name": "Waukeen",
+    "pantheon": "Faerûnian",
+    "title": "God of trade",
+    "altNames": [
+      "The Coinmaiden",
+      "Our Lady of Gold",
+      "The Merchant's Friend"
+    ],
+    "alignmentKey": "neutral",
+    "domains": [
+      "Knowledge",
+      "Trickery"
+    ],
+    "symbol": "Upright coin with Waukeen's profile facing left",
+    "worshipers": "Merchants, the rich, traders",
+    "plane": "The Outlands",
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "wee-jas",
+    "name": "Wee Jas",
+    "pantheon": "Greyhawk",
+    "title": "the Witch",
+    "alignmentKey": "lawful-neutral",
+    "domains": [
+      "Death",
+      "Grave",
+      "Knowledge",
+      "Order",
+      "Arcana"
+    ],
+    "symbol": "Red skull in front of fireball",
+    "worshipers": "Spellcasters, advisers",
+    "plane": "Acheron",
+    "srd": false,
+    "book": "XDMG"
+  },
+  {
+    "key": "xalicas",
+    "name": "Xalicas",
+    "pantheon": "Exandria",
+    "category": "Lesser Idols",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Life",
+      "Light"
+    ],
+    "symbol": "Single blackened wing",
+    "portfolio": "The Archfey, the Celestial",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "yecind",
+    "name": "Ye'Cind",
+    "pantheon": "Elven",
+    "category": "The Seldarine",
+    "alignmentKey": "chaotic-good",
+    "domains": [
+      "Life",
+      "Trickery"
+    ],
+    "symbol": "Recorder",
+    "portfolio": "Music, enchantment",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "yondalla-halfling",
+    "name": "Yondalla",
+    "pantheon": "Halfling",
+    "title": "Goddess of fertility and protection",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Life",
+      "Twilight"
+    ],
+    "symbol": "Cornucopia",
+    "portfolio": "Primary goddess of halflings",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "yondalla-nonhuman",
+    "name": "Yondalla",
+    "pantheon": "Nonhuman",
+    "title": "Halfling goddess of fertility and protection",
+    "alignmentKey": "lawful-good",
+    "domains": [
+      "Life",
+      "Twilight"
+    ],
+    "symbol": "Shield",
+    "srd": false,
+    "book": "PHB"
+  },
+  {
+    "key": "yurtrus",
+    "name": "Yurtrus",
+    "pantheon": "Orc",
+    "title": "God of death and disease",
+    "alignmentKey": "neutral-evil",
+    "domains": [
+      "Death"
+    ],
+    "symbol": "White hand, palm outward",
+    "srd": false,
+    "book": "SCAG"
+  },
+  {
+    "key": "zandilar",
+    "name": "Zandilar",
+    "pantheon": "Elven",
+    "category": "The Seldarine",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Life"
+    ],
+    "symbol": "Lips",
+    "portfolio": "Romance, lust, dance",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "zeboim",
+    "name": "Zeboim",
+    "pantheon": "Dragonlance",
+    "title": "Goddess of the sea and storms",
+    "category": "Evil",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Tempest"
+    ],
+    "symbol": "Turtle shell",
+    "portfolio": "Seas, storms",
+    "srd": false,
+    "book": "DSotDQ"
+  },
+  {
+    "key": "zehir-dawn-war",
+    "name": "Zehir",
+    "pantheon": "Dawn War",
+    "title": "God of darkness and poison",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Trickery",
+      "Death"
+    ],
+    "symbol": "Snake in the shape of a dagger",
+    "srd": false,
+    "book": "DMG"
+  },
+  {
+    "key": "zehir-exandria",
+    "name": "Zehir",
+    "pantheon": "Exandria",
+    "title": "the Cloaked Serpent",
+    "altNames": [
+      "The Cloaked Serpent"
+    ],
+    "category": "Betrayer Gods",
+    "alignmentKey": "chaotic-evil",
+    "domains": [
+      "Nature",
+      "Trickery"
+    ],
+    "symbol": "Coiled serpent",
+    "portfolio": "Assassins, poison, snakes",
+    "srd": false,
+    "book": "EGW"
+  },
+  {
+    "key": "zeus",
+    "name": "Zeus",
+    "pantheon": "Greek",
+    "title": "God of the sky, ruler of the gods",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Tempest"
+    ],
+    "symbol": "Fist full of lightning bolts",
+    "srd": true,
+    "book": "PHB"
+  },
+  {
+    "key": "zinzerena",
+    "name": "Zinzerena",
+    "pantheon": "Drow",
+    "category": "The Dark Seldarine",
+    "alignmentKey": "chaotic-neutral",
+    "domains": [
+      "Trickery"
+    ],
+    "symbol": "Shortsword draped with cloth",
+    "portfolio": "Assassination, illusion, lies",
+    "srd": false,
+    "book": "MTF"
+  },
+  {
+    "key": "zivilyn",
+    "name": "Zivilyn",
+    "pantheon": "Dragonlance",
+    "title": "God of wisdom",
+    "category": "Neutral",
+    "alignmentKey": "neutral",
+    "domains": [
+      "Knowledge"
+    ],
+    "symbol": "Great green or gold tree",
+    "portfolio": "Wisdom",
+    "srd": false,
+    "book": "DSotDQ"
+  }
+]

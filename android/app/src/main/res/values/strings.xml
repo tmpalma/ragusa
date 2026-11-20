@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Player Toolset</string>
+    <string name="title_activity_main">Player Toolset</string>
+    <string name="package_name">app.playertoolset.sheet</string>
+    <string name="custom_url_scheme">app.playertoolset.sheet</string>
+</resources>

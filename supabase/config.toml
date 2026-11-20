@@ -1,0 +1,5 @@
+# Minimal Supabase project config for deploying the library Edge Function.
+# Link your project with: supabase link --project-ref <ref>
+
+[functions.library]
+verify_jwt = true

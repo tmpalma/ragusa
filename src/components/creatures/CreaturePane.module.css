@@ -1,0 +1,33 @@
+.summonedRow {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 0 0 0.75rem;
+  cursor: pointer;
+}
+
+.dismissed {
+  margin: 0 0 0.75rem;
+  font-style: italic;
+}
+
+.slotRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.slotStepper,
+.useStepper {
+  max-width: 12rem;
+}
+
+.usesList {
+  margin: 0.75rem 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

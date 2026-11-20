@@ -1,0 +1,866 @@
+.pane {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+  background: var(--code-bg);
+}
+
+.pane h2,
+.pane h3,
+.pane h4 {
+  margin: 0 0 0.4rem;
+}
+
+.pane h3 {
+  font-size: 1rem;
+}
+
+.pane h4 {
+  font-size: 0.92rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  background: var(--bg);
+}
+
+.subsection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.75rem;
+  background: var(--code-bg);
+}
+
+.identityGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.identityDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.identityBackstory {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-height: 0;
+}
+
+.classScoresGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.subsectionGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 720px) {
+  .classScoresGrid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  .subsectionGrid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .identityGrid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .identityBackstory {
+    height: 100%;
+  }
+
+  .identityBackstory textarea {
+    flex: 1;
+    min-height: 10rem;
+  }
+}
+
+.sectionHeader,
+.subsectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.sectionHeader h3,
+.subsectionHeader h4 {
+  margin: 0;
+}
+
+.textButton {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--code-bg);
+  color: inherit;
+  cursor: pointer;
+}
+
+.levelUpButton {
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--level-up);
+  border-radius: 6px;
+  background: var(--level-up-bg);
+  color: var(--level-up);
+  cursor: pointer;
+}
+
+.levelUpButton:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  border-color: var(--border);
+  background: var(--code-bg);
+  color: inherit;
+}
+
+.xpTable th:not(:first-child),
+.xpTable td:not(:first-child) {
+  text-align: center;
+}
+
+.xpInput {
+  width: 100%;
+  max-width: 8rem;
+  text-align: center;
+  appearance: textfield;
+  -moz-appearance: textfield;
+  font: inherit;
+  padding: 0.25rem 0.15rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: inherit;
+  box-sizing: border-box;
+}
+
+.xpInput::-webkit-outer-spin-button,
+.xpInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.xpStatCell {
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.xpTracker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.xpLevelUpRow {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.levelPane {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.75rem;
+  background: var(--code-bg);
+}
+
+.levelPaneSummary {
+  margin: 0 0 0.75rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.levelPaneSummary::-webkit-details-marker {
+  display: none;
+}
+
+.levelPane:not([open]) > .levelPaneSummary {
+  margin-bottom: 0;
+}
+
+.levelPaneBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.textButton {
+  background: transparent;
+}
+
+.revertLevelButton {
+  color: var(--remove-level);
+  border-color: var(--remove-level);
+}
+
+.revertLevelButton:hover {
+  background: var(--remove-level-bg);
+}
+
+.levelPaneHeading {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.featureList {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field label,
+.groupLabel {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.field input[type="text"],
+.field input[type="number"],
+.field select,
+.field textarea {
+  font: inherit;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: inherit;
+}
+
+.field select {
+  min-height: 2.75rem;
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.abilityGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 0.75rem;
+}
+
+.abilityCell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+.abilityCell input {
+  width: 4rem;
+  text-align: center;
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.abilityCell input::-webkit-outer-spin-button,
+.abilityCell input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.abilityCell input.showSteppers {
+  appearance: auto;
+  -moz-appearance: auto;
+  width: 5.5rem;
+}
+
+.abilityCell input.showSteppers::-webkit-outer-spin-button,
+.abilityCell input.showSteppers::-webkit-inner-spin-button {
+  -webkit-appearance: inner-spin-button;
+  appearance: auto;
+  margin: 0;
+}
+
+.methodGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+}
+
+.modifierBadge {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.skillsTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.skillsTable th,
+.skillsTable td {
+  border-bottom: 1px solid var(--border);
+  padding: 0.3rem 0.4rem;
+  text-align: left;
+}
+
+.abilityTable th:not(:first-child),
+.abilityTable td:not(:first-child) {
+  text-align: center;
+}
+
+.abilityTable input[type="number"] {
+  text-align: center;
+  appearance: textfield;
+  -moz-appearance: textfield;
+  font: inherit;
+  padding: 0.25rem 0.15rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: inherit;
+  box-sizing: border-box;
+}
+
+.abilityTable input[type="number"]::-webkit-outer-spin-button,
+.abilityTable input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.abilityValueCell,
+.abilityModifierCell {
+  font-weight: 600;
+}
+
+.abilityModifierCell {
+  color: var(--accent);
+}
+
+.abilityStepper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  max-width: 100%;
+}
+
+.abilityStepper input[type="number"] {
+  width: 2.75rem;
+  min-width: 0;
+  text-align: center;
+  appearance: textfield;
+  -moz-appearance: textfield;
+  font: inherit;
+  padding: 0.25rem 0.15rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: inherit;
+  box-sizing: border-box;
+}
+
+.abilityStepper input[type="number"]::-webkit-outer-spin-button,
+.abilityStepper input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.numericInputNoSpinner {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.numericInputNoSpinner::-webkit-outer-spin-button,
+.numericInputNoSpinner::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.abilityStepperBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0;
+  font: inherit;
+  font-size: 0.95rem;
+  line-height: 1;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--accent-bg);
+  color: var(--text-h);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.abilityStepperBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.currencyStepper input[type="number"] {
+  width: 4rem;
+  text-align: center;
+  appearance: textfield;
+  -moz-appearance: textfield;
+  font: inherit;
+  padding: 0.25rem 0.15rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: inherit;
+  box-sizing: border-box;
+}
+
+.currencyStepper input[type="number"]::-webkit-outer-spin-button,
+.currencyStepper input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+@media (max-width: 719px) {
+  .methodGroup {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .abilityTable {
+    table-layout: fixed;
+  }
+
+  .abilityModifierCol {
+    display: none;
+  }
+
+  .abilityTable th,
+  .abilityTable td {
+    padding: 0.25rem 0.15rem;
+  }
+
+  .abilityTable th:first-child,
+  .abilityTable td:first-child {
+    width: 2.5rem;
+  }
+
+  .abilityTable th:nth-child(4),
+  .abilityTable td:nth-child(4) {
+    width: 2.25rem;
+  }
+
+  .abilityStepper input[type="number"] {
+    width: 2.25rem;
+    min-height: 2.75rem;
+  }
+
+  .abilityTable th:nth-child(2),
+  .abilityTable td:nth-child(2),
+  .abilityTable th:nth-child(3),
+  .abilityTable td:nth-child(3) {
+    width: 5.5rem;
+  }
+
+  .itemDetailSuffix,
+  .itemQuantityText {
+    display: none;
+  }
+
+  .itemList li {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .itemListMain {
+    width: 100%;
+  }
+
+  .itemListActions {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.addRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.addRow.addRowStacked {
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+
+.addRow.addRowStacked .addRowSelect {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.addRow.addRowStacked .addRowSelect .field {
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.addRow.addRowStacked .addRowActions {
+  flex: 0 0 auto;
+  align-self: flex-start;
+}
+
+.addRowSelect {
+  min-width: 0;
+}
+
+.addRowSelect .field {
+  min-width: 0;
+}
+
+.addRowActions {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+@media (min-width: 720px) {
+  .addRowSelect {
+    flex: 1 1 12rem;
+  }
+
+  .addRowSelect .field {
+    flex: 1 1 12rem;
+  }
+}
+
+@media (max-width: 719px) {
+  .addRow {
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+
+  .addRowSelect,
+  .addRowSelect .field {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .addRowActions {
+    flex: 0 0 auto;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .addQuantityField {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .quantityLabelFull {
+    display: none;
+  }
+
+  .quantityLabelShort {
+    display: inline;
+  }
+}
+
+.featPicker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.featCategoryFilter {
+  min-width: 0;
+}
+
+.featCategoryFilter select {
+  width: 100%;
+  min-height: 2.75rem;
+  padding-inline: 0.3rem;
+}
+
+.featPickEntry {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.featPickName {
+  font-weight: 600;
+}
+
+.featPickMechanics {
+  font-size: 0.85rem;
+  line-height: 1.35;
+  color: var(--accent, #5b8def);
+}
+
+.featPickDesc {
+  font-size: 0.85rem;
+  line-height: 1.35;
+  opacity: 0.9;
+  white-space: pre-wrap;
+}
+
+.addQuantityField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.addQuantityLabel {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.quantityLabelShort {
+  display: none;
+}
+
+.quantityStepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.quantityStepper input {
+  width: 2.5rem;
+  text-align: center;
+  font: inherit;
+  padding: 0.25rem 0.2rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: inherit;
+}
+
+.quantityStepper button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0;
+  font: inherit;
+  font-size: 0.95rem;
+  line-height: 1;
+  touch-action: manipulation;
+}
+
+.quantityField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.quantityField label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.quantityField input {
+  width: 4.5rem;
+  font: inherit;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: inherit;
+}
+
+.quantityControls {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.quantityControls input {
+  width: 3.5rem;
+  text-align: center;
+  font: inherit;
+  padding: 0.25rem 0.35rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: inherit;
+}
+
+.quantityControls button {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0.25rem 0.45rem;
+  touch-action: manipulation;
+}
+
+.itemList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.itemList li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+}
+
+.itemListMain {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.toolPickEntry {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.toolPickName {
+  font-weight: 600;
+}
+
+.toolPickDesc {
+  font-size: 0.85rem;
+  line-height: 1.35;
+  opacity: 0.9;
+}
+
+.itemListName {
+  flex: 1;
+  min-width: 0;
+}
+
+.itemListActions {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.wornLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.hint {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.warning {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--warning, #b45309);
+}
+
+.abilityIncreaseRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.abilityIncreaseRow input {
+  width: 4rem;
+}
+
+.field textarea.readonlyDescription {
+  resize: none;
+  background: var(--code-bg);
+  cursor: default;
+}
+
+button {
+  font: inherit;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--accent-bg);
+  color: var(--text-h);
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

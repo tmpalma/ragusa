@@ -1,0 +1,28 @@
+.emptyGroup {
+  margin: 0;
+  opacity: 0.8;
+  line-height: 1.55;
+}
+
+.memberList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.memberName {
+  min-width: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+@media (max-width: 719px) {
+  .memberName {
+    font-size: 1.15rem;
+  }
+
+  .memberList {
+    gap: 0.6rem;
+  }
+}

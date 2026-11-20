@@ -1,0 +1,290 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.section h3 {
+  margin: 0;
+}
+
+.spellSlotsSection {
+  margin-bottom: 1.25rem;
+}
+
+.concentrationSection {
+  margin-bottom: 1.25rem;
+}
+
+.concentrationSection summary {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.concentrationSection summary h3 {
+  margin: 0;
+  display: inline;
+}
+
+.concentrationRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.concentrationSpellField {
+  width: 100%;
+}
+
+.concentrationRoundsCounter {
+  width: fit-content;
+}
+
+.concentrationRoundsInput {
+  width: 5.5rem;
+}
+
+.ritualSpellsSection {
+  margin-bottom: 1.25rem;
+}
+
+.ritualSpellsSection summary {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.ritualSpellsSection summary h3 {
+  margin: 0;
+  display: inline;
+}
+
+.spellPickerSpacer {
+  margin: 0.75rem 0;
+}
+
+.spellPickerDivider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1rem 0;
+}
+
+.knownPreparedSpellsSection {
+  margin-bottom: 1.25rem;
+}
+
+.knownPreparedSpellsSection summary {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.knownPreparedSpellsTitle {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: left;
+  display: inline;
+}
+
+.featSpellcastingPaneSection {
+  margin-bottom: 1.25rem;
+}
+
+.featSpellcastingPaneSection summary {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.featSpellcastingPaneSection summary h3 {
+  margin: 0;
+  display: inline;
+}
+
+.alwaysPreparedSpellsSection {
+  margin-bottom: 1.25rem;
+}
+
+.alwaysPreparedSpellsSection summary {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.alwaysPreparedSpellsSection summary h3 {
+  margin: 0;
+  display: inline;
+}
+
+.alwaysPreparedPickStack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.alwaysPreparedPickGroupLabel {
+  font-size: 1rem;
+}
+
+.featSpellcastingPaneBody {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.featSpellcastingPaneBody > .section {
+  margin-bottom: 0;
+}
+
+.classSpellcastingSection,
+.multiclassClassBlocksSection {
+  margin-bottom: 1.25rem;
+}
+
+.pickerGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.spellPickRow {
+  display: grid;
+  grid-template-columns: 4.25rem minmax(0, 1fr);
+  gap: 0.5rem;
+  align-items: end;
+}
+
+.spellLevelFilter {
+  min-width: 0;
+}
+
+.spellLevelFilter select {
+  width: 100%;
+  padding-inline: 0.3rem;
+}
+
+.alwaysPreparedLevelFilter {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.alwaysPreparedLevelFilter label {
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.alwaysPreparedLevelFilter select {
+  flex: 1 1 6rem;
+  width: auto;
+  min-width: 0;
+}
+
+.groupLabel {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.grantedList {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.featureDesc {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted, #666);
+  white-space: pre-wrap;
+}
+
+.pactOfTheTomePane {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  background: var(--bg);
+}
+
+.pactOfTheTomePaneSpaced {
+  margin-top: 0.85rem;
+}
+
+.fontOfMagicTableWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fontOfMagicTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.fontOfMagicTable th,
+.fontOfMagicTable td {
+  border: 1px solid var(--border-color, #ccc);
+  padding: 0.35rem 0.5rem;
+  text-align: left;
+}
+
+.fontOfMagicActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.fontOfMagicButton {
+  font: inherit;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+
+.fontOfMagicButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.convertSlotGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.featSpellcastingGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.multiclassClassSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.multiclassClassSection + .multiclassClassSection {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+}
+
+.multiclassClassHeading {
+  margin: 0 0 0.85rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.spellCastControl {
+  margin-top: 1em;
+}
+
+.spellDescRemove {
+  font: inherit;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--accent-bg);
+  color: var(--text-h);
+  cursor: pointer;
+}

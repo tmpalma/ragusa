@@ -1,0 +1,135 @@
+[
+  {
+    "key": "abyssal",
+    "name": "Abyssal",
+    "category": "uncommon",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "celestial",
+    "name": "Celestial",
+    "category": "uncommon",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "common",
+    "name": "Common",
+    "category": "common",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "common-sign-language",
+    "name": "Common Sign Language",
+    "category": "common",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "deep-speech",
+    "name": "Deep Speech",
+    "category": "uncommon",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "draconic",
+    "name": "Draconic",
+    "category": "common",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "druidic",
+    "name": "Druidic",
+    "category": "uncommon",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "dwarvish",
+    "name": "Dwarvish",
+    "category": "common",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "elvish",
+    "name": "Elvish",
+    "category": "common",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "giant",
+    "name": "Giant",
+    "category": "common",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "gnomish",
+    "name": "Gnomish",
+    "category": "common",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "goblin",
+    "name": "Goblin",
+    "category": "common",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "halfling",
+    "name": "Halfling",
+    "category": "common",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "infernal",
+    "name": "Infernal",
+    "category": "uncommon",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "orc",
+    "name": "Orc",
+    "category": "common",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "primordial",
+    "name": "Primordial",
+    "category": "uncommon",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "sylvan",
+    "name": "Sylvan",
+    "category": "uncommon",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "thieves-cant",
+    "name": "Thieves' Cant",
+    "category": "uncommon",
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "undercommon",
+    "name": "Undercommon",
+    "category": "uncommon",
+    "srd": true,
+    "book": "XPHB"
+  }
+]

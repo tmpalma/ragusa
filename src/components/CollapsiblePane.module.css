@@ -1,0 +1,74 @@
+.pane {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.summary {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.summaryLeading {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.summaryTitle {
+  min-width: 0;
+}
+
+.expandIndicator {
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  font-weight: 400;
+  opacity: 0.75;
+}
+
+.summaryActions {
+  flex-shrink: 0;
+}
+
+.summary::-webkit-details-marker {
+  display: none;
+}
+
+.pane:not([open]) {
+  gap: 0;
+  justify-content: center;
+}
+
+.pane:not([open]) > :not(summary) {
+  display: none;
+}
+
+.nested {
+  border-radius: 6px;
+  padding: 0.45rem 0.55rem;
+  background: var(--code-bg);
+  gap: 0.5rem;
+}
+
+.nested > .summary {
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.nested > .summary > .expandIndicator {
+  font-size: 0.8rem;
+}

@@ -1,0 +1,3792 @@
+[
+  {
+    "key": "path-of-the-berserker",
+    "classKey": "barbarian",
+    "name": "Path of the Berserker",
+    "desc": "Barbarians who walk the Path of the Berserker direct their Rage primarily toward violence. These Barbarians are often found among Orcs and other creatures that have a strong demon taint in their blood.",
+    "features": [
+      {
+        "key": "frenzy",
+        "name": "Frenzy",
+        "desc": "If you use Reckless Attack while your Rage is active, you deal extra damage to the first target you hit on your turn with a Strength-based attack. To determine the extra damage, roll a number of d6s equal to your Rage Damage bonus, and add them together. The damage has the same type as the weapon or Unarmed Strike used for the attack.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "college-of-lore",
+    "classKey": "bard",
+    "name": "College of Lore",
+    "desc": "Bards of the College of Lore collect spells and secrets from diverse sources. They gather in libraries and universities to share their lore, and meet at festivals or affairs of state to expose corruption and unravel lies.",
+    "features": [
+      {
+        "key": "bonus-proficiencies",
+        "name": "Bonus Proficiencies",
+        "desc": "You gain proficiency with three skills of your choice.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "grant_skill_proficiencies",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "key": "cutting-words",
+        "name": "Cutting Words",
+        "desc": "When a creature that you can see within 60 feet of yourself makes a damage roll or succeeds on an ability check or attack roll, you can take a Reaction to expend one use of your Bardic Inspiration; roll your Bardic Inspiration die, and subtract the number rolled from the creature's roll.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "reaction",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "oath-of-devotion",
+    "classKey": "paladin",
+    "name": "Oath of Devotion",
+    "desc": "The Oath of Devotion binds Paladins to the ideals of justice and order. These Paladins meet the archetype of the knight in shining armor, holding themselves to the highest standards of conduct.",
+    "features": [
+      {
+        "key": "oath-of-devotion-spells",
+        "name": "Oath of Devotion Spells",
+        "desc": "The magic of your oath ensures you always have Protection from Evil and Good and Shield of Faith prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Protection from Evil and Good",
+              "Shield of Faith"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "sacred-weapon",
+        "name": "Sacred Weapon",
+        "desc": "When you take the Attack action, you can expend one use of your Channel Divinity to imbue one Melee weapon that you are holding with positive energy. For 10 minutes or until you use this feature again, you add your Charisma modifier to attack rolls with that weapon (minimum +1), and each time you hit with it, you cause it to deal its normal damage type or Radiant damage.\n\nThe weapon also emits Bright Light in a 20-foot radius and Dim Light 20 feet beyond that.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "action",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "hunter",
+    "classKey": "ranger",
+    "name": "Hunter",
+    "desc": "You stalk prey in the wilds and elsewhere, using your abilities as a Hunter to protect nature and people everywhere from forces that would destroy them.",
+    "features": [
+      {
+        "key": "hunters-lore",
+        "name": "Hunter's Lore",
+        "desc": "While a creature is marked by your Hunter's Mark, you know whether that creature has any Immunities, Resistances, or Vulnerabilities, and if the creature has any, you know what they are.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "hunters-prey",
+        "name": "Hunter's Prey",
+        "desc": "You gain one of the following feature options of your choice. Whenever you finish a Short or Long Rest, you can replace the chosen option with the other one.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "limitedUses": {
+          "kind": "fixed",
+          "uses": 1
+        },
+        "restRecovery": "short",
+        "effects": [
+          {
+            "type": "choose_feature_option",
+            "choiceKey": "hunters-prey",
+            "options": [
+              {
+                "key": "colossus-slayer",
+                "name": "Colossus Slayer",
+                "desc": "When you hit a creature with a weapon, the weapon deals an extra 1d8 damage to the target if it's missing any of its Hit Points. You can deal this extra damage only once per turn."
+              },
+              {
+                "key": "horde-breaker",
+                "name": "Horde Breaker",
+                "desc": "Once on each of your turns when you make an attack with a weapon, you can make another attack with the same weapon against a different creature that is within 5 feet of the original target, that is within the weapon's range, and that you haven't attacked this turn."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "life-domain",
+    "classKey": "cleric",
+    "name": "Life Domain",
+    "desc": "The Life Domain focuses on the vibrant positive energy that sustains all life. Clerics of this Domain are masters of healing, using life-giving magic to keep their allies alive.",
+    "features": [
+      {
+        "key": "life-domain-spells",
+        "name": "Life Domain Spells",
+        "desc": "The magic of your domain ensures you always have Aid, Bless, Cure Wounds, and Lesser Restoration prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Aid",
+              "Bless",
+              "Cure Wounds",
+              "Lesser Restoration"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "disciple-of-life",
+        "name": "Disciple of Life",
+        "desc": "When a spell you cast restores Hit Points to a creature, that creature regains additional Hit Points on the turn you cast the spell. The extra Hit Points equal 2 plus the spell's level.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "preserve-life",
+        "name": "Preserve Life",
+        "desc": "As a Magic action, you expend a use of your Channel Divinity and present your Holy Symbol to evoke healing energy that can restore a number of Hit Points equal to five times your Cleric level. Choose Bloodied creatures within 30 feet of yourself (which can include you), and divide those Hit Points among them. This feature can restore a creature to no more than half its Hit Point maximum.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "action",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "circle-of-the-land",
+    "classKey": "druid",
+    "name": "Circle of the Land",
+    "desc": "The Circle of the Land is made up of mystics and sages who safeguard ancient knowledge and rites through a vast oral tradition. These Druids meet within sacred circles of trees or standing stones to share their secret lore.",
+    "features": [
+      {
+        "key": "circle-of-the-land-spells",
+        "name": "Circle of the Land Spells",
+        "desc": "Your mystical connection to the land infuses you with the ability to cast certain spells. Each time you finish a Long Rest, you regain the ability to cast one spell from the following list that you don't have prepared, based on your land type.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "choose_feature_option",
+            "choiceKey": "land-type",
+            "options": [
+              {
+                "key": "arid",
+                "name": "Arid Land",
+                "desc": "Burning Hands, Blur, and Fire Bolt are always prepared.",
+                "spellNames": [
+                  "Burning Hands",
+                  "Blur",
+                  "Fire Bolt"
+                ]
+              },
+              {
+                "key": "polar",
+                "name": "Polar Land",
+                "desc": "Fog Cloud, Hold Person, and Ray of Frost are always prepared.",
+                "spellNames": [
+                  "Fog Cloud",
+                  "Hold Person",
+                  "Ray of Frost"
+                ]
+              },
+              {
+                "key": "temperate",
+                "name": "Temperate Land",
+                "desc": "Sleep, Misty Step, and Shocking Grasp are always prepared.",
+                "spellNames": [
+                  "Sleep",
+                  "Misty Step",
+                  "Shocking Grasp"
+                ]
+              },
+              {
+                "key": "tropical",
+                "name": "Tropical Land",
+                "desc": "Ray of Sickness, Web, and Acid Splash are always prepared.",
+                "spellNames": [
+                  "Ray of Sickness",
+                  "Web",
+                  "Acid Splash"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "lands-aid",
+        "name": "Land's Aid",
+        "desc": "As a Magic action, you expend a use of your Wild Shape and choose one creature you can see within 60 feet of yourself. Roll a number of d6s equal to your Druid level. The target takes Necrotic damage equal to the total, and you or another creature within 60 feet of yourself regains Hit Points equal to the total.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "action",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "champion",
+    "classKey": "fighter",
+    "name": "Champion",
+    "desc": "A Champion focuses on the development of martial prowess in a relentless pursuit of victory. Champions combine rigorous training with physical excellence to deal devastating blows.",
+    "features": [
+      {
+        "key": "improved-critical",
+        "name": "Improved Critical",
+        "desc": "Your attack rolls with weapons and Unarmed Strikes can score a Critical Hit on a roll of 19 or 20 on the d20.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "remarkable-athlete",
+        "name": "Remarkable Athlete",
+        "desc": "You have Advantage on Initiative rolls and Strength (Athletics) checks.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "warrior-of-the-open-hand",
+    "classKey": "monk",
+    "name": "Warrior of the Open Hand",
+    "desc": "Warriors of the Open Hand are masters of martial arts combat. They learn techniques to push and trip their opponents and manipulate their own energy to protect themselves from harm.",
+    "features": [
+      {
+        "key": "open-hand-technique",
+        "name": "Open Hand Technique",
+        "desc": "When you hit a creature with an Unarmed Strike, you can use one of the following effects:\n\nAdd Damage. The target takes extra Bludgeoning damage equal to your Martial Arts die.\n\nPush. The target must succeed on a Strength saving throw or be pushed up to 15 feet away from you.\n\nTopple. The target must succeed on a Dexterity saving throw or have the Prone condition.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "thief",
+    "classKey": "rogue",
+    "name": "Thief",
+    "desc": "A mix of burglar, treasure hunter, and explorer, you are the epitome of an adventurer. In addition to improving your agility and stealth, you gain abilities useful for delving into ruins and getting maximum benefit from the magic items you find.",
+    "features": [
+      {
+        "key": "fast-hands",
+        "name": "Fast Hands",
+        "desc": "As a Bonus Action, you can do one of the following:\n\nSleight of Hand. Make a Dexterity (Sleight of Hand) check.\n\nUse an Object. Take the Utilize action, or take the Magic action to use a magic item that requires that action.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "bonus",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "second-story-work",
+        "name": "Second-Story Work",
+        "desc": "You've trained to get into especially hard-to-reach places, granting you these benefits.\n\nClimber. You gain a Climb Speed equal to your Speed.\n\nJumper. You can determine your jump distance using your Dexterity rather than your Strength.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "draconic-sorcery",
+    "classKey": "sorcerer",
+    "name": "Draconic Sorcery",
+    "desc": "Your innate magic comes from the gift of a dragon. Perhaps an ancestor made a bargain with a dragon, or a draconic sorcerer might have a dragon parent.",
+    "features": [
+      {
+        "key": "draconic-resilience",
+        "name": "Draconic Resilience",
+        "desc": "Your hit point maximum increases by 1 for each Sorcerer level you have. In addition, while you aren't wearing armor, your base Armor Class equals 10 plus your Dexterity and Charisma modifiers. You can use a Shield and still gain this benefit.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "unarmored_defense",
+            "abilities": [
+              "cha"
+            ]
+          },
+          {
+            "type": "hit_points_per_class_level",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "key": "draconic-spells",
+        "name": "Draconic Spells",
+        "desc": "When you reach Sorcerer levels specified in the Draconic Spells table, you always have the listed spells prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Alter Self",
+              "Chromatic Orb",
+              "Command",
+              "Dragon's Breath"
+            ]
+          }
+        ]
+      }
+    ],
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "fiend-patron",
+    "classKey": "warlock",
+    "name": "Fiend Patron",
+    "desc": "Your pact draws on the Lower Planes, the realms of perdition. You might forge a bargain with a demon lord, an archdevil, or another fiend.",
+    "features": [
+      {
+        "key": "dark-ones-blessing",
+        "name": "Dark One's Blessing",
+        "desc": "When you reduce an enemy to 0 Hit Points, you gain Temporary Hit Points equal to your Charisma modifier plus your Warlock level (minimum of 1).",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "fiend-spells",
+        "name": "Fiend Spells",
+        "desc": "The magic of your patron ensures you always have Burning Hands, Command, Scorching Ray, and Suggestion prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Burning Hands",
+              "Command",
+              "Scorching Ray",
+              "Suggestion"
+            ]
+          }
+        ]
+      }
+    ],
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "evoker",
+    "classKey": "wizard",
+    "name": "Evoker",
+    "desc": "Your studies focus on magic that creates powerful elemental effects such as bitter cold, searing flame, rolling thunder, crackling lightning, and burning acid.",
+    "features": [
+      {
+        "key": "potent-cantrip",
+        "name": "Potent Cantrip",
+        "desc": "When you cast a cantrip at a creature and you miss with the attack roll or the target succeeds on a saving throw, the target takes half the cantrip's damage (if any) but suffers no additional effect from the spell.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "evocation-savant",
+        "name": "Evocation Savant",
+        "desc": "Choose two Wizard spells from the Evocation school, each of which must be no higher than level 2, and add them to your spellbook for free. In addition, whenever you gain access to a new level of spell slots, you can add one Wizard spell from the Evocation school to your spellbook for free.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "grant_spellbook_picks",
+            "count": 2,
+            "school": "Evocation",
+            "maxSpellLevel": 2
+          }
+        ]
+      }
+    ],
+    "srd": true,
+    "book": "XPHB"
+  },
+  {
+    "key": "college-of-dance",
+    "classKey": "bard",
+    "name": "College of Dance",
+    "desc": "Bards of the College of Dance move in harmony with the cosmos. They practice agility, speed, and grace, letting celestial motion guide their unarmed strikes and Bardic Inspiration.",
+    "features": [
+      {
+        "key": "dazzling-footwork",
+        "name": "Dazzling Footwork",
+        "desc": "While you aren't wearing armor or wielding a Shield, your base AC equals 10 plus your Dexterity and Charisma modifiers, you have Advantage on Charisma (Performance) checks that involve dancing, and you fight with unmatched grace.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "unarmored_defense",
+            "abilities": [
+              "dex",
+              "cha"
+            ],
+            "disallowShield": true
+          },
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "agile-strikes",
+        "name": "Agile Strikes",
+        "desc": "When you expend a use of your Bardic Inspiration as part of an action, a Bonus Action, or a Reaction, you can make one Unarmed Strike as part of that action, Bonus Action, or Reaction.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "bardic-damage",
+        "name": "Bardic Damage",
+        "desc": "You can use Dexterity instead of Strength for Unarmed Strike attack rolls. When you deal damage with an Unarmed Strike, you can deal Bludgeoning damage equal to a roll of your Bardic Inspiration die plus your Dexterity modifier instead of the strike's normal damage. This roll doesn't expend the die.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "inspiring-movement",
+        "name": "Inspiring Movement",
+        "desc": "When an enemy you can see ends its turn within 5 feet of you, you can take a Reaction and expend one use of your Bardic Inspiration to move up to half your Speed. Then one ally within 30 feet of you can also move up to half their Speed using their Reaction. None of this movement provokes Opportunity Attacks.",
+        "grantedAtLevel": 6,
+        "combatSurface": true,
+        "actionTiming": "reaction",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "college-of-glamour",
+    "classKey": "bard",
+    "name": "College of Glamour",
+    "desc": "The College of Glamour traces its origins to the beguiling magic of the Feywild. These Bards weave threads of beauty and terror into songs that stir longing, fear, and otherworldly majesty.",
+    "features": [
+      {
+        "key": "college-of-glamour-spells",
+        "name": "College of Glamour Spells",
+        "desc": "The magic of your college ensures you always have Charm Person and Mirror Image prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Charm Person",
+              "Mirror Image"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "beguiling-magic",
+        "name": "Beguiling Magic",
+        "desc": "Immediately after you cast an Enchantment or Illusion spell using a spell slot, you can cause a creature you can see within 60 feet to make a Wisdom saving throw against your spell save DC. On a failed save, the target has the Charmed or Frightened condition (your choice) for 1 minute, repeating the save at the end of each of its turns.\n\nOnce you use this benefit, you can't use it again until you finish a Long Rest. You can also restore your use of it by expending one use of Bardic Inspiration (no action required).",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "limitedUses": {
+          "kind": "fixed",
+          "uses": 1
+        },
+        "restRecovery": "long",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "mantle-of-inspiration",
+        "name": "Mantle of Inspiration",
+        "desc": "As a Bonus Action, you can expend a use of Bardic Inspiration and roll the die. Choose creatures within 60 feet of yourself, up to a number equal to your Charisma modifier (minimum of one). Each gains Temporary Hit Points equal to twice the number rolled and can use its Reaction to move up to its Speed without provoking Opportunity Attacks.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "bonus",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "mantle-of-majesty",
+        "name": "Mantle of Majesty",
+        "desc": "You always have the Command spell prepared. As a Bonus Action, you cast Command without expending a spell slot and take on an unearthly appearance for 1 minute. During this time, you can cast Command as a Bonus Action without expending a spell slot.",
+        "grantedAtLevel": 6,
+        "combatSurface": true,
+        "actionTiming": "bonus",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "college-of-valor",
+    "classKey": "bard",
+    "name": "College of Valor",
+    "desc": "Bards of the College of Valor are daring storytellers whose tales preserve the memory of great heroes. They travel to witness great events and inspire others to match legendary deeds.",
+    "features": [
+      {
+        "key": "martial-training",
+        "name": "Martial Training",
+        "desc": "You gain proficiency with Martial weapons and training with Medium and Heavy armor and Shields. You can use a Simple or Martial weapon as a Spellcasting Focus to cast Bard spells.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "grant_weapon_proficiencies",
+            "grants": [
+              {
+                "kind": "martial"
+              }
+            ]
+          },
+          {
+            "type": "grant_armor_categories",
+            "categories": [
+              "medium"
+            ]
+          },
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "combat-inspiration-defense",
+        "name": "Combat Inspiration (Defense)",
+        "desc": "A creature that has a Bardic Inspiration die from you can use its Reaction when hit by an attack roll to roll that die and add the number rolled to its AC against that attack, potentially causing the attack to miss.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "reaction",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "combat-inspiration-offense",
+        "name": "Combat Inspiration (Offense)",
+        "desc": "A creature that has a Bardic Inspiration die from you can roll that die and add the number rolled to the attack's damage immediately after hitting a target with an attack roll.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "combatParentName": "Combat Inspiration",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "extra-attack",
+        "name": "Extra Attack",
+        "desc": "You can attack twice instead of once whenever you take the Attack action on your turn. You can cast one of your Bard cantrips with a casting time of an action in place of one of those attacks.",
+        "grantedAtLevel": 6,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "college-of-the-moon",
+    "classKey": "bard",
+    "name": "College of the Moon",
+    "desc": "The College of the Moon traces its origins to the druidic circles of the Moonshae Isles. These Bards draw on fey magic and moonwell power to bolster allies and protect the natural world.",
+    "features": [
+      {
+        "key": "moons-inspiration",
+        "name": "Moon's Inspiration",
+        "desc": "When you take a Bonus Action to give a creature a Bardic Inspiration die, you can have the Invisible condition and teleport up to 30 feet to an unoccupied space you can see. This invisibility lasts until the start of your next turn and ends early after you deal damage or cast a spell.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "bonus",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "primal-lore",
+        "name": "Primal Lore",
+        "desc": "You learn Druidic and one Druid cantrip, which counts as a Bard spell. Choose one skill from Animal Handling, Insight, Medicine, Nature, Perception, or Survival; you have proficiency in that skill.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "grant_languages",
+            "languages": [
+              "druidic"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "blessing-of-moonlight",
+        "name": "Blessing of Moonlight",
+        "desc": "You always have the Moonbeam spell prepared. When you cast Moonbeam, you can modify it so you glow faintly while the spell is active, shedding Dim Light in a 5-foot radius, and another creature you can see within 60 feet regains 2d4 Hit Points when a creature fails its save against the beam.",
+        "grantedAtLevel": 6,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "college-of-spirits",
+    "classKey": "bard",
+    "name": "College of Spirits",
+    "desc": "Bards of the College of Spirits conjure legendary spirits to change the world. What they summon is not always entirely under their control, but its power is undeniable.",
+    "features": [
+      {
+        "key": "channeler",
+        "name": "Channeler",
+        "desc": "You know the Guidance cantrip with a range of 60 feet. You gain a Gaming Set (playing cards) and can use it or a musical instrument as a Spellcasting Focus. When you cast a Bard spell through your focus, you can roll a Bardic Inspiration die and add the number rolled to one damage or healing roll of the spell.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "action",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "spirits-from-beyond",
+        "name": "Spirits from Beyond",
+        "desc": "When you take a Bonus Action to give a creature a Bardic Inspiration die, you can channel a random spirit by rolling the die and consulting the Spirits from Beyond table. As a Bonus Action, you can expend a use of Bardic Inspiration to channel a specific spirit instead.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "empowered-channeling",
+        "name": "Empowered Channeling",
+        "desc": "Once per turn when you cast a Bard spell with a spell slot that deals damage or restores Hit Points, roll 1d6 and add it to one damage roll or to the total Hit Points restored. You always have the Spirit Guardians spell prepared.",
+        "grantedAtLevel": 6,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "RHW"
+  },
+  {
+    "key": "oath-of-glory",
+    "classKey": "paladin",
+    "name": "Oath of Glory",
+    "desc": "Paladins who take the Oath of Glory believe they and their companions are destined to achieve glory through deeds of heroism. They train diligently and encourage their companions for when destiny calls.",
+    "features": [
+      {
+        "key": "oath-of-glory-spells",
+        "name": "Oath of Glory Spells",
+        "desc": "The magic of your oath ensures you always have Guiding Bolt and Heroism prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Guiding Bolt",
+              "Heroism"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "peerless-athlete",
+        "name": "Peerless Athlete",
+        "desc": "As a Bonus Action, you can expend one use of your Channel Divinity to augment your athleticism. For 1 hour, you have Advantage on Strength (Athletics) and Dexterity (Acrobatics) checks, and your Long and High Jump distances increase by 10 feet.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "bonus",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "inspiring-smite",
+        "name": "Inspiring Smite",
+        "desc": "Immediately after you cast Divine Smite, you can expend one use of your Channel Divinity and distribute Temporary Hit Points equal to 2d8 plus your Paladin level among creatures of your choice within 30 feet of yourself.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "oath-of-the-ancients",
+    "classKey": "paladin",
+    "name": "Oath of the Ancients",
+    "desc": "The Oath of the Ancients is as old as the first elves. These paladins cherish the light and love the beautiful, life-giving things of the world above abstract principles of honor or justice.",
+    "features": [
+      {
+        "key": "oath-of-the-ancients-spells",
+        "name": "Oath of the Ancients Spells",
+        "desc": "The magic of your oath ensures you always have Ensnaring Strike and Speak with Animals prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Ensnaring Strike",
+              "Speak with Animals"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "natures-wrath",
+        "name": "Nature's Wrath",
+        "desc": "As a Magic action, you can expend one use of your Channel Divinity to conjure spectral vines. Each creature you can see within 15 feet must succeed on a Strength saving throw or have the Restrained condition for 1 minute, repeating the save at the end of each of its turns.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "action",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "oath-of-vengeance",
+    "classKey": "paladin",
+    "name": "Oath of Vengeance",
+    "desc": "The Oath of Vengeance is a solemn commitment to punish those who have committed grievously evil acts. These paladins stop at little to destroy the wicked.",
+    "features": [
+      {
+        "key": "oath-of-vengeance-spells",
+        "name": "Oath of Vengeance Spells",
+        "desc": "The magic of your oath ensures you always have Bane and Hunter's Mark prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Bane",
+              "Hunter's Mark"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "vow-of-enmity",
+        "name": "Vow of Enmity",
+        "desc": "When you take the Attack action, you can expend one use of your Channel Divinity to utter a vow of enmity against a creature you can see within 30 feet. You have Advantage on attack rolls against that creature for 1 minute or until you use this feature again.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "bonus",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "oath-of-the-noble-genies",
+    "classKey": "paladin",
+    "name": "Oath of the Noble Genies",
+    "desc": "Paladins sworn to the Oath of the Noble Genies revere the Elemental Planes, drawing power from dao, djinn, efreet, and marid to brandish elemental splendor in battle.",
+    "features": [
+      {
+        "key": "oath-of-the-noble-genies-spells",
+        "name": "Oath of the Noble Genies Spells",
+        "desc": "The magic of your oath ensures you always have Chromatic Orb, Elementalism, and Thunderous Smite prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Chromatic Orb",
+              "Elementalism",
+              "Thunderous Smite"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "genies-splendor",
+        "name": "Genie's Splendor",
+        "desc": "When you aren't wearing any armor, your base AC equals 10 plus your Dexterity and Charisma modifiers. You can use a Shield and still gain this benefit. You also gain proficiency in one of Acrobatics, Intimidation, Performance, or Persuasion.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "unarmored_defense",
+            "abilities": [
+              "dex",
+              "cha"
+            ]
+          },
+          {
+            "type": "grant_skill_proficiencies",
+            "count": 1,
+            "options": [
+              "acrobatics",
+              "intimidation",
+              "performance",
+              "persuasion"
+            ]
+          },
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "elemental-smite",
+        "name": "Elemental Smite",
+        "desc": "Immediately after you cast Divine Smite, you can expend one use of your Channel Divinity and invoke one elemental effect: Dao's Crush, Djinni's Escape, Efreeti's Fury, or Marid's Surge.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "choose_feature_option",
+            "choiceKey": "elemental-smite",
+            "uiSurface": "reference",
+            "options": [
+              {
+                "key": "daos-crush",
+                "name": "Dao's Crush",
+                "desc": "Earth rises up around the target of your Divine Smite. The target has the Grappled condition (escape DC equal to your spell save DC). While Grappled, the target has the Restrained condition."
+              },
+              {
+                "key": "djinnis-escape",
+                "name": "Djinni's Escape",
+                "desc": "You teleport to an unoccupied space you can see within 30 feet and take on a semi-incorporeal form until the end of your next turn. While in this form, you have Resistance to Bludgeoning, Piercing, and Slashing damage, and Immunity to the Grappled, Prone, and Restrained conditions."
+              },
+              {
+                "key": "efreetis-fury",
+                "name": "Efreeti's Fury",
+                "desc": "The target of your Divine Smite takes an extra 2d4 Fire damage, and fire jumps to another creature you can see within 30 feet, which also takes 2d4 Fire damage."
+              },
+              {
+                "key": "marids-surge",
+                "name": "Marid's Surge",
+                "desc": "The target of your Divine Smite and each creature of your choice in a 10-foot Emanation originating from you make a Strength saving throw against your spell save DC. On a failed save, a creature is pushed 15 feet straight away from you and has the Prone condition."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "aura-of-elemental-shielding",
+        "name": "Aura of Elemental Shielding",
+        "desc": "Choose Acid, Cold, Fire, Lightning, or Thunder. You and allies in your Aura of Protection have Resistance to that damage type. At the start of each of your turns, you can change the chosen type.",
+        "grantedAtLevel": 7,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "beast-master",
+    "classKey": "ranger",
+    "name": "Beast Master",
+    "desc": "A Beast Master forms a mystical bond with a primal beast. Beast and ranger work as one to fight the monstrous foes that threaten civilization and the wilderness alike.",
+    "features": [
+      {
+        "key": "primal-companion",
+        "name": "Primal Companion",
+        "desc": "You magically summon a primal beast—Beast of the Land, Sea, or Sky—that is Friendly to you and your allies. In combat, the beast acts during your turn and can move and use its Reaction on its own.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "action",
+        "classFeatureCard": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "fey-wanderer",
+    "classKey": "ranger",
+    "name": "Fey Wanderer",
+    "desc": "A fey mystique surrounds the Fey Wanderer, whether from an archfey's boon or magic encountered in the wild. These rangers blend Feywild guile with disciplined martial skill.",
+    "features": [
+      {
+        "key": "fey-wanderer-spells",
+        "name": "Fey Wanderer Spells",
+        "desc": "The magic of your path ensures you always have Charm Person prepared. You also possess a fey blessing—a minor sensory effect that identifies you as fey blessed.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Charm Person"
+            ]
+          },
+          {
+            "type": "choose_feature_option",
+            "choiceKey": "fey-blessing",
+            "uiSurface": "combat",
+            "options": [
+              {
+                "key": "butterflies",
+                "name": "Illusory Butterflies",
+                "desc": "Illusory butterflies flutter around you while you take a Short or Long Rest."
+              },
+              {
+                "key": "dawn-flowers",
+                "name": "Dawn Flowers",
+                "desc": "Flowers bloom from your hair each dawn."
+              },
+              {
+                "key": "comforting-scent",
+                "name": "Comforting Scent",
+                "desc": "You faintly smell of cinnamon, lavender, nutmeg, or another comforting herb or spice."
+              },
+              {
+                "key": "dancing-shadow",
+                "name": "Dancing Shadow",
+                "desc": "Your shadow dances while no one is looking directly at it."
+              },
+              {
+                "key": "horns-or-antlers",
+                "name": "Horns or Antlers",
+                "desc": "Horns or antlers sprout from your head."
+              },
+              {
+                "key": "shifting-colors",
+                "name": "Shifting Colors",
+                "desc": "Your skin and hair change color each dawn."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "dreadful-strikes",
+        "name": "Dreadful Strikes",
+        "desc": "When you hit a creature with a weapon, you can deal an extra 1d4 Psychic damage to the target, which can take this extra damage only once per turn. The extra damage increases to 1d6 at Ranger level 11.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "otherworldly-glamour",
+        "name": "Otherworldly Glamour",
+        "desc": "Whenever you make a Charisma check, you gain a bonus equal to your Wisdom modifier (minimum of +1). You also gain proficiency in one of Deception, Performance, or Persuasion.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "grant_skill_proficiencies",
+            "count": 1,
+            "options": [
+              "deception",
+              "performance",
+              "persuasion"
+            ]
+          },
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "gloom-stalker",
+    "classKey": "ranger",
+    "name": "Gloom Stalker",
+    "desc": "Gloom Stalkers are at home in the darkest places—deep under the earth, in gloomy alleys, and in primeval forests wherever the light dims.",
+    "features": [
+      {
+        "key": "gloom-stalker-spells",
+        "name": "Gloom Stalker Spells",
+        "desc": "The magic of your path ensures you always have Disguise Self prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Disguise Self"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "dread-ambusher",
+        "name": "Dread Ambusher",
+        "desc": "At the start of your first turn each combat, your Speed increases by 10 feet until the end of that turn. Once per turn when you hit a creature with a weapon, you can deal an extra 2d6 Psychic damage.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "umbral-sight",
+        "name": "Umbral Sight",
+        "desc": "You gain Darkvision with a range of 60 feet, or increase existing Darkvision by 60 feet. While entirely in Darkness, you have the Invisible condition to creatures that rely on Darkvision to see you there.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "darkvision",
+            "feet": 60,
+            "increaseExisting": true
+          },
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "winter-walker",
+    "classKey": "ranger",
+    "name": "Winter Walker",
+    "desc": "Winter Walkers hone their craft in bleak, frozen wilds. These rimed rangers hunt monsters of arctic wastelands and wield terrifying cold magic.",
+    "features": [
+      {
+        "key": "winter-walker-spells",
+        "name": "Winter Walker Spells",
+        "desc": "The magic of your path ensures you always have Ice Knife prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Ice Knife"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "frigid-explorer",
+        "name": "Frigid Explorer",
+        "desc": "Damage from your weapon attacks, Ranger spells, and Ranger features ignores Resistance to Cold damage. You have Resistance to Cold damage. When you hit a creature with a weapon, you can deal an extra 1d4 Cold damage to the target once per turn (1d6 at Ranger level 11).",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "hunters-rime",
+        "name": "Hunter's Rime",
+        "desc": "When you cast Hunter's Mark, you gain Temporary Hit Points equal to 1d10 plus your Ranger level. Additionally, while a creature is marked by your Hunter's Mark, it can't take the Disengage action.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "fortifying-soul",
+        "name": "Fortifying Soul",
+        "desc": "As a Magic action, choose creatures you can see up to your Wisdom modifier (minimum of one). Each regains Hit Points equal to 1d10 plus your Ranger level and has Advantage on saves to avoid or end the Frightened condition for 1 hour.",
+        "grantedAtLevel": 7,
+        "combatSurface": true,
+        "actionTiming": "action",
+        "limitedUses": {
+          "kind": "fixed",
+          "uses": 1
+        },
+        "restRecovery": "long",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "FRHoF"
+  },
+  {
+    "key": "hollow-warden",
+    "classKey": "ranger",
+    "name": "Hollow Warden",
+    "desc": "Hollow Wardens venerate ancient wild terrors, transforming into merciless guardians that stalk jagged coastlines, mountain crags, and other dark, untamed places.",
+    "features": [
+      {
+        "key": "hollow-warden-spells",
+        "name": "Hollow Warden Spells",
+        "desc": "The magic of your path ensures you always have Wrathful Smite prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Wrathful Smite"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "wrath-of-the-wild",
+        "name": "Wrath of the Wild",
+        "desc": "As a Bonus Action, you can expend a use of your Favored Enemy feature to transform into a ghastly form for 1 minute, gaining a +1 bonus to AC, an unnerving aura that can Frighten nearby creatures, and the ability to make an Opportunity Attack when an adjacent enemy damages you or an ally.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "bonus",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "RHW"
+  },
+  {
+    "key": "alchemist",
+    "classKey": "artificer",
+    "name": "Alchemist",
+    "desc": "An Alchemist combines reagents to produce mystical effects, using creations to give life and to leech it away. Alchemy is the oldest and most versatile artificer tradition.",
+    "features": [
+      {
+        "key": "alchemist-spells",
+        "name": "Alchemist Spells",
+        "desc": "The magic of your specialization ensures you always have Healing Word and Ray of Sickness prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Healing Word",
+              "Ray of Sickness"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "tools-of-the-trade",
+        "name": "Tools of the Trade",
+        "desc": "You gain proficiency with Alchemist's Supplies and the Herbalism Kit. If you already have one of these proficiencies, you gain proficiency with one other type of Artisan's Tools of your choice (or with two other types if you have both).",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "grant_tool_proficiencies",
+            "fixedTools": [
+              "alchemists-supplies",
+              "herbalism-kit"
+            ],
+            "replacementChoose": {
+              "categories": [
+                "artisan"
+              ]
+            }
+          },
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "potion-crafting",
+        "name": "Potion Crafting",
+        "desc": "When you brew a potion using crafting rules, the time required is halved.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "combatParentName": "Tools of the Trade",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "experimental-elixir",
+        "name": "Experimental Elixir",
+        "desc": "Whenever you finish a Long Rest while holding Alchemist's Supplies, you produce two elixirs with random effects. As a Magic action while holding those supplies, you can expend a spell slot to create another elixir, choosing its effect.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "action",
+        "classFeatureCard": true,
+        "effects": [
+          {
+            "type": "choose_feature_option",
+            "choiceKey": "experimental-elixir",
+            "count": 2,
+            "countByLevel": {
+              "3": 2,
+              "5": 3,
+              "9": 4,
+              "15": 5
+            },
+            "uiSurface": "combat",
+            "options": [
+              {
+                "key": "healing",
+                "name": "Healing",
+                "desc": "The drinker regains 2d8 plus your Intelligence modifier Hit Points.",
+                "repeatable": true
+              },
+              {
+                "key": "swiftness",
+                "name": "Swiftness",
+                "desc": "The drinker's Speed increases by 10 feet for 1 hour.",
+                "repeatable": true
+              },
+              {
+                "key": "resilience",
+                "name": "Resilience",
+                "desc": "The drinker gains a +1 bonus to AC for 10 minutes.",
+                "repeatable": true
+              },
+              {
+                "key": "boldness",
+                "name": "Boldness",
+                "desc": "The drinker adds 1d4 to every attack roll and saving throw for 1 minute.",
+                "repeatable": true
+              },
+              {
+                "key": "flight",
+                "name": "Flight",
+                "desc": "The drinker gains a Fly Speed of 10 feet for 10 minutes.",
+                "repeatable": true
+              }
+            ]
+          },
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "alchemical-savant",
+        "name": "Alchemical Savant",
+        "desc": "Whenever you cast a spell using Alchemist's Supplies as the Spellcasting Focus, you gain a bonus equal to your Intelligence modifier (minimum of +1) to one roll that restores Hit Points or deals Acid, Fire, or Poison damage.",
+        "grantedAtLevel": 5,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "EFA"
+  },
+  {
+    "key": "armorer",
+    "classKey": "artificer",
+    "name": "Armorer",
+    "desc": "An Armorer modifies armor to function almost like a second skin, honing magic to unleash potent attacks and generate a formidable defense.",
+    "features": [
+      {
+        "key": "armorer-spells",
+        "name": "Armorer Spells",
+        "desc": "The magic of your specialization ensures you always have Magic Missile and Thunderwave prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Magic Missile",
+              "Thunderwave"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "tools-of-the-trade",
+        "name": "Tools of the Trade",
+        "desc": "You gain training with Heavy armor and proficiency with Smith's Tools. If you already have Smith's Tools proficiency, you gain proficiency with one other type of Artisan's Tools of your choice.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "grant_armor_categories",
+            "categories": [
+              "heavy"
+            ]
+          },
+          {
+            "type": "grant_tool_proficiencies",
+            "fixedTools": [
+              "smiths-tools"
+            ],
+            "replacementChoose": {
+              "categories": [
+                "artisan"
+              ]
+            }
+          },
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "armor-crafting",
+        "name": "Armor Crafting",
+        "desc": "When you craft nonmagical or magic armor, the time required is halved.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "combatParentName": "Tools of the Trade",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "arcane-armor",
+        "name": "Arcane Armor",
+        "desc": "As a Magic action while you have Smith's Tools in hand, you can turn a suit of armor you are wearing into Arcane Armor. The armor continues to be Arcane Armor until you don another suit of armor or you die. While wearing it, the armor has no Strength requirement for you, you can don or doff it as a Utilize action, and you can use it as a Spellcasting Focus for Artificer spells.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "action",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "armor-model",
+        "name": "Armor Model",
+        "desc": "You customize your Arcane Armor by choosing Guardian, Infiltrator, or Dreadnaught. Each model grants special weapons and abilities while you wear the armor. You can change models when you finish a Short or Long Rest with Smith's Tools in hand.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "choose_feature_option",
+            "choiceKey": "armor-model",
+            "uiSurface": "combat",
+            "options": [
+              {
+                "key": "guardian",
+                "name": "Guardian",
+                "desc": "Thunder Pulse is a Simple Melee weapon dealing 1d8 Thunder damage; a creature hit has Disadvantage on attacks against targets other than you until the start of your next turn. While Bloodied, as a Bonus Action gain Temporary Hit Points equal to your Artificer level.",
+                "combatCards": [
+                  {
+                    "key": "thunder-pulse",
+                    "name": "Thunder Pulse",
+                    "desc": "Simple Melee weapon. A creature hit by the pulse has Disadvantage on attack rolls against targets other than you until the start of your next turn.",
+                    "attack": {
+                      "damageDice": "1d8",
+                      "damageType": "Thunder",
+                      "ability": "int"
+                    }
+                  },
+                  {
+                    "key": "defensive-field",
+                    "name": "Defensive Field",
+                    "desc": "While Bloodied, take a Bonus Action to gain Temporary Hit Points equal to your Artificer level. You lose these Temporary Hit Points if you doff the armor.",
+                    "actionTiming": "bonus"
+                  }
+                ]
+              },
+              {
+                "key": "infiltrator",
+                "name": "Infiltrator",
+                "desc": "Lightning Launcher is a Simple Ranged weapon (90/300 feet) dealing 1d6 Lightning damage, plus an extra 1d6 Lightning once per turn on a hit. Your Speed increases by 5 feet. You have Advantage on Dexterity (Stealth) checks; if the armor imposes Disadvantage on Stealth, they cancel as normal.",
+                "combatCards": [
+                  {
+                    "key": "lightning-launcher",
+                    "name": "Lightning Launcher",
+                    "desc": "Simple Ranged weapon (90/300 feet). Once on each of your turns when you hit a creature with the launcher, you can deal an extra 1d6 Lightning damage to that target.",
+                    "attack": {
+                      "damageDice": "1d6",
+                      "damageType": "Lightning",
+                      "ability": "int"
+                    }
+                  }
+                ]
+              },
+              {
+                "key": "dreadnaught",
+                "name": "Dreadnaught",
+                "desc": "Force Demolisher is a Simple Melee weapon with Reach dealing 1d10 Force damage; on a hit against a smaller creature, push or pull it up to 10 feet. As a Bonus Action, enlarge to Large for 1 minute and increase your reach by 5 feet.",
+                "combatCards": [
+                  {
+                    "key": "force-demolisher",
+                    "name": "Force Demolisher",
+                    "desc": "Simple Melee weapon with Reach. If you hit a creature that is at least one size smaller than you, you can push it up to 10 feet away or pull it up to 10 feet toward you.",
+                    "attack": {
+                      "damageDice": "1d10",
+                      "damageType": "Force",
+                      "ability": "int"
+                    }
+                  },
+                  {
+                    "key": "giant-stature",
+                    "name": "Giant Stature",
+                    "desc": "As a Bonus Action, enlarge your armor for 1 minute. Your reach increases by 5 feet, and if you are smaller than Large, you become Large along with anything you are wearing.",
+                    "actionTiming": "bonus",
+                    "limitedUses": {
+                      "kind": "abilityMod",
+                      "ability": "int"
+                    },
+                    "restRecovery": "long"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "extra-attack",
+        "name": "Extra Attack",
+        "desc": "You can attack twice instead of once whenever you take the Attack action on your turn.",
+        "grantedAtLevel": 5,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "EFA"
+  },
+  {
+    "key": "artillerist",
+    "classKey": "artificer",
+    "name": "Artillerist",
+    "desc": "An Artillerist specializes in using magic to hurl energy, projectiles, and explosions on a battlefield from a safe distance.",
+    "features": [
+      {
+        "key": "artillerist-spells",
+        "name": "Artillerist Spells",
+        "desc": "The magic of your specialization ensures you always have Shield and Thunderwave prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Shield",
+              "Thunderwave"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "tools-of-the-trade",
+        "name": "Tools of the Trade",
+        "desc": "You gain proficiency with Martial Ranged weapons and Woodcarver's Tools. If you already have Woodcarver's Tools proficiency, you gain proficiency with one other type of Artisan's Tools of your choice.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "grant_weapon_proficiencies",
+            "grants": [
+              {
+                "kind": "martialWithAnyProperty",
+                "properties": [
+                  "Ammunition"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "grant_tool_proficiencies",
+            "fixedTools": [
+              "woodcarvers-tools"
+            ],
+            "replacementChoose": {
+              "categories": [
+                "artisan"
+              ]
+            }
+          },
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "wand-crafting",
+        "name": "Wand Crafting",
+        "desc": "When you craft a magic Wand, the time required is halved.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "combatParentName": "Tools of the Trade",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "eldritch-cannon",
+        "name": "Eldritch Cannon",
+        "desc": "Using Smith's Tools or Woodcarver's Tools, you can take a Magic action to create a Small or Tiny Eldritch Cannon within 5 feet of yourself. It lasts 1 hour or until reduced to 0 Hit Points. You can dismiss it early as a Magic action. Once you create a cannon, you can't do so again until you finish a Long Rest or expend a spell slot to create one.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "action",
+        "limitedUses": {
+          "kind": "fixed",
+          "uses": 1
+        },
+        "restRecovery": "long",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "arcane-firearm",
+        "name": "Arcane Firearm",
+        "desc": "When you finish a Long Rest, you can carve sigils into a rod, staff, wand, or ranged weapon to turn it into your Arcane Firearm. When you cast an Artificer spell through it, you gain a bonus to one damage roll equal to 1d8.",
+        "grantedAtLevel": 5,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "EFA"
+  },
+  {
+    "key": "battle-smith",
+    "classKey": "artificer",
+    "name": "Battle Smith",
+    "desc": "A Battle Smith is a combination of protector and medic, defending others and repairing both materiel and personnel alongside a Steel Defender companion.",
+    "features": [
+      {
+        "key": "battle-smith-spells",
+        "name": "Battle Smith Spells",
+        "desc": "The magic of your specialization ensures you always have Heroism and Shield prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Heroism",
+              "Shield"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "steel-defender",
+        "name": "Steel Defender",
+        "desc": "Your tinkering has borne you a Steel Defender companion that is Friendly to you and your allies. In combat, it acts during your turn, moving and using its Reaction on its own.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "classFeatureCard": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "battle-ready",
+        "name": "Battle Ready",
+        "desc": "Your combat training and your experiments with magic have paid off in two ways.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "grant_weapon_proficiencies",
+            "grants": [
+              {
+                "kind": "martial"
+              }
+            ]
+          },
+          {
+            "type": "choose_feature_option",
+            "choiceKey": "battle-ready",
+            "uiSurface": "reference",
+            "options": [
+              {
+                "key": "arcane-empowerment",
+                "name": "Arcane Empowerment",
+                "desc": "When you attack with a magic weapon, you can use your Intelligence modifier, instead of your Strength or Dexterity modifier, for the attack and damage rolls."
+              },
+              {
+                "key": "weapon-knowledge",
+                "name": "Weapon Knowledge",
+                "desc": "You gain proficiency with Martial weapons. You can use a weapon with which you have proficiency as a Spellcasting Focus for your Artificer spells."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "tools-of-the-trade",
+        "name": "Tools of the Trade",
+        "desc": "You gain proficiency with one type of Artisan's Tools of your choice.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "grant_tool_proficiencies",
+            "fixedTools": [],
+            "choose": {
+              "count": 1,
+              "categories": [
+                "artisan"
+              ]
+            }
+          },
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "weapon-crafting",
+        "name": "Weapon Crafting",
+        "desc": "When you craft a nonmagical or magic weapon, the time required is halved.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "combatParentName": "Tools of the Trade",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "extra-attack",
+        "name": "Extra Attack",
+        "desc": "You can attack twice instead of once whenever you take the Attack action. You can forgo one attack to command your Steel Defender to take the Force-Empowered Rend action.",
+        "grantedAtLevel": 5,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "EFA"
+  },
+  {
+    "key": "cartographer",
+    "classKey": "artificer",
+    "name": "Cartographer",
+    "desc": "Cartographers are premier navigators and reconnaissance agents, using magical maps to highlight threats, safeguard allies, and carve portals to distant locations.",
+    "features": [
+      {
+        "key": "cartographer-spells",
+        "name": "Cartographer Spells",
+        "desc": "The magic of your specialization ensures you always have Faerie Fire, Guiding Bolt, and Healing Word prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Faerie Fire",
+              "Guiding Bolt",
+              "Healing Word"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "tools-of-the-trade",
+        "name": "Tools of the Trade",
+        "desc": "You gain proficiency with Calligrapher's Supplies and Cartographer's Tools. If you already have one of these proficiencies, you gain proficiency with one other type of Artisan's Tools of your choice (or with two other types if you have both).",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "grant_tool_proficiencies",
+            "fixedTools": [
+              "calligraphers-supplies",
+              "cartographers-tools"
+            ],
+            "replacementChoose": {
+              "categories": [
+                "artisan"
+              ]
+            }
+          },
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "scroll-crafting",
+        "name": "Scroll Crafting",
+        "desc": "When you scribe a Spell Scroll using crafting rules, the time required is halved.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "combatParentName": "Tools of the Trade",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "adventurers-atlas",
+        "name": "Adventurer's Atlas",
+        "desc": "Whenever you finish a Long Rest while holding Cartographer's Tools, you can create a set of magical maps for up to 1 plus your Intelligence modifier creatures (minimum of two). Each map holder adds 1d4 to Initiative rolls and knows the location of other map holders on the same plane.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "illuminated-cartography",
+        "name": "Illuminated Cartography",
+        "desc": "You can cast Faerie Fire without expending a spell slot a number of times equal to your Intelligence modifier (minimum of once), regaining all uses on a Long Rest.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "combatParentName": "Mapping Magic",
+        "limitedUses": {
+          "kind": "abilityMod",
+          "ability": "int"
+        },
+        "restRecovery": "long",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "portal-jump",
+        "name": "Portal Jump",
+        "desc": "On your turn, you can spend movement equal to half your Speed (round down) to teleport to an unoccupied space you can see within 10 feet of yourself or within 5 feet of a creature holding one of your Adventurer's Atlas maps.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "combatParentName": "Mapping Magic",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "guided-precision",
+        "name": "Guided Precision",
+        "desc": "Once per turn when you cast a Cartographer spell or hit a creature affected by your Faerie Fire, add your Intelligence modifier to one damage roll. Taking damage doesn't break your Concentration on spells.",
+        "grantedAtLevel": 5,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "EFA"
+  },
+  {
+    "key": "reanimator",
+    "classKey": "artificer",
+    "name": "Reanimator",
+    "desc": "Reanimators defy the laws of nature, stitching together servants from disparate corpses and transforming necromancy into a terrifying science.",
+    "features": [
+      {
+        "key": "reanimator-spells",
+        "name": "Reanimator Spells",
+        "desc": "The magic of your specialization ensures you always have False Life, Spare the Dying, and Witch Bolt prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "False Life",
+              "Spare the Dying",
+              "Witch Bolt"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "reanimated-companion",
+        "name": "Reanimated Companion",
+        "desc": "Using Tinker's Tools or another Artisan's Tools you are proficient with, you can take a Magic action to create a Reanimated Companion in an unoccupied space within 5 feet. It is Friendly to you and your allies and lasts until you finish a Long Rest or dismiss it.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "classFeatureCard": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "strange-modifications",
+        "name": "Strange Modifications",
+        "desc": "Whenever you create a Reanimated Companion, it gains one modification of your choice, such as Arcane Conduit (cast spells as though you were in its space) or Augmented Frame (+2 AC).",
+        "grantedAtLevel": 5,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "RHW"
+  },
+  {
+    "key": "path-of-the-wild-heart",
+    "classKey": "barbarian",
+    "name": "Path of the Wild Heart",
+    "desc": "Barbarians who follow the Path of the Wild Heart view themselves as kin to animals. These Barbarians learn magical means to communicate with animals, and their Rage heightens their connection to animals as it fills them with supernatural might.",
+    "features": [
+      {
+        "key": "animal-speaker",
+        "name": "Animal Speaker",
+        "desc": "You can cast the Beast Sense and Speak with Animals spells but only as Rituals. Wisdom is your spellcasting ability for them.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Beast Sense",
+              "Speak with Animals"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "rage-of-the-wilds",
+        "name": "Rage of the Wilds",
+        "desc": "Your Rage taps into the primal power of animals. Whenever you activate your Rage, you gain one of the following options of your choice.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "choose_feature_option",
+            "choiceKey": "rage-of-the-wilds",
+            "uiSurface": "reference",
+            "options": [
+              {
+                "key": "bear",
+                "name": "Bear",
+                "desc": "While your Rage is active, you have Resistance to every damage type except Force, Necrotic, Psychic, and Radiant."
+              },
+              {
+                "key": "eagle",
+                "name": "Eagle",
+                "desc": "When you activate your Rage, you can take the Disengage and Dash actions as part of that Bonus Action. While your Rage is active, you can take a Bonus Action to take both of those actions."
+              },
+              {
+                "key": "wolf",
+                "name": "Wolf",
+                "desc": "While your Rage is active, your allies have Advantage on attack rolls against any enemy of yours within 5 feet of you."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "path-of-the-world-tree",
+    "classKey": "barbarian",
+    "name": "Path of the World Tree",
+    "desc": "Barbarians who follow the Path of the World Tree connect with the cosmic tree Yggdrasil through their Rage. This tree grows among the Outer Planes, connecting them to each other and the Material Plane. These Barbarians draw on the tree's magic for vitality and as a means of dimensional travel.",
+    "features": [
+      {
+        "key": "vitality-of-the-tree",
+        "name": "Vitality of the Tree",
+        "desc": "Your Rage taps into the life force of the World Tree. You gain the following benefits.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "choose_feature_option",
+            "choiceKey": "vitality-of-the-tree",
+            "uiSurface": "reference",
+            "options": [
+              {
+                "key": "vitality-surge",
+                "name": "Vitality Surge",
+                "desc": "When you activate your Rage, you gain a number of Temporary Hit Points equal to your Barbarian level."
+              },
+              {
+                "key": "life-giving-force",
+                "name": "Life-Giving Force",
+                "desc": "At the start of each of your turns while your Rage is active, you can choose another creature within 10 feet of yourself to gain Temporary Hit Points. To determine the number of Temporary Hit Points, roll a number of d6s equal to your Rage Damage bonus, and add them together. If any of these Temporary Hit Points remain when your Rage ends, they vanish."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "path-of-the-zealot",
+    "classKey": "barbarian",
+    "name": "Path of the Zealot",
+    "desc": "Barbarians who walk the Path of the Zealot receive boons from a god or pantheon. These Barbarians experience their Rage as an ecstatic episode of divine union that infuses them with power. They are often allies to the priests and other followers of their god or pantheon.",
+    "features": [
+      {
+        "key": "divine-fury",
+        "name": "Divine Fury",
+        "desc": "You can channel divine power into your strikes. On each of your turns while your Rage is active, the first creature you hit with a weapon or an Unarmed Strike takes extra damage equal to 1d6 plus half your Barbarian level (round down). The extra damage is Necrotic or Radiant; you choose the type each time you deal the damage.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "warrior-of-the-gods",
+        "name": "Warrior of the Gods",
+        "desc": "A divine entity helps ensure you can continue the fight. You have a pool of four d12s that you can spend to heal yourself. As a Bonus Action, you can expend dice from the pool, roll them, and regain a number of Hit Points equal to the roll's total. Your pool regains all expended dice when you finish a Long Rest.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "bonus",
+        "limitedUses": {
+          "kind": "byLevel",
+          "usesByLevel": {
+            "3": 4
+          }
+        },
+        "restRecovery": "long",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "light-domain",
+    "classKey": "cleric",
+    "name": "Light Domain",
+    "desc": "The Light Domain emphasizes the divine power to bring about blazing fire and revelation. Clerics who wield this power are enlightened souls infused with radiance and the power of their deities' discerning vision, charged with chasing away lies and burning away darkness.",
+    "features": [
+      {
+        "key": "light-domain-spells",
+        "name": "Light Domain Spells",
+        "desc": "The magic of your domain ensures you always have Burning Hands, Faerie Fire, Scorching Ray, and See Invisibility prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Burning Hands",
+              "Faerie Fire",
+              "Scorching Ray",
+              "See Invisibility"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "radiance-of-the-dawn",
+        "name": "Radiance of the Dawn",
+        "desc": "As a Magic action, you present your Holy Symbol and expend a use of your Channel Divinity to emit a flash of light in a 30-foot Emanation originating from yourself. Any magical Darkness in that area is dispelled. Additionally, each creature of your choice in that area must make a Constitution saving throw, taking Radiant damage equal to 2d10 plus your Cleric level on a failed save or half as much damage on a successful one.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "action",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "warding-flare",
+        "name": "Warding Flare",
+        "desc": "When a creature that you can see within 30 feet of yourself makes an attack roll, you can take a Reaction to impose Disadvantage on the attack roll, causing light to flare before it hits or misses. You can use this feature a number of times equal to your Wisdom modifier (minimum of once), regaining all expended uses when you finish a Long Rest.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "reaction",
+        "limitedUses": {
+          "kind": "abilityMod",
+          "ability": "wis"
+        },
+        "restRecovery": "long",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "war-domain",
+    "classKey": "cleric",
+    "name": "War Domain",
+    "desc": "Clerics who tap into the magic of the War Domain excel in battle, inspiring others to fight the good fight or offering acts of violence as prayers. Gods of the War Domain watch over warriors and reward them for their great deeds.",
+    "features": [
+      {
+        "key": "war-domain-spells",
+        "name": "War Domain Spells",
+        "desc": "The magic of your domain ensures you always have Guiding Bolt, Magic Weapon, Shield of Faith, and Spiritual Weapon prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Guiding Bolt",
+              "Magic Weapon",
+              "Shield of Faith",
+              "Spiritual Weapon"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "guided-strike",
+        "name": "Guided Strike",
+        "desc": "When you or a creature within 30 feet of you misses with an attack roll, you can expend one use of your Channel Divinity and give that roll a +10 bonus, potentially causing it to hit. When you use this feature to benefit another creature's attack roll, you must take a Reaction to do so.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "reaction",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "war-priest",
+        "name": "War Priest",
+        "desc": "As a Bonus Action, you can make one attack with a weapon or an Unarmed Strike. You can use this Bonus Action a number of times equal to your Wisdom modifier (minimum of once), regaining all expended uses when you finish a Short Rest or Long Rest.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "bonus",
+        "limitedUses": {
+          "kind": "abilityMod",
+          "ability": "wis"
+        },
+        "restRecovery": "short",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "trickery-domain",
+    "classKey": "cleric",
+    "name": "Trickery Domain",
+    "desc": "The Trickery Domain offers magic of deception, illusion, and stealth. Clerics who wield this magic are a disruptive force in the world, puncturing pride, mocking tyrants, freeing captives, and flouting hollow traditions.",
+    "features": [
+      {
+        "key": "trickery-domain-spells",
+        "name": "Trickery Domain Spells",
+        "desc": "The magic of your domain ensures you always have Charm Person, Disguise Self, Invisibility, and Pass without Trace prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Charm Person",
+              "Disguise Self",
+              "Invisibility",
+              "Pass without Trace"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "blessing-of-the-trickster",
+        "name": "Blessing of the Trickster",
+        "desc": "As a Magic action, you can choose yourself or a willing creature within 30 feet of yourself to have Advantage on Dexterity (Stealth) checks. This blessing lasts until you finish a Long Rest or you use this feature again.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "action",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "invoke-duplicity",
+        "name": "Invoke Duplicity",
+        "desc": "As a Bonus Action, you can expend one use of your Channel Divinity to create a perfect visual illusion of yourself in an unoccupied space you can see within 30 feet of yourself. The illusion is intangible and doesn't occupy its space. It lasts for 1 minute, but it ends early if you dismiss it (no action required) or have the Incapacitated condition. While it persists, you can cast spells as though you were in the illusion's space, gain Advantage on attack rolls against creatures distracted by the illusion, and move it up to 30 feet as a Bonus Action.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "bonus",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "circle-of-the-moon",
+    "classKey": "druid",
+    "name": "Circle of the Moon",
+    "desc": "Druids of the Circle of the Moon draw on lunar magic to transform themselves. Their order gathers under the moon to share news and perform rituals. Changeable as the moon, a Druid of this circle might prowl as a great cat one night, soar over the treetops as an eagle the next day, and then crash through undergrowth as a bear to drive off a trespassing monster.",
+    "features": [
+      {
+        "key": "circle-of-the-moon-spells",
+        "name": "Circle of the Moon Spells",
+        "desc": "The magic of your circle ensures you always have Cure Wounds, Moonbeam, and Starry Wisp prepared. You can cast these spells while in a Wild Shape form.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Cure Wounds",
+              "Moonbeam",
+              "Starry Wisp"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "circle-forms",
+        "name": "Circle Forms",
+        "desc": "You can channel lunar magic when you assume a Wild Shape form. The maximum Challenge Rating for the form equals your Druid level divided by 3 (round down). Until you leave the form, your AC equals 13 plus your Wisdom modifier if that total is higher than the Beast's AC. You gain Temporary Hit Points equal to three times your Druid level when you enter the form.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "circle-of-the-sea",
+    "classKey": "druid",
+    "name": "Circle of the Sea",
+    "desc": "Druids of the Circle of the Sea draw on the tempestuous forces of oceans and storms. Some view themselves as embodiments of nature's wrath, seeking vengeance against those who despoil nature. Others seek mystical unity with nature by attuning themselves to the ebb and flow of the tides.",
+    "features": [
+      {
+        "key": "circle-of-the-sea-spells",
+        "name": "Circle of the Sea Spells",
+        "desc": "The magic of your circle ensures you always have Fog Cloud, Gust of Wind, Ray of Frost, Shatter, and Thunderwave prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Fog Cloud",
+              "Gust of Wind",
+              "Ray of Frost",
+              "Shatter",
+              "Thunderwave"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "wrath-of-the-sea",
+        "name": "Wrath of the Sea",
+        "desc": "As a Bonus Action, you can expend a use of your Wild Shape to manifest a 5-foot Emanation of ocean spray that surrounds you for 10 minutes. When you manifest the Emanation and as a Bonus Action on your subsequent turns, you can choose another creature you can see in the Emanation. The target must succeed on a Constitution saving throw against your spell save DC or take Cold damage and, if the creature is Large or smaller, be pushed up to 15 feet away from you. To determine this damage, roll a number of d6s equal to your Wisdom modifier (minimum of one die).",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "bonus",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "circle-of-stars",
+    "classKey": "druid",
+    "name": "Circle of the Stars",
+    "desc": "The Circle of the Stars has tracked heavenly patterns since time immemorial, discovering secrets hidden amid the constellations. By understanding these secrets, the Druids of this circle seek to harness the powers of the cosmos.",
+    "features": [
+      {
+        "key": "star-map",
+        "name": "Star Map",
+        "desc": "You've created a star chart as part of your heavenly studies. It is a Tiny object, and you can use it as a Spellcasting Focus for your Druid spells. You determine its form by rolling on the Star Map table or by choosing one. While holding the map, you have the Guidance and Guiding Bolt spells prepared, and you can cast Guiding Bolt without expending a spell slot a number of times equal to your Wisdom modifier (minimum of once), regaining all expended uses when you finish a Long Rest.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "limitedUses": {
+          "kind": "abilityMod",
+          "ability": "wis"
+        },
+        "restRecovery": "long",
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Guidance",
+              "Guiding Bolt"
+            ]
+          },
+          {
+            "type": "choose_feature_option",
+            "choiceKey": "star-map-form",
+            "uiSurface": "combat",
+            "options": [
+              {
+                "key": "scroll",
+                "name": "Scroll",
+                "desc": ""
+              },
+              {
+                "key": "stone-tablet",
+                "name": "Stone Tablet",
+                "desc": ""
+              },
+              {
+                "key": "owlbear-hide",
+                "name": "Owlbear Hide",
+                "desc": ""
+              },
+              {
+                "key": "map-collection",
+                "name": "Map Collection",
+                "desc": ""
+              },
+              {
+                "key": "crystal",
+                "name": "Crystal",
+                "desc": ""
+              },
+              {
+                "key": "glass-disk",
+                "name": "Glass Disk",
+                "desc": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "starry-form",
+        "name": "Starry Form",
+        "desc": "As a Bonus Action, you can expend a use of your Wild Shape feature to take on a starry form rather than shape-shifting. While in your starry form, you retain your game statistics, but your body becomes luminous. The form lasts for 10 minutes. Whenever you assume your starry form, choose which constellation glimmers on your body.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "bonus",
+        "classFeatureCard": true,
+        "effects": [
+          {
+            "type": "choose_feature_option",
+            "choiceKey": "starry-form",
+            "uiSurface": "combat",
+            "options": [
+              {
+                "key": "archer",
+                "name": "Archer",
+                "desc": "When you activate this form and as a Bonus Action on your subsequent turns while it lasts, you can make a ranged spell attack, hurling a luminous arrow that targets one creature within 60 feet of yourself. On a hit, the attack deals Radiant damage equal to 1d8 plus your Wisdom modifier.",
+                "combatCards": [
+                  {
+                    "key": "luminous-arrow",
+                    "name": "Luminous Arrow",
+                    "desc": "Ranged spell attack against one creature within 60 feet. On a hit, deals Radiant damage equal to 1d8 plus your Wisdom modifier.",
+                    "actionTiming": "bonus",
+                    "attack": {
+                      "damageDice": "1d8",
+                      "damageType": "Radiant",
+                      "ability": "wis"
+                    }
+                  }
+                ]
+              },
+              {
+                "key": "chalice",
+                "name": "Chalice",
+                "desc": "Whenever you cast a spell using a spell slot that restores Hit Points to a creature, you or another creature within 30 feet of you can regain Hit Points equal to 1d8 plus your Wisdom modifier."
+              },
+              {
+                "key": "dragon",
+                "name": "Dragon",
+                "desc": "When you make an Intelligence or a Wisdom check or a Constitution saving throw to maintain Concentration, you can treat a roll of 9 or lower on the d20 as a 10."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "battle-master",
+    "classKey": "fighter",
+    "name": "Battle Master",
+    "desc": "Battle Masters are students of the art of battle, learning martial techniques passed down through generations. The most accomplished Battle Masters are well-rounded figures who combine their carefully honed combat skills with academic study in the fields of history, theory, and the arts.",
+    "features": [
+      {
+        "key": "combat-superiority",
+        "name": "Combat Superiority",
+        "desc": "Your experience on the battlefield has refined your fighting techniques. You learn three maneuvers of your choice. You have four Superiority Dice, which are d8. A Superiority Die is expended when you use it. You regain all expended Superiority Dice when you finish a Short Rest or Long Rest.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "limitedUses": {
+          "kind": "fixed",
+          "uses": 4
+        },
+        "restRecovery": "short",
+        "effects": [
+          {
+            "type": "choose_feature_option",
+            "choiceKey": "maneuvers",
+            "count": 3,
+            "uiSurface": "combat",
+            "options": [
+              {
+                "key": "ambush",
+                "name": "Ambush",
+                "desc": "When you make a Dexterity (Stealth) check or an Initiative roll, you can expend one Superiority Die and add the die to the roll, unless you have the Incapacitated condition."
+              },
+              {
+                "key": "bait-and-switch",
+                "name": "Bait and Switch",
+                "desc": "When you're within 5 feet of a creature on your turn, you can expend one Superiority Die and switch places with that creature, provided you spend at least 5 feet of movement and the creature is willing and doesn't have the Incapacitated condition. This movement doesn't provoke Opportunity Attack. Roll the Superiority Die. Until the start of your next turn, you or the other creature (your choice) gains a bonus to AC equal to the number rolled."
+              },
+              {
+                "key": "commanders-strike",
+                "name": "Commander's Strike",
+                "desc": "When you take the Attack action on your turn, you can replace one of your attacks to direct one of your companions to strike. When you do so, choose a willing creature who can see or hear you and expend one Superiority Die. That creature can immediately use its Reaction to make one attack with a weapon or an Unarmed Strike, adding the Superiority Die to the attack's damage roll on a hit."
+              },
+              {
+                "key": "commanding-presence",
+                "name": "Commanding Presence",
+                "desc": "When you make a Charisma (Intimidation, Performance, or Persuasion) check, you can expend one Superiority Die and add that die to the roll."
+              },
+              {
+                "key": "disarming-attack",
+                "name": "Disarming Attack",
+                "desc": "When you hit a creature with an attack roll, you can expend one Superiority Die to attempt to disarm the target. Add the Superiority Die roll to the attack's damage roll. The target must succeed on a Strength saving throw or drop one object of your choice that it's holding, with the object landing in its space."
+              },
+              {
+                "key": "distracting-strike",
+                "name": "Distracting Strike",
+                "desc": "When you hit a creature with an attack roll, you can expend one Superiority Die to distract the target. Add the Superiority Die roll to the attack's damage roll. The next attack roll against the target by an attacker other than you has Advantage if the attack is made before the start of your next turn."
+              },
+              {
+                "key": "evasive-footwork",
+                "name": "Evasive Footwork",
+                "desc": "As a Bonus Action, you can expend one Superiority Die and take the Disengage action. You also roll the die and add the number rolled to your AC until the start of your next turn."
+              },
+              {
+                "key": "feinting-attack",
+                "name": "Feinting Attack",
+                "desc": "As a Bonus Action, you can expend one Superiority Die to feint, choosing one creature within 5 feet of yourself as your target. You have Advantage on your next attack roll against that target this turn. If that attack hits, add the Superiority Die to the attack's damage roll."
+              },
+              {
+                "key": "goading-attack",
+                "name": "Goading Attack",
+                "desc": "When you hit a creature with an attack roll, you can expend one Superiority Die to attempt to goad the target into attacking you. Add the Superiority Die to the attack's damage roll. The target must succeed on a Wisdom saving throw or have Disadvantage on attack rolls against targets other than you until the end of your next turn."
+              },
+              {
+                "key": "lunging-attack",
+                "name": "Lunging Attack",
+                "desc": "As a Bonus Action, you can expend one Superiority Die and take the Dash action. If you move at least 5 feet in a straight line immediately before hitting with a melee attack as part of the Attack action on this turn, you can add the Superiority Die to the attack's damage roll."
+              },
+              {
+                "key": "maneuvering-attack",
+                "name": "Maneuvering Attack",
+                "desc": "When you hit a creature with an attack roll, you can expend one Superiority Die to maneuver one of your comrades into another position. Add the Superiority Die roll to the attack's damage roll, and choose a willing creature who can see or hear you. That creature can use its Reaction to move up to half its Speed without provoking an Opportunity Attack from the target of your attack."
+              },
+              {
+                "key": "menacing-attack",
+                "name": "Menacing Attack",
+                "desc": "When you hit a creature with an attack roll, you can expend one Superiority Die to attempt to frighten the target. Add the Superiority Die to the attack's damage roll. The target must succeed on a Wisdom saving throw or have the Frightened condition until the end of your next turn."
+              },
+              {
+                "key": "parry",
+                "name": "Parry",
+                "desc": "When another creature damages you with a melee attack roll, you can take a Reaction and expend one Superiority Die to reduce the damage by the number you roll on your Superiority Die plus your Strength or Dexterity modifier (your choice)."
+              },
+              {
+                "key": "precision-attack",
+                "name": "Precision Attack",
+                "desc": "When you miss with an attack roll, you can expend one Superiority Die, roll that die, and add it to the attack roll, potentially causing the attack to hit."
+              },
+              {
+                "key": "pushing-attack",
+                "name": "Pushing Attack",
+                "desc": "When you hit a creature with an attack roll using a weapon or an Unarmed Strike, you can expend one Superiority Die to attempt to drive the target back. Add the Superiority Die to the attack's damage roll. If the target is Large or smaller, it must succeed on a Strength saving throw or be pushed up to 15 feet directly away from you."
+              },
+              {
+                "key": "rally",
+                "name": "Rally",
+                "desc": "As a Bonus Action, you can expend one Superiority Die to bolster the resolve of a companion. Choose an ally of yours within 30 feet of yourself who can see or hear you. That creature gains Temporary Hit Points equal to the Superiority Die roll plus half your Fighter level (round down)."
+              },
+              {
+                "key": "riposte",
+                "name": "Riposte",
+                "desc": "When a creature misses you with a melee attack roll, you can take a Reaction and expend one Superiority Die to make a melee attack roll with a weapon or an Unarmed Strike against the creature. If you hit, add the Superiority Die to the attack's damage."
+              },
+              {
+                "key": "sweeping-attack",
+                "name": "Sweeping Attack",
+                "desc": "When you hit a creature with a melee attack roll using a weapon or an Unarmed Strike, you can expend one Superiority Die to attempt to damage another creature. Choose another creature within 5 feet of the original target and within your reach. If the original attack roll would hit the second creature, it takes damage equal to the number you roll on your Superiority Die. The damage is of the same type dealt by the original attack."
+              },
+              {
+                "key": "tactical-assessment",
+                "name": "Tactical Assessment",
+                "desc": "When you make an Intelligence (History or Investigation) check or a Wisdom (Insight) check, you can expend one Superiority Die and add that die to the ability check."
+              },
+              {
+                "key": "trip-attack",
+                "name": "Trip Attack",
+                "desc": "When you hit a creature with an attack roll using a weapon or an Unarmed Strike, you can expend one Superiority Die and add the die to the attack's damage roll. If the target is Large or smaller, it must succeed on a Strength saving throw or have the Prone condition."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "student-of-war",
+        "name": "Student of War",
+        "desc": "You gain proficiency with one type of Artisan's Tools of your choice, and you gain proficiency in one skill of your choice from the skills available to Fighters at level 1.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "grant_tool_proficiencies",
+            "fixedTools": [],
+            "choose": {
+              "count": 1,
+              "categories": [
+                "artisan"
+              ]
+            }
+          },
+          {
+            "type": "grant_skill_proficiencies",
+            "count": 1,
+            "options": [
+              "acrobatics",
+              "animalHandling",
+              "athletics",
+              "history",
+              "insight",
+              "intimidation",
+              "persuasion",
+              "perception",
+              "survival"
+            ]
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "eldritch-knight",
+    "classKey": "fighter",
+    "name": "Eldritch Knight",
+    "desc": "Eldritch Knights combine the martial mastery common to all Fighters with a careful study of magic. Their spells both complement and extend their combat skills, providing additional protection to shore up their armor and also allowing them to engage many foes at once with explosive magic.",
+    "features": [
+      {
+        "key": "spellcasting",
+        "name": "Spellcasting",
+        "desc": "You have learned to cast spells from the Wizard spell list. You know two Wizard cantrips and have two level 1 spell slots. You prepare Wizard spells using your Intelligence modifier plus your Fighter level.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "grant_spellcasting",
+            "ability": "int",
+            "listClassKey": "wizard",
+            "gainedAtLevel": 3,
+            "listMode": "prepared",
+            "slotsByLevel": {
+              "3": [
+                2,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "cantripsKnownByLevel": {
+              "3": 2
+            },
+            "spellsPrepared": {
+              "kind": "abilityModPlusLevel",
+              "ability": "int"
+            }
+          }
+        ]
+      },
+      {
+        "key": "war-bond",
+        "name": "War Bond",
+        "desc": "You learn a ritual that creates a magical bond between yourself and one weapon. Once bonded, you can't be disarmed of that weapon unless you have the Incapacitated condition. If it is on the same plane of existence, you can summon that weapon as a Bonus Action. You can have up to two bonded weapons.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "bonus",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "psi-warrior",
+    "classKey": "fighter",
+    "name": "Psi Warrior",
+    "desc": "Psi Warriors awaken the power of their minds to augment their physical might. They harness this psionic power to infuse their weapon strikes, lash out with telekinetic energy, and create barriers of mental force.",
+    "features": [
+      {
+        "key": "psionic-power",
+        "name": "Psionic Power",
+        "desc": "You harbor a wellspring of psionic energy represented by Psionic Energy Dice. You have four d6 Psionic Energy Dice at Fighter level 3. You regain one expended die when you finish a Short Rest, and you regain all of them when you finish a Long Rest.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "limitedUses": {
+          "kind": "fixed",
+          "uses": 4
+        },
+        "restRecovery": "shortOne",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "protective-field",
+        "name": "Protective Field",
+        "desc": "When you or another creature you can see within 30 feet of you takes damage, you can take a Reaction to expend one Psionic Energy Die, roll the die, and reduce the damage taken by the number rolled plus your Intelligence modifier (minimum reduction of 1).",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "reaction",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "psionic-strike",
+        "name": "Psionic Strike",
+        "desc": "Once on each of your turns, immediately after you hit a target within 30 feet of yourself with an attack and deal damage to it with a weapon, you can expend one Psionic Energy Die, rolling it and dealing Force damage to the target equal to the number rolled plus your Intelligence modifier.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "telekinetic-movement",
+        "name": "Telekinetic Movement",
+        "desc": "As a Magic action, choose one target you can see within 30 feet of yourself; transport a loose Large-or-smaller object or one willing creature up to 30 feet to an unoccupied space you can see, or move a Tiny object to or from your hand. Once you take this action, you can't do so again until you finish a Short Rest or Long Rest unless you expend a Psionic Energy Die (no action required) to restore your use of it.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "action",
+        "limitedUses": {
+          "kind": "fixed",
+          "uses": 1
+        },
+        "restRecovery": "short",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "warrior-of-mercy",
+    "classKey": "monk",
+    "name": "Warrior of Mercy",
+    "desc": "Warriors of Mercy manipulate the life force of others. These Monks are wandering physicians, but they bring a swift end to their enemies. They often wear masks, presenting themselves as faceless bringers of life and death.",
+    "features": [
+      {
+        "key": "implements-of-mercy",
+        "name": "Implements of Mercy",
+        "desc": "You gain proficiency in the Insight and Medicine skills and proficiency with the Herbalism Kit.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "grant_skill_proficiencies",
+            "count": 0,
+            "fixedSkills": [
+              "insight",
+              "medicine"
+            ]
+          },
+          {
+            "type": "grant_tool_proficiencies",
+            "fixedTools": [
+              "herbalism-kit"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "hand-of-harm",
+        "name": "Hand of Harm",
+        "desc": "Once per turn when you hit a creature with an Unarmed Strike and deal damage, you can expend 1 Focus Point to deal extra Necrotic damage equal to one roll of your Martial Arts die plus your Wisdom modifier.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "hand-of-healing",
+        "name": "Hand of Healing",
+        "desc": "As a Magic action, you can expend 1 Focus Point to touch a creature and restore a number of Hit Points equal to a roll of your Martial Arts die plus your Wisdom modifier. When you use your Flurry of Blows, you can replace one of the Unarmed Strikes with a use of this feature without expending a Focus Point for the healing.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "action",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "warrior-of-shadow",
+    "classKey": "monk",
+    "name": "Warrior of Shadow",
+    "desc": "Warriors of Shadow practice stealth and subterfuge, harnessing the power of the Shadowfell. They are at home in darkness, able to draw gloom around themselves to hide, leap from shadow to shadow, and take on a wraithlike form.",
+    "features": [
+      {
+        "key": "darkvision",
+        "name": "Darkvision",
+        "desc": "You gain Darkvision with a range of 60 feet. If you already have Darkvision, its range increases by 60 feet.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "darkvision",
+            "feet": 60,
+            "increaseExisting": true
+          }
+        ]
+      },
+      {
+        "key": "shadowy-figments",
+        "name": "Shadowy Figments",
+        "desc": "You know the Minor Illusion spell. Wisdom is your spellcasting ability for it.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Minor Illusion"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "darkness",
+        "name": "Darkness",
+        "desc": "You can expend 1 Focus Point to cast the Darkness spell without spell components. You can see within the spell's area when you cast it with this feature. While the spell persists, you can move its area of Darkness to a space within 60 feet of yourself at the start of each of your turns.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "warrior-of-the-elements",
+    "classKey": "monk",
+    "name": "Warrior of the Elements",
+    "desc": "Warriors of the Elements tap into the power of the Elemental Planes. Harnessing their supernatural focus, these Monks momentarily tame the energy of the Elemental Chaos to empower themselves in and out of battle.",
+    "features": [
+      {
+        "key": "manipulate-elements",
+        "name": "Manipulate Elements",
+        "desc": "You know the Elementalism spell. Wisdom is your spellcasting ability for it.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Elementalism"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "elemental-attunement",
+        "name": "Elemental Attunement",
+        "desc": "At the start of your turn, you can expend 1 Focus Point to imbue yourself with elemental energy. The energy lasts for 10 minutes or until you have the Incapacitated condition. You gain the following benefits while this feature is active.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "classFeatureCard": true,
+        "effects": [
+          {
+            "type": "choose_feature_option",
+            "choiceKey": "elemental-attunement",
+            "uiSurface": "reference",
+            "options": [
+              {
+                "key": "reach",
+                "name": "Reach",
+                "desc": "When you make an Unarmed Strike, your reach is 10 feet greater than normal, as elemental energy extends from you."
+              },
+              {
+                "key": "elemental-strikes",
+                "name": "Elemental Strikes",
+                "desc": "Whenever you hit with your Unarmed Strike, you can cause it to deal your choice of Acid, Cold, Fire, Lightning, or Thunder damage rather than its normal damage type. When you deal one of these types with it, you can also force the target to make a Strength saving throw. On a failed save, you can move the target up to 10 feet toward or away from you, as elemental energy swirls around it."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "assassin",
+    "classKey": "rogue",
+    "name": "Assassin",
+    "desc": "An Assassin's training focuses on using stealth, poison, and disguise to eliminate foes with deadly efficiency. While some Rogues who follow this path are hired killers, spies, or bounty hunters, the capabilities of this subclass are equally useful for adventurers facing a variety of monstrous enemies.",
+    "features": [
+      {
+        "key": "assassins-tools",
+        "name": "Assassin's Tools",
+        "desc": "You gain a Disguise Kit and a Poisoner's Kit, and you have proficiency with them.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "grant_tool_proficiencies",
+            "fixedTools": [
+              "disguise-kit",
+              "poisoners-kit"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "assassinate",
+        "name": "Assassinate",
+        "desc": "You gain the following benefits.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "classFeatureCard": true,
+        "effects": [
+          {
+            "type": "choose_feature_option",
+            "choiceKey": "assassinate",
+            "uiSurface": "reference",
+            "options": [
+              {
+                "key": "initiative",
+                "name": "Initiative",
+                "desc": "You have Advantage on Initiative rolls."
+              },
+              {
+                "key": "surprising-strikes",
+                "name": "Surprising Strikes",
+                "desc": "During the first round of each combat, you have Advantage on attack rolls against any creature that hasn't taken a turn. If your Sneak Attack hits any target during that round, the target takes extra damage of the weapon's type equal to your Rogue level."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "arcane-trickster",
+    "classKey": "rogue",
+    "name": "Arcane Trickster",
+    "desc": "Some Rogues enhance their fine-honed skills of stealth and agility with spells, learning magical tricks to aid them in their trade. Some Arcane Tricksters use their talents as pickpockets and burglars, while others are pranksters.",
+    "features": [
+      {
+        "key": "mage-hand-legerdemain",
+        "name": "Mage Hand Legerdemain",
+        "desc": "When you cast Mage Hand, you can cast it as a Bonus Action, and you can make the spectral hand Invisible. You can control the hand as a Bonus Action, and through it, you can make Dexterity (Sleight of Hand) checks.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "bonus",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "spellcasting",
+        "name": "Spellcasting",
+        "desc": "You have learned to cast spells from the Wizard spell list. You know Mage Hand plus two other Wizard cantrips and have two level 1 spell slots. You prepare Wizard spells using your Intelligence modifier plus your Rogue level.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Mage Hand"
+            ]
+          },
+          {
+            "type": "grant_spellcasting",
+            "ability": "int",
+            "listClassKey": "wizard",
+            "gainedAtLevel": 3,
+            "listMode": "prepared",
+            "slotsByLevel": {
+              "3": [
+                2,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "cantripsKnownByLevel": {
+              "3": 2
+            },
+            "spellsPrepared": {
+              "kind": "abilityModPlusLevel",
+              "ability": "int"
+            }
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "soulknife",
+    "classKey": "rogue",
+    "name": "Soulknife",
+    "desc": "A Soulknife strikes with the mind, cutting through barriers both physical and psychic. These Rogues discover psionic power within themselves and channel it to do their roguish work.",
+    "features": [
+      {
+        "key": "psionic-power",
+        "name": "Psionic Power",
+        "desc": "You harbor a wellspring of psionic energy represented by Psionic Energy Dice. You have four d6 Psionic Energy Dice at Rogue level 3. You regain one expended die when you finish a Short Rest, and you regain all of them when you finish a Long Rest.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "limitedUses": {
+          "kind": "fixed",
+          "uses": 4
+        },
+        "restRecovery": "shortOne",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "psychic-blades",
+        "name": "Psychic Blades",
+        "desc": "Whenever you take the Attack action or make an Opportunity Attack, you can manifest a Psychic Blade in your free hand and make the attack with that blade (1d6 Psychic damage). After you attack with the blade on your turn, you can make a second psychic blade attack as a Bonus Action on the same turn if your other hand is free (1d4 Psychic damage).",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "choose_feature_option",
+            "choiceKey": "psychic-blades",
+            "uiSurface": "combat",
+            "options": [
+              {
+                "key": "psychic-blade",
+                "name": "Psychic Blade",
+                "desc": "Manifest a shimmering blade of psychic energy when you take the Attack action or make an Opportunity Attack.",
+                "combatCards": [
+                  {
+                    "key": "psychic-blade",
+                    "name": "Psychic Blade",
+                    "desc": "Melee attack with a manifested psychic blade. The blade vanishes immediately after it hits or misses.\n\nFinesse, Thrown (Range 60/120). Mastery: Vex.",
+                    "attack": {
+                      "damageDice": "1d6",
+                      "damageType": "Psychic",
+                      "ability": "dex"
+                    }
+                  },
+                  {
+                    "key": "psychic-blade-bonus",
+                    "name": "Psychic Blade (Bonus)",
+                    "desc": "After attacking with a psychic blade on your turn, make a second melee or ranged psychic blade attack as a Bonus Action if your other hand is free.\n\nFinesse, Thrown (Range 60/120). Mastery: Vex.",
+                    "actionTiming": "bonus",
+                    "attack": {
+                      "damageDice": "1d4",
+                      "damageType": "Psychic",
+                      "ability": "dex"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "psi-bolstered-knack",
+        "name": "Psi-Bolstered Knack",
+        "desc": "If you fail an ability check using a skill or tool with which you have proficiency, you can roll one Psionic Energy Die and add the number rolled to the check, potentially turning failure into success. The die is expended only if the roll then succeeds.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "psychic-whispers",
+        "name": "Psychic Whispers",
+        "desc": "As a Magic action, choose one or more creatures you can see, up to a number equal to your Proficiency, and roll one Psionic Energy Die. For a number of hours equal to the number rolled, the chosen creatures can speak telepathically with you within 1 mile.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "action",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "aberrant-sorcery",
+    "classKey": "sorcerer",
+    "name": "Aberrant Sorcery",
+    "desc": "An alien influence has wrapped its tendrils around your mind, giving you psionic power. You can now touch other minds with that power and alter the world around you.",
+    "features": [
+      {
+        "key": "psionic-spells",
+        "name": "Psionic Spells",
+        "desc": "The magic of your sorcery ensures you always have Arms of Hadar, Calm Emotions, Detect Thoughts, Dissonant Whispers, and Mind Sliver prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Arms of Hadar",
+              "Calm Emotions",
+              "Detect Thoughts",
+              "Dissonant Whispers",
+              "Mind Sliver"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "telepathic-speech",
+        "name": "Telepathic Speech",
+        "desc": "As a Bonus Action, choose one creature you can see within 30 feet of yourself. You and the chosen creature can communicate telepathically while within a number of miles equal to your Charisma modifier (minimum of 1 mile) for a number of minutes equal to your Sorcerer level.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "bonus",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "clockwork-sorcery",
+    "classKey": "sorcerer",
+    "name": "Clockwork Sorcery",
+    "desc": "The cosmic force of order has suffused you with magic. That power arises from Mechanus or a realm like it—a plane of existence shaped entirely by clockwork efficiency.",
+    "features": [
+      {
+        "key": "clockwork-spells",
+        "name": "Clockwork Spells",
+        "desc": "The magic of your sorcery ensures you always have Aid, Alarm, Lesser Restoration, and Protection from Evil and Good prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Aid",
+              "Alarm",
+              "Lesser Restoration",
+              "Protection from Evil and Good"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "manifestations-of-order",
+        "name": "Manifestations of Order",
+        "desc": "While you are casting any of your Sorcerer spells, your connection to order can manifest in one of the following ways (choose or roll 1d6).",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "choose_feature_option",
+            "choiceKey": "manifestations-of-order",
+            "uiSurface": "reference",
+            "options": [
+              {
+                "key": "1",
+                "name": "1",
+                "desc": "Spectral cogwheels hover behind you."
+              },
+              {
+                "key": "2",
+                "name": "2",
+                "desc": "The hands of a clock spin in your eyes."
+              },
+              {
+                "key": "3",
+                "name": "3",
+                "desc": "Your skin glows with a brassy sheen."
+              },
+              {
+                "key": "4",
+                "name": "4",
+                "desc": "Floating equations and geometric objects overlay your body."
+              },
+              {
+                "key": "5",
+                "name": "5",
+                "desc": "Your Spellcasting Focus temporarily takes the form of a Tiny clockwork mechanism."
+              },
+              {
+                "key": "6",
+                "name": "6",
+                "desc": "The ticking of gears or ringing of a clock can be heard by you and those affected by your magic."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "restore-balance",
+        "name": "Restore Balance",
+        "desc": "When a creature you can see within 60 feet of yourself is about to roll a d20 with Advantage or Disadvantage, you can take a Reaction to prevent the roll from being affected by Advantage and Disadvantage. You can use this feature a number of times equal to your Charisma modifier (minimum of once), regaining all expended uses when you finish a Long Rest.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "classFeatureCard": true,
+        "actionTiming": "reaction",
+        "limitedUses": {
+          "kind": "abilityMod",
+          "ability": "cha"
+        },
+        "restRecovery": "long",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "wild-magic-sorcery",
+    "classKey": "sorcerer",
+    "name": "Wild Magic Sorcery",
+    "desc": "Your innate magic stems from the forces of chaos that underlie the order of creation. Whatever its source, this magic churns within you, waiting for any outlet.",
+    "features": [
+      {
+        "key": "tides-of-chaos",
+        "name": "Tides of Chaos",
+        "desc": "You can manipulate chaos itself to give yourself Advantage on one D20 Test before you roll the d20. Once you do so, you must cast a Sorcerer spell with a spell slot or finish a Long Rest before you can use this feature again. If you cast a Sorcerer spell with a spell slot before you finish a Long Rest, you automatically roll on the Wild Magic Surge table.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "limitedUses": {
+          "kind": "fixed",
+          "uses": 1
+        },
+        "restRecovery": "long",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "wild-magic-surge",
+        "name": "Wild Magic Surge",
+        "desc": "Your spellcasting can unleash surges of untamed magic. Once per turn, you can roll 1d20 immediately after you cast a Sorcerer spell with a spell slot. If you roll a 20, roll on the Wild Magic Surge table to create a magical effect. If the magical effect is a spell, it is too wild to be affected by your Metamagic.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "classFeatureCard": true,
+        "effects": [
+          {
+            "type": "choose_feature_option",
+            "choiceKey": "wild-magic-surge",
+            "uiSurface": "reference",
+            "options": [
+              {
+                "key": "01-04",
+                "name": "01-04",
+                "desc": "Roll on this table at the start of each of your turns for the next minute, ignoring this result on subsequent rolls."
+              },
+              {
+                "key": "05-08",
+                "name": "05-08",
+                "desc": "A creature that is Friendly toward you appears in a random unoccupied space within 60 feet of you. The creature is under the DM's control and disappears 1 minute later. Roll 1d4 to determine the creature: on a 1, a Modron Duodrone appears; on a 2, a Flumph appears; on a 3, a Modron Monodrone appears; on a 4, a Unicorn appears. See the Monster Manual for the creature's stat block."
+              },
+              {
+                "key": "09-12",
+                "name": "09-12",
+                "desc": "For the next minute, you regain 5 Hit Points at the start of each of your turns."
+              },
+              {
+                "key": "13-16",
+                "name": "13-16",
+                "desc": "Creatures have Disadvantage on saving throws against the next spell you cast in the next minute that involves a saving throw."
+              },
+              {
+                "key": "17-20",
+                "name": "17-20",
+                "desc": "You are subjected to an effect that lasts for 1 minute unless its description says otherwise. Roll 1d8 to determine the effect: on a 1, you're surrounded by faint, ethereal music only you and creatures within 5 feet of you can hear; on a 2, your size increases by one size category; on a 3, you grow a long beard made of feathers that remains until you sneeze, at which point the feathers explode from your face and vanish; on a 4, you must shout when you speak; on a 5, illusory butterflies flutter in the air within 10 feet of you; on a 6, an eye appears on your forehead, granting you Advantage on Wisdom (Perception) checks; on a 7, pink bubbles float out of your mouth whenever you speak; on an 8, your skin turns a vibrant shade of blue for 24 hours or until the effect is ended by a Remove Curse spell."
+              },
+              {
+                "key": "21-24",
+                "name": "21-24",
+                "desc": "For the next minute, all your spells with a casting time of an action have a casting time of a Bonus Action."
+              },
+              {
+                "key": "25-28",
+                "name": "25-28",
+                "desc": "You are transported to the Astral Plane until the end of your next turn. You then return to the space you previously occupied or the nearest unoccupied space if that space is occupied."
+              },
+              {
+                "key": "29-32",
+                "name": "29-32",
+                "desc": "The next time you cast a spell that deals damage within the next minute, don't roll the spell's damage dice for the damage. Instead use the highest number possible for each damage die."
+              },
+              {
+                "key": "33-36",
+                "name": "33-36",
+                "desc": "You have Resistance to all damage for the next minute."
+              },
+              {
+                "key": "37-40",
+                "name": "37-40",
+                "desc": "You turn into a potted plant until the start of your next turn. While you're a plant, you have the Incapacitated condition and have Vulnerability to all damage. If you drop to 0 Hit Points, your pot breaks, and your form reverts."
+              },
+              {
+                "key": "41-44",
+                "name": "41-44",
+                "desc": "For the next minute, you can teleport up to 20 feet as a Bonus Action on each of your turns."
+              },
+              {
+                "key": "45-48",
+                "name": "45-48",
+                "desc": "You and up to three creatures you choose within 30 feet of you have the Invisible condition for 1 minute. This invisibility ends on a creature immediately after it makes an attack roll, deals damage, or casts a spell."
+              },
+              {
+                "key": "49-52",
+                "name": "49-52",
+                "desc": "A spectral shield hovers near you for the next minute, granting you a +2 bonus to AC and immunity to Magic Missile."
+              },
+              {
+                "key": "53-56",
+                "name": "53-56",
+                "desc": "You can take one extra action on this turn."
+              },
+              {
+                "key": "57-60",
+                "name": "57-60",
+                "desc": "You cast a random spell. If the spell normally requires Concentration, it doesn't require Concentration in this case; the spell lasts for its full duration. Roll 1d10 to determine the spell: on a 1, Confusion; on a 2, Fireball; on a 3, Fog Cloud; on a 4, Fly (cast on a random creature within 60 feet of you), on a 5, Grease; on a 6, Levitate (cast on yourself); on a 7, Magic Missile (cast as a level 5 spell); on an 8, Mirror Image; on a 9, Polymorph (cast on yourself), and if you fail the saving throw, you turn into a Goat (see appendix B); on a 10, See Invisibility."
+              },
+              {
+                "key": "61-64",
+                "name": "61-64",
+                "desc": "For the next minute, any flammable, nonmagical object you touch that isn't being worn or carried by another creature bursts into flame, takes 1d4 Fire damage, and is burning."
+              },
+              {
+                "key": "65-68",
+                "name": "65-68",
+                "desc": "If you die within the next hour, you immediately revive as if by the Reincarnate spell."
+              },
+              {
+                "key": "69-72",
+                "name": "69-72",
+                "desc": "You have the Frightened condition until the end of your next turn. The DM determines the source of your fear."
+              },
+              {
+                "key": "73-76",
+                "name": "73-76",
+                "desc": "You teleport up to 60 feet to an unoccupied space you can see."
+              },
+              {
+                "key": "77-80",
+                "name": "77-80",
+                "desc": "A random creature within 60 feet of you has the Poisoned condition for 1d4 hours."
+              },
+              {
+                "key": "81-84",
+                "name": "81-84",
+                "desc": "You radiate Bright Light in a 30-foot radius for the next minute. Any creature that ends its turn within 5 feet of you has the Blinded condition until the end of its next turn."
+              },
+              {
+                "key": "85-88",
+                "name": "85-88",
+                "desc": "Up to three creatures of your choice that you can see within 30 feet of you take 1d10 Necrotic damage. You regain Hit Points equal to the sum of the Necrotic damage dealt."
+              },
+              {
+                "key": "89-92",
+                "name": "89-92",
+                "desc": "Up to three creatures of your choice that you can see within 30 feet of you take 4d10 Lightning damage."
+              },
+              {
+                "key": "93-96",
+                "name": "93-96",
+                "desc": "You and all creatures within 30 feet of you have Vulnerability to Piercing damage for the next minute."
+              },
+              {
+                "key": "97-00",
+                "name": "97-00",
+                "desc": "Roll 1d6. On a 1, you regain 2d10 Hit Points; on a 2, one ally of your choice within 300 feet of you regains 2d10 Hit Points; on a 3, you regain your lowest-level expended spell slot; on a 4, one ally of your choice within 300 feet of you regains their lowest-level expended spell slot; on a 5, you regain all your expended Sorcery Points; on a 6, all the effects of row 17–20 affect you simultaneously."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "archfey-patron",
+    "classKey": "warlock",
+    "name": "Archfey Patron",
+    "desc": "Your pact draws on the power of the Feywild. When you choose this subclass, you might make a deal with an archfey, or you might call on a spectrum of Fey, weaving a web of favors and debts.",
+    "features": [
+      {
+        "key": "archfey-spells",
+        "name": "Archfey Spells",
+        "desc": "The magic of your patron ensures you always have Calm Emotions, Faerie Fire, Misty Step, Phantasmal Force, and Sleep prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Calm Emotions",
+              "Faerie Fire",
+              "Misty Step",
+              "Phantasmal Force",
+              "Sleep"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "steps-of-the-fey",
+        "name": "Steps of the Fey",
+        "desc": "You can cast Misty Step without expending a spell slot a number of times equal to your Charisma modifier (minimum of once), regaining all expended uses when you finish a Long Rest. Whenever you cast Misty Step, you can choose one of the following benefits.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "classFeatureCard": true,
+        "actionTiming": "bonus",
+        "limitedUses": {
+          "kind": "abilityMod",
+          "ability": "cha"
+        },
+        "restRecovery": "long",
+        "effects": [
+          {
+            "type": "narrative"
+          },
+          {
+            "type": "choose_feature_option",
+            "choiceKey": "steps-of-the-fey",
+            "uiSurface": "reference",
+            "options": [
+              {
+                "key": "refreshing-step",
+                "name": "Refreshing Step",
+                "desc": "You or one creature within 5 feet of the space you left gains 1d10 Temporary Hit Points."
+              },
+              {
+                "key": "taunting-step",
+                "name": "Taunting Step",
+                "desc": "Creatures within 5 feet of the space you left have Disadvantage on attack rolls against creatures other than you until the start of your next turn."
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "great-old-one-patron",
+    "classKey": "warlock",
+    "name": "Great Old One Patron",
+    "desc": "When you choose this subclass, you might bind yourself to an unspeakable being from the Far Realm or an elder god. The motives of these beings are incomprehensible, but the secrets you've learned allow you to draw strange magic from them.",
+    "features": [
+      {
+        "key": "great-old-one-spells",
+        "name": "Great Old One Spells",
+        "desc": "The magic of your patron ensures you always have Detect Thoughts, Dissonant Whispers, Phantasmal Force, and Tasha's Hideous Laughter prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Detect Thoughts",
+              "Dissonant Whispers",
+              "Phantasmal Force",
+              "Tasha's Hideous Laughter"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "awakened-mind",
+        "name": "Awakened Mind",
+        "desc": "As a Bonus Action, choose one creature you can see within 30 feet of yourself. You and the chosen creature can communicate telepathically while within a number of miles equal to your Charisma modifier (minimum of 1 mile) for a number of minutes equal to your Warlock level.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "bonus",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      },
+      {
+        "key": "psychic-spells",
+        "name": "Psychic Spells",
+        "desc": "When you cast a Warlock spell that deals damage, you can change its damage type to Psychic. In addition, when you cast a Warlock spell that is an Enchantment or Illusion, you can do so without Verbal or Somatic components.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "celestial-patron",
+    "classKey": "warlock",
+    "name": "Celestial Patron",
+    "desc": "Your pact draws on the Upper Planes, the realms of everlasting bliss. Your pact allows you to experience a hint of the holy light that illuminates the multiverse.",
+    "features": [
+      {
+        "key": "celestial-spells",
+        "name": "Celestial Spells",
+        "desc": "The magic of your patron ensures you always have Aid, Cure Wounds, Guiding Bolt, Lesser Restoration, Light, and Sacred Flame prepared.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Aid",
+              "Cure Wounds",
+              "Guiding Bolt",
+              "Lesser Restoration",
+              "Light",
+              "Sacred Flame"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "healing-light",
+        "name": "Healing Light",
+        "desc": "You have a pool of d6s to fuel healing equal to 1 plus your Warlock level. As a Bonus Action, you can heal yourself or one creature you can see within 60 feet, expending dice from the pool (up to your Charisma modifier at once). Your pool regains all expended dice when you finish a Long Rest.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "actionTiming": "bonus",
+        "limitedUses": {
+          "kind": "byLevel",
+          "usesByLevel": {
+            "3": 4
+          }
+        },
+        "restRecovery": "long",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "abjurer",
+    "classKey": "wizard",
+    "name": "Abjurer",
+    "desc": "Your study of magic is focused on spells that block, banish, or protect—ending harmful effects, banishing evil influences, and protecting the weak. Adventuring parties value Abjurers for the protection they provide against hostile magic and other attacks.",
+    "features": [
+      {
+        "key": "abjuration-savant",
+        "name": "Abjuration Savant",
+        "desc": "Choose two Wizard spells from the Abjuration school, each of which must be no higher than level 2, and add them to your spellbook for free.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "grant_spellbook_picks",
+            "count": 2,
+            "school": "Abjuration",
+            "maxSpellLevel": 2
+          }
+        ]
+      },
+      {
+        "key": "arcane-ward",
+        "name": "Arcane Ward",
+        "desc": "When you cast an Abjuration spell with a spell slot, you can create a magical ward on yourself that lasts until you finish a Long Rest. The ward has a Hit Point maximum equal to twice your Wizard level plus your Intelligence modifier. Whenever you take damage, the ward takes the damage instead. Whenever you cast an Abjuration spell with a spell slot, the ward regains Hit Points equal to twice the level of the spell slot. Alternatively, as a Bonus Action, you can expend a spell slot and the ward regains Hit Points equal to twice the level of the spell slot expended.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "classFeatureCard": true,
+        "effects": [
+          {
+            "type": "hit_point_pool",
+            "formula": {
+              "kind": "twiceLevelPlusAbility",
+              "ability": "int"
+            }
+          },
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "diviner",
+    "classKey": "wizard",
+    "name": "Diviner",
+    "desc": "The counsel of a Diviner is sought by those who want a clearer understanding of the past, present, and future. As a Diviner, you strive to part the veils of space, time, and consciousness.",
+    "features": [
+      {
+        "key": "divination-savant",
+        "name": "Divination Savant",
+        "desc": "Choose two Wizard spells from the Divination school, each of which must be no higher than level 2, and add them to your spellbook for free.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "grant_spellbook_picks",
+            "count": 2,
+            "school": "Divination",
+            "maxSpellLevel": 2
+          }
+        ]
+      },
+      {
+        "key": "portent",
+        "name": "Portent",
+        "desc": "Whenever you finish a Long Rest, roll two d20s and record the numbers rolled. You can replace any D20 Test made by you or a creature that you can see with one of these foretelling rolls. Each foretelling roll can be used only once.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "limitedUses": {
+          "kind": "fixed",
+          "uses": 2
+        },
+        "restRecovery": "long",
+        "effects": [
+          {
+            "type": "narrative"
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  },
+  {
+    "key": "illusionist",
+    "classKey": "wizard",
+    "name": "Illusionist",
+    "desc": "You specialize in magic that dazzles the senses and tricks the mind, and the illusions you craft make the impossible seem real.",
+    "features": [
+      {
+        "key": "illusion-savant",
+        "name": "Illusion Savant",
+        "desc": "Choose two Wizard spells from the Illusion school, each of which must be no higher than level 2, and add them to your spellbook for free.",
+        "grantedAtLevel": 3,
+        "combatSurface": false,
+        "effects": [
+          {
+            "type": "grant_spellbook_picks",
+            "count": 2,
+            "school": "Illusion",
+            "maxSpellLevel": 2
+          }
+        ]
+      },
+      {
+        "key": "improved-illusions",
+        "name": "Improved Illusions",
+        "desc": "You can cast Illusion spells without providing Verbal components, and if an Illusion spell you cast has a range of 10+ feet, the range increases by 60 feet. You also know the Minor Illusion cantrip, which doesn't count against your number of cantrips known. You can create both a sound and an image with a single casting of Minor Illusion, and you can cast it as a Bonus Action.",
+        "grantedAtLevel": 3,
+        "combatSurface": true,
+        "classFeatureCard": true,
+        "actionTiming": "bonus",
+        "effects": [
+          {
+            "type": "always_prepared_spells",
+            "spellNames": [
+              "Minor Illusion"
+            ]
+          }
+        ]
+      }
+    ],
+    "srd": false,
+    "book": "XPHB"
+  }
+]

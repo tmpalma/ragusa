@@ -1,0 +1,711 @@
+.pane {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+  background: var(--code-bg);
+}
+
+.pane h2 {
+  margin: 0;
+}
+
+.keepAwakeToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 2.75rem;
+  user-select: none;
+}
+
+.keepAwakeToggle input {
+  width: 1.125rem;
+  height: 1.125rem;
+  margin: 0;
+  accent-color: var(--accent);
+}
+
+.statRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+}
+
+.combatHeaderStats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.combatHeaderStats .statLabel {
+  font-size: 1.05rem;
+  opacity: 1;
+}
+
+.combatHeaderStats .initiativeCardCompact .statLabel {
+  font-size: 1.05rem;
+  margin-bottom: 0.35rem;
+  opacity: 1;
+}
+
+.combatHeaderStats .tempHpLabel {
+  font-size: 0.9rem;
+  opacity: 1;
+}
+
+.combatHeaderStats .acCardCompact .acVariantLabel {
+  font-size: 0.85rem;
+  opacity: 1;
+}
+
+.secondaryStatRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (min-width: 720px) {
+  .secondaryStatRow {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .secondaryStatRow > * {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .secondaryStatRow > .acCardWide {
+    flex: 1.5;
+  }
+
+  .secondaryStatRow > .initiativeCardCompact {
+    flex: 0.5;
+  }
+}
+
+.statCard {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 0.9rem;
+  background: var(--bg);
+}
+
+.statLabel {
+  margin: 0 0 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.statValue {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+.acVariants {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.acVariant {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.acVariantLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+.acVariantValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+.hpControls {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.combatStepper button {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  touch-action: manipulation;
+}
+
+.combatStepper input[type="number"] {
+  font-size: 1.25rem;
+  font-weight: 700;
+  width: 4rem;
+  min-height: 2.75rem;
+}
+
+.combatStepperTemp input[type="number"] {
+  font-size: 1rem;
+  width: 3.5rem;
+}
+
+.hpMax {
+  font-size: 1.1rem;
+  opacity: 0.75;
+}
+
+.hpTempSuffix {
+  font-weight: 600;
+  opacity: 1;
+}
+
+.acCardCompact {
+  padding: 0.55rem 0.7rem;
+}
+
+.acCardCompact .acVariantValue {
+  font-size: 1.2rem;
+}
+
+.acCardCompact .acVariants {
+  gap: 0.65rem;
+}
+
+.acCardCompact .acVariantLabel {
+  font-size: 0.7rem;
+}
+
+.initiativeCardCompact {
+  padding: 0.55rem 0.65rem;
+}
+
+.initiativeCardCompact .statLabel {
+  font-size: 0.75rem;
+  margin-bottom: 0.2rem;
+}
+
+.initiativeCardCompact .statValue {
+  font-size: 1.2rem;
+}
+
+.hpBlock {
+  padding: 0.75rem 0.9rem;
+}
+
+.hpSections {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.hpSection {
+  padding-top: 0.55rem;
+  border-top: 1px solid var(--border);
+}
+
+.hpSection:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+@media (min-width: 720px) {
+  .hpSections {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .hpSection {
+    flex: 1;
+    min-width: 0;
+    padding-top: 0;
+    padding-left: 0.9rem;
+    border-top: none;
+    border-left: 1px solid var(--border);
+  }
+
+  .hpSection:first-child {
+    padding-left: 0;
+    border-left: none;
+  }
+}
+
+.tempHpLabel,
+.tempHpSetLabel {
+  margin: 0 0 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.tempHpGrantControls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.tempHpAddButton {
+  font: inherit;
+  min-height: 2.75rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  opacity: 0.45;
+  touch-action: manipulation;
+}
+
+.tempHpAddButtonReady {
+  opacity: 1;
+  border-color: var(--accent);
+  background: var(--accent-bg);
+  color: var(--text-h);
+}
+
+.tempHpAddButton:disabled {
+  cursor: not-allowed;
+}
+
+.tempHpSetInput {
+  font: inherit;
+  width: 4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 0.15rem 0.25rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: inherit;
+  box-sizing: border-box;
+}
+
+.savingThrowsGrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.savingThrowItem {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.savingThrowItem:first-child {
+  padding-top: 0;
+}
+
+.savingThrowItem:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.savingThrowAbility {
+  font-weight: 600;
+}
+
+.savingThrowValue {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+.savingThrowProficient {
+  margin-left: 0.15rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.deathSavesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.55rem;
+}
+
+@media (min-width: 480px) {
+  .deathSavesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.deathSaveTrack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.deathSaveTrackLabel {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.deathSaveStatus {
+  margin: 0.55rem 0 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.deathSavesResetButton {
+  font: inherit;
+  display: block;
+  margin: 0.55rem auto 0;
+  min-width: 10rem;
+  min-height: 2.75rem;
+  padding: 0.35rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--accent-bg);
+  color: var(--text-h);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.deathSavesResetButton:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.invocationSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-block: 0.25rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.invocationSection .groupLabel {
+  font-size: 0.95rem;
+  font-weight: 700;
+  opacity: 1;
+  color: var(--text-h);
+}
+
+.invocationPickGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.maneuverPickEntry {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.maneuverPickName {
+  font-weight: 600;
+}
+
+.maneuverPickDesc {
+  font-size: 0.85rem;
+  line-height: 1.35;
+  opacity: 0.9;
+}
+
+.conditionsBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.conditionPickEntry {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.conditionPickRemove {
+  font: inherit;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--accent-bg);
+  color: var(--text-h);
+  cursor: pointer;
+}
+
+.conditionPickDescBlocks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.conditionPickDesc {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.35;
+  opacity: 0.9;
+}
+
+.conditionTracker {
+  margin-top: 0.15rem;
+}
+
+.columns {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.specialTraitsGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.specialTraitsGroupSeparated {
+  margin-top: 0.75rem;
+}
+
+.groupLabel {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.specialTraitsGroup .groupLabel {
+  font-size: 1rem;
+}
+
+.sectionCaption {
+  font-size: 1.05rem;
+}
+
+.featureCardTitle {
+  font-size: 1.05rem;
+}
+
+.spellAttackTitle {
+  font-size: 1.05rem;
+}
+
+.featureActionTitle {
+  font-size: 1.05rem;
+  font-style: italic;
+}
+
+.actionSubsections {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-inline: 0.75rem 0.25rem;
+}
+
+.spellMetaLine {
+  margin: 0 0 0.2rem;
+  font-size: 0.85rem;
+}
+
+.spellMetaLine:last-of-type {
+  margin-bottom: 0.35rem;
+}
+
+.spellCastControl {
+  margin-top: 1em;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.7rem 0.8rem;
+  background: var(--bg);
+}
+
+.cardSummary {
+  margin: 0;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.cardSummaryLeading {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.expandIndicator {
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  font-weight: 400;
+  opacity: 0.75;
+}
+
+.cardSummary::-webkit-details-marker {
+  display: none;
+}
+
+details.card:not([open]) > :not(.cardSummary) {
+  display: none;
+}
+
+.cardSummary h4 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.spellTitleMeta {
+  font-size: 0.85rem;
+  font-weight: normal;
+}
+
+.cardBody {
+  margin-top: 0.25rem;
+}
+
+.card h4 {
+  margin: 0 0 0.25rem;
+  font-size: 0.95rem;
+}
+
+.classFeatureCardsAfterStatRow {
+  margin-top: 0.65rem;
+}
+
+.wildShapeCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.wildShapeBeastForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.wildShapeActiveFormName {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.meta {
+  margin: 0 0 0.35rem;
+  font-weight: 600;
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+.applyTempHpButton {
+  margin: 1rem 0 0.5rem;
+}
+
+.metaOffHand {
+  margin: 0 0 0.35rem;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.description {
+  margin: 0;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+}
+
+.referenceTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.referenceTable th,
+.referenceTable td {
+  border-bottom: 1px solid var(--border);
+  padding: 0.3rem 0.4rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.referenceTable th:first-child,
+.referenceTable td:first-child {
+  width: 4.5rem;
+  white-space: nowrap;
+}
+
+.referenceTable tbody tr:nth-child(odd) td {
+  background: color-mix(in srgb, var(--text-h) 6%, var(--bg));
+}
+
+.referenceTable tbody tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--text) 2.5%, var(--bg));
+}
+
+.empty {
+  margin: 0;
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+.weaponResource {
+  margin: 0.5rem 0;
+}
+
+.embeddedTracker {
+  margin-top: 0.75rem;
+}
+
+.weaponResource .ammoSource {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.weaponResource .ammoSource select {
+  max-width: 100%;
+}
+
+.weaponResource .statCard {
+  padding: 0.55rem 0.65rem;
+}
+
+.weaponResource .statLabel {
+  font-size: 0.8rem;
+}
+
+.weaponResource .combatStepper input[type="number"] {
+  font-size: 1rem;
+  width: 3.25rem;
+}

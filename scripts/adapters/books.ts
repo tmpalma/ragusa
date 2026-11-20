@@ -1,0 +1,35 @@
+import type { BookData } from "../../src/data/types.js";
+
+/**
+ * Book metadata (not content). Keys match 5etools `source` abbreviations where applicable.
+ * Add a row here before transcribing content from a new source.
+ */
+export const BOOKS: BookData[] = [
+  // ── 2024 print ────────────────────────────────────────────────────────────
+  { key: "XPHB", name: "Player's Handbook (2024)", ruleset: "2024" },
+  { key: "XMM", name: "Monster Manual (2025)", ruleset: "2024" },
+  { key: "XDMG", name: "Dungeon Master's Guide (2024)", ruleset: "2024" },
+  { key: "EFA", name: "Eberron: Forge of the Artificer", ruleset: "2024" },
+  { key: "FRHoF", name: "Forgotten Realms: Heroes of Faerûn", ruleset: "2024" },
+  { key: "ABH", name: "Astarion's Book of Hungers", ruleset: "2024" },
+  { key: "RHW", name: "Ravenloft: The Horrors Within", ruleset: "2024" },
+  { key: "AU", name: "Arcana Unleashed", ruleset: "2024" },
+  // ── 2024 SRD publication ────────────────────────────────────────────────────
+  { key: "SRD52", name: "System Reference Document 5.2", ruleset: "2024", srdPublication: true },
+  // ── 2014 core ───────────────────────────────────────────────────────────────
+  { key: "PHB", name: "Player's Handbook (2014)", ruleset: "2014" },
+  { key: "MM", name: "Monster Manual (2014)", ruleset: "2014" },
+  { key: "DMG", name: "Dungeon Master's Guide (2014)", ruleset: "2014" },
+  { key: "SRD", name: "System Reference Document 5.1", ruleset: "2014", srdPublication: true },
+  { key: "BasicRules", name: "D&D Basic Rules (2014)", ruleset: "2014" },
+  // ── 2014 supplements (deities and setting content) ────────────────────────
+  { key: "SCAG", name: "Sword Coast Adventurer's Guide", ruleset: "2014" },
+  { key: "MTF", name: "Mordenkainen's Tome of Foes", ruleset: "2014" },
+  { key: "VGM", name: "Volo's Guide to Monsters", ruleset: "2014" },
+  { key: "ERLW", name: "Eberron: Rising from the Last War", ruleset: "2014" },
+  { key: "EGW", name: "Explorer's Guide to Wildemount", ruleset: "2014" },
+  { key: "MOT", name: "Mythic Odysseys of Theros", ruleset: "2014" },
+  { key: "DSotDQ", name: "Dragonlance: Shadow of the Dragon Queen", ruleset: "2014" },
+  { key: "VRGR", name: "Van Richten's Guide to Ravenloft", ruleset: "2014" },
+  { key: "GoS", name: "Ghosts of Saltmarsh", ruleset: "2014" },
+];
