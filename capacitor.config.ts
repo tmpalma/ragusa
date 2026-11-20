@@ -2,7 +2,7 @@ import type { CapacitorConfig } from "@capacitor/cli";
 
 const config: CapacitorConfig = {
   appId: "app.playertoolset.sheet",
-  appName: "DnD 5.5e Toolset",
+  appName: "Ragusa",
   webDir: "dist",
   android: {
     allowMixedContent: false,
