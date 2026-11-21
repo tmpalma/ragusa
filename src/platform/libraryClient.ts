@@ -16,7 +16,11 @@ export type LibraryErrorCode =
   /** No valid Supabase user token (HTTP 401). The session is ended centrally. */
   | "unauthenticated"
   /** The token's user does not match the player row (HTTP 403). */
-  | "forbidden";
+  | "forbidden"
+  /** The caller already owns `MAX_CHARACTERS_PER_PLAYER` characters (create or import refused). */
+  | "character_limit"
+  /** `importHomebrewItems` got a file with the wrong format or an invalid item; nothing was imported. */
+  | "invalid_items_file";
 
 export class LibraryClientError extends Error {
   readonly code: LibraryErrorCode;
@@ -72,8 +76,16 @@ export interface LibraryCampaign {
   members: LibraryMembership[];
 }
 
+export interface LibraryPlayer {
+  email: string;
+  displayName: string;
+}
+
 export interface PlayerLibrary {
   ensurePlayer(email: string): Promise<void>;
+  getPlayer(email: string): Promise<LibraryPlayer>;
+  /** An empty or whitespace-only `displayName` throws `empty_title`. */
+  updatePlayer(email: string, input: { displayName: string }): Promise<LibraryPlayer>;
 }
 
 export interface CharacterLibrary {
@@ -112,6 +124,14 @@ export interface HomebrewLibrary {
     input: { campaignIds?: string[]; data?: HomebrewItemData },
   ): Promise<HomebrewItemRecord>;
   deleteHomebrewItem(email: string, itemId: string): Promise<void>;
+  /**
+   * Imports an exported items file (`ragusa-homebrew-items`), owned by the caller and linked to `campaignIds`.
+   * Returns the created records. All or nothing: any invalid item throws `invalid_items_file`.
+   */
+  importHomebrewItems(
+    email: string,
+    input: { fileJson: string; campaignIds: string[] },
+  ): Promise<HomebrewItemRecord[]>;
 }
 
 /** Full library surface. Add a domain by declaring its interface above and intersecting it here. */

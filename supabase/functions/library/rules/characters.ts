@@ -5,6 +5,9 @@ import { isRecord } from "./shared.ts";
 export const CHARACTER_FILE_FORMAT = "dnd55e-chargen-character";
 export const CHARACTER_FILE_SCHEMA_VERSION = 1;
 
+/** Most characters one player may own. Mirrors `src/domain/libraryLimits.ts` (the function cannot import `src/`). */
+export const MAX_CHARACTERS_PER_PLAYER = 4;
+
 export type CharacterRow = {
   id: unknown;
   owner_email: unknown;

@@ -7,27 +7,12 @@ import { ConfirmDialog } from "../components/confirm/ConfirmDialog";
 import { useLocale } from "../i18n/LocaleContext";
 import {
   getLibraryClient,
-  LibraryClientError,
   type LibraryCampaignSummary,
   type LibraryCharacterSummary,
 } from "../platform/libraryClient";
+import { libraryErrorMessage } from "../platform/libraryErrorMessage";
 import { useSession } from "../state/SessionContext";
 import styles from "./AccountPage.module.css";
-
-function libraryErrorMessage(
-  error: unknown,
-  t: (key: string, params?: Record<string, string | number>) => string,
-): string {
-  if (error instanceof LibraryClientError) {
-    if (error.code === "character_already_seated") return t("account.seatRefused");
-    if (error.code === "character_has_membership") return t("account.deleteRefused");
-    if (error.code === "invalid_character_file") return t("account.importFailed");
-    if (error.code === "empty_title") return t("account.titleRequired");
-    if (error.code === "unauthenticated") return t("account.sessionExpired");
-    if (error.code === "forbidden") return t("account.forbidden");
-  }
-  return t("account.libraryError");
-}
 
 /**
  * Account page composition. Shared state lives here: the signed-in identity (from the session), the library lists

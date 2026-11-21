@@ -8,7 +8,9 @@ export type LibraryErrorCode =
   | "empty_title"
   | "invalid_homebrew_item"
   | "unauthenticated"
-  | "forbidden";
+  | "forbidden"
+  | "character_limit"
+  | "invalid_items_file";
 
 /**
  * Expected, user-facing failure. Mapped to `{ ok: false, code, message }` with the HTTP status from

@@ -92,4 +92,9 @@ export const homebrewOps: OpRecord = {
     if (error) throw error;
     return null;
   },
+
+  // TODO(P1-B): parse { fileJson, campaignIds }, validate every item (invalid_items_file), insert, return records.
+  async importHomebrewItems() {
+    throw new Error("Not implemented: importHomebrewItems (Phase 1)");
+  },
 };
