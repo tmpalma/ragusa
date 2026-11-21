@@ -12,7 +12,12 @@ import { resolveEquipmentPick } from "../equipmentPicks";
 import type { Character } from "../../state/characterState";
 import { allKnownLanguages, grantedLanguageKeys } from "../languageGrants";
 import type { SheetPayload } from "./types";
-import type { MarkdownTranslateFn } from "../markdown";
+/** Translator used to localize sheet text (same shape as the app's `t`). */
+export type SheetTranslateFn = (
+  key: string,
+  params?: Record<string, string | number>,
+  fallback?: string,
+) => string;
 import { buildTrainingSummary, formatTrainingWeaponsLine } from "../training";
 import { attunedDisplayItemName, listAttunedDisplayItems } from "../attunement";
 import { effectiveLevelPath, formatClassLevelLine, resolvedClassLevels } from "../classLevels";
@@ -58,7 +63,7 @@ function setCheck(payload: SheetPayload, slot: string, checked: boolean) {
   if (checked) payload.checkboxes[slot] = true;
 }
 
-function formatSpeed(feet: number, t: MarkdownTranslateFn): string {
+function formatSpeed(feet: number, t: SheetTranslateFn): string {
   return t("rules.speedFeet", { value: feet });
 }
 
@@ -80,7 +85,7 @@ function classLine(
   character: Character,
   _derived: DerivedStats,
   entityName: EntityNameFn,
-  t: MarkdownTranslateFn,
+  t: SheetTranslateFn,
 ): string {
   const classLevels = resolvedClassLevels(effectiveLevelPath(character));
   if (classLevels.length === 0) return "";
@@ -120,7 +125,7 @@ function speciesLine(
 function backgroundLine(
   character: Character,
   derived: DerivedStats,
-  t: MarkdownTranslateFn,
+  t: SheetTranslateFn,
   entityName: EntityNameFn,
 ): string {
   if (!derived.backgroundData) return "";
@@ -194,7 +199,7 @@ function weaponAttacks(
 function equipmentLines(
   character: Character,
   derived: DerivedStats,
-  t: MarkdownTranslateFn,
+  t: SheetTranslateFn,
   entityName: EntityNameFn,
   tEntity?: EntityNameTranslate,
 ): string[] {
@@ -288,14 +293,14 @@ function featLines(derived: DerivedStats, entityName: EntityNameFn): string[] {
   return derived.feats.map((feat) => catalogName(entityName, "catalog.feats", feat.key, feat.name));
 }
 
-function toolProficiencyLines(character: Character, t: MarkdownTranslateFn): string[] {
+function toolProficiencyLines(character: Character, t: SheetTranslateFn): string[] {
   return character.proficientTools.map((toolId) => t(`rules.tool.${toolId}`)).filter(Boolean);
 }
 
 function weaponProficiencyLines(
   character: Character,
   derived: DerivedStats,
-  t: MarkdownTranslateFn,
+  t: SheetTranslateFn,
 ): string[] {
   const summary = buildTrainingSummary({
     classData: derived.classData,
@@ -351,7 +356,7 @@ function fillSpellSlotUsed(
   }
 }
 
-function sizeLabel(character: Character, derived: DerivedStats, t: MarkdownTranslateFn): string {
+function sizeLabel(character: Character, derived: DerivedStats, t: SheetTranslateFn): string {
   const size = creatureSizeForCharacter(derived.speciesData, character.speciesSize);
   return t(`character.speciesSize.${size}`);
 }
@@ -359,7 +364,7 @@ function sizeLabel(character: Character, derived: DerivedStats, t: MarkdownTrans
 export function buildSheetPayload(
   character: Character,
   derived: DerivedStats,
-  t: MarkdownTranslateFn,
+  t: SheetTranslateFn,
   entityName: EntityNameFn,
   tEntity?: EntityNameTranslate,
 ): SheetPayload {
