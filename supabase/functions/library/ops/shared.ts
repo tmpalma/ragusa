@@ -1,6 +1,11 @@
 import type { SupabaseClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 import { LibraryOpError } from "../errors.ts";
-import { assertAuthUserLink, displayNameFromEmail } from "../rules/auth.ts";
+import {
+  assertAuthUserLink,
+  assertUserNotLinkedElsewhere,
+  displayNameFromEmail,
+  isUniqueViolation,
+} from "../rules/auth.ts";
 
 export function nowIso(): string {
   return new Date().toISOString();
@@ -13,13 +18,19 @@ export function nowIso(): string {
  *   A null `auth_user_id` is set to `userId`; a different one throws `forbidden` (reused email).
  */
 export async function upsertPlayer(db: SupabaseClient, email: string, userId: string): Promise<void> {
+  // One player row per auth user: refuse up front if this user already owns a row under another email.
+  await assertUserHasNoOtherRow(db, email, userId);
   const { error: insertError } = await db
     .from("players")
     .upsert(
       { email, display_name: displayNameFromEmail(email), auth_user_id: userId },
       { onConflict: "email", ignoreDuplicates: true },
     );
-  if (insertError) throw insertError;
+  // ON CONFLICT (email) DO NOTHING does not cover the unique auth_user_id; a concurrent link lands here.
+  if (insertError) {
+    if (isUniqueViolation(insertError)) await assertUserHasNoOtherRow(db, email, userId);
+    throw insertError;
+  }
   const { data: row, error: readError } = await db
     .from("players")
     .select("auth_user_id")
@@ -34,7 +45,10 @@ export async function upsertPlayer(db: SupabaseClient, email: string, userId: st
     .eq("email", email)
     .is("auth_user_id", null)
     .select("auth_user_id");
-  if (linkError) throw linkError;
+  if (linkError) {
+    if (isUniqueViolation(linkError)) await assertUserHasNoOtherRow(db, email, userId);
+    throw linkError;
+  }
   if ((linked ?? []).length > 0) return;
   // Lost a race with a concurrent link: re-check who won.
   const { data: after, error: recheckError } = await db
@@ -44,6 +58,17 @@ export async function upsertPlayer(db: SupabaseClient, email: string, userId: st
     .maybeSingle();
   if (recheckError) throw recheckError;
   assertAuthUserLink((after?.auth_user_id as string | null) ?? null, userId);
+}
+
+/** Throws `forbidden` when `userId` is already linked to a player row under a different email. */
+async function assertUserHasNoOtherRow(db: SupabaseClient, email: string, userId: string): Promise<void> {
+  const { data, error } = await db
+    .from("players")
+    .select("email")
+    .eq("auth_user_id", userId)
+    .maybeSingle();
+  if (error) throw error;
+  assertUserNotLinkedElsewhere((data?.email as string | undefined) ?? null, email);
 }
 
 export async function ownedCampaignIdSet(db: SupabaseClient, email: string): Promise<Set<string>> {

@@ -31,6 +31,25 @@ export function assertAuthUserLink(existingAuthUserId: string | null | undefined
   throw new LibraryOpError("forbidden", "This email is linked to another account.");
 }
 
+/**
+ * An auth user may own one player row only. If the caller's auth user is already linked to a row
+ * under a different email (for example after changing the account email in Supabase Auth),
+ * refuse instead of creating a second row. Emails are the key across every library table,
+ * so moving the data to the new email is a deliberate admin step, not something done implicitly here.
+ */
+export function assertUserNotLinkedElsewhere(linkedEmail: string | null | undefined, email: string): void {
+  if (linkedEmail == null || linkedEmail === email) return;
+  throw new LibraryOpError(
+    "forbidden",
+    "Your account is linked to a different email. Sign in with that email, or ask for the account to be moved.",
+  );
+}
+
+/** Postgres unique-constraint violation, as surfaced by PostgREST/supabase-js. */
+export function isUniqueViolation(error: unknown): boolean {
+  return typeof error === "object" && error !== null && (error as { code?: unknown }).code === "23505";
+}
+
 /** HTTP status for an expected library error. */
 export function statusForErrorCode(code: LibraryErrorCode): number {
   switch (code) {

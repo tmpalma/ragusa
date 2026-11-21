@@ -2,11 +2,34 @@ import { describe, expect, it } from "vitest";
 import { LibraryOpError } from "../errors.ts";
 import {
   assertAuthUserLink,
+  assertUserNotLinkedElsewhere,
   displayNameFromEmail,
   distinctIds,
+  isUniqueViolation,
   parseBearerToken,
   statusForErrorCode,
 } from "./auth.ts";
+
+describe("assertUserNotLinkedElsewhere", () => {
+  it("allows a user with no linked row, or linked to this same email", () => {
+    expect(codeOf(() => assertUserNotLinkedElsewhere(null, "ada@example.com"))).toBeUndefined();
+    expect(codeOf(() => assertUserNotLinkedElsewhere(undefined, "ada@example.com"))).toBeUndefined();
+    expect(codeOf(() => assertUserNotLinkedElsewhere("ada@example.com", "ada@example.com"))).toBeUndefined();
+  });
+
+  it("refuses with forbidden when the user already owns a row under another email", () => {
+    expect(codeOf(() => assertUserNotLinkedElsewhere("old@example.com", "new@example.com"))).toBe("forbidden");
+  });
+});
+
+describe("isUniqueViolation", () => {
+  it("recognises Postgres 23505 errors only", () => {
+    expect(isUniqueViolation({ code: "23505", message: "duplicate key" })).toBe(true);
+    expect(isUniqueViolation({ code: "23503" })).toBe(false);
+    expect(isUniqueViolation(new Error("boom"))).toBe(false);
+    expect(isUniqueViolation(null)).toBe(false);
+  });
+});
 
 function codeOf(fn: () => unknown): string | undefined {
   try {
