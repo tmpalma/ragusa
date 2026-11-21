@@ -40,6 +40,39 @@ describe("supabase library client", () => {
     });
   });
 
+  it("hydrates partial stored documents so derived stats never see missing fields", async () => {
+    // A member stored as a bare `{ name }` used to crash the campaign party pane in computeDerivedStats.
+    invoke.mockResolvedValue({
+      data: {
+        ok: true,
+        data: {
+          id: "c1",
+          ownerEmail: "dm@example.com",
+          title: "Camp",
+          updatedAt: "2026-11-20T00:00:00.000Z",
+          members: [
+            { id: "m1", campaignId: "c1", characterId: "x1", sortOrder: 0, initiative: null, session: {}, character: { name: "Bare" } },
+          ],
+        },
+      },
+      error: null,
+    });
+    const client = createSupabaseLibraryClient();
+    const campaign = await client.openCampaign("dm@example.com", "c1");
+    const member = campaign.members[0].character;
+    expect(member.name).toBe("Bare");
+    expect(Array.isArray(member.levelPath)).toBe(true);
+    const { computeDerivedStats } = await import("../domain/deriveCharacter");
+    expect(() => computeDerivedStats(member)).not.toThrow();
+
+    invoke.mockResolvedValue({
+      data: { ok: true, data: { id: "x1", ownerEmail: "p@example.com", title: "Bare", updatedAt: "t", document: { name: "Bare" } } },
+      error: null,
+    });
+    const opened = await client.openCharacter("p@example.com", "x1");
+    expect(Array.isArray(opened.document.levelPath)).toBe(true);
+  });
+
   it("returns homebrew rows from a successful create", async () => {
     const record = {
       id: "11111111-1111-4111-8111-111111111111",

@@ -1,3 +1,4 @@
+import { hydrateCharacter } from "../domain/characterFile";
 import type { HomebrewItemData, HomebrewItemRecord } from "../domain/homebrewItems";
 import {
   LibraryClientError,
@@ -80,6 +81,23 @@ async function invokeLibrary<T>(_email: string, op: string, payload: Record<stri
   return parsed.data;
 }
 
+/**
+ * Stored documents are whatever was saved, by any app version (or a bare `{ name }` from a create
+ * without a document). Normalize them with the same defaults as file import before the app derives stats.
+ */
+function withHydratedDocument(record: LibraryCharacter): LibraryCharacter {
+  if (!record || typeof record !== "object") return record;
+  return { ...record, document: hydrateCharacter(record.document) };
+}
+
+function withHydratedMembers(campaign: LibraryCampaign): LibraryCampaign {
+  if (!campaign || typeof campaign !== "object") return campaign;
+  return {
+    ...campaign,
+    members: (campaign.members ?? []).map((member) => ({ ...member, character: hydrateCharacter(member.character) })),
+  };
+}
+
 export function createSupabaseLibraryClient(): LibraryClient {
   return {
     ensurePlayer(email) {
@@ -102,11 +120,11 @@ export function createSupabaseLibraryClient(): LibraryClient {
       return invokeLibrary<LibraryCharacter>(email, "createCharacter", {
         title: input.title,
         document: input.document,
-      });
+      }).then(withHydratedDocument);
     },
 
     openCharacter(email, characterId) {
-      return invokeLibrary<LibraryCharacter>(email, "openCharacter", { characterId });
+      return invokeLibrary<LibraryCharacter>(email, "openCharacter", { characterId }).then(withHydratedDocument);
     },
 
     saveCharacter(email, characterId, input) {
@@ -114,7 +132,7 @@ export function createSupabaseLibraryClient(): LibraryClient {
         characterId,
         title: input.title,
         document: input.document,
-      });
+      }).then(withHydratedDocument);
     },
 
     deleteCharacter(email, characterId) {
@@ -122,7 +140,7 @@ export function createSupabaseLibraryClient(): LibraryClient {
     },
 
     importCharacter(email, fileJson) {
-      return invokeLibrary<LibraryCharacter>(email, "importCharacter", { fileJson });
+      return invokeLibrary<LibraryCharacter>(email, "importCharacter", { fileJson }).then(withHydratedDocument);
     },
 
     listCampaigns(email) {
@@ -130,18 +148,18 @@ export function createSupabaseLibraryClient(): LibraryClient {
     },
 
     createCampaign(email, input) {
-      return invokeLibrary<LibraryCampaign>(email, "createCampaign", { title: input.title });
+      return invokeLibrary<LibraryCampaign>(email, "createCampaign", { title: input.title }).then(withHydratedMembers);
     },
 
     openCampaign(email, campaignId) {
-      return invokeLibrary<LibraryCampaign>(email, "openCampaign", { campaignId });
+      return invokeLibrary<LibraryCampaign>(email, "openCampaign", { campaignId }).then(withHydratedMembers);
     },
 
     saveCampaign(email, campaignId, input) {
       return invokeLibrary<LibraryCampaign>(email, "saveCampaign", {
         campaignId,
         title: input.title,
-      });
+      }).then(withHydratedMembers);
     },
 
     deleteCampaign(email, campaignId) {
