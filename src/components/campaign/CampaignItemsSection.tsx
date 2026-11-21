@@ -2,6 +2,12 @@ import { useCallback, useEffect, useMemo, useState, useSyncExternalStore, type F
 import type { CurrencyDenomination } from "../../data/types";
 import { parseMassInput, parseOptionalRangeInput } from "../../domain/homebrewItemInput";
 import {
+  HomebrewItemsFileParseError,
+  homebrewItemsFileName,
+  parseHomebrewItemsFile,
+  serializeHomebrewItemsFile,
+} from "../../domain/homebrewItemsFile";
+import {
   CURRENCY_DENOMINATIONS,
   HOMEBREW_ITEM_CATEGORIES,
   type HomebrewItemCategory,
@@ -9,14 +15,18 @@ import {
   type HomebrewItemRecord,
 } from "../../domain/homebrewItems";
 import { parseLocalizedDecimal } from "../../domain/units";
-import { useLocale } from "../../i18n/LocaleContext";
+import { useLocale, type TranslateFn } from "../../i18n/LocaleContext";
+import { pickFile, saveBytes } from "../../platform/fileIo";
 import {
   getLibraryCampaignBinding,
   getLibraryCharacterBinding,
   getLibraryClient,
+  LibraryClientError,
   subscribeLibrarySession,
   type LibraryCampaignSummary,
 } from "../../platform/libraryClient";
+import { libraryErrorMessage } from "../../platform/libraryErrorMessage";
+import { normalizeLibraryEmail } from "../../platform/libraryValidation";
 import { refreshHomebrewItemRegistryForCampaign } from "../../platform/refreshHomebrewItemRegistry";
 import { useMeasurementSystem } from "../../platform/measurementSystem";
 import restStyles from "../rest/Rest.module.css";
@@ -57,6 +67,19 @@ function buildHomebrewData(
   };
 }
 
+const JSON_ACCEPT = { "application/json": [".json"] };
+
+/** Library failures go through `libraryErrorMessage`; anything else (network, file IO) uses `fallbackKey`. */
+function errorText(error: unknown, t: TranslateFn, fallbackKey: string): string {
+  if (error instanceof LibraryClientError) return libraryErrorMessage(error, t);
+  return t(fallbackKey);
+}
+
+interface ImportDraft {
+  fileJson: string;
+  campaignIds: string[];
+}
+
 export function CampaignItemsSection() {
   const { t } = useLocale();
   const { system } = useMeasurementSystem();
@@ -67,6 +90,21 @@ export function CampaignItemsSection() {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [toolError, setToolError] = useState<string | null>(null);
+  const [notice, setNotice] = useState<string | null>(null);
+  const [selectedIds, setSelectedIds] = useState<ReadonlySet<string>>(() => new Set());
+  const [importDraft, setImportDraft] = useState<ImportDraft | null>(null);
+  const [importError, setImportError] = useState<string | null>(null);
+
+  const callerEmail = campaignBinding ? normalizeLibraryEmail(campaignBinding.email) : "";
+  // Every campaign the DM owns (listCampaigns may also return campaigns the caller only plays in).
+  const ownedCampaigns = useMemo(
+    () => campaigns.filter((campaign) => normalizeLibraryEmail(campaign.ownerEmail) === callerEmail),
+    [campaigns, callerEmail],
+  );
+  const activeCampaignTitle =
+    campaigns.find((campaign) => campaign.id === campaignBinding?.campaignId)?.title ?? "";
+  const selectedItems = items.filter((item) => selectedIds.has(item.id));
 
   const massUnitLabel = system === "metric" ? t("app.campaign.items.weightKg") : t("app.campaign.items.weightLb");
   const rangeUnitLabel = system === "metric" ? t("app.campaign.items.rangeM") : t("app.campaign.items.rangeFt");
@@ -87,8 +125,8 @@ export function CampaignItemsSection() {
   }, [campaignBinding]);
 
   useEffect(() => {
-    void reload();
-  }, [reload]);
+    reload().catch((err: unknown) => setToolError(errorText(err, t, "account.libraryError")));
+  }, [reload, t]);
 
   useEffect(() => {
     if (!campaignBinding || editingId) return;
@@ -177,7 +215,7 @@ export function CampaignItemsSection() {
       await syncPlayerRegistry();
       resetForm([campaignBinding.campaignId]);
     } catch (err) {
-      setError(err instanceof Error ? err.message : t("app.campaign.items.saveFailed"));
+      setError(errorText(err, t, "app.campaign.items.saveFailed"));
     } finally {
       setPending(false);
     }
@@ -195,7 +233,90 @@ export function CampaignItemsSection() {
       await reload();
       await syncPlayerRegistry();
     } catch (err) {
-      setError(err instanceof Error ? err.message : t("app.campaign.items.saveFailed"));
+      setError(errorText(err, t, "app.campaign.items.saveFailed"));
+    } finally {
+      setPending(false);
+    }
+  }
+
+  function toggleSelected(id: string, checked: boolean) {
+    setSelectedIds((prev) => {
+      const next = new Set(prev);
+      if (checked) next.add(id);
+      else next.delete(id);
+      return next;
+    });
+  }
+
+  async function handleExport(records: HomebrewItemRecord[]) {
+    if (records.length === 0) return;
+    setPending(true);
+    setToolError(null);
+    setNotice(null);
+    try {
+      await saveBytes({
+        bytes: serializeHomebrewItemsFile(records),
+        filename: homebrewItemsFileName(activeCampaignTitle),
+        mimeType: "application/json",
+      });
+    } catch {
+      setToolError(t("app.campaign.items.exportFailed"));
+    } finally {
+      setPending(false);
+    }
+  }
+
+  async function handleImportPick() {
+    if (!campaignBinding) return;
+    setToolError(null);
+    setNotice(null);
+    let fileJson: string;
+    try {
+      const [picked] = await pickFile({ accept: JSON_ACCEPT });
+      if (!picked) return;
+      fileJson = picked.text ?? (picked.bytes ? new TextDecoder().decode(picked.bytes) : "");
+    } catch {
+      setToolError(t("app.campaign.items.importFailed"));
+      return;
+    }
+    // Same rules as the server: catch a bad file before asking for target campaigns.
+    try {
+      parseHomebrewItemsFile(fileJson);
+    } catch (err) {
+      setToolError(
+        err instanceof HomebrewItemsFileParseError
+          ? t("app.campaign.items.importInvalidFile")
+          : t("app.campaign.items.importFailed"),
+      );
+      return;
+    }
+    setImportError(null);
+    setImportDraft({ fileJson, campaignIds: [campaignBinding.campaignId] });
+  }
+
+  async function handleImportConfirm() {
+    if (!campaignBinding || !importDraft) return;
+    if (importDraft.campaignIds.length === 0) {
+      setImportError(t("app.campaign.items.campaignRequired"));
+      return;
+    }
+    setPending(true);
+    setImportError(null);
+    let imported = false;
+    try {
+      const created = await getLibraryClient().importHomebrewItems(campaignBinding.email, importDraft);
+      imported = true;
+      setImportDraft(null);
+      setNotice(t("app.campaign.items.imported", { count: created.length }));
+      await reload();
+      await syncPlayerRegistry();
+    } catch (err) {
+      if (imported) {
+        // The import landed; only the refresh after it failed.
+        setToolError(errorText(err, t, "account.libraryError"));
+      } else {
+        setImportError(errorText(err, t, "app.campaign.items.importFailed"));
+      }
     } finally {
       setPending(false);
     }
@@ -213,6 +334,99 @@ export function CampaignItemsSection() {
   return (
     <div className={styles.section}>
       <p className={styles.hint}>{t("app.campaign.items.bookScaleHint")}</p>
+
+      <div className={styles.tools}>
+        <div className={styles.actions}>
+          <button
+            type="button"
+            className={restStyles.restButton}
+            disabled={pending || items.length === 0}
+            onClick={() => void handleExport(items)}
+          >
+            {t("app.campaign.items.export")}
+          </button>
+          <button
+            type="button"
+            className={restStyles.restButton}
+            disabled={pending || selectedItems.length === 0}
+            onClick={() => void handleExport(selectedItems)}
+          >
+            {t("app.campaign.items.exportSelected", { count: selectedItems.length })}
+          </button>
+          <button
+            type="button"
+            className={restStyles.restButton}
+            disabled={pending || importDraft !== null}
+            onClick={() => void handleImportPick()}
+          >
+            {t("app.campaign.items.import")}
+          </button>
+        </div>
+        {toolError ? (
+          <p className={styles.error} role="alert">
+            {toolError}
+          </p>
+        ) : null}
+        {notice ? (
+          <p className={styles.success} role="status">
+            {notice}
+          </p>
+        ) : null}
+        {importDraft ? (
+          <div className={styles.importPanel}>
+            <h3>{t("app.campaign.items.importTitle")}</h3>
+            {importError ? (
+              <p className={styles.error} role="alert">
+                {importError}
+              </p>
+            ) : null}
+            <fieldset className={styles.fieldset}>
+              <legend>{t("app.campaign.items.importTargetCampaigns")}</legend>
+              {ownedCampaigns.map((campaign) => (
+                <label key={campaign.id} className={styles.checkboxRow}>
+                  <input
+                    type="checkbox"
+                    checked={importDraft.campaignIds.includes(campaign.id)}
+                    disabled={pending}
+                    onChange={(event) => {
+                      const checked = event.target.checked;
+                      setImportDraft((prev) => {
+                        if (!prev) return prev;
+                        const next = new Set(prev.campaignIds);
+                        if (checked) next.add(campaign.id);
+                        else next.delete(campaign.id);
+                        return { ...prev, campaignIds: [...next] };
+                      });
+                    }}
+                  />
+                  {campaign.title}
+                </label>
+              ))}
+            </fieldset>
+            <div className={styles.actions}>
+              <button
+                type="button"
+                className={formStyles.button}
+                disabled={pending}
+                onClick={() => void handleImportConfirm()}
+              >
+                {pending ? t("app.campaign.items.importBusy") : t("app.campaign.items.importConfirm")}
+              </button>
+              <button
+                type="button"
+                className={restStyles.restButton}
+                disabled={pending}
+                onClick={() => {
+                  setImportDraft(null);
+                  setImportError(null);
+                }}
+              >
+                {t("account.cancel")}
+              </button>
+            </div>
+          </div>
+        ) : null}
+      </div>
 
       <form className={formStyles.form} onSubmit={(event) => void handleSubmit(event)}>
         <h3>{editingId ? t("app.campaign.items.editTitle") : t("app.campaign.items.createTitle")}</h3>
@@ -315,7 +529,7 @@ export function CampaignItemsSection() {
           </div>
           <fieldset className={`${styles.fieldset} ${styles.fullWidth}`}>
             <legend>{t("app.campaign.items.campaignsLegend")}</legend>
-            {campaigns.map((campaign) => (
+            {ownedCampaigns.map((campaign) => (
               <label key={campaign.id} className={styles.checkboxRow}>
                 <input
                   type="checkbox"
@@ -359,25 +573,34 @@ export function CampaignItemsSection() {
           <ul className={styles.itemList}>
             {items.map((item) => (
               <li key={item.id}>
-                <div>
-                  <strong>{item.data.name}</strong>
-                  <span className={styles.itemMeta}>
-                    {t(`equipment.homebrewCategory.${item.data.category}`)}
+                <label className={styles.selectRow}>
+                  <input
+                    type="checkbox"
+                    checked={selectedIds.has(item.id)}
+                    onChange={(event) => toggleSelected(item.id, event.target.checked)}
+                  />
+                  <span>
+                    <strong>{item.data.name}</strong>
+                    <span className={styles.itemMeta}>
+                      {t(`equipment.homebrewCategory.${item.data.category}`)}
+                    </span>
                   </span>
-                </div>
-                <div className={styles.rowActions}>
-                  <button type="button" className={restStyles.restButton} onClick={() => startEdit(item)}>
-                    {t("app.campaign.items.edit")}
-                  </button>
-                  <button
-                    type="button"
-                    className={restStyles.restButton}
-                    disabled={pending}
-                    onClick={() => void handleDelete(item.id)}
-                  >
-                    {t("app.campaign.items.delete")}
-                  </button>
-                </div>
+                </label>
+                {normalizeLibraryEmail(item.ownerEmail) === callerEmail ? (
+                  <div className={styles.rowActions}>
+                    <button type="button" className={restStyles.restButton} onClick={() => startEdit(item)}>
+                      {t("app.campaign.items.edit")}
+                    </button>
+                    <button
+                      type="button"
+                      className={restStyles.restButton}
+                      disabled={pending}
+                      onClick={() => void handleDelete(item.id)}
+                    >
+                      {t("app.campaign.items.delete")}
+                    </button>
+                  </div>
+                ) : null}
               </li>
             ))}
           </ul>
