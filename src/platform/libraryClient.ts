@@ -68,9 +68,11 @@ export interface LibraryCampaign {
   members: LibraryMembership[];
 }
 
-export interface LibraryClient {
+export interface PlayerLibrary {
   ensurePlayer(email: string): Promise<void>;
+}
 
+export interface CharacterLibrary {
   listCharacters(email: string): Promise<LibraryCharacterSummary[]>;
   createCharacter(email: string, input: { title: string; document?: Character }): Promise<LibraryCharacter>;
   openCharacter(email: string, characterId: string): Promise<LibraryCharacter>;
@@ -81,7 +83,9 @@ export interface LibraryClient {
   ): Promise<LibraryCharacter>;
   deleteCharacter(email: string, characterId: string): Promise<void>;
   importCharacter(email: string, fileJson: string): Promise<LibraryCharacter>;
+}
 
+export interface CampaignLibrary {
   listCampaigns(email: string): Promise<LibraryCampaignSummary[]>;
   createCampaign(email: string, input: { title: string }): Promise<LibraryCampaign>;
   openCampaign(email: string, campaignId: string): Promise<LibraryCampaign>;
@@ -90,7 +94,9 @@ export interface LibraryClient {
 
   seatCharacter(email: string, campaignId: string, characterId: string): Promise<void>;
   unseatCharacter(email: string, campaignId: string, characterId: string): Promise<void>;
+}
 
+export interface HomebrewLibrary {
   listHomebrewItems(email: string, filter?: { campaignId?: string }): Promise<HomebrewItemRecord[]>;
   createHomebrewItem(
     email: string,
@@ -103,6 +109,9 @@ export interface LibraryClient {
   ): Promise<HomebrewItemRecord>;
   deleteHomebrewItem(email: string, itemId: string): Promise<void>;
 }
+
+/** Full library surface. Add a domain by declaring its interface above and intersecting it here. */
+export type LibraryClient = PlayerLibrary & CharacterLibrary & CampaignLibrary & HomebrewLibrary;
 
 let singleton: LibraryClient | null = null;
 let factory: (() => LibraryClient) | null = null;
