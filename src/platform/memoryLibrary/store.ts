@@ -70,7 +70,10 @@ export function newId(): string {
 
 export function ensurePlayerRow(store: MemoryLibraryStore, email: string): void {
   if (store.players.has(email)) return;
-  store.players.set(email, { email, displayName: email });
+  // Same default as the edge function: the email's local part (`ada` for `ada@example.com`).
+  const at = email.indexOf("@");
+  const local = (at >= 0 ? email.slice(0, at) : email).trim();
+  store.players.set(email, { email, displayName: local || email });
 }
 
 export function requireCharacter(store: MemoryLibraryStore, email: string, characterId: string): CharacterRow {

@@ -2,7 +2,8 @@ import { describe, expect, it } from "vitest";
 import { MAX_DISPLAY_NAME_LENGTH as EDGE_MAX_DISPLAY_NAME_LENGTH } from "../../../supabase/functions/library/rules/players.ts";
 import { LibraryClientError } from "../libraryClient";
 import { createMemoryLibraryClient } from "../memoryLibraryClient";
-import { MAX_DISPLAY_NAME_LENGTH, normalizeDisplayName } from "./players";
+import { MAX_DISPLAY_NAME_LENGTH } from "../../domain/libraryLimits";
+import { normalizeDisplayName } from "./players";
 
 const EMAIL = "ada@example.com";
 

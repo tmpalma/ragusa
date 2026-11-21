@@ -1,16 +1,6 @@
 import { LibraryClientError, type LibraryPlayer, type PlayerLibrary } from "../libraryClient";
+import { displayNameLength, MAX_DISPLAY_NAME_LENGTH } from "../../domain/libraryLimits";
 import { ensurePlayerRow, normalizeEmail, type MemoryLibraryStore } from "./store";
-
-/**
- * Longest display name, in Unicode code points.
- * Mirrors `supabase/functions/library/rules/players.ts` (checked in `players.test.ts`).
- */
-export const MAX_DISPLAY_NAME_LENGTH = 40;
-
-/** Number of Unicode code points in `value` (what the display-name cap counts). */
-export function displayNameLength(value: string): number {
-  return [...value].length;
-}
 
 /**
  * Client mirror of the edge `normalizeDisplayName`: trims, then rejects a blank or over-long

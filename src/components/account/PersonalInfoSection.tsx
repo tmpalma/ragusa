@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import { useLocale } from "../../i18n/LocaleContext";
 import { getLibraryClient } from "../../platform/libraryClient";
 import { libraryErrorMessage } from "../../platform/libraryErrorMessage";
-import { displayNameLength, MAX_DISPLAY_NAME_LENGTH } from "../../platform/memoryLibrary/players";
+import { displayNameLength, MAX_DISPLAY_NAME_LENGTH } from "../../domain/libraryLimits";
 import { useSession } from "../../state/SessionContext";
 import styles from "../../pages/AccountPage.module.css";
 import type { AccountIdentity } from "./accountSectionTypes";
