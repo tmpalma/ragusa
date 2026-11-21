@@ -1,5 +1,6 @@
 import { FunctionsHttpError } from "@supabase/supabase-js";
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import { onLibraryUnauthenticated } from "./authEvents";
 import { LibraryClientError } from "./libraryClient";
 import { createSupabaseLibraryClient } from "./supabaseLibraryClient";
 
@@ -63,10 +64,10 @@ describe("supabase library client", () => {
     expect(invoke).toHaveBeenCalledWith("library", {
       body: expect.objectContaining({
         op: "createHomebrewItem",
-        email: "ada@example.com",
         campaignIds: record.campaignIds,
       }),
     });
+    expect(invoke.mock.calls[0][1].body).not.toHaveProperty("email");
   });
 
   it("passes campaign filter when listing homebrew items", async () => {
@@ -78,10 +79,70 @@ describe("supabase library client", () => {
     expect(invoke).toHaveBeenCalledWith("library", {
       body: {
         op: "listHomebrewItems",
-        email: "ada@example.com",
         campaignId: "22222222-2222-4222-8222-222222222222",
       },
     });
+  });
+
+  it("never sends the caller's email in the body", async () => {
+    invoke.mockResolvedValue({ data: { ok: true, data: null }, error: null });
+    const client = createSupabaseLibraryClient();
+    await client.ensurePlayer("ada@example.com");
+    await client.listCharacters("ada@example.com");
+    await client.openCharacter("ada@example.com", "c1");
+    expect(invoke).toHaveBeenCalledTimes(3);
+    for (const [, options] of invoke.mock.calls) {
+      expect(options.body).not.toHaveProperty("email");
+    }
+    expect(invoke.mock.calls[0][1]).toEqual({ body: { op: "ensurePlayer" } });
+  });
+
+  it("does not let a payload override the op", async () => {
+    invoke.mockResolvedValue({ data: { ok: true, data: null }, error: null });
+    const client = createSupabaseLibraryClient();
+    await client.openCampaign("ada@example.com", "k1");
+    expect(invoke.mock.calls[0][1].body).toEqual({ op: "openCampaign", campaignId: "k1" });
+  });
+
+  it("reports unauthenticated (401) and maps it to a LibraryClientError", async () => {
+    const listener = vi.fn();
+    const stop = onLibraryUnauthenticated(listener);
+    try {
+      const response = new Response(
+        JSON.stringify({ ok: false, code: "unauthenticated", message: "Missing token." }),
+        { status: 401, headers: { "Content-Type": "application/json" } },
+      );
+      invoke.mockResolvedValue({ data: null, error: new FunctionsHttpError(response) });
+      const client = createSupabaseLibraryClient();
+      await expect(client.listCampaigns("ada@example.com")).rejects.toMatchObject({
+        name: "LibraryClientError",
+        code: "unauthenticated",
+      });
+      expect(listener).toHaveBeenCalledTimes(1);
+
+      invoke.mockResolvedValue({ data: null, error: new FunctionsHttpError(new Response("nope", { status: 401 })) });
+      await expect(client.listCampaigns("ada@example.com")).rejects.toMatchObject({ code: "unauthenticated" });
+      expect(listener).toHaveBeenCalledTimes(2);
+    } finally {
+      stop();
+    }
+  });
+
+  it("maps forbidden (403) without ending the session", async () => {
+    const listener = vi.fn();
+    const stop = onLibraryUnauthenticated(listener);
+    try {
+      const response = new Response(
+        JSON.stringify({ ok: false, code: "forbidden", message: "Email is linked to another account." }),
+        { status: 403, headers: { "Content-Type": "application/json" } },
+      );
+      invoke.mockResolvedValue({ data: null, error: new FunctionsHttpError(response) });
+      const client = createSupabaseLibraryClient();
+      await expect(client.ensurePlayer("ada@example.com")).rejects.toMatchObject({ code: "forbidden" });
+      expect(listener).not.toHaveBeenCalled();
+    } finally {
+      stop();
+    }
   });
 
   it("surfaces transport failures from functions.invoke", async () => {

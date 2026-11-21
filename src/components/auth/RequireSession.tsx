@@ -1,10 +1,19 @@
-import { Navigate, Outlet, useLocation } from "react-router";
-import { saveReturnPath } from "../../platform/authSessionStorage";
+import { useEffect } from "react";
+import { Navigate, Outlet, useLocation, useNavigate } from "react-router";
+import { consumeReturnPath, peekReturnPath, saveReturnPath } from "../../platform/authSessionStorage";
 import { useSession } from "../../state/SessionContext";
 
 export function RequireSession() {
   const { status, session } = useSession();
   const location = useLocation();
+  const navigate = useNavigate();
+
+  // The magic link lands on the site root. Send the user on to the page that sent them to sign in.
+  useEffect(() => {
+    if (!session || location.pathname !== "/") return;
+    if (peekReturnPath() == null) return;
+    navigate(consumeReturnPath(), { replace: true });
+  }, [session, location.pathname, navigate]);
 
   if (status === "loading") {
     return (

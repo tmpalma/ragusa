@@ -1,4 +1,4 @@
-import { normalizeEmail } from "./claimedIdentity";
+import { normalizeEmail } from "./email";
 
 let persistEmail: string | null = null;
 let persistReady = false;

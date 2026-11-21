@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react";
-import type { AccountDeleteRequest } from "../components/account/accountSectionTypes";
+import { useEffect, useMemo, useState } from "react";
+import type { AccountDeleteRequest, AccountIdentity } from "../components/account/accountSectionTypes";
 import { CampaignsSection } from "../components/account/CampaignsSection";
 import { CharactersSection } from "../components/account/CharactersSection";
 import { PersonalInfoSection } from "../components/account/PersonalInfoSection";
 import { ConfirmDialog } from "../components/confirm/ConfirmDialog";
 import { useLocale } from "../i18n/LocaleContext";
-import { loadClaimedIdentity, type ClaimedIdentity } from "../platform/claimedIdentity";
 import {
   getLibraryClient,
   LibraryClientError,
   type LibraryCampaignSummary,
   type LibraryCharacterSummary,
 } from "../platform/libraryClient";
+import { useSession } from "../state/SessionContext";
 import styles from "./AccountPage.module.css";
 
 function libraryErrorMessage(
@@ -23,18 +23,25 @@ function libraryErrorMessage(
     if (error.code === "character_has_membership") return t("account.deleteRefused");
     if (error.code === "invalid_character_file") return t("account.importFailed");
     if (error.code === "empty_title") return t("account.titleRequired");
+    if (error.code === "unauthenticated") return t("account.sessionExpired");
+    if (error.code === "forbidden") return t("account.forbidden");
   }
   return t("account.libraryError");
 }
 
 /**
- * Account page composition. Shared state lives here: claimed identity, the library lists
+ * Account page composition. Shared state lives here: the signed-in identity (from the session), the library lists
  * (characters + campaigns) and how they load, the pending flag + error display, and the
  * delete confirm dialog. Each section owns its own form state and library actions.
  */
 export function AccountPage() {
   const { t } = useLocale();
-  const [identity, setIdentity] = useState<ClaimedIdentity | null>(() => loadClaimedIdentity());
+  const { session } = useSession();
+  const sessionEmail = session?.email ?? null;
+  const identity = useMemo<AccountIdentity | null>(
+    () => (sessionEmail ? { email: sessionEmail } : null),
+    [sessionEmail],
+  );
   const [library, setLibrary] = useState<{
     email: string;
     characters: LibraryCharacterSummary[];
@@ -58,8 +65,8 @@ export function AccountPage() {
 
     void (async () => {
       try {
+        // SessionProvider already ran ensurePlayer for this user.
         const client = getLibraryClient();
-        await client.ensurePlayer(identity.email);
         const [nextCharacters, nextCampaigns] = await Promise.all([
           client.listCharacters(identity.email),
           client.listCampaigns(identity.email),
@@ -98,11 +105,6 @@ export function AccountPage() {
     }
   }
 
-  function changeIdentity(next: ClaimedIdentity | null) {
-    setIdentity(next);
-    if (!next) setLibrary(null);
-  }
-
   function confirmDelete() {
     if (!identity || !pendingDelete) return;
     const target = pendingDelete;
@@ -115,7 +117,6 @@ export function AccountPage() {
       <header className={styles.header}>
         <h1>{t("account.title")}</h1>
         <p>{t("account.subtitle")}</p>
-        <p className={styles.note}>{identity ? t("account.claimedLocalNote") : t("account.localPlayNote")}</p>
       </header>
 
       {error ? (
@@ -125,16 +126,10 @@ export function AccountPage() {
       ) : null}
 
       {/* Account sections are composed here, in DOM order. Add new sections as siblings below. */}
-      <PersonalInfoSection
-        identity={identity}
-        pending={pending}
-        run={run}
-        onError={setError}
-        onIdentityChange={changeIdentity}
-      />
-
       {identity ? (
         <>
+          <PersonalInfoSection identity={identity} pending={pending} />
+
           <CharactersSection
             identity={identity}
             characters={characters}

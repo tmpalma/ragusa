@@ -1,5 +1,5 @@
 import { parseCharacterFile, serializeCharacterFile } from "../domain/characterFile";
-import { normalizeEmail } from "./claimedIdentity";
+import { normalizeEmail } from "./email";
 import { INITIAL_CHARACTER, type Character } from "../state/characterState";
 import type { CampaignMember } from "../state/campaignState";
 import { getPersistStore } from "./persistStore";
