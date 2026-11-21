@@ -1,10 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { LibraryOpError } from "../errors.ts";
 import {
+  assertCanAddCharacter,
   assertCharacterDeletable,
   CHARACTER_FILE_FORMAT,
   CHARACTER_FILE_SCHEMA_VERSION,
   importedCharacterTitle,
+  MAX_CHARACTERS_PER_PLAYER,
   newCharacterDocument,
   parseImportDocument,
 } from "./characters.ts";
@@ -97,5 +99,25 @@ describe("assertCharacterDeletable", () => {
         message: "Remove the character from their campaign before deleting them.",
       }),
     );
+  });
+});
+
+describe("assertCanAddCharacter", () => {
+  it("allows adding below the cap", () => {
+    expect(() => assertCanAddCharacter(0)).not.toThrow();
+    expect(() => assertCanAddCharacter(3)).not.toThrow();
+  });
+
+  it("refuses at the cap and above it", () => {
+    expect(MAX_CHARACTERS_PER_PLAYER).toBe(4);
+    for (const count of [4, 5, 9]) {
+      try {
+        assertCanAddCharacter(count);
+        throw new Error("expected character_limit");
+      } catch (err) {
+        expect(err).toBeInstanceOf(LibraryOpError);
+        expect((err as LibraryOpError).code).toBe("character_limit");
+      }
+    }
   });
 });

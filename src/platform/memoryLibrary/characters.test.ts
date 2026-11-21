@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { serializeCharacterFile } from "../../domain/characterFile";
+import { MAX_CHARACTERS_PER_PLAYER } from "../../domain/libraryLimits";
 import { INITIAL_CHARACTER } from "../../state/characterState";
 import { createMemoryLibraryClient } from "../memoryLibraryClient";
 
@@ -50,5 +51,49 @@ describe("memory library client: characters", () => {
 
     const opened = await client.openCampaign(EMAIL, campaign.id);
     expect(opened.members.map((member) => member.characterId)).toEqual([existing.id]);
+  });
+
+  describe("character cap", () => {
+    async function fillToCap() {
+      const client = createMemoryLibraryClient();
+      await client.ensurePlayer(EMAIL);
+      const created = [];
+      for (let index = 1; index <= MAX_CHARACTERS_PER_PLAYER; index += 1) {
+        created.push(await client.createCharacter(EMAIL, { title: `Hero ${index}` }));
+      }
+      return { client, created };
+    }
+
+    it("allows the 4th character and refuses the 5th with character_limit", async () => {
+      const { client, created } = await fillToCap();
+      expect(created).toHaveLength(4);
+      await expect(client.createCharacter(EMAIL, { title: "Fifth" })).rejects.toMatchObject({
+        code: "character_limit",
+      });
+      expect(await client.listCharacters(EMAIL)).toHaveLength(4);
+    });
+
+    it("refuses an import at the cap", async () => {
+      const { client } = await fillToCap();
+      const file = serializeCharacterFile({ ...INITIAL_CHARACTER, name: "Imported" });
+      await expect(client.importCharacter(EMAIL, file)).rejects.toMatchObject({ code: "character_limit" });
+      expect(await client.listCharacters(EMAIL)).toHaveLength(4);
+    });
+
+    it("frees a slot when a character is deleted", async () => {
+      const { client, created } = await fillToCap();
+      await client.deleteCharacter(EMAIL, created[0].id);
+      const replacement = await client.createCharacter(EMAIL, { title: "Replacement" });
+      expect(replacement.title).toBe("Replacement");
+      expect(await client.listCharacters(EMAIL)).toHaveLength(4);
+    });
+
+    it("counts per owner", async () => {
+      const { client } = await fillToCap();
+      await client.ensurePlayer("bo@example.com");
+      await expect(client.createCharacter("bo@example.com", { title: "Other" })).resolves.toMatchObject({
+        title: "Other",
+      });
+    });
   });
 });

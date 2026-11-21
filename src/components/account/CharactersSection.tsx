@@ -1,5 +1,10 @@
 import { useRef, useState, type FormEvent } from "react";
 import { useNavigate } from "react-router";
+import { saveCharacterToDisk } from "../../domain/characterFileIo";
+import { computeDerivedStats } from "../../domain/deriveCharacter";
+import { MAX_CHARACTERS_PER_PLAYER } from "../../domain/libraryLimits";
+import { buildSheetPayload } from "../../domain/pdfSheet/buildSheetPayload";
+import { fieldMapForLocale } from "../../domain/pdfSheet/fieldMaps";
 import { useLocale } from "../../i18n/LocaleContext";
 import { saveActivePlay, savePlayerLastCharacter } from "../../platform/characterPersist";
 import {
@@ -13,6 +18,7 @@ import {
 import { refreshHomebrewItemRegistryForCharacter } from "../../platform/refreshHomebrewItemRegistry";
 import { INITIAL_CHARACTER } from "../../state/characterState";
 import { useCharacter } from "../../state/CharacterContext";
+import { useTableRules } from "../../state/TableRulesContext";
 import styles from "../../pages/AccountPage.module.css";
 import type { AccountDeleteRequest, AccountIdentity, RunAccountAction } from "./accountSectionTypes";
 
@@ -41,9 +47,13 @@ export function CharactersSection({
   onChanged,
   onRequestDelete,
 }: CharactersSectionProps) {
-  const { t } = useLocale();
+  const { locale, t, tEntity } = useLocale();
   const navigate = useNavigate();
+  const tableRules = useTableRules();
   const { character, dispatch: characterDispatch } = useCharacter();
+  const characterCount = characters.length;
+  // Accounts already over the cap keep their characters but cannot add more.
+  const atCap = libraryReady && characterCount >= MAX_CHARACTERS_PER_PLAYER;
   const [characterName, setCharacterName] = useState("");
   const [seatChoice, setSeatChoice] = useState<Record<string, string>>({});
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -112,6 +122,29 @@ export function CharactersSection({
     });
   }
 
+  function exportJson(characterId: string) {
+    void run(async () => {
+      const record = await getLibraryClient().openCharacter(identity.email, characterId);
+      await saveCharacterToDisk(record.document);
+    });
+  }
+
+  function exportPdf(characterId: string) {
+    void run(async () => {
+      const record = await getLibraryClient().openCharacter(identity.email, characterId);
+      const exported = record.document;
+      const derived = computeDerivedStats(exported, tableRules);
+      const entityName = (catalog: string, key: string | null | undefined, fallback?: string) =>
+        tEntity(catalog, key ?? "", "name", fallback);
+      const { fetchCharacterSheetTemplate, fillCharacterSheetPdf, downloadFilledCharacterPdf } =
+        await import("../../domain/pdfSheet/fillCharacterSheetPdf");
+      const template = await fetchCharacterSheetTemplate(locale);
+      const payload = buildSheetPayload(exported, derived, t, entityName, tEntity);
+      const filled = await fillCharacterSheetPdf(template, payload, fieldMapForLocale(locale));
+      await downloadFilledCharacterPdf(filled, `${exported.name.trim() || "character"}.pdf`);
+    });
+  }
+
   function importFile(file: File) {
     void run(async () => {
       const source = await file.text();
@@ -123,6 +156,22 @@ export function CharactersSection({
   return (
     <section className={styles.section} aria-labelledby="account-characters-heading">
       <h2 id="account-characters-heading">{t("account.charactersTitle")}</h2>
+      {libraryReady ? (
+        <p
+          className={styles.meta}
+          aria-label={t("account.characterCountAriaLabel", {
+            count: characterCount,
+            max: MAX_CHARACTERS_PER_PLAYER,
+          })}
+        >
+          {t("account.characterCount", { count: characterCount, max: MAX_CHARACTERS_PER_PLAYER })}
+        </p>
+      ) : null}
+      {atCap ? (
+        <p className={styles.note} role="status">
+          {t("account.characterLimitReached", { max: MAX_CHARACTERS_PER_PLAYER })}
+        </p>
+      ) : null}
       <form className={styles.inlineForm} onSubmit={createCharacter}>
         <input
           aria-label={t("account.characterName")}
@@ -131,13 +180,13 @@ export function CharactersSection({
           placeholder={t("account.characterName")}
           onChange={(event) => setCharacterName(event.target.value)}
         />
-        <button type="submit" className={styles.button} disabled={pending}>
+        <button type="submit" className={styles.button} disabled={pending || atCap}>
           {t("account.createCharacter")}
         </button>
         <button
           type="button"
           className={styles.buttonSecondary}
-          disabled={pending}
+          disabled={pending || atCap}
           onClick={() => fileInputRef.current?.click()}
         >
           {t("account.importCharacter")}
@@ -177,6 +226,26 @@ export function CharactersSection({
               >
                 {t("account.open")}
               </button>
+              {atCap ? (
+                <>
+                  <button
+                    type="button"
+                    className={styles.buttonSecondary}
+                    disabled={pending}
+                    onClick={() => exportJson(row.id)}
+                  >
+                    {t("account.characterLimitExportJson")}
+                  </button>
+                  <button
+                    type="button"
+                    className={styles.buttonSecondary}
+                    disabled={pending}
+                    onClick={() => exportPdf(row.id)}
+                  >
+                    {t("account.characterLimitExportPdf")}
+                  </button>
+                </>
+              ) : null}
               {row.campaignId ? (
                 <button
                   type="button"
