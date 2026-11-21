@@ -8,7 +8,7 @@ description: >-
   names, descriptions, glossary labels, or pt-BR/en catalog copy.
 ---
 
-# Catalog data (rpg-dm-player-toolset)
+# Catalog data (ragusa, formerly rpg-dm-player-toolset)
 
 Read this skill before **looking up** catalog content or **planning** any catalog change (rows or display strings).
 
@@ -19,7 +19,7 @@ For **string-only** seed SQL shape and `catalog_strings` column mapping in **dnd
 | Repo | Role |
 |------|------|
 | **dnd55-data** (`/home/thiago/code/dnd55-data`) | Source of truth for catalog rows and `catalog_strings` — `supabase/seed/*.sql`, migrations |
-| **rpg-dm-player-toolset** (this repo) | App mechanics, types, UI; loads catalog at runtime from Supabase only |
+| **ragusa** (this repo, formerly rpg-dm-player-toolset) | App mechanics, types, UI; loads catalog at runtime from Supabase only |
 
 ## Lookups — Supabase only
 
@@ -100,11 +100,19 @@ All of the above live in **`/home/thiago/code/dnd55-data`**:
 
 | Copy kind | Author in dnd55-data | Generate / apply |
 |-----------|----------------------|------------------|
-| UI chrome (`t("app.tab.party")`, `equipment.*`, …) | `ui-locales/{locale}/{namespace}.md` | `python3 scripts/catalog_strings/generate_ui_strings.py` → `supabase/seed/044_ui_strings.sql` (or next id) |
+| UI chrome (`t("app.tab.party")`, `equipment.*`, …) | A **new numbered seed file** `supabase/seed/NNN_<topic>_ui.sql`, with rows `('ui', <namespace>, <field>, locale, text)` | Hand-written idempotent upsert (`on conflict … do update`), the same pattern as `055`–`062`. `044_ui_strings.sql` is the original bulk seed: don't edit it. Override its rows from a newer file instead. |
 | Catalog entity / glossary strings | seeds or generator scripts per domain | upsert SQL in `supabase/seed/` |
 | Small equipment chrome (`customItems`, `gearSearch`) | `catalog_strings` with `entity_type = equipment`, empty `entity_key` | same seed workflow |
 
-After changing UI markdown, regenerate the seed and apply it to Supabase (`scripts/catalog_strings/apply_ui_strings_seed.sh` with `DATABASE_URL`, or run the SQL in the dashboard). The app loads UI strings from `get_catalog()` only.
+There is no `ui-locales/` folder or UI-string generator script in dnd55-data. Write the seed SQL directly.
+
+- **Keys:** the runtime key is `<namespace>.<field>`, and `field` may contain dots (`('ui', 'app', 'campaign.items.export', …)` → `app.campaign.items.export`).
+- **Interpolation:** single braces, `{count}`. Before adding a key, grep the existing seeds so it doesn't collide.
+- **Escaping:** escape `'` as `''`.
+
+**Applying a seed** is a write to the shared Supabase project, so do it only with the user's OK. Run the file in the dashboard SQL editor, or with `psql "$DATABASE_URL" -f supabase/seed/NNN_….sql`. dnd55-data has no apply script.
+
+The app loads UI strings from `get_catalog()` only. After a seed is applied, refresh [`src/testSupport/uiStrings.fixture.json`](../../src/testSupport/uiStrings.fixture.json) if tests depend on the new keys.
 
 Whenever **new** `catalog_strings` rows are added, follow **dnd55-data** [.cursor/skills/catalog-strings/SKILL.md](/home/thiago/code/dnd55-data/.cursor/skills/catalog-strings/SKILL.md): seed **both** `en` and `pt-BR` with the **same English text**; Portuguese translation is a later pass.
 
