@@ -1,4 +1,4 @@
-import type { HomebrewItemData } from "../domain/homebrewItems";
+import type { HomebrewItemData, HomebrewItemRecord } from "../domain/homebrewItems";
 import {
   LibraryClientError,
   type LibraryCampaign,
@@ -7,6 +7,7 @@ import {
   type LibraryCharacterSummary,
   type LibraryClient,
   type LibraryErrorCode,
+  type LibraryPlayer,
 } from "./libraryClient";
 import { notifyLibraryUnauthenticated } from "./authEvents";
 import { getSupabaseClient } from "./supabaseClient";
@@ -83,6 +84,14 @@ export function createSupabaseLibraryClient(): LibraryClient {
   return {
     ensurePlayer(email) {
       return invokeLibrary(email, "ensurePlayer");
+    },
+
+    getPlayer(email) {
+      return invokeLibrary<LibraryPlayer>(email, "getPlayer");
+    },
+
+    updatePlayer(email, input) {
+      return invokeLibrary<LibraryPlayer>(email, "updatePlayer", { displayName: input.displayName });
     },
 
     listCharacters(email) {
@@ -170,6 +179,13 @@ export function createSupabaseLibraryClient(): LibraryClient {
 
     deleteHomebrewItem(email, itemId) {
       return invokeLibrary(email, "deleteHomebrewItem", { itemId });
+    },
+
+    importHomebrewItems(email, input) {
+      return invokeLibrary<HomebrewItemRecord[]>(email, "importHomebrewItems", {
+        fileJson: input.fileJson,
+        campaignIds: input.campaignIds,
+      });
     },
   };
 }

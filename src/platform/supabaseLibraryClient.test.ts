@@ -181,4 +181,25 @@ describe("supabase library client", () => {
     await expect(client.listHomebrewItems("ada@example.com")).rejects.toThrow("homebrew_items");
     await expect(client.listHomebrewItems("ada@example.com")).rejects.not.toBeInstanceOf(LibraryClientError);
   });
+
+  it("passes getPlayer and updatePlayer through without the email", async () => {
+    const player = { email: "ada@example.com", displayName: "Ada" };
+    invoke.mockResolvedValue({ data: { ok: true, data: player }, error: null });
+    const client = createSupabaseLibraryClient();
+    await expect(client.getPlayer("ada@example.com")).resolves.toEqual(player);
+    await expect(client.updatePlayer("ada@example.com", { displayName: "Ada" })).resolves.toEqual(player);
+    expect(invoke.mock.calls[0][1]).toEqual({ body: { op: "getPlayer" } });
+    expect(invoke.mock.calls[1][1]).toEqual({ body: { op: "updatePlayer", displayName: "Ada" } });
+  });
+
+  it("passes importHomebrewItems through without the email", async () => {
+    invoke.mockResolvedValue({ data: { ok: true, data: [] }, error: null });
+    const client = createSupabaseLibraryClient();
+    const fileJson = JSON.stringify({ format: "ragusa-homebrew-items", schemaVersion: 1, items: [] });
+    const campaignIds = ["22222222-2222-4222-8222-222222222222"];
+    await expect(client.importHomebrewItems("ada@example.com", { fileJson, campaignIds })).resolves.toEqual([]);
+    expect(invoke.mock.calls[0][1]).toEqual({
+      body: { op: "importHomebrewItems", fileJson, campaignIds },
+    });
+  });
 });
