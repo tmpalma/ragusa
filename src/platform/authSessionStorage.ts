@@ -72,20 +72,48 @@ export function clearLocalDevSession(storage: StorageLike = localStorage): void 
   storage.removeItem(LOCAL_DEV_SESSION_KEY);
 }
 
-export function saveReturnPath(path: string): void {
+/**
+ * How long a saved return path stays usable. A sign-in abandoned for longer than this must not
+ * redirect a later session that happens to start on `/`.
+ */
+export const RETURN_PATH_TTL_MS = 30 * 60 * 1000;
+
+/** Saves where to go after sign-in, stamped with `now` so it expires after `RETURN_PATH_TTL_MS`. */
+export function saveReturnPath(path: string, now: number = Date.now()): void {
   if (!path || path === "/login") return;
-  localStorage.setItem(RETURN_PATH_KEY, stripAuthCallbackParams(path));
+  localStorage.setItem(RETURN_PATH_KEY, JSON.stringify({ path: stripAuthCallbackParams(path), savedAt: now }));
 }
 
-export function consumeReturnPath(): string {
-  const stored = localStorage.getItem(RETURN_PATH_KEY);
+/** Returns and clears the saved return path, or `/account` when none is fresh. */
+export function consumeReturnPath(now: number = Date.now()): string {
+  const stored = peekReturnPath(now);
   localStorage.removeItem(RETURN_PATH_KEY);
   if (!stored || stored === "/login") return "/account";
   return stored;
 }
 
-export function peekReturnPath(): string | null {
-  return localStorage.getItem(RETURN_PATH_KEY);
+/** The saved return path when present and fresh; drops an expired or malformed record. */
+export function peekReturnPath(now: number = Date.now()): string | null {
+  const raw = localStorage.getItem(RETURN_PATH_KEY);
+  if (raw == null) return null;
+  const path = freshReturnPath(raw, now);
+  if (path == null) localStorage.removeItem(RETURN_PATH_KEY);
+  return path;
+}
+
+function freshReturnPath(raw: string, now: number): string | null {
+  try {
+    const record = JSON.parse(raw) as unknown;
+    if (typeof record !== "object" || record === null) return null;
+    const { path, savedAt } = record as Record<string, unknown>;
+    if (typeof path !== "string" || typeof savedAt !== "number") return null;
+    const age = now - savedAt;
+    if (age < 0 || age > RETURN_PATH_TTL_MS) return null;
+    return path;
+  } catch {
+    // A bare string from an older build has no timestamp: treat it as stale.
+    return null;
+  }
 }
 
 /** Drops a leftover PKCE `code` from a path (for example a link opened in a different browser). */

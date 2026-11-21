@@ -10,8 +10,8 @@ import { useSession } from "../state/SessionContext";
 import accountStyles from "./AccountPage.module.css";
 import styles from "./LoginPage.module.css";
 
-/** Seconds before "Resend email" is enabled again after a send. */
-const RESEND_COOLDOWN_SECONDS = 30;
+/** Seconds before "Resend email" is enabled again after a send. Matches the hosted auth `max_frequency` (1 min). */
+const RESEND_COOLDOWN_SECONDS = 60;
 const OTP_LENGTH = 6;
 
 type Busy = "send" | "verify" | "resend" | null;

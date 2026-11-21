@@ -7,6 +7,7 @@ import {
   loadLocalDevSession,
   localDevSession,
   peekReturnPath,
+  RETURN_PATH_TTL_MS,
   sameSessionUser,
   saveLocalDevSession,
   saveReturnPath,
@@ -53,6 +54,35 @@ describe("authSessionStorage return path", () => {
     expect(peekReturnPath()).toBe("/");
     saveReturnPath("/campaign/party?code=abc&tab=1#top");
     expect(peekReturnPath()).toBe("/campaign/party?tab=1#top");
+  });
+
+  it("keeps a return path within the expiry window", () => {
+    const savedAt = 1_000_000;
+    saveReturnPath("/campaign", savedAt);
+    expect(peekReturnPath(savedAt + RETURN_PATH_TTL_MS)).toBe("/campaign");
+    expect(consumeReturnPath(savedAt + RETURN_PATH_TTL_MS)).toBe("/campaign");
+  });
+
+  it("drops a return path left by an abandoned sign-in once it expires", () => {
+    const store = installLocalStorageMock();
+    const savedAt = 1_000_000;
+    saveReturnPath("/campaign", savedAt);
+    expect(peekReturnPath(savedAt + RETURN_PATH_TTL_MS + 1)).toBeNull();
+    expect(store.has("auth-return-path")).toBe(false);
+    saveReturnPath("/character", savedAt);
+    expect(consumeReturnPath(savedAt + RETURN_PATH_TTL_MS + 1)).toBe("/account");
+    expect(store.has("auth-return-path")).toBe(false);
+  });
+
+  it("treats malformed, future-dated or pre-expiry (bare string) records as stale", () => {
+    const store = installLocalStorageMock();
+    store.set("auth-return-path", "/character");
+    expect(peekReturnPath()).toBeNull();
+    expect(store.has("auth-return-path")).toBe(false);
+    store.set("auth-return-path", JSON.stringify({ path: "/character" }));
+    expect(consumeReturnPath()).toBe("/account");
+    saveReturnPath("/character", 5_000);
+    expect(peekReturnPath(4_000)).toBeNull();
   });
 });
 
