@@ -2,4 +2,7 @@
 # Link your project with: supabase link --project-ref <ref>
 
 [functions.library]
+# Gateway check stays on. It is not sufficient on its own: the public anon key is also a valid JWT
+# and passes it. The function therefore verifies the caller itself with `auth.getUser(jwt)` and
+# returns 401 `unauthenticated` for the anon key, expired tokens, or users without an email.
 verify_jwt = true

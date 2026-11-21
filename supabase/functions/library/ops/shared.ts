@@ -1,13 +1,49 @@
 import type { SupabaseClient } from "https://esm.sh/@supabase/supabase-js@2.49.1";
 import { LibraryOpError } from "../errors.ts";
+import { assertAuthUserLink, displayNameFromEmail } from "../rules/auth.ts";
 
 export function nowIso(): string {
   return new Date().toISOString();
 }
 
-/** Best-effort player row upsert (errors intentionally ignored, as before the split). */
-export async function upsertPlayer(db: SupabaseClient, email: string): Promise<void> {
-  await db.from("players").upsert({ email, display_name: email }, { onConflict: "email" });
+/**
+ * Ensures the caller's `players` row exists and is linked to their auth user.
+ * - New row: inserted with `display_name` = email local part and `auth_user_id = userId`.
+ * - Existing row: `display_name` is never touched (insert is ON CONFLICT DO NOTHING).
+ *   A null `auth_user_id` is set to `userId`; a different one throws `forbidden` (reused email).
+ */
+export async function upsertPlayer(db: SupabaseClient, email: string, userId: string): Promise<void> {
+  const { error: insertError } = await db
+    .from("players")
+    .upsert(
+      { email, display_name: displayNameFromEmail(email), auth_user_id: userId },
+      { onConflict: "email", ignoreDuplicates: true },
+    );
+  if (insertError) throw insertError;
+  const { data: row, error: readError } = await db
+    .from("players")
+    .select("auth_user_id")
+    .eq("email", email)
+    .maybeSingle();
+  if (readError) throw readError;
+  if (!row) throw new Error("Player row missing after upsert.");
+  if (!assertAuthUserLink(row.auth_user_id as string | null, userId)) return;
+  const { data: linked, error: linkError } = await db
+    .from("players")
+    .update({ auth_user_id: userId })
+    .eq("email", email)
+    .is("auth_user_id", null)
+    .select("auth_user_id");
+  if (linkError) throw linkError;
+  if ((linked ?? []).length > 0) return;
+  // Lost a race with a concurrent link: re-check who won.
+  const { data: after, error: recheckError } = await db
+    .from("players")
+    .select("auth_user_id")
+    .eq("email", email)
+    .maybeSingle();
+  if (recheckError) throw recheckError;
+  assertAuthUserLink((after?.auth_user_id as string | null) ?? null, userId);
 }
 
 export async function ownedCampaignIdSet(db: SupabaseClient, email: string): Promise<Set<string>> {

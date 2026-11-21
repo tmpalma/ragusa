@@ -28,10 +28,10 @@ export const homebrewOps: OpRecord = {
     return (data ?? []).map(homebrewItemFromRow);
   },
 
-  async createHomebrewItem({ db, email }, payload) {
+  async createHomebrewItem({ db, email, userId }, payload) {
     const campaignIds = Array.isArray(payload.campaignIds) ? stringIds(payload.campaignIds) : [];
     const rawData = requireHomebrewDataRecord(payload.data);
-    await upsertPlayer(db, email);
+    await upsertPlayer(db, email, userId);
     await assertOwnedCampaignIds(db, email, campaignIds);
     const data = validateHomebrewData(rawData);
     const { data: row, error } = await db
