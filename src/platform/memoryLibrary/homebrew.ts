@@ -1,4 +1,5 @@
-import type { HomebrewItemRecord } from "../../domain/homebrewItems";
+import type { HomebrewItemData, HomebrewItemRecord } from "../../domain/homebrewItems";
+import { HomebrewItemsFileParseError, parseHomebrewItemsFile } from "../../domain/homebrewItemsFile";
 import { LibraryClientError, type HomebrewLibrary } from "../libraryClient";
 import { validateHomebrewItemData } from "../libraryValidation";
 import {
@@ -21,19 +22,41 @@ function toRecord(row: HomebrewItemRow): HomebrewItemRecord {
   };
 }
 
+function sortRecords(records: HomebrewItemRecord[]): HomebrewItemRecord[] {
+  return records.sort((a, b) =>
+    a.updatedAt < b.updatedAt ? 1 : a.updatedAt > b.updatedAt ? -1 : a.data.name.localeCompare(b.data.name),
+  );
+}
+
+/** Mirrors the edge rule: the campaign's DM or a member (owns a seated character), else `not_found`. */
+function assertCanListCampaignItems(store: MemoryLibraryStore, email: string, campaignId: string): void {
+  const campaign = store.campaigns.get(campaignId);
+  if (campaign && campaign.ownerEmail === email) return;
+  if (campaign) {
+    for (const membership of store.memberships.values()) {
+      if (membership.campaignId !== campaignId) continue;
+      if (store.characters.get(membership.characterId)?.ownerEmail === email) return;
+    }
+  }
+  throw new LibraryClientError("not_found", "Campaign not found.");
+}
+
 export function createHomebrewLibrary(store: MemoryLibraryStore): HomebrewLibrary {
   const { homebrewItems } = store;
 
   return {
     async listHomebrewItems(email, filter) {
-      const ownerEmail = normalizeEmail(email);
-      let rows = [...homebrewItems.values()].filter((row) => row.ownerEmail === ownerEmail);
-      if (filter?.campaignId) {
-        rows = rows.filter((row) => row.campaignIds.includes(filter.campaignId!));
+      const callerEmail = normalizeEmail(email);
+      const campaignId = filter?.campaignId;
+      let rows: HomebrewItemRow[];
+      if (campaignId) {
+        // Member-visible: every item linked to the campaign, whoever owns it.
+        assertCanListCampaignItems(store, callerEmail, campaignId);
+        rows = [...homebrewItems.values()].filter((row) => row.campaignIds.includes(campaignId));
+      } else {
+        rows = [...homebrewItems.values()].filter((row) => row.ownerEmail === callerEmail);
       }
-      return rows
-        .map(toRecord)
-        .sort((a, b) => (a.updatedAt < b.updatedAt ? 1 : a.updatedAt > b.updatedAt ? -1 : a.data.name.localeCompare(b.data.name)));
+      return sortRecords(rows.map(toRecord));
     },
 
     async createHomebrewItem(email, input) {
@@ -87,9 +110,32 @@ export function createHomebrewLibrary(store: MemoryLibraryStore): HomebrewLibrar
       homebrewItems.delete(itemId);
     },
 
-    // TODO(P1-B): parse { fileJson, campaignIds }, validate every item (invalid_items_file), insert, return records.
-    async importHomebrewItems() {
-      throw new Error("Not implemented: importHomebrewItems (Phase 1)");
+    async importHomebrewItems(email, input) {
+      const ownerEmail = normalizeEmail(email);
+      let items: HomebrewItemData[];
+      try {
+        items = parseHomebrewItemsFile(input.fileJson);
+      } catch (error) {
+        if (error instanceof HomebrewItemsFileParseError) {
+          throw new LibraryClientError("invalid_items_file", error.message);
+        }
+        throw error;
+      }
+      ensurePlayerRow(store, ownerEmail);
+      assertOwnedCampaignIds(store, ownerEmail, input.campaignIds);
+      // Everything is validated above, so the inserts below cannot fail halfway.
+      const updatedAt = now();
+      return items.map((data) => {
+        const row: HomebrewItemRow = {
+          id: newId(),
+          ownerEmail,
+          campaignIds: [...input.campaignIds],
+          data,
+          updatedAt,
+        };
+        homebrewItems.set(row.id, row);
+        return toRecord(row);
+      });
     },
   };
 }

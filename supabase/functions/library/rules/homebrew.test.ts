@@ -1,5 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { assertCampaignIdsOwned, homebrewItemFromRow, stringIds, validateHomebrewData } from "./homebrew.ts";
+import {
+  assertCampaignIdsOwned,
+  assertCampaignItemsAccess,
+  homebrewItemFromRow,
+  parseHomebrewItemsFile,
+  stringIds,
+  validateHomebrewData,
+} from "./homebrew.ts";
 
 function item(overrides: Record<string, unknown> = {}): Record<string, unknown> {
   return {
@@ -87,5 +94,84 @@ describe("homebrewItemFromRow", () => {
     expect(
       homebrewItemFromRow({ id: "i", owner_email: "e", campaign_ids: null, data: { name: "x" }, updated_at: "t" }),
     ).toEqual({ id: "i", ownerEmail: "e", campaignIds: [], data: { name: "x" }, updatedAt: "t" });
+  });
+});
+
+describe("assertCampaignItemsAccess", () => {
+  const notFound = expect.objectContaining({ code: "not_found", message: "Campaign not found." });
+
+  it("lets the DM in", () => {
+    expect(() =>
+      assertCampaignItemsAccess({ callerEmail: "dm@x", campaignOwnerEmail: "dm@x", callerIsMember: false }),
+    ).not.toThrow();
+  });
+
+  it("lets a member in", () => {
+    expect(() =>
+      assertCampaignItemsAccess({ callerEmail: "p@x", campaignOwnerEmail: "dm@x", callerIsMember: true }),
+    ).not.toThrow();
+  });
+
+  it("hides the campaign from strangers", () => {
+    expect(() =>
+      assertCampaignItemsAccess({ callerEmail: "s@x", campaignOwnerEmail: "dm@x", callerIsMember: false }),
+    ).toThrow(notFound);
+  });
+
+  it("reports a missing campaign as not_found", () => {
+    expect(() =>
+      assertCampaignItemsAccess({ callerEmail: "s@x", campaignOwnerEmail: null, callerIsMember: false }),
+    ).toThrow(notFound);
+  });
+});
+
+describe("parseHomebrewItemsFile", () => {
+  const invalidFile = expect.objectContaining({ code: "invalid_items_file" });
+
+  function file(overrides: Record<string, unknown> = {}): string {
+    return JSON.stringify({
+      format: "ragusa-homebrew-items",
+      schemaVersion: 1,
+      exportedAt: "2026-11-20T00:00:00.000Z",
+      items: [{ data: item({ name: "  Ring  ", description: "Shiny" }) }, { data: item({ name: "Plain" }) }],
+      ...overrides,
+    });
+  }
+
+  it("returns validated item data", () => {
+    expect(parseHomebrewItemsFile(file())).toEqual([
+      item({ name: "Ring", description: "Shiny" }),
+      item({ name: "Plain", description: "" }),
+    ]);
+  });
+
+  it("accepts an older schema version and an empty list", () => {
+    expect(parseHomebrewItemsFile(file({ schemaVersion: 0, items: [] }))).toEqual([]);
+  });
+
+  it("rejects non-JSON and non-string input", () => {
+    expect(() => parseHomebrewItemsFile("{not json")).toThrow(invalidFile);
+    expect(() => parseHomebrewItemsFile(undefined)).toThrow(invalidFile);
+    expect(() => parseHomebrewItemsFile("[]")).toThrow(invalidFile);
+  });
+
+  it("rejects the wrong format", () => {
+    expect(() => parseHomebrewItemsFile(file({ format: "dnd55e-chargen-character" }))).toThrow(invalidFile);
+  });
+
+  it("rejects a newer or missing schema version", () => {
+    expect(() => parseHomebrewItemsFile(file({ schemaVersion: 2 }))).toThrow(invalidFile);
+    expect(() => parseHomebrewItemsFile(file({ schemaVersion: "1" }))).toThrow(invalidFile);
+  });
+
+  it("rejects a non-array items field", () => {
+    expect(() => parseHomebrewItemsFile(file({ items: {} }))).toThrow(invalidFile);
+  });
+
+  it("rejects the whole file when any item is invalid", () => {
+    expect(() =>
+      parseHomebrewItemsFile(file({ items: [{ data: item() }, { data: item({ weightLb: -1 }) }] })),
+    ).toThrow(expect.objectContaining({ code: "invalid_items_file", message: "Item 2: Weight is invalid." }));
+    expect(() => parseHomebrewItemsFile(file({ items: [item()] }))).toThrow(invalidFile);
   });
 });

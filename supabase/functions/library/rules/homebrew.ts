@@ -82,6 +82,71 @@ export function assertCampaignIdsOwned(campaignIds: readonly string[], owned: Re
   }
 }
 
+/**
+ * Access to `listHomebrewItems { campaignId }`: the campaign's DM (owner) or any member (the caller owns a
+ * character seated in it). Everyone else, and a missing campaign, gets `not_found` so the campaign's
+ * existence is not revealed.
+ */
+export function assertCampaignItemsAccess(input: {
+  callerEmail: string;
+  /** `owner_email` of the campaign, or null when it does not exist. */
+  campaignOwnerEmail: string | null;
+  /** The caller owns a character with a `campaign_members` row in this campaign. */
+  callerIsMember: boolean;
+}): void {
+  if (input.campaignOwnerEmail === null) {
+    throw new LibraryOpError("not_found", "Campaign not found.");
+  }
+  if (input.campaignOwnerEmail === input.callerEmail) return;
+  if (input.callerIsMember) return;
+  throw new LibraryOpError("not_found", "Campaign not found.");
+}
+
+export const HOMEBREW_ITEMS_FILE_FORMAT = "ragusa-homebrew-items";
+export const HOMEBREW_ITEMS_FILE_SCHEMA_VERSION = 1;
+
+function invalidItemsFile(message: string): LibraryOpError {
+  return new LibraryOpError("invalid_items_file", message);
+}
+
+/**
+ * Parses an exported items file (`{ format, schemaVersion, exportedAt, items: [{ data }] }`) and validates
+ * every item with `validateHomebrewData`. All or nothing: any problem throws `invalid_items_file`.
+ * Returns the validated item data (trimmed name, `description` defaulted to "").
+ */
+export function parseHomebrewItemsFile(fileJson: unknown): Record<string, unknown>[] {
+  if (typeof fileJson !== "string") throw invalidItemsFile("Items file is missing.");
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(fileJson);
+  } catch {
+    throw invalidItemsFile("Items file is not valid JSON.");
+  }
+  if (!isRecord(parsed)) throw invalidItemsFile("Items file is invalid.");
+  if (parsed.format !== HOMEBREW_ITEMS_FILE_FORMAT) throw invalidItemsFile("Unsupported items file format.");
+  const schemaVersion = parsed.schemaVersion;
+  if (typeof schemaVersion !== "number" || !Number.isFinite(schemaVersion)) {
+    throw invalidItemsFile("Items file schema version is invalid.");
+  }
+  if (schemaVersion > HOMEBREW_ITEMS_FILE_SCHEMA_VERSION) {
+    throw invalidItemsFile("Items file requires a newer version of this app.");
+  }
+  if (!Array.isArray(parsed.items)) throw invalidItemsFile("Items file has no items list.");
+  return parsed.items.map((entry: unknown, index: number) => {
+    if (!isRecord(entry) || !isRecord(entry.data)) {
+      throw invalidItemsFile(`Item ${index + 1} is invalid.`);
+    }
+    let data: Record<string, unknown>;
+    try {
+      data = validateHomebrewData(entry.data);
+    } catch (error) {
+      const reason = error instanceof Error ? error.message : "Invalid item.";
+      throw invalidItemsFile(`Item ${index + 1}: ${reason}`);
+    }
+    return { ...data, description: typeof data.description === "string" ? data.description : "" };
+  });
+}
+
 export function homebrewItemFromRow(row: HomebrewItemRow) {
   return {
     id: row.id,

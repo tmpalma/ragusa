@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type MouseEvent } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore, type MouseEvent } from "react";
 import { Navigate, useParams } from "react-router";
 import { CampaignItemsSection } from "../components/campaign/CampaignItemsSection";
 import { CollapsiblePane } from "../components/CollapsiblePane";
@@ -14,7 +14,16 @@ import sheetStyles from "../components/sheet/Sheet.module.css";
 import formStyles from "../components/form/Form.module.css";
 import restStyles from "../components/rest/Rest.module.css";
 import { computeDerivedStats } from "../domain/deriveCharacter";
+import { rosterFileName, serializeRosterFile } from "../domain/rosterFile";
 import { useLocale } from "../i18n/LocaleContext";
+import { saveBytes } from "../platform/fileIo";
+import {
+  getLibraryCampaignBinding,
+  getLibraryClient,
+  subscribeLibrarySession,
+  type LibraryCampaignBinding,
+} from "../platform/libraryClient";
+import { normalizeLibraryEmail } from "../platform/libraryValidation";
 import { memberCaption, type CampaignMember } from "../state/campaignState";
 import { useCampaign } from "../state/CampaignContext";
 import { useTableRules } from "../state/TableRulesContext";
@@ -97,6 +106,72 @@ function CampaignMemberPane({
   );
 }
 
+/** True when the bound library campaign is owned by the signed-in caller (the DM). */
+function useIsCampaignDm(binding: LibraryCampaignBinding | null): boolean {
+  const [dmCampaignKey, setDmCampaignKey] = useState<string | null>(null);
+  const bindingKey = binding ? `${binding.email}\u0000${binding.campaignId}` : null;
+
+  useEffect(() => {
+    if (!binding) return;
+    let cancelled = false;
+    const key = `${binding.email}\u0000${binding.campaignId}`;
+    const email = normalizeLibraryEmail(binding.email);
+    getLibraryClient()
+      .listCampaigns(binding.email)
+      .then((rows) => {
+        const owned = rows.some(
+          (row) => row.id === binding.campaignId && normalizeLibraryEmail(row.ownerEmail) === email,
+        );
+        if (!cancelled) setDmCampaignKey(owned ? key : null);
+      })
+      .catch(() => {
+        if (!cancelled) setDmCampaignKey(null);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [binding]);
+
+  return bindingKey !== null && dmCampaignKey === bindingKey;
+}
+
+/** Roster snapshot (DM only): builds the roster file from the open library campaign and saves it. */
+function RosterSnapshotButton({ binding }: { binding: LibraryCampaignBinding }) {
+  const { t } = useLocale();
+  const [busy, setBusy] = useState(false);
+  const [failed, setFailed] = useState(false);
+
+  async function handleClick() {
+    setBusy(true);
+    setFailed(false);
+    try {
+      const campaign = await getLibraryClient().openCampaign(binding.email, binding.campaignId);
+      await saveBytes({
+        bytes: serializeRosterFile(campaign),
+        filename: rosterFileName(campaign.title),
+        mimeType: "application/json",
+      });
+    } catch {
+      setFailed(true);
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return (
+    <>
+      <button type="button" className={restStyles.restButton} disabled={busy} onClick={() => void handleClick()}>
+        {busy ? t("app.campaign.rosterSnapshotBusy") : t("app.campaign.rosterSnapshot")}
+      </button>
+      {failed ? (
+        <span className={styles.rosterError} role="alert">
+          {t("app.campaign.rosterSnapshotFailed")}
+        </span>
+      ) : null}
+    </>
+  );
+}
+
 export function CampaignPage() {
   const { view } = useParams<{ view?: string }>();
   const { t } = useLocale();
@@ -104,6 +179,12 @@ export function CampaignPage() {
   const { members, dispatch } = useCampaign();
   const [loadDialogOpen, setLoadDialogOpen] = useState(false);
   const viewId = resolveCampaignViewId(view);
+  const campaignBinding = useSyncExternalStore(
+    subscribeLibrarySession,
+    getLibraryCampaignBinding,
+    getLibraryCampaignBinding,
+  );
+  const isCampaignDm = useIsCampaignDm(campaignBinding);
 
   useEffect(() => {
     document.title = `${t("app.campaign.title")} — ${t("app.pageTitle")}`;
@@ -142,6 +223,7 @@ export function CampaignPage() {
                 title={t("app.campaign.rosterTitle")}
                 actions={
                   <div className={restStyles.restActions}>
+                    {campaignBinding && isCampaignDm ? <RosterSnapshotButton binding={campaignBinding} /> : null}
                     {isCombatView ? (
                       <button
                         type="button"
