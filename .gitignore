@@ -42,3 +42,6 @@ android/build/
 android/captures/
 *.jks
 keystore.properties
+
+# Claude Code local state (agent worktrees)
+.claude/
