@@ -1,5 +1,6 @@
 import { LibraryOpError } from "../errors.ts";
 import {
+  assertCanAddCharacter,
   assertCharacterDeletable,
   characterFromRow,
   importedCharacterTitle,
@@ -9,7 +10,17 @@ import {
 import { distinctIds } from "../rules/auth.ts";
 import { isRecord, optionalTrimmedString, trimmedString } from "../rules/shared.ts";
 import { membershipForCharacter, nowIso, requireCharacter, upsertPlayer } from "./shared.ts";
-import type { OpRecord } from "./types.ts";
+import type { OpContext, OpRecord } from "./types.ts";
+
+/** Refuses with `character_limit` when the owner is already at the character cap. */
+async function assertOwnerCanAddCharacter(db: OpContext["db"], email: string): Promise<void> {
+  const { count, error } = await db
+    .from("characters")
+    .select("id", { count: "exact", head: true })
+    .eq("owner_email", email);
+  if (error) throw error;
+  assertCanAddCharacter(count ?? 0);
+}
 
 export const characterOps: OpRecord = {
   async listCharacters({ db, email }) {
@@ -61,6 +72,7 @@ export const characterOps: OpRecord = {
   async createCharacter({ db, email, userId }, payload) {
     const title = trimmedString(payload.title);
     if (!email || !title) throw new LibraryOpError("empty_title", "Title is required.");
+    await assertOwnerCanAddCharacter(db, email);
     await upsertPlayer(db, email, userId);
     const document = newCharacterDocument(payload.document, title);
     const { data, error } = await db
@@ -114,6 +126,7 @@ export const characterOps: OpRecord = {
     if (!email) throw new LibraryOpError("empty_title", "Email is required.");
     const document = parseImportDocument(fileJson);
     const title = importedCharacterTitle(document);
+    await assertOwnerCanAddCharacter(db, email);
     await upsertPlayer(db, email, userId);
     const { data, error } = await db
       .from("characters")

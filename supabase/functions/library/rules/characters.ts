@@ -53,6 +53,19 @@ export function newCharacterDocument(document: unknown, title: string): Record<s
   return document && isRecord(document) ? document : { name: title };
 }
 
+/**
+ * Refuses a new character (create or import) once the owner already has `MAX_CHARACTERS_PER_PLAYER`.
+ * Accounts already over the cap keep their characters but cannot add more.
+ */
+export function assertCanAddCharacter(count: number): void {
+  if (count >= MAX_CHARACTERS_PER_PLAYER) {
+    throw new LibraryOpError(
+      "character_limit",
+      `You can have at most ${MAX_CHARACTERS_PER_PLAYER} characters.`,
+    );
+  }
+}
+
 /** A seated character (one with any campaign membership) cannot be deleted. */
 export function assertCharacterDeletable(membership: unknown): void {
   if (membership) {

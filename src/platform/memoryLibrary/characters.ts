@@ -1,4 +1,5 @@
 import { parseCharacterFile, serializeCharacterFile } from "../../domain/characterFile";
+import { MAX_CHARACTERS_PER_PLAYER } from "../../domain/libraryLimits";
 import { INITIAL_CHARACTER, type Character } from "../../state/characterState";
 import {
   LibraryClientError,
@@ -43,6 +44,20 @@ export function createCharacterLibrary(store: MemoryLibraryStore): CharacterLibr
     };
   }
 
+  /** Mirrors the edge function: no new character once the owner already has the cap. */
+  function assertCanAddCharacter(email: string): void {
+    let count = 0;
+    for (const row of characters.values()) {
+      if (row.ownerEmail === email) count += 1;
+    }
+    if (count >= MAX_CHARACTERS_PER_PLAYER) {
+      throw new LibraryClientError(
+        "character_limit",
+        `You can have at most ${MAX_CHARACTERS_PER_PLAYER} characters.`,
+      );
+    }
+  }
+
   function insertCharacter(email: string, title: string, document: Character): LibraryCharacter {
     const row: CharacterRow = {
       id: newId(),
@@ -70,6 +85,7 @@ export function createCharacterLibrary(store: MemoryLibraryStore): CharacterLibr
       if (!ownerEmail || !title) {
         throw new LibraryClientError("empty_title", "Title is required.");
       }
+      assertCanAddCharacter(ownerEmail);
       ensurePlayerRow(store, ownerEmail);
       const document = input.document ?? { ...INITIAL_CHARACTER, name: title };
       return insertCharacter(ownerEmail, title, document);
@@ -113,6 +129,7 @@ export function createCharacterLibrary(store: MemoryLibraryStore): CharacterLibr
       } catch {
         throw new LibraryClientError("invalid_character_file", "Invalid character file.");
       }
+      assertCanAddCharacter(ownerEmail);
       ensurePlayerRow(store, ownerEmail);
       const title = document.name.trim() || "Imported character";
       return insertCharacter(ownerEmail, title, document);
