@@ -1,24 +1,80 @@
-import { isValidEmail, normalizeEmail } from "./claimedIdentity";
+import type { AuthMode } from "./authMode";
+import { isValidEmail, normalizeEmail } from "./email";
 
-const LEGACY_BYPASS_SESSION_KEY = "bypass-session";
-const LOCAL_AUTH_SESSION_KEY = "local-auth-session";
+/** Keys written by builds before Supabase Auth (claimed email + bypass/magic sessions). */
+export const LEGACY_AUTH_STORAGE_KEYS = ["bypass-session", "local-auth-session", "claimed-identity"] as const;
+/** Fake session for local (no Supabase env) mode only. */
+const LOCAL_DEV_SESSION_KEY = "local-dev-session";
 const RETURN_PATH_KEY = "auth-return-path";
 
-export type SessionKind = "magic";
-
 export interface AppSession {
-  kind: SessionKind;
+  /** Which backend produced the session. */
+  kind: AuthMode;
+  /** Normalized email of the signed-in user. */
   email: string;
+  /** Supabase auth user id; null in local mode. */
+  userId: string | null;
 }
 
-/** Removes a legacy bypass record from older builds. */
-export function clearLegacyBypassSession(): void {
-  localStorage.removeItem(LEGACY_BYPASS_SESSION_KEY);
+type StorageLike = Pick<Storage, "getItem" | "setItem" | "removeItem">;
+
+/** Removes pre-Supabase-Auth session and claimed-identity records. Safe to run on every boot. */
+export function cleanupLegacyAuthStorage(storage: StorageLike = localStorage): void {
+  for (const key of LEGACY_AUTH_STORAGE_KEYS) {
+    try {
+      storage.removeItem(key);
+    } catch {
+      // storage unavailable; nothing to clean
+    }
+  }
+}
+
+/** Maps a Supabase auth user to the app session. Null when the user has no usable email. */
+export function sessionFromAuthUser(
+  user: { id: string; email?: string | null } | null | undefined,
+): AppSession | null {
+  if (!user || typeof user.email !== "string") return null;
+  const email = normalizeEmail(user.email);
+  if (!isValidEmail(email)) return null;
+  return { kind: "supabase", email, userId: user.id };
+}
+
+export function localDevSession(email: string): AppSession | null {
+  const normalized = normalizeEmail(email);
+  if (!isValidEmail(normalized)) return null;
+  return { kind: "local", email: normalized, userId: null };
+}
+
+/** True when two sessions identify the same signed-in user (ignores token refreshes). */
+export function sameSessionUser(a: AppSession | null, b: AppSession | null): boolean {
+  if (a === b) return true;
+  if (!a || !b) return false;
+  return a.kind === b.kind && a.email === b.email && a.userId === b.userId;
+}
+
+export function saveLocalDevSession(session: AppSession, storage: StorageLike = localStorage): void {
+  storage.setItem(LOCAL_DEV_SESSION_KEY, JSON.stringify({ email: session.email }));
+}
+
+export function loadLocalDevSession(storage: StorageLike = localStorage): AppSession | null {
+  try {
+    const raw = storage.getItem(LOCAL_DEV_SESSION_KEY);
+    if (!raw) return null;
+    const record = JSON.parse(raw) as Record<string, unknown>;
+    if (typeof record.email !== "string") return null;
+    return localDevSession(record.email);
+  } catch {
+    return null;
+  }
+}
+
+export function clearLocalDevSession(storage: StorageLike = localStorage): void {
+  storage.removeItem(LOCAL_DEV_SESSION_KEY);
 }
 
 export function saveReturnPath(path: string): void {
   if (!path || path === "/login") return;
-  localStorage.setItem(RETURN_PATH_KEY, path);
+  localStorage.setItem(RETURN_PATH_KEY, stripAuthCallbackParams(path));
 }
 
 export function consumeReturnPath(): string {
@@ -32,29 +88,17 @@ export function peekReturnPath(): string | null {
   return localStorage.getItem(RETURN_PATH_KEY);
 }
 
-export function sessionFromMagicUser(email: string): AppSession | null {
-  const normalized = normalizeEmail(email);
-  if (!isValidEmail(normalized)) return null;
-  return { kind: "magic", email: normalized };
-}
-
-export function saveLocalAuthSession(session: AppSession): void {
-  localStorage.setItem(LOCAL_AUTH_SESSION_KEY, JSON.stringify(session));
-}
-
-export function loadLocalAuthSession(): AppSession | null {
-  try {
-    const raw = localStorage.getItem(LOCAL_AUTH_SESSION_KEY);
-    if (!raw) return null;
-    const record = JSON.parse(raw) as Record<string, unknown>;
-    if (record.kind !== "magic") return null;
-    if (typeof record.email !== "string") return null;
-    return sessionFromMagicUser(record.email);
-  } catch {
-    return null;
-  }
-}
-
-export function clearLocalAuthSession(): void {
-  localStorage.removeItem(LOCAL_AUTH_SESSION_KEY);
+/** Drops a leftover PKCE `code` from a path (for example a link opened in a different browser). */
+export function stripAuthCallbackParams(path: string): string {
+  const hashIndex = path.indexOf("#");
+  const beforeHash = hashIndex >= 0 ? path.slice(0, hashIndex) : path;
+  const hash = hashIndex >= 0 ? path.slice(hashIndex) : "";
+  const queryIndex = beforeHash.indexOf("?");
+  if (queryIndex < 0) return path;
+  const pathname = beforeHash.slice(0, queryIndex);
+  const params = new URLSearchParams(beforeHash.slice(queryIndex + 1));
+  if (!params.has("code")) return path;
+  params.delete("code");
+  const query = params.toString();
+  return `${pathname}${query ? `?${query}` : ""}${hash}`;
 }

@@ -12,7 +12,11 @@ export type LibraryErrorCode =
   | "not_found"
   | "invalid_character_file"
   | "empty_title"
-  | "invalid_homebrew_item";
+  | "invalid_homebrew_item"
+  /** No valid Supabase user token (HTTP 401). The session is ended centrally. */
+  | "unauthenticated"
+  /** The token's user does not match the player row (HTTP 403). */
+  | "forbidden";
 
 export class LibraryClientError extends Error {
   readonly code: LibraryErrorCode;

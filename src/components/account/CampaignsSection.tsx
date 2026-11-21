@@ -1,7 +1,6 @@
 import { useState, useSyncExternalStore, type FormEvent } from "react";
 import { useNavigate } from "react-router";
 import { useLocale } from "../../i18n/LocaleContext";
-import type { ClaimedIdentity } from "../../platform/claimedIdentity";
 import { saveActivePlay, savePlayerLastCampaign } from "../../platform/characterPersist";
 import {
   getLibraryCampaignBinding,
@@ -12,10 +11,10 @@ import {
 } from "../../platform/libraryClient";
 import { useCampaign } from "../../state/CampaignContext";
 import styles from "../../pages/AccountPage.module.css";
-import type { AccountDeleteRequest, RunAccountAction } from "./accountSectionTypes";
+import type { AccountDeleteRequest, AccountIdentity, RunAccountAction } from "./accountSectionTypes";
 
 export interface CampaignsSectionProps {
-  identity: ClaimedIdentity;
+  identity: AccountIdentity;
   campaigns: LibraryCampaignSummary[];
   libraryReady: boolean;
   pending: boolean;

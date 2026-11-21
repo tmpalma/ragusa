@@ -8,6 +8,7 @@ import {
   type LibraryClient,
   type LibraryErrorCode,
 } from "./libraryClient";
+import { notifyLibraryUnauthenticated } from "./authEvents";
 import { getSupabaseClient } from "./supabaseClient";
 
 type LibraryInvokeOk<T> = { ok: true; data: T };
@@ -15,6 +16,9 @@ type LibraryInvokeErr = { ok: false; code: LibraryErrorCode | "internal"; messag
 type LibraryInvokeResponse<T> = LibraryInvokeOk<T> | LibraryInvokeErr;
 
 function throwLibraryInvokeFailure(parsed: LibraryInvokeErr): never {
+  if (parsed.code === "unauthenticated") {
+    notifyLibraryUnauthenticated();
+  }
   if (parsed.code === "internal") {
     throw new Error(parsed.message);
   }
@@ -41,20 +45,27 @@ async function responseBodyToLibraryErr(context: unknown): Promise<LibraryInvoke
   }
 }
 
-async function invokeLibrary<T>(email: string, op: string, payload: Record<string, unknown> = {}): Promise<T> {
+/**
+ * Calls the `library` Edge Function. The server identifies the caller only from the Supabase access token,
+ * which `functions.invoke` sends as `Authorization: Bearer <jwt>` while a session exists, so the body
+ * carries no email. `_email` stays on the signature until `LibraryClient` drops its `email` parameters.
+ */
+async function invokeLibrary<T>(_email: string, op: string, payload: Record<string, unknown> = {}): Promise<T> {
   const supabase = getSupabaseClient();
   if (!supabase) {
     throw new Error("Supabase is not configured.");
   }
   const { data, error } = await supabase.functions.invoke("library", {
-    body: { op, email, ...payload },
+    body: { ...payload, op },
   });
   if (error) {
-    const fromHttp = await responseBodyToLibraryErr(
-      "context" in error ? (error as { context?: unknown }).context : undefined,
-    );
+    const context = "context" in error ? (error as { context?: unknown }).context : undefined;
+    const fromHttp = await responseBodyToLibraryErr(context);
     if (fromHttp) {
       throwLibraryInvokeFailure(fromHttp);
+    }
+    if (context instanceof Response && context.status === 401) {
+      throwLibraryInvokeFailure({ ok: false, code: "unauthenticated", message: "Sign in again." });
     }
     throw new Error(error.message || "Library request failed.");
   }

@@ -1,5 +1,10 @@
 /** Shared prop shapes for the Account page sections (see `src/pages/AccountPage.tsx`). */
 
+/** The signed-in user the account sections act for (derived from the auth session). */
+export interface AccountIdentity {
+  email: string;
+}
+
 /** Runs a library action with the page's shared pending flag and error display. */
 export type RunAccountAction = (action: () => Promise<void>) => Promise<void>;
 

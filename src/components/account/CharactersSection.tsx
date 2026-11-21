@@ -1,7 +1,6 @@
 import { useRef, useState, type FormEvent } from "react";
 import { useNavigate } from "react-router";
 import { useLocale } from "../../i18n/LocaleContext";
-import type { ClaimedIdentity } from "../../platform/claimedIdentity";
 import { saveActivePlay, savePlayerLastCharacter } from "../../platform/characterPersist";
 import {
   beginLibraryCharacterOpen,
@@ -15,10 +14,10 @@ import { refreshHomebrewItemRegistryForCharacter } from "../../platform/refreshH
 import { INITIAL_CHARACTER } from "../../state/characterState";
 import { useCharacter } from "../../state/CharacterContext";
 import styles from "../../pages/AccountPage.module.css";
-import type { AccountDeleteRequest, RunAccountAction } from "./accountSectionTypes";
+import type { AccountDeleteRequest, AccountIdentity, RunAccountAction } from "./accountSectionTypes";
 
 export interface CharactersSectionProps {
-  identity: ClaimedIdentity;
+  identity: AccountIdentity;
   characters: LibraryCharacterSummary[];
   /** Campaign options for the seat picker. */
   campaigns: LibraryCampaignSummary[];
