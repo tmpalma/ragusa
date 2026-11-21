@@ -5,6 +5,7 @@ import {
   countMembersByCampaign,
   nextSortOrder,
 } from "../rules/campaigns.ts";
+import { distinctIds } from "../rules/auth.ts";
 import { optionalTrimmedString, trimmedString } from "../rules/shared.ts";
 import {
   joinedMembers,
@@ -24,11 +25,17 @@ export const campaignOps: OpRecord = {
       .eq("owner_email", email)
       .order("updated_at", { ascending: false });
     if (error) throw error;
-    const { data: memberships, error: membershipError } = await db
-      .from("campaign_members")
-      .select("campaign_id");
-    if (membershipError) throw membershipError;
-    const counts = countMembersByCampaign(memberships ?? []);
+    const campaignIds = distinctIds(campaigns ?? [], (row) => row.id);
+    let memberships: Array<{ campaign_id: unknown }> = [];
+    if (campaignIds.length > 0) {
+      const { data, error: membershipError } = await db
+        .from("campaign_members")
+        .select("campaign_id")
+        .in("campaign_id", campaignIds);
+      if (membershipError) throw membershipError;
+      memberships = data ?? [];
+    }
+    const counts = countMembersByCampaign(memberships);
     return (campaigns ?? []).map((row) => ({
       id: row.id,
       ownerEmail: row.owner_email,
@@ -38,10 +45,10 @@ export const campaignOps: OpRecord = {
     }));
   },
 
-  async createCampaign({ db, email }, payload) {
+  async createCampaign({ db, email, userId }, payload) {
     const title = trimmedString(payload.title);
     if (!email || !title) throw new LibraryOpError("empty_title", "Title is required.");
-    await upsertPlayer(db, email);
+    await upsertPlayer(db, email, userId);
     const { data, error } = await db
       .from("campaigns")
       .insert({ owner_email: email, title })

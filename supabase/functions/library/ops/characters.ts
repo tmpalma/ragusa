@@ -6,6 +6,7 @@ import {
   newCharacterDocument,
   parseImportDocument,
 } from "../rules/characters.ts";
+import { distinctIds } from "../rules/auth.ts";
 import { isRecord, optionalTrimmedString, trimmedString } from "../rules/shared.ts";
 import { membershipForCharacter, nowIso, requireCharacter, upsertPlayer } from "./shared.ts";
 import type { OpRecord } from "./types.ts";
@@ -18,12 +19,18 @@ export const characterOps: OpRecord = {
       .eq("owner_email", email)
       .order("updated_at", { ascending: false });
     if (error) throw error;
-    const { data: memberships, error: membershipError } = await db
-      .from("campaign_members")
-      .select("character_id, campaign_id");
-    if (membershipError) throw membershipError;
+    const characterIds = distinctIds(characters ?? [], (row) => row.id);
+    let memberships: Array<{ character_id: unknown; campaign_id: unknown }> = [];
+    if (characterIds.length > 0) {
+      const { data, error: membershipError } = await db
+        .from("campaign_members")
+        .select("character_id, campaign_id")
+        .in("character_id", characterIds);
+      if (membershipError) throw membershipError;
+      memberships = data ?? [];
+    }
     const membershipByCharacter = new Map<string, string>();
-    for (const row of memberships ?? []) {
+    for (const row of memberships) {
       membershipByCharacter.set(row.character_id as string, row.campaign_id as string);
     }
     const campaignIds = [...new Set(membershipByCharacter.values())];
@@ -51,10 +58,10 @@ export const characterOps: OpRecord = {
     });
   },
 
-  async createCharacter({ db, email }, payload) {
+  async createCharacter({ db, email, userId }, payload) {
     const title = trimmedString(payload.title);
     if (!email || !title) throw new LibraryOpError("empty_title", "Title is required.");
-    await upsertPlayer(db, email);
+    await upsertPlayer(db, email, userId);
     const document = newCharacterDocument(payload.document, title);
     const { data, error } = await db
       .from("characters")
@@ -102,12 +109,12 @@ export const characterOps: OpRecord = {
     return null;
   },
 
-  async importCharacter({ db, email }, payload) {
+  async importCharacter({ db, email, userId }, payload) {
     const fileJson = typeof payload.fileJson === "string" ? payload.fileJson : "";
     if (!email) throw new LibraryOpError("empty_title", "Email is required.");
     const document = parseImportDocument(fileJson);
     const title = importedCharacterTitle(document);
-    await upsertPlayer(db, email);
+    await upsertPlayer(db, email, userId);
     const { data, error } = await db
       .from("characters")
       .insert({ owner_email: email, title, document })

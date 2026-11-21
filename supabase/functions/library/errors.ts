@@ -6,9 +6,14 @@ export type LibraryErrorCode =
   | "not_found"
   | "invalid_character_file"
   | "empty_title"
-  | "invalid_homebrew_item";
+  | "invalid_homebrew_item"
+  | "unauthenticated"
+  | "forbidden";
 
-/** Expected, user-facing failure. Mapped to `{ ok: false, code, message }` with HTTP 400. */
+/**
+ * Expected, user-facing failure. Mapped to `{ ok: false, code, message }` with the HTTP status from
+ * `statusForErrorCode` in `rules/auth.ts` (401 unauthenticated, 403 forbidden, 400 otherwise).
+ */
 export class LibraryOpError extends Error {
   readonly code: LibraryErrorCode;
 
