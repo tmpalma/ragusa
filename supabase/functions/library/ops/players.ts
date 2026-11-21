@@ -1,6 +1,13 @@
 import { LibraryOpError } from "../errors.ts";
+import { normalizeDisplayName } from "../rules/players.ts";
 import { upsertPlayer } from "./shared.ts";
 import type { OpRecord } from "./types.ts";
+
+type PlayerRow = { email: string; display_name: string | null };
+
+function toLibraryPlayer(row: PlayerRow) {
+  return { email: row.email, displayName: row.display_name ?? "" };
+}
 
 export const playerOps: OpRecord = {
   async ensurePlayer({ db, email, userId }) {
@@ -11,13 +18,29 @@ export const playerOps: OpRecord = {
     return null;
   },
 
-  // TODO(P1-C): return { email, displayName } for the caller.
-  async getPlayer() {
-    throw new Error("Not implemented: getPlayer (Phase 1)");
+  /** Returns the caller's `{ email, displayName }`, creating and linking the row first if needed. */
+  async getPlayer({ db, email, userId }) {
+    await upsertPlayer(db, email, userId);
+    const { data, error } = await db
+      .from("players")
+      .select("email, display_name")
+      .eq("email", email)
+      .single();
+    if (error) throw error;
+    return toLibraryPlayer(data as PlayerRow);
   },
 
-  // TODO(P1-C): trim displayName, throw empty_title when blank, update and return { email, displayName }.
-  async updatePlayer() {
-    throw new Error("Not implemented: updatePlayer (Phase 1)");
+  /** Sets only `display_name` on the caller's own row (trimmed, 1..MAX_DISPLAY_NAME_LENGTH). */
+  async updatePlayer({ db, email, userId }, payload) {
+    const displayName = normalizeDisplayName(payload.displayName);
+    await upsertPlayer(db, email, userId);
+    const { data, error } = await db
+      .from("players")
+      .update({ display_name: displayName })
+      .eq("email", email)
+      .select("email, display_name")
+      .single();
+    if (error) throw error;
+    return toLibraryPlayer(data as PlayerRow);
   },
 };
