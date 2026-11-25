@@ -150,6 +150,16 @@
   .statGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .abilityCard .abilityScoreRow {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .abilityCard .abilityStatInline {
+    justify-content: center;
+  }
 }
 
 .statCard {
