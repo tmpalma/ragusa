@@ -28,6 +28,22 @@
   font-size: 0.9rem;
 }
 
+.gearCardActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.gearCardActions .equipmentActionToggle {
+  margin: 0;
+}
+
+.gearCardRemove {
+  margin-left: auto;
+  font-size: 0.9rem;
+}
+
 .packSuppliesCounters {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));

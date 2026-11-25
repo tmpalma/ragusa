@@ -15,7 +15,6 @@ import { localizedVariantDisplayName } from "../../domain/genericVariantDisplay"
 import { findGenericVariant } from "../../domain/genericVariantMatcher";
 import { attunementEligibleCarriedKeys, attunementEligibleMagicItems } from "../../domain/magicItems";
 import {
-  adventuringGearQuantity,
   hasStructuredGearDesc,
   parseStructuredGearDesc,
   selectedAdventuringGearKeys,
@@ -26,7 +25,6 @@ import { formatHomebrewRangeLine } from "../../domain/homebrewItemInput";
 import { isHomebrewGearKey } from "../../domain/homebrewItems";
 import {
   availableEquipmentPickFilters,
-  equipmentPickCatalogEntry,
   equipmentPickValueCp,
   filterEquipmentPickCatalog,
   filterEquipmentPickComboboxOptionsByQuery,
@@ -56,6 +54,7 @@ import { gearEquipmentActionKey } from "../../domain/equipmentActions";
 import { GenericVariantDescription } from "./GenericVariantDescription";
 import { CollapsiblePane } from "../CollapsiblePane";
 import { ResourceCounter } from "../combat/ResourceCounter";
+import { ConfirmRemoveButton } from "../confirm/ConfirmRemoveButton";
 import { CappedPickList } from "../form/CappedPickList";
 import { Combobox } from "../form/Combobox";
 import combatStyles from "../combat/Combat.module.css";
@@ -316,6 +315,31 @@ export function MagicItemsSection() {
   );
 }
 
+function AdventuringGearCardActions({
+  itemKey,
+  itemName,
+  actionVisible,
+}: {
+  itemKey: string;
+  itemName: string;
+  actionVisible: boolean;
+}) {
+  const { dispatch } = useCharacter();
+  const { t } = useLocale();
+  return (
+    <div className={styles.gearCardActions}>
+      <EquipmentActionToggle actionKey={gearEquipmentActionKey(itemKey)} visible={actionVisible} />
+      <ConfirmRemoveButton
+        className={`${styles.button} ${styles.gearCardRemove}`}
+        itemName={itemName}
+        onConfirm={() => dispatch({ type: "REMOVE_ADVENTURING_GEAR", itemKey })}
+      >
+        {t("character.remove")}
+      </ConfirmRemoveButton>
+    </div>
+  );
+}
+
 function StructuredGearDescSections({
   parts,
   t,
@@ -360,6 +384,7 @@ function AdventuringGearDescriptionCard({
         {isHomebrewGearKey(itemKey) ? (
           <p className={styles.hint}>{t("equipment.homebrewUnavailable")}</p>
         ) : null}
+        <AdventuringGearCardActions itemKey={itemKey} itemName={name} actionVisible={false} />
       </article>
     );
   }
@@ -405,7 +430,7 @@ function AdventuringGearDescriptionCard({
         ) : (
           <p className={styles.hint}>{t("equipment.noItemDescription")}</p>
         )}
-        <EquipmentActionToggle actionKey={gearEquipmentActionKey(itemKey)} visible />
+        <AdventuringGearCardActions itemKey={itemKey} itemName={name} actionVisible />
       </article>
     );
   }
@@ -440,9 +465,10 @@ function AdventuringGearDescriptionCard({
           />
         </div>
         <GenericVariantDescription desc={tEntity("catalog.magicItems", itemKey, "desc", item.desc)} />
-        <EquipmentActionToggle
-          actionKey={gearEquipmentActionKey(itemKey)}
-          visible={!item.requiresAttunement || isAttuned}
+        <AdventuringGearCardActions
+          itemKey={itemKey}
+          itemName={name}
+          actionVisible={!item.requiresAttunement || isAttuned}
         />
       </article>
     );
@@ -481,7 +507,7 @@ function AdventuringGearDescriptionCard({
       ) : (
         <p className={styles.hint}>{t("equipment.noItemDescription")}</p>
       )}
-      <EquipmentActionToggle actionKey={gearEquipmentActionKey(itemKey)} visible />
+      <AdventuringGearCardActions itemKey={itemKey} itemName={name} actionVisible />
     </article>
   );
 }
@@ -561,22 +587,13 @@ export function AdventuringGearSection() {
         selectedKeys={selectedKeys}
         onAdd={(itemKey) => dispatch({ type: "ADD_ADVENTURING_GEAR", itemKey })}
         onRemove={(itemKey) => dispatch({ type: "REMOVE_ADVENTURING_GEAR", itemKey })}
-        renderSelected={(key) => {
-          const name = pickDisplayName(key, tEntity);
-          const quantity = adventuringGearQuantity(character.adventuringGear, key);
-          const catalogEntry = equipmentPickCatalogEntry(key);
-          let label = quantity > 1 ? `${name} ×${quantity}` : name;
-          if (catalogEntry?.requiresAttunement) {
-            label += attunedKeys.has(key)
-              ? ` (${t("equipment.attuned")})`
-              : ` (${t("equipment.notAttuned")})`;
-          }
-          return label;
-        }}
+        showSelectedList={false}
+        renderSelected={(key) => pickDisplayName(key, tEntity)}
+        removeConfirmName={(key) => pickDisplayName(key, tEntity)}
         toolbarExtra={toolbarExtra}
       />
       {character.adventuringGear.length > 0 ? (
-        <CollapsiblePane title={t("equipment.adventuringGearDescriptions")} defaultOpen={false}>
+        <CollapsiblePane title={t("equipment.adventuringGearDescriptions")}>
           <div className={combatStyles.cards}>
             {sortedEntries.map((entry) => (
               <AdventuringGearDescriptionCard
