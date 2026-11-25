@@ -40,6 +40,7 @@ export function AlwaysPreparedSpellsSection() {
   return (
     <section className={`${styles.section} ${styles.alwaysPreparedSpellsSection}`}>
       <CollapsiblePane
+        defaultOpen={false}
         title={<h3>{t("spells.alwaysPreparedSpells", undefined, "Always Prepared Spells")}</h3>}
       >
         <div className={styles.alwaysPreparedPickStack}>

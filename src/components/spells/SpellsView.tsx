@@ -499,6 +499,7 @@ export function SpellsView() {
       {showKnownPreparedSpellsHeader ? (
         <section className={`${styles.section} ${styles.knownPreparedSpellsSection}`}>
           <CollapsiblePane
+            defaultOpen={false}
             title={
               <h3 className={styles.knownPreparedSpellsTitle}>{t("spells.knownPreparedSpells")}</h3>
             }
