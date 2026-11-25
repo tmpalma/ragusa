@@ -329,14 +329,23 @@ function CombatSessionPane({ variant }: { variant: CombatSessionVariant }) {
   );
 
   const vitalsFeatUseTrackers = useMemo(
-    () => buildFeatUseTrackers({ activeFeatKeys }),
-    [activeFeatKeys],
+    () =>
+      buildFeatUseTrackers({
+        activeFeatKeys,
+        proficiencyBonus: derived.proficiencyBonus,
+        abilityModifiers: derived.abilityModifiers,
+      }),
+    [activeFeatKeys, derived.proficiencyBonus, derived.abilityModifiers],
   );
 
   const featUseTrackerByKey = useMemo(() => {
-    const trackers = buildFeatUseTrackers({ activeFeatKeys });
+    const trackers = buildFeatUseTrackers({
+      activeFeatKeys,
+      proficiencyBonus: derived.proficiencyBonus,
+      abilityModifiers: derived.abilityModifiers,
+    });
     return new Map(trackers.map((tracker) => [tracker.featKey, tracker]));
-  }, [activeFeatKeys]);
+  }, [activeFeatKeys, derived.proficiencyBonus, derived.abilityModifiers]);
 
   const grantedSpells = useMemo(
     () =>

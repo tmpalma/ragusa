@@ -650,6 +650,8 @@ describe("origin and PHB feat mechanics", () => {
     const trackers = buildFeatUseTrackers({ activeFeatKeys: ["lucky"], proficiencyBonus: 2 });
     expect(trackers).toHaveLength(1);
     expect(trackers[0]?.maxUses).toBe(2);
+    const higherLevel = buildFeatUseTrackers({ activeFeatKeys: ["lucky"], proficiencyBonus: 4 });
+    expect(higherLevel[0]?.maxUses).toBe(4);
   });
 
   it("routes Lucky limited uses to the Combat Special Traits card", () => {

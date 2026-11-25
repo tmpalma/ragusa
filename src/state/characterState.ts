@@ -47,6 +47,7 @@ import {
 import { evaluateMulticlassAction, primaryAbilityFromCatalog } from "../domain/multiclass";
 import { mergedClassSkillChoiceGrants, mergedWeaponProficiencyGrants } from "../domain/training";
 import { computeHitPoints, hitDiceMaxByDieFromLevelPath } from "../domain/hitPoints";
+import { proficiencyBonusForLevel } from "../domain/proficiency";
 import { RAW_TABLE_RULES, type TableRules } from "../domain/tableRules";
 import {
   applyWeaponMasteryPick,
@@ -1448,7 +1449,11 @@ function maxFeatUsesForStorageKey(state: Character, storageKey: string): number 
   const spellTracker = spellTrackers.find((entry) => entry.storageKey === storageKey);
   if (spellTracker) return spellTracker.maxUses;
 
-  const useTrackers = buildFeatUseTrackers({ activeFeatKeys: activeFeatKeys(state) });
+  const useTrackers = buildFeatUseTrackers({
+    activeFeatKeys: activeFeatKeys(state),
+    proficiencyBonus: proficiencyBonusForLevel(state.level),
+    abilityModifiers: derivedAbilityModifiers(state),
+  });
   const useTracker = useTrackers.find((entry) => entry.featKey === storageKey);
   if (useTracker) return useTracker.maxUses;
   return armoryChargeMaxForStorageKey(storageKey, state.weapons, state.armor);
