@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { CatalogProse } from "../CatalogProse";
 import { ARMOR, MAGIC_ITEMS, WEAPONS, findByKey } from "../../data";
 import type { CurrencyDenomination } from "../../data/types";
@@ -340,6 +340,27 @@ function AdventuringGearCardActions({
   );
 }
 
+function AdventuringGearCollapsibleCard({
+  title,
+  itemKey,
+  itemName,
+  actionVisible,
+  children,
+}: {
+  title: string;
+  itemKey: string;
+  itemName: string;
+  actionVisible: boolean;
+  children: ReactNode;
+}) {
+  return (
+    <CollapsiblePane variant="nested" defaultOpen={false} title={title}>
+      {children}
+      <AdventuringGearCardActions itemKey={itemKey} itemName={itemName} actionVisible={actionVisible} />
+    </CollapsiblePane>
+  );
+}
+
 function StructuredGearDescSections({
   parts,
   t,
@@ -376,16 +397,15 @@ function AdventuringGearDescriptionCard({
   const resolved = resolveEquipmentPick(itemKey);
   const abbreviations = currencyAbbreviations(t);
   const name = pickDisplayName(itemKey, tEntity);
+  const title = quantity > 1 ? `${name} ×${quantity}` : name;
 
   if (!resolved) {
     return (
-      <article className={combatStyles.card}>
-        <h4>{name}</h4>
+      <AdventuringGearCollapsibleCard title={title} itemKey={itemKey} itemName={name} actionVisible={false}>
         {isHomebrewGearKey(itemKey) ? (
           <p className={styles.hint}>{t("equipment.homebrewUnavailable")}</p>
         ) : null}
-        <AdventuringGearCardActions itemKey={itemKey} itemName={name} actionVisible={false} />
-      </article>
+      </AdventuringGearCollapsibleCard>
     );
   }
 
@@ -409,8 +429,7 @@ function AdventuringGearDescriptionCard({
         })
       : null;
     return (
-      <article className={combatStyles.card}>
-        <h4>{name}</h4>
+      <AdventuringGearCollapsibleCard title={title} itemKey={itemKey} itemName={name} actionVisible>
         <p className={combatStyles.meta}>{category}</p>
         <p className={combatStyles.spellMetaLine}>{statsLine}</p>
         {rangeLine ? <p className={combatStyles.spellMetaLine}>{rangeLine}</p> : null}
@@ -430,8 +449,7 @@ function AdventuringGearDescriptionCard({
         ) : (
           <p className={styles.hint}>{t("equipment.noItemDescription")}</p>
         )}
-        <AdventuringGearCardActions itemKey={itemKey} itemName={name} actionVisible />
-      </article>
+      </AdventuringGearCollapsibleCard>
     );
   }
 
@@ -446,9 +464,14 @@ function AdventuringGearDescriptionCard({
       : null;
     const attuneStatus =
       item.requiresAttunement && (isAttuned ? t("equipment.attuned") : t("equipment.notAttuned"));
+    const actionVisible = !item.requiresAttunement || isAttuned;
     return (
-      <article className={combatStyles.card}>
-        <h4>{name}</h4>
+      <AdventuringGearCollapsibleCard
+        title={title}
+        itemKey={itemKey}
+        itemName={name}
+        actionVisible={actionVisible}
+      >
         <p className={combatStyles.meta}>
           {[rarity, category, attuneNote, attuneStatus].filter(Boolean).join(" · ")}
         </p>
@@ -465,12 +488,7 @@ function AdventuringGearDescriptionCard({
           />
         </div>
         <GenericVariantDescription desc={tEntity("catalog.magicItems", itemKey, "desc", item.desc)} />
-        <AdventuringGearCardActions
-          itemKey={itemKey}
-          itemName={name}
-          actionVisible={!item.requiresAttunement || isAttuned}
-        />
-      </article>
+      </AdventuringGearCollapsibleCard>
     );
   }
 
@@ -482,8 +500,7 @@ function AdventuringGearDescriptionCard({
   const structuredParts = hasStructuredGearDesc(item.desc) ? parseStructuredGearDesc(item.desc) : null;
 
   return (
-    <article className={combatStyles.card}>
-      <h4>{name}</h4>
+    <AdventuringGearCollapsibleCard title={title} itemKey={itemKey} itemName={name} actionVisible>
       <p className={combatStyles.meta}>{category}</p>
       <p className={combatStyles.spellMetaLine}>{statsLine}</p>
       <div className={combatStyles.weaponResource}>
@@ -507,8 +524,7 @@ function AdventuringGearDescriptionCard({
       ) : (
         <p className={styles.hint}>{t("equipment.noItemDescription")}</p>
       )}
-      <AdventuringGearCardActions itemKey={itemKey} itemName={name} actionVisible />
-    </article>
+    </AdventuringGearCollapsibleCard>
   );
 }
 
