@@ -14,7 +14,7 @@ import {
 } from "./featEffects";
 import { readFeatSpellUseCount } from "./featGrantSpells";
 import type { PactMagicPool } from "./spellProgression";
-import { findSpellByKey, spellKeyFromName } from "./spellSelection";
+import { findSpellByKey, isPreparedRitualSpell, spellKeyFromName } from "./spellSelection";
 import {
   activeLimitedUseSpeciesFeatures,
   resolveLimitedUses,
@@ -39,10 +39,16 @@ export interface CompanionSummonPayment {
   slotLevel: number;
   freeCastSourceId: string | null;
   slotPool: CastSlotPool;
+  castAsRitual?: boolean;
+}
+
+export function canCastSpellAsRitual(spellKey: string, ritualEligibleSpellKeys: readonly string[]): boolean {
+  return isPreparedRitualSpell(spellKey) && ritualEligibleSpellKeys.includes(spellKey);
 }
 
 export interface CastSpellAvailabilityInput {
   spellKey: string;
+  canCastAsRitual: boolean;
   slotsByLevel: Record<number, number>;
   spellSlotRemaining: Record<number, number>;
   pactMagic: PactMagicPool | null;
@@ -337,10 +343,15 @@ export function showCastSlotPoolChoice(
 
 export function isCastConfirmEnabled(options: {
   freeCastSourceId: string | null;
+  castAsRitual: boolean;
   slotLevel: number;
   slotPool: CastSlotPool;
   input: CastSpellAvailabilityInput;
 }): boolean {
+  if (options.castAsRitual) {
+    return options.input.canCastAsRitual;
+  }
+
   if (options.freeCastSourceId) {
     const source = buildSpellFreeCastSources(options.input).find(
       (entry) => entry.id === options.freeCastSourceId,
@@ -357,7 +368,6 @@ function appendConcentrationOnSuccessfulCast(
   spellKey: string,
   actions: CharacterAction[],
 ): CharacterAction[] {
-  if (actions.length === 0) return actions;
   const spell = findSpellByKey(spellKey);
   if (!spell?.concentration) return actions;
   return [...actions, { type: "SET_CONCENTRATION_SPELL", spellKey }];
@@ -365,11 +375,16 @@ function appendConcentrationOnSuccessfulCast(
 
 export function buildCastConfirmActions(options: {
   freeCastSourceId: string | null;
+  castAsRitual: boolean;
   slotLevel: number;
   slotPool: CastSlotPool;
   input: CastSpellAvailabilityInput;
 }): CharacterAction[] {
   const { spellKey } = options.input;
+
+  if (options.castAsRitual && options.input.canCastAsRitual) {
+    return appendConcentrationOnSuccessfulCast(spellKey, []);
+  }
 
   if (options.freeCastSourceId) {
     const source = buildSpellFreeCastSources(options.input).find(
@@ -438,14 +453,16 @@ export function buildCastConfirmActions(options: {
 
 export function buildCastConfirmResult(options: {
   freeCastSourceId: string | null;
+  castAsRitual: boolean;
   slotLevel: number;
   slotPool: CastSlotPool;
   input: CastSpellAvailabilityInput;
 }): { actions: CharacterAction[]; payment: CompanionSummonPayment } | null {
   const actions = buildCastConfirmActions(options);
-  if (actions.length === 0) return null;
+  const ritual = options.castAsRitual && options.input.canCastAsRitual;
+  if (!ritual && actions.length === 0) return null;
   const spellMin = castSpellMinimumLevel(options.input.spellKey) ?? 1;
-  const slotLevel = options.freeCastSourceId ? spellMin : options.slotLevel;
+  const slotLevel = options.freeCastSourceId || ritual ? spellMin : options.slotLevel;
   return {
     actions,
     payment: {
@@ -453,6 +470,7 @@ export function buildCastConfirmResult(options: {
       slotLevel,
       freeCastSourceId: options.freeCastSourceId,
       slotPool: options.slotPool,
+      ...(ritual ? { castAsRitual: true } : {}),
     },
   };
 }
@@ -469,6 +487,8 @@ export function applyCompanionSummonPaymentRefund(
   payment: CompanionSummonPayment,
   input: CastSpellAvailabilityInput,
 ): typeof character {
+  if (payment.castAsRitual) return character;
+
   if (payment.freeCastSourceId) {
     const source = buildSpellFreeCastSources(input).find((entry) => entry.id === payment.freeCastSourceId);
     if (!source) return character;
@@ -569,9 +589,11 @@ export function buildCastSpellAvailabilityInputFromCharacter(
   activeFeatKeys: string[],
   featChoicesFor: (featKey: string, slotIndex?: number) => FeatChoices,
   speciesData: SpeciesData | null,
+  ritualEligibleSpellKeys: readonly string[] = [],
 ): CastSpellAvailabilityInput {
   return {
     spellKey,
+    canCastAsRitual: canCastSpellAsRitual(spellKey, ritualEligibleSpellKeys),
     slotsByLevel: derived.spellcasting?.slotsByLevel ?? {},
     spellSlotRemaining: character.spellSlotRemaining,
     pactMagic: derived.pactMagic,

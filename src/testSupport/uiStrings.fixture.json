@@ -6660,9 +6660,16 @@
     {
       "entity_type": "ui",
       "entity_key": "spells",
+      "field": "spellcastingStats",
+      "locale": "en",
+      "text": "Spellcasting Stats ({className})"
+    },
+    {
+      "entity_type": "ui",
+      "entity_key": "spells",
       "field": "spellcastingSlots",
       "locale": "en",
-      "text": "Spellcasting Slots"
+      "text": "Spellcasting Slots ({className})"
     },
     {
       "entity_type": "ui",
@@ -13268,9 +13275,16 @@
     {
       "entity_type": "ui",
       "entity_key": "spells",
+      "field": "spellcastingStats",
+      "locale": "pt-BR",
+      "text": "Spellcasting Stats ({className})"
+    },
+    {
+      "entity_type": "ui",
+      "entity_key": "spells",
       "field": "spellcastingSlots",
       "locale": "pt-BR",
-      "text": "Espaços de Conjuração"
+      "text": "Spellcasting Slots ({className})"
     },
     {
       "entity_type": "ui",

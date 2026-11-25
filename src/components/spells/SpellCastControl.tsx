@@ -1,7 +1,9 @@
 import { useMemo, useState } from "react";
 import { SPECIES, findByKey } from "../../data";
+import { effectiveLevelPath, resolvedClassLevels } from "../../domain/classLevels";
 import { buildCastSpellAvailabilityInputFromCharacter } from "../../domain/castSpell";
 import { featChoicesResolverForCharacter } from "../../domain/featSlots";
+import { characterRitualSpellKeys } from "../../domain/spellSelection";
 import { activeFeatKeysFromCharacter } from "../../state/characterState";
 import { useCharacter } from "../../state/CharacterContext";
 import { useLocale } from "../../i18n/LocaleContext";
@@ -28,6 +30,19 @@ export function SpellCastControl({
   );
   const speciesData = character.speciesKey ? findByKey(SPECIES, character.speciesKey) : null;
 
+  const ritualSpellKeys = useMemo(() => {
+    const classLevels = resolvedClassLevels(effectiveLevelPath(character));
+    return characterRitualSpellKeys({
+      character,
+      classLevels,
+      speciesCantrips: derived.speciesFeatureContributions.cantrips,
+      speciesPreparedSpells: derived.speciesFeatureContributions.preparedSpells,
+      activeFeatKeys,
+      featChoicesFor,
+      spellSlots: derived.spellcasting?.slotsByLevel,
+    });
+  }, [character, derived, activeFeatKeys, featChoicesFor]);
+
   const availability = useMemo(
     () =>
       buildCastSpellAvailabilityInputFromCharacter(
@@ -37,8 +52,9 @@ export function SpellCastControl({
         activeFeatKeys,
         featChoicesFor,
         speciesData,
+        ritualSpellKeys,
       ),
-    [character, derived, spellKey, activeFeatKeys, featChoicesFor, speciesData],
+    [character, derived, spellKey, activeFeatKeys, featChoicesFor, speciesData, ritualSpellKeys],
   );
 
   const availabilityWithLabels = useMemo(

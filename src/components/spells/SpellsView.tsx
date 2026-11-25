@@ -9,7 +9,7 @@ import {
 import { featChoicesResolverForCharacter } from "../../domain/featSlots";
 import { resolveCombatSpellRange } from "../../domain/spellCombat";
 import { grantSpellcastingEffect } from "../../domain/spellcasting";
-import { formatModifier } from "../../domain/modifiers";
+import { hasSpellcastingFeature } from "../../domain/multiclassCasterLevel";
 import {
   activePerClassSpellcasting,
   allPerClassSpellPicks,
@@ -17,6 +17,7 @@ import {
   buildCharacterSpellEntries,
   allCharacterSpellbookKeys,
   cantripPicksForClass,
+  spellPicksForClass,
   type CharacterSpellEntry,
   classSpellListFor,
   characterOwnedSpellKeys,
@@ -62,7 +63,8 @@ import { SpellCappedPickList } from "./SpellCappedPickList";
 import { SpellCastControl } from "./SpellCastControl";
 import { CollapsiblePane } from "../CollapsiblePane";
 import { FeatSpellcastingSection } from "./FeatSpellcastingSection";
-import { ClassSpellPickSection } from "./ClassSpellPickSection";
+import { ClassSpellPickSection, classSpellPickSectionHasContent } from "./ClassSpellPickSection";
+import { SpellcastingStatsSection } from "./SpellcastingStatsSection";
 import { WizardSpellbookSection } from "./WizardSpellbookSection";
 import { ConcentrationSection } from "./ConcentrationSection";
 import { RitualSpellsSection } from "./RitualSpellsSection";
@@ -174,8 +176,9 @@ export function SpellsView() {
         activeFeatKeys,
         featChoicesFor,
         abilityModifiers: derived.abilityModifiers,
+        proficiencyBonus: derived.proficiencyBonus,
       }),
-    [activeFeatKeys, featChoicesFor, derived.abilityModifiers],
+    [activeFeatKeys, featChoicesFor, derived.abilityModifiers, derived.proficiencyBonus],
   );
 
   const concentrationSpellKeys = useMemo(
@@ -322,13 +325,6 @@ export function SpellsView() {
     [featSpellUseTrackers],
   );
 
-  const preparedLabel =
-    listMode === "known"
-      ? t("spells.spellsKnown")
-      : listMode === "spellbook"
-        ? t("spells.spellsPrepared")
-        : t("spells.spellsPrepared");
-
   const cantripOptions = useMemo(() => {
     const keys = new Set<string>();
     for (const { classKey, classLevel } of classLevels) {
@@ -385,7 +381,44 @@ export function SpellsView() {
   const isSingleClassWarlock = !isMulticlass && character.classKey === "warlock";
   const showSingleClassSpellChoices = showCantripUnionPicker || showSingleClassPickers;
 
-  const showKnownPreparedSpellsHeader = showMulticlassClassSections || spellcasting != null;
+  const spellSlotPoolClassName = useMemo(() => {
+    const casterCtx = {
+      subclassByClass: character.subclassByClass,
+      getClassData: (classKey: string) => findByKey(CLASSES, classKey) ?? null,
+      getSubclassData: (subclassKey: string) => findByKey(SUBCLASSES, subclassKey) ?? null,
+    };
+    return classLevels
+      .filter(({ classKey, classLevel }) => hasSpellcastingFeature(classKey, classLevel, casterCtx))
+      .map(({ classKey }) => {
+        const classData = findByKey(CLASSES, classKey);
+        return tEntity("catalog.classes", classKey, "name", classData?.name ?? classKey);
+      })
+      .join(", ");
+  }, [classLevels, character.subclassByClass, tEntity]);
+
+  const showKnownPreparedSpellsHeader = useMemo(() => {
+    if (isMulticlass) {
+      return castingClasses.some(({ classKey, classLevel, summary }) => {
+        if (!summary) return false;
+        const limits = limitsByClass[classKey];
+        if (!limits) return false;
+        const classData = findByKey(CLASSES, classKey);
+        const subclassData = findSubclass(classKey, subclassKeyForClass(character, classKey));
+        const listMode = limits.listMode ?? classData?.spellProgression?.listMode ?? null;
+        const hasSubclassSpellcasting = grantSpellcastingEffect(subclassData, classLevel) != null;
+        return classSpellPickSectionHasContent(limits, summary, listMode, hasSubclassSpellcasting);
+      });
+    }
+    return Boolean(spellcasting && (showSingleClassSpellChoices || isSingleClassWarlock));
+  }, [
+    isMulticlass,
+    castingClasses,
+    limitsByClass,
+    character,
+    spellcasting,
+    showSingleClassSpellChoices,
+    isSingleClassWarlock,
+  ]);
 
   function spellMeta(spellKey: string): string {
     const spell = findSpellByKey(spellKey);
@@ -467,9 +500,36 @@ export function SpellsView() {
         <p className={sheetStyles.hint}>{t("spells.spellcastingLater", { level: classData.spellcastingGainedAtLevel ?? 2 })}</p>
       ) : null}
 
+      {castingClasses.map(({ classKey, summary }) => {
+        if (!summary) return null;
+        const classData = findByKey(CLASSES, classKey);
+        const limits = isMulticlass ? limitsByClass[classKey] : singleClassLimits;
+        const listMode = limits?.listMode ?? summary.listMode ?? classData?.spellProgression?.listMode ?? null;
+        const classDisplayName = tEntity("catalog.classes", classKey, "name", classData?.name ?? classKey);
+        const cantripMax = isMulticlass ? (limits?.cantripSlots ?? summary.cantripsKnown) : summary.cantripsKnown;
+        const cantripCount = isMulticlass
+          ? cantripPicksForClass(character, classKey).length
+          : unionCantrips.length;
+        const spellPickCount = isMulticlass
+          ? spellPicksForClass(character, classKey).length
+          : character.spellPicks.length;
+        return (
+          <SpellcastingStatsSection
+            key={classKey}
+            classDisplayName={classDisplayName}
+            summary={summary}
+            cantripCount={cantripCount}
+            cantripMax={cantripMax}
+            spellPickCount={spellPickCount}
+            spellPickMax={summary.spellsPreparedOrKnown}
+            listMode={listMode}
+          />
+        );
+      })}
+
       {hasSpellcastingSlots ? (
         <section className={`${styles.section} ${styles.spellSlotsSection}`}>
-          <h3>{t("spells.spellcastingSlots")}</h3>
+          <h3>{t("spells.spellcastingSlots", { className: spellSlotPoolClassName })}</h3>
           <div className={combatStyles.statRow}>
             {spellcastingSlotLevels.map((spellLevel) => {
               const maxSlots = spellcastingSlots[spellLevel] ?? 0;
@@ -527,51 +587,6 @@ export function SpellsView() {
         </section>
       ) : spellcasting ? (
         <section className={`${styles.section} ${styles.classSpellcastingSection}`}>
-          <div className={sheetStyles.statGrid}>
-            <div className={sheetStyles.statCard}>
-              <p className={sheetStyles.statLabel}>
-                {t("spells.abilityModifier", { ability: t(`rules.ability.${spellcasting.ability}`) })}
-              </p>
-              <p className={sheetStyles.statValue}>{formatModifier(spellcasting.abilityModifier)}</p>
-            </div>
-            <div className={sheetStyles.statCard}>
-              <p className={sheetStyles.statLabel}>{t("spells.spellAttack")}</p>
-              <p className={sheetStyles.statValue}>{formatModifier(spellcasting.attackBonus)}</p>
-            </div>
-            <div className={sheetStyles.statCard}>
-              <p className={sheetStyles.statLabel}>{t("spells.saveDc")}</p>
-              <p className={sheetStyles.statValue}>{spellcasting.saveDc}</p>
-            </div>
-            {spellcasting.cantripsKnown > 0 ? (
-              <div className={sheetStyles.statCard}>
-                <p className={sheetStyles.statLabel}>{t("spells.levelPaneCantrips")}</p>
-                <p
-                  className={`${sheetStyles.statValue} ${
-                    unionCantrips.length < spellcasting.cantripsKnown
-                      ? sheetStyles.statValueIncomplete
-                      : ""
-                  }`}
-                >
-                  {unionCantrips.length} / {spellcasting.cantripsKnown}
-                </p>
-              </div>
-            ) : null}
-            {spellcasting.spellsPreparedOrKnown > 0 ? (
-              <div className={sheetStyles.statCard}>
-                <p className={sheetStyles.statLabel}>{preparedLabel}</p>
-                <p
-                  className={`${sheetStyles.statValue} ${
-                    character.spellPicks.length < spellcasting.spellsPreparedOrKnown
-                      ? sheetStyles.statValueIncomplete
-                      : ""
-                  }`}
-                >
-                  {character.spellPicks.length} / {spellcasting.spellsPreparedOrKnown}
-                </p>
-              </div>
-            ) : null}
-          </div>
-
           {isSingleClassWarlock ? <WarlockPactSpellBlocks embedded /> : null}
 
           {showSingleClassSpellChoices ? (

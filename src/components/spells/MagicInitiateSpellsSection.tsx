@@ -22,7 +22,6 @@ import {
 } from "../../domain/featGrantSpells";
 import { findActiveFeatSlot } from "../../domain/featSlots";
 import { formatModifier } from "../../domain/modifiers";
-import { PROFICIENCY_BONUS } from "../../domain/proficiency";
 import { computeSpellcasting } from "../../domain/spellcasting";
 import { filterOwnedSpellPickOptions, localizedSpellPickerLabel, ownedSpellKeysForCharacter } from "../../domain/spellSelection";
 import { useLocale } from "../../i18n/LocaleContext";
@@ -100,7 +99,7 @@ export function MagicInitiateSpellsSection({
         if (!grantEffect) return null;
 
         const cantripSlots = featCantripPickSlotCount(grantEffect);
-        const spellSlots = featSpellPickSlotCount(grantEffect, PROFICIENCY_BONUS);
+        const spellSlots = featSpellPickSlotCount(grantEffect, derived.proficiencyBonus);
         const cantripOptions = featSpellPickOptionsForEffect(grantEffect, 0, { activeFeatKeys });
         const spellOptions = featSpellPickOptionsForEffect(grantEffect, grantEffect.spellLevel ?? 1, {
           activeFeatKeys,
@@ -114,8 +113,8 @@ export function MagicInitiateSpellsSection({
                 spellcastingGainedAtLevel: 1,
                 slotsByLevel: {},
                 abilityModifierValue: derived.abilityModifiers[resolvedAbility],
-                proficiencyBonus: PROFICIENCY_BONUS,
-                characterLevel: 1,
+                proficiencyBonus: derived.proficiencyBonus,
+                characterLevel: character.level,
               })
             : null;
         const useTrackers = buildFeatSpellUseTrackers({

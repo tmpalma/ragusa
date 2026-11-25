@@ -18,6 +18,7 @@ import type { CharacterAction } from "../../state/characterState";
 export interface CastSpellConfirmPayload {
   actions: CharacterAction[];
   freeCastSourceId: string | null;
+  castAsRitual: boolean;
   slotLevel: number;
   slotPool: CastSlotPool;
   payment: CompanionSummonPayment;
@@ -58,6 +59,7 @@ export function CastSpellDialog({
   const [slotLevel, setSlotLevel] = useState(spellMinLevel);
   const [slotPool, setSlotPool] = useState<CastSlotPool>("spell");
   const [freeCastSourceId, setFreeCastSourceId] = useState<string | null>(null);
+  const [castAsRitual, setCastAsRitual] = useState(false);
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -68,6 +70,7 @@ export function CastSpellDialog({
       setSlotLevel(initialLevel);
       setSlotPool(defaultCastSlotPool(availability, initialLevel));
       setFreeCastSourceId(null);
+      setCastAsRitual(false);
       dialog.showModal();
       return;
     }
@@ -85,11 +88,14 @@ export function CastSpellDialog({
   useBackOverlay(open, onCancel);
 
   const usingFreeCast = freeCastSourceId != null;
-  const levelSummary = castSlotLevelSummary(availability, usingFreeCast ? spellMinLevel : slotLevel);
-  const poolChoiceVisible = !usingFreeCast && showCastSlotPoolChoice(availability, slotLevel);
+  const usingNonSlotCast = usingFreeCast || castAsRitual;
+  const levelSummary = castSlotLevelSummary(availability, usingNonSlotCast ? spellMinLevel : slotLevel);
+  const poolChoiceVisible = !usingNonSlotCast && showCastSlotPoolChoice(availability, slotLevel);
+  const showCastPaymentChoices = availability.canCastAsRitual || freeCastSources.length > 0;
   const confirmEnabled = isCastConfirmEnabled({
     freeCastSourceId,
-    slotLevel: usingFreeCast ? spellMinLevel : slotLevel,
+    castAsRitual,
+    slotLevel: usingNonSlotCast ? spellMinLevel : slotLevel,
     slotPool,
     input: availability,
   });
@@ -123,9 +129,10 @@ export function CastSpellDialog({
 
   function handleConfirm() {
     if (!confirmEnabled) return;
-    const resolvedLevel = usingFreeCast ? spellMinLevel : slotLevel;
+    const resolvedLevel = usingNonSlotCast ? spellMinLevel : slotLevel;
     const result = buildCastConfirmResult({
       freeCastSourceId,
+      castAsRitual,
       slotLevel: resolvedLevel,
       slotPool,
       input: availability,
@@ -134,6 +141,7 @@ export function CastSpellDialog({
     onConfirm({
       actions: result.actions,
       freeCastSourceId,
+      castAsRitual,
       slotLevel: resolvedLevel,
       slotPool,
       payment: result.payment,
@@ -159,10 +167,10 @@ export function CastSpellDialog({
           </p>
           <NumericStepper
             id="cast-spell-slot-level"
-            value={usingFreeCast ? spellMinLevel : slotLevel}
+            value={usingNonSlotCast ? spellMinLevel : slotLevel}
             min={spellMinLevel}
             max={CAST_SLOT_LEVEL_MAX}
-            disabled={usingFreeCast}
+            disabled={usingNonSlotCast}
             decreaseLabel={t("spells.castDecreaseSlotLevel", undefined, "Decrease slot level")}
             increaseLabel={t("spells.castIncreaseSlotLevel", undefined, "Increase slot level")}
             currentLabel={t("spells.castCurrentSlotLevel", undefined, "Spell slot level")}
@@ -197,21 +205,46 @@ export function CastSpellDialog({
           </div>
         ) : null}
 
-        {freeCastSources.length > 0 ? (
+        {showCastPaymentChoices ? (
           <div className={styles.field}>
             <p className={styles.fieldLabel}>
-              {t("spells.castWithoutSlotHeading", undefined, "Free cast")}
+              {freeCastSources.length > 0
+                ? t("spells.castWithoutSlotHeading", undefined, "Free cast")
+                : t("spells.castRitualHeading", undefined, "Ritual casting")}
             </p>
             <div className={styles.freeCastList} role="radiogroup" aria-labelledby="cast-spell-dialog-title">
               <label className={styles.freeCastOption}>
                 <input
                   type="radio"
                   name={freeCastGroupId}
-                  checked={freeCastSourceId === null}
-                  onChange={() => setFreeCastSourceId(null)}
+                  checked={freeCastSourceId === null && !castAsRitual}
+                  onChange={() => {
+                    setFreeCastSourceId(null);
+                    setCastAsRitual(false);
+                  }}
                 />
                 <span>{t("spells.castWithSpellSlot", undefined, "Use a spell slot")}</span>
               </label>
+              {availability.canCastAsRitual ? (
+                <label className={styles.freeCastOption}>
+                  <input
+                    type="radio"
+                    name={freeCastGroupId}
+                    checked={castAsRitual}
+                    onChange={() => {
+                      setCastAsRitual(true);
+                      setFreeCastSourceId(null);
+                    }}
+                  />
+                  <span>
+                    {t(
+                      "spells.castAsRitual",
+                      undefined,
+                      "Cast as ritual (no spell slot)",
+                    )}
+                  </span>
+                </label>
+              ) : null}
               {freeCastSources.map((source) => {
                 const disabled = source.remaining <= 0;
                 const label = disabled
@@ -235,7 +268,10 @@ export function CastSpellDialog({
                       name={freeCastGroupId}
                       disabled={disabled}
                       checked={freeCastSourceId === source.id}
-                      onChange={() => setFreeCastSourceId(source.id)}
+                      onChange={() => {
+                        setFreeCastSourceId(source.id);
+                        setCastAsRitual(false);
+                      }}
                     />
                     <span>{label}</span>
                   </label>

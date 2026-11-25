@@ -21,6 +21,7 @@ function baseInput(
 ): CastSpellAvailabilityInput {
   return {
     spellKey: "command",
+    canCastAsRitual: false,
     slotsByLevel: { 1: 2, 2: 1 },
     spellSlotRemaining: {},
     pactMagic: null,
@@ -79,6 +80,7 @@ describe("castSpell availability", () => {
     expect(
       isCastConfirmEnabled({
         freeCastSourceId: null,
+        castAsRitual: false,
         slotLevel: 1,
         slotPool: "spell",
         input,
@@ -125,6 +127,7 @@ describe("castSpell confirm actions", () => {
     });
     const actions = buildCastConfirmActions({
       freeCastSourceId: null,
+      castAsRitual: false,
       slotLevel: 2,
       slotPool: "spell",
       input,
@@ -143,6 +146,7 @@ describe("castSpell confirm actions", () => {
     });
     const actions = buildCastConfirmActions({
       freeCastSourceId: null,
+      castAsRitual: false,
       slotLevel: 1,
       slotPool: "spell",
       input,
@@ -161,6 +165,7 @@ describe("castSpell confirm actions", () => {
     });
     const actions = buildCastConfirmActions({
       freeCastSourceId: null,
+      castAsRitual: false,
       slotLevel: 1,
       slotPool: "spell",
       input,
@@ -196,6 +201,7 @@ describe("castSpell confirm actions", () => {
 
     const actions = buildCastConfirmActions({
       freeCastSourceId: freeCastId,
+      castAsRitual: false,
       slotLevel: 1,
       slotPool: "spell",
       input,
@@ -205,10 +211,35 @@ describe("castSpell confirm actions", () => {
     ]);
     expect(buildCastConfirmActions({
       freeCastSourceId: null,
+      castAsRitual: false,
       slotLevel: 1,
       slotPool: "spell",
       input,
     })).toEqual([{ type: "SET_SPELL_SLOT_REMAINING", spellLevel: 1, value: 1 }]);
+  });
+
+  it("casts as ritual without spending spell slots", () => {
+    let cleric = characterReducer(INITIAL_CHARACTER, { type: "SET_CLASS", key: "cleric" });
+    cleric = characterReducer(cleric, { type: "ADD_SPELL_PICK", spellKey: "detect-magic" });
+
+    const input = baseInput({
+      spellKey: "detect-magic",
+      canCastAsRitual: true,
+      slotsByLevel: { 1: 2 },
+      spellSlotRemaining: { 1: 2 },
+    });
+    const actions = buildCastConfirmActions({
+      freeCastSourceId: null,
+      castAsRitual: true,
+      slotLevel: 1,
+      slotPool: "spell",
+      input,
+    });
+    expect(actions).toEqual([{ type: "SET_CONCENTRATION_SPELL", spellKey: "detect-magic" }]);
+
+    const next = actions.reduce((state, action) => characterReducer(state, action), cleric);
+    expect(next.spellSlotRemaining[1]).toBeUndefined();
+    expect(next.concentrationSpellKey).toBe("detect-magic");
   });
 });
 
@@ -264,6 +295,7 @@ describe("species lineage free cast", () => {
     const sourceId = sources.find((entry) => entry.speciesFeatureKey === "high-elf-spell-3")!.id;
     const actions = buildCastConfirmActions({
       freeCastSourceId: sourceId,
+      castAsRitual: false,
       slotLevel: 1,
       slotPool: "spell",
       input,
@@ -289,6 +321,7 @@ describe("pact slot spend", () => {
     });
     const actions = buildCastConfirmActions({
       freeCastSourceId: null,
+      castAsRitual: false,
       slotLevel: 1,
       slotPool: "pact",
       input,

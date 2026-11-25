@@ -71,6 +71,7 @@ describe("tracked creatures integration", () => {
     );
     const cast = buildCastConfirmResult({
       freeCastSourceId: null,
+      castAsRitual: false,
       slotLevel: 1,
       slotPool: "spell",
       input: { ...input, slotsByLevel: { 1: 2 }, spellSlotRemaining: {} },
@@ -106,6 +107,7 @@ describe("tracked creatures integration", () => {
     const freeId = `class:faithful-steed`;
     const cast = buildCastConfirmResult({
       freeCastSourceId: freeId,
+      castAsRitual: false,
       slotLevel: 2,
       slotPool: "spell",
       input,

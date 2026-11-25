@@ -618,6 +618,21 @@ describe("Magic Initiate feats", () => {
     expect(entries[0]?.summary.attackBonus).toBe(5);
     expect(entries[0]?.summary.saveDc).toBe(13);
   });
+
+  it("scales feat spell attack and DC with proficiency bonus", () => {
+    const entries = buildFeatSpellcastingEntries({
+      activeFeatKeys: ["magic-initiate-wizard"],
+      featChoicesFor: () => ({
+        ...EMPTY_FEAT_CHOICES,
+        spellcastingAbility: "int",
+      }),
+      abilityModifiers: { str: 0, dex: 0, con: 0, int: 3, wis: 0, cha: 0 },
+      proficiencyBonus: 3,
+    });
+    expect(entries).toHaveLength(1);
+    expect(entries[0]?.summary.attackBonus).toBe(6);
+    expect(entries[0]?.summary.saveDc).toBe(14);
+  });
 });
 
 describe("origin and PHB feat mechanics", () => {

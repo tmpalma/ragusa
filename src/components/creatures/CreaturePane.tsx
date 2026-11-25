@@ -1,7 +1,9 @@
 import { useMemo, useState, type MouseEvent } from "react";
 import { BEASTS, SPECIES, findByKey } from "../../data";
+import { effectiveLevelPath, resolvedClassLevels } from "../../domain/classLevels";
 import { buildCastSpellAvailabilityInputFromCharacter } from "../../domain/castSpell";
 import type { AvailableCreatureSource } from "../../domain/trackedCreatures";
+import { characterRitualSpellKeys } from "../../domain/spellSelection";
 import {
   buildCreatureSourceContext,
   companionSummonRequirementsMet,
@@ -50,6 +52,19 @@ export function CreaturePane({ entry }: CreaturePaneProps) {
   const featChoicesFor = useMemo(() => featChoicesResolverForCharacter(character), [character]);
   const speciesData = character.speciesKey ? findByKey(SPECIES, character.speciesKey) : null;
 
+  const ritualSpellKeys = useMemo(() => {
+    const classLevels = resolvedClassLevels(effectiveLevelPath(character));
+    return characterRitualSpellKeys({
+      character,
+      classLevels,
+      speciesCantrips: derived.speciesFeatureContributions.cantrips,
+      speciesPreparedSpells: derived.speciesFeatureContributions.preparedSpells,
+      activeFeatKeys,
+      featChoicesFor,
+      spellSlots: derived.spellcasting?.slotsByLevel,
+    });
+  }, [character, derived, activeFeatKeys, featChoicesFor]);
+
   const castAvailability = useMemo(() => {
     if (!summonSpellKey) return null;
     return buildCastSpellAvailabilityInputFromCharacter(
@@ -59,8 +74,9 @@ export function CreaturePane({ entry }: CreaturePaneProps) {
       activeFeatKeys,
       featChoicesFor,
       speciesData,
+      ritualSpellKeys,
     );
-  }, [character, derived, summonSpellKey, activeFeatKeys, featChoicesFor, speciesData]);
+  }, [character, derived, summonSpellKey, activeFeatKeys, featChoicesFor, speciesData, ritualSpellKeys]);
 
   const castAvailabilityWithLabels = useMemo(() => {
     if (!castAvailability) return null;

@@ -235,11 +235,13 @@ function readSummonPayment(value: unknown): CompanionSummonPayment | undefined {
     ? (value.freeCastSourceId as string | null)
     : null;
   const slotPool = value.slotPool === "pact" ? "pact" : "spell";
+  const castAsRitual = value.castAsRitual === true ? true : undefined;
   return {
     spellKey,
     slotLevel: Math.floor(slotLevel),
     freeCastSourceId,
     slotPool,
+    ...(castAsRitual ? { castAsRitual: true } : {}),
   };
 }
 

@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { CLASSES, findByKey } from "../../data";
+import type { SpellListMode } from "../../data/types";
 import type { SpellPickLimits } from "../../domain/spellSelection";
 import {
   allSpellbookKeys,
@@ -19,7 +20,6 @@ import {
 } from "../../domain/spellSelection";
 import type { SpellcastingSummary } from "../../domain/spellcasting";
 import { grantSpellcastingEffect } from "../../domain/spellcasting";
-import { formatModifier } from "../../domain/modifiers";
 import {
   findSubclass,
   subclassSpellbookPickCount,
@@ -30,8 +30,22 @@ import type { Character, CharacterAction } from "../../state/characterState";
 import { SpellCappedPickList } from "./SpellCappedPickList";
 import { WizardSpellbookSection } from "./WizardSpellbookSection";
 import { WarlockPactSpellBlocks } from "./WarlockSpellSections";
-import sheetStyles from "../sheet/Sheet.module.css";
 import styles from "./Spells.module.css";
+
+export function classSpellPickSectionHasContent(
+  limits: SpellPickLimits,
+  summary: SpellcastingSummary | null,
+  listMode: SpellListMode | null,
+  hasSubclassSpellcasting: boolean,
+): boolean {
+  return (
+    summary != null &&
+    (listMode != null || hasSubclassSpellcasting) &&
+    (limits.cantripSlots > 0 ||
+      limits.spellSlots > 0 ||
+      (listMode === "spellbook" && limits.spellbookSlots > 0))
+  );
+}
 
 export interface ClassSpellPickSectionProps {
   character: Character;
@@ -135,16 +149,14 @@ export function ClassSpellPickSection({
   );
 
   const classLabel = tEntity("catalog.classes", classKey, "name", classData?.name ?? classKey);
-  const preparedLabel =
-    listMode === "known" ? t("spells.spellsKnown") : t("spells.spellsPrepared");
 
   const hasSubclassSpellcasting = grantSpellcastingEffect(subclassData, classLevel) != null;
-  const showPickers =
-    summary != null &&
-    (listMode != null || hasSubclassSpellcasting) &&
-    (limits.cantripSlots > 0 ||
-      limits.spellSlots > 0 ||
-      (isWizard && limits.spellbookSlots > 0));
+  const showPickers = classSpellPickSectionHasContent(
+    limits,
+    summary,
+    listMode,
+    hasSubclassSpellcasting,
+  );
 
   if (!showPickers) return null;
 
@@ -203,51 +215,6 @@ export function ClassSpellPickSection({
           ? t("spells.classAtLevel", { className: classLabel, level: classLevel })
           : t("spells.classSpellSection", { className: classLabel })}
       </p>
-
-      {isMulticlass ? (
-        <div className={sheetStyles.statGrid}>
-          <div className={sheetStyles.statCard}>
-            <p className={sheetStyles.statLabel}>
-              {t("spells.abilityModifier", { ability: t(`rules.ability.${summary.ability}`) })}
-            </p>
-            <p className={sheetStyles.statValue}>{formatModifier(summary.abilityModifier)}</p>
-          </div>
-          <div className={sheetStyles.statCard}>
-            <p className={sheetStyles.statLabel}>{t("spells.spellAttack")}</p>
-            <p className={sheetStyles.statValue}>{formatModifier(summary.attackBonus)}</p>
-          </div>
-          <div className={sheetStyles.statCard}>
-            <p className={sheetStyles.statLabel}>{t("spells.saveDc")}</p>
-            <p className={sheetStyles.statValue}>{summary.saveDc}</p>
-          </div>
-          {limits.cantripSlots > 0 ? (
-            <div className={sheetStyles.statCard}>
-              <p className={sheetStyles.statLabel}>{t("spells.levelPaneCantrips")}</p>
-              <p
-                className={`${sheetStyles.statValue} ${
-                  selectedCantripPicks.length < limits.cantripSlots ? sheetStyles.statValueIncomplete : ""
-                }`}
-              >
-                {selectedCantripPicks.length} / {limits.cantripSlots}
-              </p>
-            </div>
-          ) : null}
-          {summary.spellsPreparedOrKnown > 0 ? (
-            <div className={sheetStyles.statCard}>
-              <p className={sheetStyles.statLabel}>{preparedLabel}</p>
-              <p
-                className={`${sheetStyles.statValue} ${
-                  selectedSpellPicks.length < summary.spellsPreparedOrKnown
-                    ? sheetStyles.statValueIncomplete
-                    : ""
-                }`}
-              >
-                {selectedSpellPicks.length} / {summary.spellsPreparedOrKnown}
-              </p>
-            </div>
-          ) : null}
-        </div>
-      ) : null}
 
       {isMulticlass && classKey === "warlock" ? <WarlockPactSpellBlocks embedded /> : null}
 
