@@ -178,6 +178,10 @@
   min-width: 0;
 }
 
+.knownPreparedLevelFilterSpacer {
+  margin-bottom: 0.5rem;
+}
+
 .groupLabel {
   margin: 0;
   font-size: 0.9rem;

@@ -1,5 +1,6 @@
 import { parseFeatDescriptionReference } from "../../domain/featDescription";
 import { useMeasurementSystem } from "../../platform/measurementSystem";
+import { CatalogProse } from "../CatalogProse";
 import { CombatReferenceOptions } from "./CombatReferenceOptions";
 import styles from "./Combat.module.css";
 
@@ -24,5 +25,7 @@ export function ConditionPickDescription({ description }: ConditionPickDescripti
     );
   }
 
-  return <p className={styles.conditionPickDesc}>{formatProse(description)}</p>;
+  return (
+    <CatalogProse className={styles.conditionPickDesc}>{formatProse(description)}</CatalogProse>
+  );
 }

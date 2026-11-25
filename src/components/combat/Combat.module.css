@@ -641,7 +641,6 @@ details.card:not([open]) > :not(.cardSummary) {
 .description {
   margin: 0;
   font-size: 0.85rem;
-  white-space: pre-wrap;
 }
 
 .referenceTable {

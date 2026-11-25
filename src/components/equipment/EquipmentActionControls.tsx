@@ -26,6 +26,7 @@ import {
 import { useLocale } from "../../i18n/LocaleContext";
 import { useMeasurementSystem } from "../../platform/measurementSystem";
 import { useCharacter } from "../../state/CharacterContext";
+import { CatalogProse } from "../CatalogProse";
 import { ResourceCounter } from "../combat/ResourceCounter";
 import { GenericVariantDescription } from "./GenericVariantDescription";
 import combatStyles from "../combat/Combat.module.css";
@@ -144,7 +145,8 @@ function StructuredGearDescSections({
 
   return sections.map((section) => (
     <p key={section.key} className={combatStyles.description}>
-      <strong>{section.label}</strong> {formatProse(section.text!)}
+      <strong>{section.label}</strong>{" "}
+      <CatalogProse variant="inline">{formatProse(section.text!)}</CatalogProse>
     </p>
   ));
 }
@@ -252,13 +254,13 @@ function EquipmentActionDisplayCard({ display }: { display: EquipmentActionDispl
         {display.structuredParts ? (
           <StructuredGearDescSections parts={display.structuredParts} t={t} />
         ) : display.plainDesc ? (
-          <p className={combatStyles.description}>
+          <CatalogProse className={combatStyles.description}>
             {formatProse(
               resolved.kind === "homebrew"
                 ? resolved.record.data.description
                 : tEntity("catalog.adventuringGear", display.catalogKey, "desc", display.plainDesc),
             )}
-          </p>
+          </CatalogProse>
         ) : null}
       </article>
     );

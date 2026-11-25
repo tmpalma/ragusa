@@ -15,6 +15,7 @@ Read this skill when turning a **block of information** into a collapsible pane 
 | Magic Item / Adventuring Gear description panes; nested `equipment.armoryDescriptions` inside Armory | Armory outer block (static bordered section, not collapsible); Eldritch Invocations (pick list **inside** Class Features — not its own pane) |
 | New “same as the action columns” collapse | Character **level** panes in `ClassSection` (controlled open + revert in the summary) |
 | Nested groups inside an already-collapsible column | A new accordion library or `useState` open/closed besides `CollapsiblePane` |
+| Inner **description prose** (`**bold**`, lists in spell/feat copy) | `.cursor/skills/render-catalog-prose/SKILL.md` (`CatalogProse`) |
 
 ## Pattern
 

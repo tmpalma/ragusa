@@ -353,6 +353,8 @@ export function ClassSpellPickSection({
           allowedOptions={preparedOptions}
           selectedKeys={selectedSpellPicks}
           maxCount={limits.spellSlots}
+          stackedAddRow
+          levelFilterClassName={`${styles.alwaysPreparedLevelFilter} ${styles.knownPreparedLevelFilterSpacer}`}
           onAdd={addSpellPick}
           onRemove={removeSpellPick}
         />

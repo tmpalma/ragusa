@@ -1,3 +1,4 @@
+import { CatalogProse } from "../CatalogProse";
 import { useMeasurementSystem } from "../../platform/measurementSystem";
 import styles from "./Combat.module.css";
 
@@ -33,25 +34,27 @@ export function CombatReferenceOptions({
 
   return (
     <>
-      {intro ? <p className={descriptionClassName}>{formatProse(intro)}</p> : null}
+      {intro ? (
+        <CatalogProse className={descriptionClassName}>{formatProse(intro)}</CatalogProse>
+      ) : null}
       {options.map((option) => (
         <div key={option.key}>
-          {option.name || option.desc ? (
+          {option.name ? (
             <p className={descriptionClassName}>
-              {option.name ? (
-                <>
-                  <strong>{option.name}.</strong>{" "}
-                </>
-              ) : null}
-              {option.desc ? formatProse(option.desc) : null}
+              <strong>{option.name}.</strong>
             </p>
+          ) : null}
+          {option.desc ? (
+            <CatalogProse className={descriptionClassName}>{formatProse(option.desc)}</CatalogProse>
           ) : null}
           {option.table ? (
             <table className={styles.referenceTable}>
               <thead>
                 <tr>
                   {option.table.headers.map((header) => (
-                    <th key={header}>{formatProse(header)}</th>
+                    <th key={header}>
+                      <CatalogProse variant="inline">{formatProse(header)}</CatalogProse>
+                    </th>
                   ))}
                 </tr>
               </thead>
@@ -59,7 +62,9 @@ export function CombatReferenceOptions({
                 {option.table.rows.map((row, rowIndex) => (
                   <tr key={rowIndex}>
                     {row.map((cell, cellIndex) => (
-                      <td key={cellIndex}>{formatProse(cell)}</td>
+                      <td key={cellIndex}>
+                        <CatalogProse variant="inline">{formatProse(cell)}</CatalogProse>
+                      </td>
                     ))}
                   </tr>
                 ))}
@@ -68,7 +73,9 @@ export function CombatReferenceOptions({
           ) : null}
         </div>
       ))}
-      {trailing ? <p className={descriptionClassName}>{formatProse(trailing)}</p> : null}
+      {trailing ? (
+        <CatalogProse className={descriptionClassName}>{formatProse(trailing)}</CatalogProse>
+      ) : null}
     </>
   );
 }

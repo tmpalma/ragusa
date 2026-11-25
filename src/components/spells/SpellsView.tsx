@@ -45,6 +45,7 @@ import {
   subclassSpellbookPickCount,
   subclassSpellbookPickGrants,
 } from "../../domain/subclasses";
+import { CatalogProse } from "../CatalogProse";
 import { ConfirmRemoveButton } from "../confirm/ConfirmRemoveButton";
 import { useLocale } from "../../i18n/LocaleContext";
 import { useMeasurementSystem } from "../../platform/measurementSystem";
@@ -705,6 +706,8 @@ export function SpellsView() {
                         allowedOptions={filteredPreparedOptions}
                         selectedKeys={character.spellPicks}
                         maxCount={singleClassLimits.spellSlots}
+                        stackedAddRow
+                        levelFilterClassName={`${styles.alwaysPreparedLevelFilter} ${styles.knownPreparedLevelFilterSpacer}`}
                         onAdd={(spellKey) => dispatch({ type: "ADD_SPELL_PICK", spellKey })}
                         onRemove={(spellKey) => dispatch({ type: "REMOVE_SPELL_PICK", spellKey })}
                       />
@@ -780,7 +783,7 @@ export function SpellsView() {
                         <p className={combatStyles.meta}>{t("spells.alwaysAvailable")}</p>
                       ) : null}
                       <p className={combatStyles.meta}>{spellMeta(entry.spellKey)}</p>
-                      <p className={combatStyles.description}>
+                      <CatalogProse className={combatStyles.description}>
                         {formatProse(
                           tEntity(
                             "catalog.spells",
@@ -789,10 +792,11 @@ export function SpellsView() {
                             spell?.desc ?? "",
                           ),
                         )}
-                      </p>
+                      </CatalogProse>
                       {spell?.effectOptions?.map((option) => (
                         <p key={option.key} className={combatStyles.description}>
-                          <strong>{option.name}.</strong> {formatProse(option.desc)}
+                          <strong>{option.name}.</strong>{" "}
+                          <CatalogProse variant="inline">{formatProse(option.desc)}</CatalogProse>
                         </p>
                       ))}
                       {spell && spell.level >= 1 ? (

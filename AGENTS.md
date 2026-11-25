@@ -20,6 +20,8 @@ When adding or changing **generic variants, Armory rows, shared attunement, magi
 
 When wrapping player-facing **info blocks in collapsible panes** (Combat columns, Special Traits, Class Features, spell-level descriptions, or similar hide-this-section UI), read and follow `.cursor/skills/extend-collapsible-panes/SKILL.md` first.
 
+When adding or changing player-facing **catalog description blocks** (spells, feats, class features, items, conditions) that may include markdown (`**bold**`, lists), read and follow `.cursor/skills/render-catalog-prose/SKILL.md` first.
+
 When changing **OverviewHeaderStats**, the shared identity line, top combat stat grid, or spacing between them (Overview tab and Campaign party panes), read and follow `.cursor/skills/extend-overview-header/SKILL.md` first.
 
 When changing **Overview tab layout**, sheet section order, player-facing sheet copy, or glossary speed-type labels, read [`docs/overview-sheet.md`](docs/overview-sheet.md) first.

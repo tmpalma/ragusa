@@ -6,6 +6,7 @@ import { isInWildShape, WILD_SHAPE_FEATURE_KEY, wildShapeEligibleBeasts } from "
 import { useLocale, type TranslateFn } from "../../i18n/LocaleContext";
 import { useMeasurementSystem } from "../../platform/measurementSystem";
 import { useCharacter } from "../../state/CharacterContext";
+import { CatalogProse } from "../CatalogProse";
 import { Combobox } from "../form/Combobox";
 import styles from "./Combat.module.css";
 
@@ -48,14 +49,16 @@ export function WildShapeBeastFormSection() {
         {(activeForm.traits ?? []).map((trait) => (
           <p key={trait.name} className={styles.description}>
             <strong>{trait.name}:</strong>{" "}
-            {formatProse(
-              tEntity(
-                "catalog.beasts",
-                `${activeForm.key}.trait.${traitSlugify(trait.name)}.desc`,
-                "desc",
-                trait.desc,
-              ),
-            )}
+            <CatalogProse variant="inline">
+              {formatProse(
+                tEntity(
+                  "catalog.beasts",
+                  `${activeForm.key}.trait.${traitSlugify(trait.name)}.desc`,
+                  "desc",
+                  trait.desc,
+                ),
+              )}
+            </CatalogProse>
           </p>
         ))}
         <button

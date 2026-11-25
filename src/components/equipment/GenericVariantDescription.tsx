@@ -1,5 +1,6 @@
 import { parseFeatDescriptionReference } from "../../domain/featDescription";
 import { useMeasurementSystem } from "../../platform/measurementSystem";
+import { CatalogProse } from "../CatalogProse";
 import { CombatReferenceOptions } from "../combat/CombatReferenceOptions";
 import combatStyles from "../combat/Combat.module.css";
 
@@ -22,5 +23,5 @@ export function GenericVariantDescription({ desc }: GenericVariantDescriptionPro
     );
   }
 
-  return <p className={combatStyles.description}>{formatProse(desc)}</p>;
+  return <CatalogProse className={combatStyles.description}>{formatProse(desc)}</CatalogProse>;
 }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { CatalogProse } from "../CatalogProse";
 import { ARMOR, MAGIC_ITEMS, WEAPONS, findByKey } from "../../data";
 import type { CurrencyDenomination } from "../../data/types";
 import {
@@ -331,7 +332,8 @@ function StructuredGearDescSections({
 
   return sections.map((section) => (
     <p key={section.key} className={combatStyles.description}>
-      <strong>{section.label}</strong> {formatProse(section.text!)}
+      <strong>{section.label}</strong>{" "}
+      <CatalogProse variant="inline">{formatProse(section.text!)}</CatalogProse>
     </p>
   ));
 }
@@ -399,7 +401,7 @@ function AdventuringGearDescriptionCard({
           />
         </div>
         {item.desc ? (
-          <p className={combatStyles.description}>{formatProse(item.desc)}</p>
+          <CatalogProse className={combatStyles.description}>{formatProse(item.desc)}</CatalogProse>
         ) : (
           <p className={styles.hint}>{t("equipment.noItemDescription")}</p>
         )}
@@ -473,9 +475,9 @@ function AdventuringGearDescriptionCard({
       {structuredParts ? (
         <StructuredGearDescSections parts={structuredParts} t={t} />
       ) : item.desc ? (
-        <p className={combatStyles.description}>
+        <CatalogProse className={combatStyles.description}>
           {formatProse(tEntity("catalog.adventuringGear", itemKey, "desc", item.desc))}
-        </p>
+        </CatalogProse>
       ) : (
         <p className={styles.hint}>{t("equipment.noItemDescription")}</p>
       )}

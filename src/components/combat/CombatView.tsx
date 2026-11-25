@@ -140,6 +140,7 @@ function embeddedClassFeatureUsesLabel(
 import { PaneHeader, PaneRestActions } from "../rest/PaneRestActions";
 import { CollapsiblePane } from "../CollapsiblePane";
 import { EquipmentActionDescriptionsList } from "../equipment/EquipmentActionControls";
+import { CatalogProse } from "../CatalogProse";
 import { CombatReferenceOptions } from "./CombatReferenceOptions";
 import { FeatCombatChoices } from "./FeatCombatChoices";
 
@@ -1043,7 +1044,7 @@ function CombatSessionPane({ variant }: { variant: CombatSessionVariant }) {
                             </Combobox>
                           ) : null}
                           {card.meta ? <p className={styles.meta}>{card.meta}</p> : null}
-                          <p className={styles.description}>
+                          <CatalogProse className={styles.description}>
                             {formatProse(
                               tEntity(
                                 "catalog.species",
@@ -1052,7 +1053,7 @@ function CombatSessionPane({ variant }: { variant: CombatSessionVariant }) {
                                 card.description,
                               ),
                             )}
-                          </p>
+                          </CatalogProse>
                         </article>
                       ))}
                     </div>
@@ -1083,9 +1084,9 @@ function CombatSessionPane({ variant }: { variant: CombatSessionVariant }) {
                             trailing={card.referenceTrailing}
                           />
                         ) : (
-                          <p className={styles.description}>
+                          <CatalogProse className={styles.description}>
                             {formatProse(tEntity("catalog.feats", card.featKey, "desc", card.description))}
-                          </p>
+                          </CatalogProse>
                         )}
                         <FeatCombatChoices featKey={card.featKey} />
                         {card.meta && card.featKey === "inspiring-leader" ? (
@@ -1109,7 +1110,9 @@ function CombatSessionPane({ variant }: { variant: CombatSessionVariant }) {
                                 {card.referenceTable.map((option) => (
                                   <tr key={option.key}>
                                     <td>{option.name}</td>
-                                    <td>{formatProse(option.desc)}</td>
+                                    <td>
+                                      <CatalogProse variant="inline">{formatProse(option.desc)}</CatalogProse>
+                                    </td>
                                   </tr>
                                 ))}
                               </tbody>
@@ -1208,7 +1211,9 @@ function CombatSessionPane({ variant }: { variant: CombatSessionVariant }) {
                               placeholder={t("character.choosePlaceholder")}
                             />
                             {selectedOption ? (
-                              <p className={styles.description}>{formatProse(selectedOption.desc)}</p>
+                              <CatalogProse className={styles.description}>
+                                {formatProse(selectedOption.desc)}
+                              </CatalogProse>
                             ) : null}
                           </div>
                         );
@@ -1265,7 +1270,7 @@ function CombatSessionPane({ variant }: { variant: CombatSessionVariant }) {
                       </button>
                     ) : null}
                     {card.featureKey !== "wild-shape" ? (
-                      <p className={styles.description}>
+                      <CatalogProse className={styles.description}>
                         {formatProse(
                           (card.choice?.selectedOptionKey && card.featureKey !== "armor-model") ||
                             card.referenceOptions
@@ -1277,7 +1282,7 @@ function CombatSessionPane({ variant }: { variant: CombatSessionVariant }) {
                                 card.description,
                               ),
                         )}
-                      </p>
+                      </CatalogProse>
                     ) : null}
                     {card.referenceOptions ? (
                       card.featureKey === "wild-magic-surge" ? (
@@ -1293,7 +1298,9 @@ function CombatSessionPane({ variant }: { variant: CombatSessionVariant }) {
                               {card.referenceOptions.map((option) => (
                                 <tr key={option.key}>
                                   <td>{option.name}</td>
-                                  <td>{formatProse(option.desc)}</td>
+                                  <td>
+                                    <CatalogProse variant="inline">{formatProse(option.desc)}</CatalogProse>
+                                  </td>
                                 </tr>
                               ))}
                             </tbody>
@@ -1318,7 +1325,9 @@ function CombatSessionPane({ variant }: { variant: CombatSessionVariant }) {
                 {masteryRiderCards.map((card) => (
                   <article key={card.id} className={styles.card}>
                     <h4 className={styles.featureCardTitle}>{card.name}</h4>
-                    <p className={styles.description}>{formatProse(card.description)}</p>
+                    <CatalogProse className={styles.description}>
+                      {formatProse(card.description)}
+                    </CatalogProse>
                   </article>
                 ))}
               </div>
@@ -1866,7 +1875,7 @@ function CombatActionCard({
           </div>
         ) : null}
         {localized.description ? (
-          <p className={styles.description}>{localized.description}</p>
+          <CatalogProse className={styles.description}>{localized.description}</CatalogProse>
         ) : null}
         {card.useTrackerClassFeatureKey ? (
           (() => {
@@ -1931,7 +1940,9 @@ function CombatActionCard({
                 {card.referenceTable.map((option) => (
                   <tr key={option.key}>
                     <td>{option.name}</td>
-                    <td>{formatProse(option.desc)}</td>
+                    <td>
+                      <CatalogProse variant="inline">{formatProse(option.desc)}</CatalogProse>
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -1963,7 +1974,8 @@ function CombatActionCard({
         {card.kind === "spell" && card.entityKey
           ? findSpellByKey(card.entityKey)?.effectOptions?.map((option) => (
               <p key={option.key} className={styles.description}>
-                <strong>{option.name}.</strong> {formatProse(option.desc)}
+                <strong>{option.name}.</strong>{" "}
+                <CatalogProse variant="inline">{formatProse(option.desc)}</CatalogProse>
               </p>
             ))
           : null}

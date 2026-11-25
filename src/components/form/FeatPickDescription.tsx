@@ -6,6 +6,7 @@ import {
   findFeatDefinition,
 } from "../../domain/featEffects";
 import { useMeasurementSystem } from "../../platform/measurementSystem";
+import { CatalogProse } from "../CatalogProse";
 import { CombatReferenceOptions } from "../combat/CombatReferenceOptions";
 import styles from "./Form.module.css";
 
@@ -33,5 +34,7 @@ export function FeatPickDescription({ featKey, description }: FeatPickDescriptio
     );
   }
 
-  return <p className={styles.featPickDesc}>{formatProse(description)}</p>;
+  return (
+    <CatalogProse className={styles.featPickDesc}>{formatProse(description)}</CatalogProse>
+  );
 }
