@@ -1,7 +1,6 @@
 import { ARMOR, DEITIES, MAGIC_ITEMS, WEAPONS, findByKey } from "../../data";
 import { DeityFacts } from "../form/DeityFacts";
 import type { CurrencyDenomination } from "../../data/types";
-import { SKILLS } from "../../data/skills";
 import { toolAbility } from "../../data/toolStats";
 import { classFeatureMetaForSheet } from "../../domain/classFeatures";
 import { useMeasurementSystem } from "../../platform/measurementSystem";
@@ -25,6 +24,7 @@ import { useCharacter } from "../../state/CharacterContext";
 import { CollapsiblePane } from "../CollapsiblePane";
 import { PaneHeader } from "../rest/PaneRestActions";
 import { OverviewAttributes } from "./OverviewAttributes";
+import { OverviewSkills } from "./OverviewSkills";
 import { OverviewHeaderStats } from "./OverviewHeaderStats";
 import styles from "./Sheet.module.css";
 import { LanguagesSummary } from "./LanguagesSummary";
@@ -32,12 +32,6 @@ import { SpellAccessSummary } from "./SpellAccessSummary";
 import { SpellcastingSummary } from "./SpellcastingSummary";
 
 const CURRENCY_DENOMINATIONS: CurrencyDenomination[] = ["pp", "gp", "ep", "sp", "cp"];
-
-function skillMarker(state: "none" | "proficient" | "expert"): string {
-  if (state === "expert") return "**";
-  if (state === "proficient") return "*";
-  return "";
-}
 
 export function SheetPane() {
   const { character, derived } = useCharacter();
@@ -164,34 +158,7 @@ export function SheetPane() {
       <section className={styles.section}>
         <h3>{t("sheet.skillsAndTools")}</h3>
 
-        <CollapsiblePane title={t("sheet.skills")}>
-          <table className={`${styles.table} ${styles.skillsTable}`}>
-            <thead>
-              <tr>
-                <th>{t("sheet.skill")}</th>
-                <th>{t("sheet.ability")}</th>
-                <th>{t("sheet.modifier")}</th>
-                <th>{t("sheet.bonus")}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {SKILLS.map((skill) => {
-                const proficiencyState = character.skills[skill.id];
-                return (
-                  <tr key={skill.id}>
-                    <td>
-                      {t(`rules.skill.${skill.id}`)}
-                      {skillMarker(proficiencyState)}
-                    </td>
-                    <td>{t(`rules.ability.${skill.ability}`)}</td>
-                    <td>{formatModifier(derived.abilityModifiers[skill.ability])}</td>
-                    <td>{formatModifier(derived.skillBonuses[skill.id])}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </CollapsiblePane>
+        <OverviewSkills character={character} derived={derived} />
 
         {character.proficientTools.length > 0 ? (
           <CollapsiblePane title={t("sheet.tools")}>

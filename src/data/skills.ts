@@ -35,3 +35,16 @@ export const ABILITIES: { id: AbilityId; name: string }[] = [
   { id: "wis", name: "WIS" },
   { id: "cha", name: "CHA" },
 ];
+
+export interface SkillsByAbilityGroup {
+  ability: AbilityId;
+  skills: SkillDefinition[];
+}
+
+/** Skills grouped in attribute order (STR → CHA); omits abilities with no skills (e.g. CON). */
+export function skillsByAbilityGroups(): SkillsByAbilityGroup[] {
+  return ABILITIES.map(({ id: ability }) => ({
+    ability,
+    skills: SKILLS.filter((skill) => skill.ability === ability),
+  })).filter((group) => group.skills.length > 0);
+}

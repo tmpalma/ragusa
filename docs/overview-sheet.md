@@ -42,7 +42,7 @@ PDF export (`buildSheetPayload.ts`): `spellSaveDc` uses a single field — one n
 3. **Attributes** — collapsible pane (`CollapsiblePane`, default open) with six ability cards in `statGrid` via shared `OverviewAttributes.tsx`. Character Overview shows score / mod / save only. Campaign party panes pass `showSkillsByAbility`: each ability card lists catalog skills tied to that ability (name + total modifier table; CON has none).
 4. **Exploration & Movement** — Speed + Darkvision (`styles.explorationGrid`, 2 columns)
 5. Proficiencies
-6. Skills & Tools (`CollapsiblePane`)
+6. Skills & Tools (`CollapsiblePane`) — Skills pane includes a session toggle to list alphabetically (default) or group rows under ability headers in STR → DEX → INT → WIS → CHA order (CON omitted).
 7. Spellcasting summary
 8. Class Features, Species Features, Feats, **Gear** (owned list), Carrying Capacity, Money, optional Alignment, optional **Deity**, **Languages**, Spells (spell list), optional Backstory
 
