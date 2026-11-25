@@ -25,10 +25,17 @@ export async function bootApplication(): Promise<void> {
 
   try {
     payload = await fetchCatalogFromSupabase();
-    await saveCatalogCache(payload);
   } catch {
     payload = await readCatalogCache();
     fromCache = payload !== null;
+  }
+
+  if (payload && !fromCache) {
+    try {
+      await saveCatalogCache(payload);
+    } catch {
+      /* use fresh payload either way */
+    }
   }
 
   if (!payload) {
